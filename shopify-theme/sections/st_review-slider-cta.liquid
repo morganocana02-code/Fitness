@@ -1,0 +1,1471 @@
+{% comment %} Version: 1.2.2 {% endcomment %}
+
+{% comment %}
+  ---------------------------------------------------------
+  Copyright © 2024 Sternify. All rights reserved.
+  Any unauthorized reproduction, alteration, or distribution
+  of this code, in part or in whole, is expressly forbidden.
+  Violators will be subject to legal prosecution to the maximum
+  extent permitted by law. For permissions or inquiries,
+  please contact us in our discord server: https://discord.gg/NHHCEPhsG8
+  ---------------------------------------------------------
+{% endcomment %}
+
+<script
+  src="https://app.sternify.com/verifier.js?v={{ 'now' | date: '%s' }}"
+  data-section-id="{{ section.id }}"
+  defer></script>
+
+<div
+  id="st_not-found--{{ section.id }}"
+  class="st_not-found"
+  style="display: none;"></div>
+
+<!-- Swiper JS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.7/swiper-bundle.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.7/swiper-bundle.min.js" defer></script>
+
+{% style %}
+  /* BFC gegen Margin-Collapsing mit Nachbar-Sections (Standard Regel 3) */
+  #shopify-section-{{ section.id }} {
+    display: flow-root;
+    background-color: {{ section.settings.section_background_color }};
+    padding-top: {{ section.settings.margin_top }}px;
+    padding-bottom: {{ section.settings.margin_bottom }}px;
+  }
+
+  {%- assign header_title_font = section.settings.header_title_font -%}
+  {%- assign header_title_font_bold = header_title_font | font_modify: 'weight', '700' -%}
+  {%- assign header_title_font_italic = header_title_font | font_modify: 'style', 'italic' -%}
+  {%- assign header_title_font_bold_italic = header_title_font | font_modify: 'weight', '700' | font_modify: 'style', 'italic' -%}
+
+  {%- assign reviewer_name_font = section.settings.reviews_reviewer_name_font -%}
+
+  {%- assign review_title_font = section.settings.reviews_title_font -%}
+
+  {%- assign review_body_font = section.settings.reviews_body_font -%}
+
+  {%- assign cta_font = section.settings.cta_button_text_font -%}
+
+  {%- assign nav_counter_font = section.settings.nav_counter_font -%}
+
+  {{ header_title_font | font_face: font_display: 'swap' }}
+  {%- if header_title_font_bold != header_title_font -%}{{ header_title_font_bold | font_face: font_display: 'swap' }}{%- endif -%}
+  {%- if header_title_font_italic != header_title_font -%}{{ header_title_font_italic | font_face: font_display: 'swap' }}{%- endif -%}
+  {%- if header_title_font_bold_italic != header_title_font -%}{{ header_title_font_bold_italic | font_face: font_display: 'swap' }}{%- endif -%}
+
+  {{ reviewer_name_font | font_face: font_display: 'swap' }}
+
+  {{ review_title_font | font_face: font_display: 'swap' }}
+
+  {{ review_body_font | font_face: font_display: 'swap' }}
+
+  {{ cta_font | font_face: font_display: 'swap' }}
+
+  {{ nav_counter_font | font_face: font_display: 'swap' }}
+
+  /* --- Section Wrapper --- */
+    .st_rscta-wrapper--{{ section.id }} {
+      overflow: hidden;
+      padding-inline: 0;
+    }
+
+    .st_rscta-wrapper--{{ section.id }}
+    .st_rscta-section {
+      width: 100%;
+      {% if section.settings.desktop_card_layout %}
+      background-color: {{ section.settings.section_bg_color }};
+      {% endif %}
+      padding: 40px 20px;
+      border-radius: 0;
+      max-width: 100%;
+      overflow: hidden;
+    }
+  /* --- */
+
+  /* ── Exclude card layout from mobile ── */
+    @media screen and (min-width: 769px) {
+      .st_rscta-wrapper--{{ section.id }} {
+        {% if section.settings.desktop_card_layout %}
+          padding-inline: 45px;
+          margin: 0 auto;
+        {% elsif section.settings.full_width %}
+          padding-inline: 0;
+        {% else %}
+          padding-inline: 0;
+          margin: 0 auto;
+        {% endif %}
+      }
+
+      .st_rscta-wrapper--{{ section.id }}
+      .st_rscta-section {
+        {% if section.settings.desktop_card_layout %}
+          max-width: {{ section.settings.max_width }}px;
+          margin-left: auto;
+          margin-right: auto;
+          border-radius: 12px;
+        {% elsif section.settings.full_width %}
+          border-radius: 0;
+          max-width: 100%;
+        {% else %}
+          max-width: {{ section.settings.max_width }}px;
+          margin-left: auto;
+          margin-right: auto;
+          border-radius: 0;
+        {% endif %}
+      }
+    }
+  /* --- */
+
+  /* ── Counter st_reset.css to allow richtext styling ── */
+    .st_rscta-wrapper--{{ section.id }} :is(strong, b),
+    .st_rscta-wrapper--{{ section.id }} :is(strong, b) * {
+      font-weight: bold !important;
+      font-family: inherit;
+      color: inherit;
+      font-style: inherit;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} :is(em, i),
+    .st_rscta-wrapper--{{ section.id }} :is(em, i) * {
+      font-style: italic !important;
+      font-family: inherit;
+      color: inherit;
+      font-weight: inherit;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} span {
+      font-size: inherit;
+      font-family: inherit;
+      color: inherit;
+      font-style: inherit;
+      font-weight: inherit;
+    }
+  /* --- */
+
+  /* ── Main Layout ── */
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-layout {
+      display: grid;
+      grid-template-columns: 56% minmax(0, 1fr);
+      align-items: center;
+      gap: 15px;
+      {% unless section.settings.desktop_card_layout %}
+        max-width: {{ section.settings.max_width }}px;
+        margin: 0 auto;
+      {% endunless %}
+    }
+
+    /* Prevent grid blow-up: allow columns to shrink below content size */
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-left-col,
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-right-col {
+      min-width: 0;
+    }
+  /* --- */
+
+  /* ── Left Column ── */
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-left-col {
+      overflow: hidden;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      justify-content: space-between;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-left-col-header {
+      padding: 0 30px;
+      {% if section.settings.layout_type == 'vertical' %}
+        margin-bottom: 20px;
+      {% endif %}
+    }
+  /* --- */
+
+  /* ── Section Header ── */
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-section-header-title {
+      font-family: {{ header_title_font.family }}, {{ header_title_font.fallback_families }};
+      font-weight: {{ header_title_font.weight }};
+      font-style: {{ header_title_font.style }};
+      font-size: {{ section.settings.header_title_fontsize_desktop }}px;
+      color: {{ section.settings.header_title_color }} !important;
+      margin: 0;
+      display: block;
+      text-align: center;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-section-header-title-highlight {
+      {% if section.settings.header_title_highlight_mode == 'solid' %}
+        color: {{ section.settings.header_title_highlight_color_solid }} !important;
+      {% else %}
+        background: {{ section.settings.header_title_highlight_color_gradient }};
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      {% endif %}
+    }
+  /* --- */
+
+  /* ── Images Swiper ── */
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-images-swiper-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-images-swiper-wrap {
+      overflow: hidden;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-images-swiper {
+      overflow: visible;
+      padding-left: 30px;
+    }
+
+    {% if section.settings.show_image_fade %}
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-images-swiper::before,
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-images-swiper::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 15px;
+      z-index: 2;
+      pointer-events: none;
+      opacity: 1;
+      transition: opacity 0.2s ease;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-images-swiper::before {
+      left: 0;
+      background: linear-gradient(
+        to right,
+        {{ section.settings.section_bg_color }} 0%,
+        {{ section.settings.section_bg_color | color_modify: 'alpha', 0 }} 100%
+      );
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-images-swiper::after {
+      right: 0;
+      background: linear-gradient(
+        to left,
+        {{ section.settings.section_bg_color }} 0%,
+        {{ section.settings.section_bg_color | color_modify: 'alpha', 0 }} 100%
+      );
+    }
+    {% endif %}
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-images-swiper .swiper-wrapper {
+      align-items: stretch;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-images-swiper .swiper-slide {
+      width: {{ section.settings.image_slide_width }}px;
+      flex-shrink: 0;
+      transition: opacity 0.3s ease;
+      opacity: 0.4;
+      cursor: pointer;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-images-swiper .swiper-slide.swiper-slide-active {
+      opacity: 1;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-images-swiper .swiper-slide img,
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-img-placeholder {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+      border-radius: {{ section.settings.image_border_radius }}px;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-img-placeholder {
+      background-color: rgba(128, 128, 128, 0.3);
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-images-pagination {
+      display: none;
+      text-align: center;
+      padding-top: 14px;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-images-pagination .swiper-pagination-bullet {
+      background: {{ section.settings.nav_pagination_color }};
+      opacity: 0.3;
+      margin: 2px !important;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-images-pagination .swiper-pagination-bullet-active {
+      opacity: 1;
+    }
+  /* --- */
+
+  /* ── Right Column ── */
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-right-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      gap: 20px;
+      padding: 0 30px;
+      width: 90%;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-right-col-inner {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+    }
+
+  /* --- */
+
+  /* ── CTA Button ── */
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-cta-wrap {
+      display: flex;
+      {% if section.settings.layout_type == 'vertical' %}
+        justify-content: center;
+        margin-top: 40px;
+      {% else %}
+          justify-content: flex-end;
+      {% endif %}
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 24px;
+      {% if section.settings.cta_bg_color_mode == 'solid' %}
+        background-color: {{ section.settings.cta_bg_color_solid }};
+      {% else %}
+        background: {{ section.settings.cta_bg_color_gradient }};
+      {% endif %}
+      color: {{ section.settings.cta_button_text_color }} !important;
+      font-family: {{ cta_font.family }}, {{ cta_font.fallback_families }};
+      font-weight: {{ cta_font.weight }};
+      font-style: {{ cta_font.style }};
+      font-size: {{ section.settings.cta_button_text_fontsize_desktop }}px;
+      letter-spacing: 0.1em;
+      border-radius: {{ section.settings.cta_border_radius }}px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: opacity 0.2s;
+      white-space: nowrap;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-cta-btn:hover {
+      opacity: 0.85;
+    }
+  /* --- */
+
+  /* ── Reviews (swipe animation, synced with swiper direction) ── */
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-reviews-wrap {
+      display: grid;
+      width: 100%;
+      min-width: 0;
+      overflow: hidden;
+      position: relative;
+      transition: height 0.35s ease;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-review-item {
+      grid-column: 1;
+      grid-row: 1;
+      align-self: start;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(0);
+      transition: transform 0.35s ease;
+      display: none;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-review-item.is-active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(0);
+      padding-bottom: 15px;
+      display: block;
+    }
+
+    /* Outgoing: slides left (next) or right (prev) */
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-review-item.is-transitioning-out.dir-next {
+      opacity: 1;
+      transform: translateX(-100%);
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-review-item.is-transitioning-out.dir-prev {
+      opacity: 1;
+      transform: translateX(100%);
+    }
+
+    /* Incoming: slides in from right (next) or left (prev) */
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-review-item.is-active.dir-next {
+      animation: st_rscta-slide-in-from-right 0.35s ease forwards;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-review-item.is-active.dir-prev {
+      animation: st_rscta-slide-in-from-left 0.35s ease forwards;
+    }
+
+    @keyframes st_rscta-slide-in-from-right {
+      from { transform: translateX(100%); }
+      to { transform: translateX(0); }
+    }
+
+    @keyframes st_rscta-slide-in-from-left {
+      from { transform: translateX(-100%); }
+      to { transform: translateX(0); }
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-review-stars {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 14px;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-review-star {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-reviewer-name {
+      font-family: {{ reviewer_name_font.family }}, {{ reviewer_name_font.fallback_families }};
+      font-weight: {{ reviewer_name_font.weight }};
+      font-style: {{ reviewer_name_font.style }};
+      font-size: {{ section.settings.reviews_reviewer_name_fontsize_desktop }}px;
+      color: {{ section.settings.reviews_reviewer_name_color }} !important;
+      margin: 0 0 24px;
+      display: block;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-review-title {
+      font-family: {{ review_title_font.family }}, {{ review_title_font.fallback_families }};
+      font-weight: {{ review_title_font.weight }};
+      font-style: {{ review_title_font.style }};
+      font-size: {{ section.settings.reviews_title_fontsize_desktop }}px;
+      color: {{ section.settings.reviews_title_color }} !important;
+      margin: 0 0 5px;
+      display: block;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-review-body {
+      font-family: {{ review_body_font.family }}, {{ review_body_font.fallback_families }};
+      font-weight: {{ review_body_font.weight }};
+      font-style: {{ review_body_font.style }};
+      font-size: {{ section.settings.reviews_body_fontsize_desktop }}px;
+      color: {{ section.settings.reviews_body_color }} !important;
+      margin: 0 0 16px;
+      display: block;
+      line-height: 1.6;
+      max-width: 80%;
+      min-width: 220px;
+    }
+  /* --- */
+
+  /* ── Navigation ── */
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-nav {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-nav-btn {
+      width: 34px;
+      height: 34px;
+      {% if section.settings.nav_pagination_border %}
+        border-radius: {{ section.settings.nav_pagination_border_radius }}px;
+        border: 1.5px solid {{ section.settings.nav_pagination_color }};
+      {% else %}
+        border: none;
+        border-radius: 0;
+      {% endif %}
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      padding: 0;
+      flex-shrink: 0;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-nav-btn:hover {
+      opacity: 0.6;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-nav-btn.swiper-button-disabled {
+      opacity: 0.3;
+      cursor: default;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-nav-counter {
+      font-family: {{ nav_counter_font.family }}, {{ nav_counter_font.fallback_families }};
+      font-weight: {{ nav_counter_font.weight }};
+      font-style: {{ nav_counter_font.style }};
+      font-size: 14px;
+      color: {{ section.settings.nav_pagination_color }};
+      min-width: 4ch;
+      text-align: center;
+    }
+  /* --- */
+
+  /* 1. Tablet adjustments (1200px) */
+  @media (max-width: 1200px) {
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-images-swiper .swiper-slide {
+      width: {{ section.settings.image_slide_width | times: 0.8 | round }}px;
+    }
+  }
+
+  /* 2. Mobile layout (768px) */
+  @media (max-width: 768px) {
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-section {
+      padding: 24px 0;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-layout {
+      grid-template-columns: 100%;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-left-col-header {
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-section-header-title {
+      font-size: {{ section.settings.header_title_fontsize_mobile }}px;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-images-swiper {
+      padding-left: 0;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-images-swiper .swiper-slide {
+      width: {{ section.settings.image_slide_width_mobile }}vw;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-images-pagination {
+      display: block;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-right-col {
+      width: 100%;
+      padding: 0 20px;
+      gap: 16px;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-cta-wrap {
+      order: 10;
+      justify-content: center;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-cta-btn {
+      font-size: {{ section.settings.cta_button_text_fontsize_mobile }}px;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-review-item {
+      text-align: center;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-review-stars {
+      justify-content: center;
+      margin-top: 14px;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-reviewer-name {
+      font-size: {{ section.settings.reviews_reviewer_name_fontsize_mobile }}px;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-review-title {
+      font-size: {{ section.settings.reviews_title_fontsize_mobile }}px;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-review-body {
+      font-size: {{ section.settings.reviews_body_fontsize_mobile }}px;
+      max-width: 80%;
+      margin: 0 auto;
+    }
+
+    .st_rscta-wrapper--{{ section.id }} .st_rscta-nav {
+      justify-content: center;
+    }
+  }
+{% endstyle %}
+
+{% capture placeholder_imgs %}
+  https://cdn.shopify.com/s/files/1/0865/0588/1634/files/Sternify_Woman2_Shoes.png?v=1772821191,
+  https://cdn.shopify.com/s/files/1/0865/0588/1634/files/Sternify_Man1_Shoes.png?v=1772821193,
+  https://cdn.shopify.com/s/files/1/0865/0588/1634/files/Sternify_Woman1_Shoes.jpg?v=1772821188,
+  https://cdn.shopify.com/s/files/1/0865/0588/1634/files/Sternify_Man2_Shoes.jpg?v=1772821188
+{% endcapture %}
+{% assign placeholder_img_arr = placeholder_imgs | split: ',' %}
+
+{%- assign review_blocks = section.blocks | where: 'type', 'review' -%}
+
+{% assign min_slides = 10 %}
+{% assign review_blocks_size = review_blocks | size %}
+{% assign dupe_loops = min_slides | divided_by: review_blocks_size | plus: 1 %}
+
+<div class="st_rscta-wrapper--{{ section.id }} st_wrapper st_check-section--{{ section.id }}">
+  <div class="st_rscta-section">    
+    {% if review_blocks.size > 0 %}
+      {% if section.settings.header_title != blank and section.settings.layout_type == 'vertical' %}
+        <div class="st_rscta-left-col-header">
+          <div class="st_rscta-section-header-title">
+            {{ section.settings.header_title | replace: '[', '<span class="st_rscta-section-header-title-highlight">' | replace: ']', '</span>' }}
+          </div>
+        </div>
+      {% endif %}
+      <div class="st_rscta-layout">
+        <!-- ── Left Column: Title + Image Swiper ── -->
+        <div class="st_rscta-left-col">
+
+          {% if section.settings.header_title != blank and section.settings.layout_type == 'inline' %}
+            <div class="st_rscta-left-col-header">
+              <div class="st_rscta-section-header-title">
+                {{ section.settings.header_title | replace: '[', '<span class="st_rscta-section-header-title-highlight">' | replace: ']', '</span>' }}
+              </div>
+            </div>
+          {% endif %}
+
+          <div class="st_rscta-images-swiper-container">
+            <div class="st_rscta-images-swiper-wrap">
+              <div class="swiper st_rscta-images-swiper" id="st_rscta-images-swiper--{{ section.id }}">
+                <div class="swiper-wrapper">
+                  {% for i in (1..dupe_loops) %}
+                    {% assign is_dupe = false %}
+                    {% if forloop.index0 > 0 %}
+                      {% assign is_dupe = true %}
+                    {% endif %}
+                    {% for block in review_blocks %}
+                      {% assign idx = forloop.index0 | modulo: placeholder_img_arr.size %}
+                      <div class="swiper-slide{% if is_dupe %} is-dupe{% endif %}" {{ block.shopify_attributes }}>
+                        {% if block.settings.image != blank %}
+                          {{ block.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', alt: block.settings.reviewer_name }}
+                        {% elsif block.settings.image_demo_url != blank %}
+                          <img src="{{ block.settings.image_demo_url }}" alt="{{ block.settings.reviewer_name }}" loading="lazy">
+                        {% else %}
+                          <div style="width:100%;aspect-ratio:1 / 1;background:linear-gradient(160deg,#2a2a2a,#111111);"></div>
+                        {% endif %}
+                      </div>
+                    {% endfor %}
+                  {% endfor %}
+                </div>
+              </div>
+              <div
+                class="st_rscta-images-pagination"
+                id="st_rscta-images-pagination--{{ section.id }}"></div>
+            </div>
+          </div>
+
+        </div>
+        <!-- ── End Left Column ── -->
+
+        <!-- ── Right Column: CTA + Reviews + Nav ── -->
+        <div class="st_rscta-right-col">
+
+          {% if section.settings.cta_button_enabled and section.settings.cta_button_text != blank and section.settings.layout_type == 'inline' %}
+            <div class="st_rscta-cta-wrap">
+              <a
+                href="{{ section.settings.cta_button_url | default: '#' }}"
+                class="st_rscta-cta-btn">
+                {{ section.settings.cta_button_text }}
+              </a>
+            </div>
+          {% endif %}
+
+          <div class="st_rscta-right-col-inner">
+            <div class="st_rscta-reviews-wrap">
+              {% for block in review_blocks %}
+                <div class="st_rscta-review-item{% if forloop.first %} is-active{% endif %}" data-index="{{ forloop.index0 }}">
+                    <!-- Stars -->
+                    <div class="st_rscta-review-stars">
+                      {%- assign card_rating = block.settings.rating -%}
+                      {%- assign card_full = card_rating | floor -%}
+                      {%- assign card_decimal = card_rating | minus: card_full -%}
+                      {%- assign card_has_half = false -%}
+                      {%- if card_decimal >= 0.3 and card_decimal <= 0.7 -%}
+                        {%- assign card_has_half = true -%}
+                      {%- elsif card_decimal > 0.7 -%}
+                        {%- assign card_full = card_full | plus: 1 -%}
+                      {%- endif -%}
+
+                      {% for i in (1..card_full) %}
+                        <svg class="st_rscta-review-star" viewBox="0 0 24 24" fill="{{ section.settings.reviews_star_rating_color }}" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                      {% endfor %}
+
+                      {% if card_has_half %}
+                        <svg class="st_rscta-review-star" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <defs>
+                            <linearGradient id="st_rscta_half_{{ section.id }}_{{ block.id }}">
+                              <stop offset="50%" stop-color="{{ section.settings.reviews_star_rating_color }}"/>
+                              <stop offset="50%" stop-color="{{ section.settings.reviews_star_rating_color }}" stop-opacity="0.3"/>
+                            </linearGradient>
+                          </defs>
+                          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="url(#st_rscta_half_{{ section.id }}_{{ block.id }})"/>
+                        </svg>
+                        {%- assign card_empty = 4 | minus: card_full -%}
+                      {% else %}
+                        {%- assign card_empty = 5 | minus: card_full -%}
+                      {% endif %}
+
+                      {% if card_empty > 0 %}
+                        {% for i in (1..card_empty) %}
+                          <svg class="st_rscta-review-star" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="opacity: 0.3;">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="{{ section.settings.reviews_star_rating_color }}"/>
+                          </svg>
+                        {% endfor %}
+                      {% endif %}
+                    </div>
+
+                    {% if block.settings.reviewer_name != blank %}
+                      <div class="st_rscta-reviewer-name">{{ block.settings.reviewer_name }}</div>
+                    {% endif %}
+
+                    {% if block.settings.review_title != blank %}
+                      <div class="st_rscta-review-title">{{ block.settings.review_title }}</div>
+                    {% endif %}
+
+                    {% if block.settings.review_text != blank %}
+                      <div class="st_rscta-review-body">{{ block.settings.review_text }}</div>
+                    {% endif %}
+                  </div>
+              {% endfor %}
+            </div>
+
+            <!-- Navigation -->
+            <div class="st_rscta-nav">
+              <button class="st_rscta-nav-btn st_rscta-nav-prev" aria-label="Previous">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="{{ section.settings.nav_pagination_color }}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 18 9 12 15 6"/>
+                </svg>
+              </button>
+              <span class="st_rscta-nav-counter" aria-live="polite">
+                {% assign total_padded = review_blocks_size | prepend: '00' | slice: -2, 2 %}
+                01 - {{ total_padded }}
+              </span>
+              <button class="st_rscta-nav-btn st_rscta-nav-next" aria-label="Next">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="{{ section.settings.nav_pagination_color }}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 6 15 12 9 18"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- ── End Right Column ── -->
+
+      </div>
+      {% if section.settings.cta_button_enabled and section.settings.cta_button_text != blank and section.settings.layout_type == 'vertical' %}
+        <div class="st_rscta-cta-wrap">
+          <a
+            href="{{ section.settings.cta_button_url | default: '#' }}"
+            class="st_rscta-cta-btn">
+            {{ section.settings.cta_button_text }}
+          </a>
+        </div>
+      {% endif %}
+    {% endif %}
+
+  </div>
+</div>
+
+<script>
+  (function () {
+    var SECTION_ID = '{{ section.id }}';
+    var WRAPPER_SELECTOR = '.st_rscta-wrapper--' + SECTION_ID;
+    var IMAGES_SELECTOR = '#st_rscta-images-swiper--' + SECTION_ID;
+    var PAGINATION_SELECTOR = '#st_rscta-images-pagination--' + SECTION_ID;
+
+    function init_{{ section.id | replace: '-', '_' }}() {
+      var wrapper = document.querySelector(WRAPPER_SELECTOR);
+      var imagesEl = document.querySelector(IMAGES_SELECTOR);
+      if (!wrapper || !imagesEl || imagesEl.swiper) return;
+
+      var reviewItems = wrapper.querySelectorAll('.st_rscta-review-item');
+      var total = {{ review_blocks_size }};
+      var prevRealIndex = null;
+      var heightAnimTimer = null;
+
+      function setActiveReview(realIndex, direction) {
+        var i = total > 0 ? ((realIndex % total) + total) % total : 0;
+        var newActive = null;
+        var oldActive = null;
+        reviewItems.forEach(function (item) {
+          var isTarget = parseInt(item.dataset.index, 10) === i && !item.classList.contains('is-dupe');
+          if (isTarget) newActive = item;
+          else if (item.classList.contains('is-active')) oldActive = item;
+        });
+
+        var reviewsWrap = wrapper.querySelector('.st_rscta-reviews-wrap');
+        if (heightAnimTimer) {
+          clearTimeout(heightAnimTimer);
+          heightAnimTimer = null;
+        }
+        var oldHeight = reviewsWrap ? reviewsWrap.offsetHeight : 0;
+
+        if (oldActive) {
+          oldActive.classList.remove('is-active');
+          if (direction) {
+            oldActive.classList.add('is-transitioning-out', 'dir-' + direction);
+            var onOutDone = function () {
+              oldActive.classList.remove('is-transitioning-out', 'dir-next', 'dir-prev');
+              oldActive.removeEventListener('transitionend', onOutDone);
+            };
+            oldActive.addEventListener('transitionend', onOutDone);
+          }
+        }
+        if (newActive) {
+          newActive.classList.remove('dir-next', 'dir-prev');
+          if (direction) newActive.classList.add('dir-' + direction);
+          newActive.classList.add('is-active');
+          if (direction) {
+            var onInDone = function () {
+              newActive.classList.remove('dir-next', 'dir-prev');
+              newActive.removeEventListener('animationend', onInDone);
+            };
+            newActive.addEventListener('animationend', onInDone);
+          }
+        }
+
+        if (reviewsWrap && newActive) {
+          reviewsWrap.style.transition = 'none';
+          reviewsWrap.style.height = '';
+          var newHeight = reviewsWrap.offsetHeight;
+          if (oldHeight !== newHeight) {
+            reviewsWrap.style.height = oldHeight + 'px';
+            void reviewsWrap.offsetHeight;
+            reviewsWrap.style.transition = '';
+            reviewsWrap.style.height = newHeight + 'px';
+            heightAnimTimer = setTimeout(function () {
+              reviewsWrap.style.height = '';
+              reviewsWrap.style.transition = '';
+              heightAnimTimer = null;
+            }, 400);
+          } else {
+            reviewsWrap.style.transition = '';
+          }
+        }
+      }
+
+      function getDirection(prev, curr) {
+        if (prev == null) return null;
+        var total = {{ review_blocks_size }} || 1;
+        var delta = (curr - prev + total) % total;
+        if (delta === 0) return null;
+        return delta <= total / 2 ? 'next' : 'prev';
+      }
+
+      var paginationEl = wrapper.querySelector(PAGINATION_SELECTOR);
+      var counterEl = wrapper.querySelector('.st_rscta-nav-counter');
+
+      function updateNavCounter(realIndex) {
+        if (!counterEl || total <= 0) return;
+        var curr = ((realIndex % total) + total) % total + 1;
+        var currStr = String(curr).padStart(2, '0');
+        var totalStr = String(total).padStart(2, '0');
+        counterEl.textContent = currStr + ' - ' + totalStr;
+      }
+
+      var imagesSwiper = new Swiper(IMAGES_SELECTOR, {
+        slidesPerView: 'auto',
+        spaceBetween: 12,
+        centeredSlides: true,
+        grabCursor: true,
+        loop: true,
+        slideToClickedSlide: true,
+        pagination: {
+          el: PAGINATION_SELECTOR,
+          type: 'custom',
+          renderCustom: function (swiper) {
+            var uniqueCount = total;
+            var html = '';
+            for (var i = 0; i < uniqueCount; i++) {
+              var idx = ((swiper.realIndex % uniqueCount) + uniqueCount) % uniqueCount;
+              var isActive = idx === i;
+              html += '<span class="swiper-pagination-bullet' + (isActive ? ' swiper-pagination-bullet-active' : '') + '" data-index="' + i + '" aria-label="Go to slide ' + (i + 1) + '"></span>';
+            }
+            return html;
+          },
+        },
+        navigation: {
+          prevEl: wrapper.querySelector('.st_rscta-nav-prev'),
+          nextEl: wrapper.querySelector('.st_rscta-nav-next'),
+        },
+        on: {
+          init: function (s) {
+            prevRealIndex = s.realIndex;
+            setActiveReview(s.realIndex, null);
+            updateNavCounter(s.realIndex);
+          },
+          slideChange: function (s) {
+            var dir = getDirection(prevRealIndex, s.realIndex);
+            setActiveReview(s.realIndex, dir);
+            prevRealIndex = s.realIndex;
+            updateNavCounter(s.realIndex);
+          },
+        },
+      });
+
+      if (paginationEl) {
+        paginationEl.addEventListener('click', function (e) {
+          var bullet = e.target.closest('.swiper-pagination-bullet');
+          if (bullet && bullet.dataset.index !== undefined) {
+            imagesSwiper.slideToLoop(parseInt(bullet.dataset.index, 10));
+          }
+        });
+      }
+    }
+
+    function waitForSwiper(callback) {
+      if (typeof Swiper !== 'undefined') {
+        callback();
+      } else {
+        setTimeout(function () { waitForSwiper(callback); }, 100);
+      }
+    }
+
+    document.addEventListener('shopify:section:load', function (event) {
+      if (event.detail.sectionId === SECTION_ID) {
+        waitForSwiper(init_{{ section.id | replace: '-', '_' }});
+      }
+    });
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function () {
+        waitForSwiper(init_{{ section.id | replace: '-', '_' }});
+      });
+    } else {
+      waitForSwiper(init_{{ section.id | replace: '-', '_' }});
+    }
+  })();
+</script>
+
+{% schema %}
+  {
+    "name": "💫: Review Slider CTA",
+    "class": "rscta-section",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Important",
+        "info": "Please ensure that Sternify [App Extensions](https://www.sternify.com/app-extentions) are activated."
+      },
+      {
+        "type": "header",
+        "content": "Section Layout"
+      },
+      {
+        "type": "range",
+        "id": "margin_top",
+        "label": "Top Margin",
+        "min": 0,
+        "max": 150,
+        "step": 5,
+        "default": 50,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "margin_bottom",
+        "label": "Bottom Margin",
+        "min": 0,
+        "max": 150,
+        "step": 5,
+        "default": 50,
+        "unit": "px"
+      },
+      {
+        "type": "color",
+        "id": "section_background_color",
+        "label": "Section Background Color",
+        "default": "rgba(0,0,0,0)",
+        "info": "Fills the full section including the top and bottom margins"
+      },
+      {
+        "type": "checkbox",
+        "id": "full_width",
+        "label": "Full Width",
+        "default": false,
+        "visible_if": "{{ section.settings.desktop_card_layout == false }}"
+      },
+      {
+        "type": "range",
+        "id": "max_width",
+        "label": "Section Max Width",
+        "min": 1200,
+        "max": 1600,
+        "step": 50,
+        "default": 1400,
+        "unit": "px",
+        "visible_if": "{{ section.settings.desktop_card_layout or section.settings.full_width == false }}"
+      },
+      {
+        "type": "header",
+        "content": "Card Settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "desktop_card_layout",
+        "label": "Desktop Card Layout",
+        "default": true
+      },
+      {
+        "type": "color",
+        "id": "section_bg_color",
+        "label": "Card Background Color",
+        "default": "#f9f9f9",
+        "visible_if": "{{ section.settings.desktop_card_layout }}"
+      },
+      {
+        "type": "select",
+        "id": "layout_type",
+        "label": "Layout Type (Desktop)",
+        "options": [
+          {
+            "value": "inline",
+            "label": "Inline"
+          },
+          {
+            "value": "vertical",
+            "label": "Vertical"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Section Header"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "header_title",
+        "label": "Title",
+        "info": "Text in [brackets] will be highlighted",
+        "default": "One Shoe, <em>[Many Strides]</em>"
+      },
+      {
+        "type": "color",
+        "id": "header_title_color",
+        "label": "Title Color",
+        "default": "#1a1a1a"
+      },
+      {
+        "type": "select",
+        "id": "header_title_highlight_mode",
+        "label": "Title Highlight Color Mode",
+        "options": [
+          { "value": "solid", "label": "Solid" },
+          { "value": "gradient", "label": "Gradient" }
+        ],
+        "default": "solid"
+      },
+      {
+        "type": "color",
+        "id": "header_title_highlight_color_solid",
+        "label": "Title Highlight Color",
+        "default": "#dbbd21",
+        "visible_if": "{{ section.settings.header_title_highlight_mode == 'solid' }}"
+      },
+      {
+        "type": "color_background",
+        "id": "header_title_highlight_color_gradient",
+        "label": "Title Highlight Color",
+        "default": "linear-gradient(0deg, rgba(247, 222, 94, 1), rgba(219, 189, 33, 1) 100%)",
+        "visible_if": "{{ section.settings.header_title_highlight_mode == 'gradient' }}"
+      },
+      {
+        "type": "font_picker",
+        "id": "header_title_font",
+        "label": "Title Font",
+        "default": "poppins_n6"
+      },
+      {
+        "type": "range",
+        "id": "header_title_fontsize_desktop",
+        "label": "Title Font Size (Desktop)",
+        "min": 28,
+        "max": 45,
+        "step": 1,
+        "default": 30,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "header_title_fontsize_mobile",
+        "label": "Title Font Size (Mobile)",
+        "min": 20,
+        "max": 40,
+        "step": 1,
+        "default": 24,
+        "unit": "px"
+      },
+      {
+        "type": "header",
+        "content": "Image"
+      },
+      {
+        "type": "range",
+        "id": "image_slide_width",
+        "label": "Image Size",
+        "min": 250,
+        "max": 380,
+        "step": 10,
+        "default": 300,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "image_slide_width_mobile",
+        "label": "Image Size (Mobile)",
+        "min": 40,
+        "max": 78,
+        "step": 2,
+        "default": 78,
+        "unit": "vw"
+      },
+      {
+        "type": "range",
+        "id": "image_border_radius",
+        "label": "Image Border Radius",
+        "min": 0,
+        "max": 150,
+        "step": 2,
+        "default": 10,
+        "unit": "px"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_image_fade",
+        "label": "Show Image Fade",
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "CTA"
+      },
+      {
+        "type": "checkbox",
+        "id": "cta_button_enabled",
+        "label": "Enable CTA Button",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "cta_button_text",
+        "label": "Button Text",
+        "default": "Start Today",
+        "visible_if": "{{ section.settings.cta_button_enabled }}"
+      },
+      {
+        "type": "url",
+        "id": "cta_button_url",
+        "label": "Button URL",
+        "visible_if": "{{ section.settings.cta_button_enabled }}"
+      },
+      {
+        "type": "color",
+        "id": "cta_button_text_color",
+        "label": "Button Text Color",
+        "default": "#ffffff",
+        "visible_if": "{{ section.settings.cta_button_enabled }}"
+      },
+      {
+        "type": "font_picker",
+        "id": "cta_button_text_font",
+        "label": "Button Text Font",
+        "default": "poppins_n6",
+        "visible_if": "{{ section.settings.cta_button_enabled }}"
+      },
+      {
+        "type": "range",
+        "id": "cta_button_text_fontsize_desktop",
+        "label": "Button Text Font Size (Desktop)",
+        "min": 13,
+        "max": 23,
+        "step": 1,
+        "default": 16,
+        "unit": "px",
+        "visible_if": "{{ section.settings.cta_button_enabled }}"
+      },
+      {
+        "type": "range",
+        "id": "cta_button_text_fontsize_mobile",
+        "label": "Button Text Font Size (Mobile)",
+        "min": 13,
+        "max": 23,
+        "step": 1,
+        "default": 16,
+        "unit": "px",
+        "visible_if": "{{ section.settings.cta_button_enabled }}"
+      },
+      {
+        "type": "select",
+        "id": "cta_bg_color_mode",
+        "label": "Background Color Mode",
+        "options": [
+          { "value": "solid", "label": "Solid" },
+          { "value": "gradient", "label": "Gradient" }
+        ],
+        "default": "solid",
+        "visible_if": "{{ section.settings.cta_button_enabled }}"
+      },
+      {
+        "type": "color",
+        "id": "cta_bg_color_solid",
+        "label": "Background Color",
+        "default": "#000000",
+        "visible_if": "{{ section.settings.cta_bg_color_mode == 'solid' and section.settings.cta_button_enabled }}"
+      },
+      {
+        "type": "color_background",
+        "id": "cta_bg_color_gradient",
+        "label": "Background Color",
+        "default": "linear-gradient(0deg, #000000 0%, #4a4a4a 100%)",
+        "visible_if": "{{ section.settings.cta_bg_color_mode == 'gradient' and section.settings.cta_button_enabled }}"
+      },
+      {
+        "type": "range",
+        "id": "cta_border_radius",
+        "label": "Border Radius",
+        "min": 0,
+        "max": 30,
+        "step": 1,
+        "default": 6,
+        "unit": "px",
+        "visible_if": "{{ section.settings.cta_button_enabled }}"
+      },
+      {
+        "type": "header",
+        "content": "Reviews"
+      },
+      {
+        "type": "color",
+        "id": "reviews_star_rating_color",
+        "label": "Star Rating Color",
+        "default": "#ffd700"
+      },
+      {
+        "type": "color",
+        "id": "reviews_reviewer_name_color",
+        "label": "Reviewer Name Color",
+        "default": "#1a1a1a"
+      },
+      {
+        "type": "font_picker",
+        "id": "reviews_reviewer_name_font",
+        "label": "Reviewer Name Font",
+        "default": "poppins_n5"
+      },
+      {
+        "type": "range",
+        "id": "reviews_reviewer_name_fontsize_desktop",
+        "label": "Reviewer Name Font Size (Desktop)",
+        "min": 12,
+        "max": 20,
+        "step": 1,
+        "default": 13,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "reviews_reviewer_name_fontsize_mobile",
+        "label": "Reviewer Name Font Size (Mobile)",
+        "min": 10,
+        "max": 18,
+        "step": 1,
+        "default": 12,
+        "unit": "px"
+      },
+      {
+        "type": "color",
+        "id": "reviews_title_color",
+        "label": "Review Title Color",
+        "default": "#1a1a1a"
+      },
+      {
+        "type": "font_picker",
+        "id": "reviews_title_font",
+        "label": "Review Title Font",
+        "default": "poppins_n6"
+      },
+      {
+        "type": "range",
+        "id": "reviews_title_fontsize_desktop",
+        "label": "Review Title Font Size (Desktop)",
+        "min": 14,
+        "max": 24,
+        "step": 1,
+        "default": 17,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "reviews_title_fontsize_mobile",
+        "label": "Review Title Font Size (Mobile)",
+        "min": 12,
+        "max": 20,
+        "step": 1,
+        "default": 16,
+        "unit": "px"
+      },
+      {
+        "type": "color",
+        "id": "reviews_body_color",
+        "label": "Review Body Color",
+        "default": "#666666"
+      },
+      {
+        "type": "font_picker",
+        "id": "reviews_body_font",
+        "label": "Review Body Font",
+        "default": "poppins_n4"
+      },
+      {
+        "type": "range",
+        "id": "reviews_body_fontsize_desktop",
+        "label": "Review Body Font Size (Desktop)",
+        "min": 12,
+        "max": 18,
+        "step": 1,
+        "default": 14,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "reviews_body_fontsize_mobile",
+        "label": "Review Body Font Size (Mobile)",
+        "min": 12,
+        "max": 16,
+        "step": 1,
+        "default": 13,
+        "unit": "px"
+      },
+      {
+        "type": "color",
+        "id": "nav_pagination_color",
+        "label": "Nav Button Color",
+        "default": "#1a1a1a"
+      },
+      {
+        "type": "checkbox",
+        "id": "nav_pagination_border",
+        "label": "Nav Button Border",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "nav_pagination_border_radius",
+        "label": "Nav Button Border Radius",
+        "min": 0,
+        "max": 18,
+        "step": 2,
+        "default": 18,
+        "unit": "px",
+        "visible_if": "{{ section.settings.nav_pagination_border }}"
+      },
+      {
+        "type": "font_picker",
+        "id": "nav_counter_font",
+        "label": "Nav Counter Font",
+        "default": "poppins_n4"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "review",
+        "name": "Review",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "image_demo_url",
+            "label": "Demo Image URL",
+            "visible_if": "{{ block.settings.image_demo_url == 'st-internal' }}"
+          },
+          {
+            "type": "range",
+            "id": "rating",
+            "label": "Rating",
+            "min": 0.5,
+            "max": 5,
+            "step": 0.5,
+            "default": 5
+          },
+          {
+            "type": "text",
+            "id": "reviewer_name",
+            "label": "Reviewer Name",
+            "default": "John"
+          },
+          {
+            "type": "text",
+            "id": "review_title",
+            "label": "Review Title",
+            "default": "The best product"
+          },
+          {
+            "type": "textarea",
+            "id": "review_text",
+            "label": "Review Text",
+            "default": "Incredible product, I like everything about it!"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "💫: Review Slider CTA",
+        "blocks": [
+          {
+            "type": "review",
+            "settings": {
+              "rating": 5,
+              "reviewer_name": "Emma - Hiking Enthusiast",
+              "review_title": "Game changer for long trails",
+              "review_text": "I've done three 20km hikes since I started using these and the difference is huge. No more sore feet or blisters. Worth every penny for anyone who loves the outdoors."
+            }
+          },
+          {
+            "type": "review",
+            "settings": {
+              "rating": 4.5,
+              "reviewer_name": "Marco - Lifestyle Guru",
+              "review_title": "Finally something that fits my routine",
+              "review_text": "I was skeptical at first but this has become a non-negotiable part of my day. Simple, effective, and actually delivers what it promises. Would recommend to anyone looking to level up."
+            }
+          },
+          {
+            "type": "review",
+            "settings": {
+              "rating": 4.5,
+              "reviewer_name": "Lara - Gym Addict",
+              "review_title": "Solid results after 8 weeks",
+              "review_text": "I train five times a week and needed something that could keep up. This has exceeded my expectations. Noticeable improvement in both energy and recovery. Will definitely repurchase."
+            }
+          },
+          {
+            "type": "review",
+            "settings": {
+              "rating": 5,
+              "reviewer_name": "Oliver - Shoe Expert",
+              "review_title": "Quality you can actually feel",
+              "review_text": "As someone who tests a lot of products, I'm rarely impressed. This one stands out. The craftsmanship and attention to detail are obvious. Highly recommend."
+            }
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+

@@ -1,0 +1,2253 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero_section": {
+      "type": "hero",
+      "blocks": {
+        "content_group": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 24,
+            "width": "fill",
+            "custom_width": 54,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "background_media": "none",
+            "background_color": "",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "text_1": {
+              "type": "text",
+              "settings": {
+                "text": "<h1>Vos collègues pensent que vous êtes assis.</h1>",
+                "width": "100%",
+                "max_width": "narrow",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-body--family)",
+                "font_size": "4.5rem",
+                "line_height": "tight",
+                "letter_spacing": "tight",
+                "case": "none",
+                "wrap": "balance",
+                "text_color": "#ffffff",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_2": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Le tapis de marche silencieux qui se glisse sous votre bureau : marchez pendant vos réunions, sans bruit en visio, puis rangez-le sous le lit.</p><p><strong>Pour les cadres qui n’ont pas le temps d’aller à la salle.</strong></p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-body--family)",
+                "font_size": "1.5rem",
+                "line_height": "normal",
+                "letter_spacing": "loose",
+                "case": "none",
+                "wrap": "balance",
+                "text_color": "#ffffff",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 32,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "button": {
+              "type": "button",
+              "settings": {
+                "label": "Découvrir les packs",
+                "link": "shopify://collections/tapis-de-course-pliable",
+                "open_in_new_tab": false,
+                "style_class": "button-custom",
+                "custom_button_background": "#e66c25",
+                "custom_button_text": "#ffffff",
+                "custom_button_border": "#e66c25",
+                "link_text_color": "",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_1",
+            "text_2",
+            "button"
+          ]
+        }
+      },
+      "block_order": [
+        "content_group"
+      ],
+      "settings": {
+        "media_type_1": "video",
+        "image_1": "shopify://shop_images/Gemini_Generated_Image_fltajrfltajrflta.jpg",
+        "video_1": "shopify://files/videos/hero-treadmill.mp4",
+        "media_type_2": "image",
+        "video_2": "shopify://files/videos/hf_20260908_175317_3dfe84fd-0d96-4a2b-816e-3584d278cd2c (1).mp4",
+        "stack_media_on_mobile": true,
+        "custom_mobile_media": true,
+        "media_type_1_mobile": "image",
+        "media_type_2_mobile": "image",
+        "link": "",
+        "open_in_new_tab": false,
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "space-between",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 32,
+        "section_width": "full-width",
+        "section_height": "full-screen",
+        "section_height_custom": 50,
+        "background_color": "",
+        "toggle_overlay": true,
+        "overlay_color": "#00000099",
+        "overlay_style": "gradient",
+        "gradient_direction": "to top",
+        "blurred_reflection": false,
+        "reflection_opacity": 75,
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "fm_avantages": {
+      "type": "st_scrolling-benefits",
+      "blocks": {
+        "benefit_1_scrolling_benefits": {
+          "type": "benefit",
+          "settings": {
+            "icon_demo_url": "/apps/sternify/icon/package.svg?c=FF6A13&s=48&w=duotone&g=FF6A13&role=pageAccent",
+            "benefit_text": "Livraison gratuite"
+          }
+        },
+        "benefit_2_scrolling_benefits": {
+          "type": "benefit",
+          "settings": {
+            "icon_demo_url": "/apps/sternify/icon/check-circle.svg?c=FF6A13&s=48&w=duotone&g=FF6A13&role=pageAccent",
+            "benefit_text": "14 jours pour changer d’avis"
+          }
+        },
+        "benefit_3_scrolling_benefits": {
+          "type": "benefit",
+          "settings": {
+            "icon_demo_url": "/apps/sternify/icon/shield-check.svg?c=FF6A13&s=48&w=duotone&g=FF6A13&role=pageAccent",
+            "benefit_text": "Garantie 2 ans sur le tapis de marche"
+          }
+        },
+        "benefit_4_scrolling_benefits": {
+          "type": "benefit",
+          "settings": {
+            "icon_demo_url": "/apps/sternify/icon/heart.svg?c=FF6A13&s=48&w=duotone&g=FF6A13&role=pageAccent",
+            "benefit_text": "-10 % sur tous les packs jusqu’au 31 octobre"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_1_scrolling_benefits",
+        "benefit_2_scrolling_benefits",
+        "benefit_3_scrolling_benefits",
+        "benefit_4_scrolling_benefits"
+      ],
+      "name": "Sternify - Scrolling Benefits",
+      "settings": {
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "section_background_color": "#ffffff",
+        "full_width": false,
+        "max_width": 1400,
+        "enable_card_layout": false,
+        "section_bg_color": "#ffffff",
+        "show_header": false,
+        "content_gap": 15,
+        "header_title": "Les [avantages du pack]",
+        "header_title_color": "#1a1a1a",
+        "header_title_highlight_mode": "gradient",
+        "header_title_highlight_color": "#ff6a13",
+        "header_title_highlight_gradient": "linear-gradient(99deg, #1A1A1A 0%, #FF6A13 100%)",
+        "header_title_font": "poppins_n6",
+        "header_title_fontsize_desktop": 30,
+        "header_title_fontsize_mobile": 24,
+        "header_subtitle": "Une conception pensée pour votre quotidien actif",
+        "header_subtitle_color": "#5a5a5a",
+        "header_subtitle_font": "poppins_n4",
+        "header_subtitle_fontsize_desktop": 16,
+        "header_subtitle_fontsize_mobile": 14,
+        "benefit_text_color": "#1a1a1a",
+        "benefit_text_font": "poppins_n4",
+        "benefit_text_size_desktop": 14,
+        "benefit_text_size_mobile": 12,
+        "black_white_filter": false,
+        "icon_size": 32,
+        "icon_size_mobile": 28,
+        "spacing_between": 60,
+        "scroll_speed": 30,
+        "scroll_direction": "left",
+        "pause_on_hover": false,
+        "show_slider_fade": true
+      }
+    },
+    "livraison_estimee_section": {
+      "type": "livraison-estimee",
+      "settings": {
+        "min_days": 11,
+        "max_days": 18,
+        "prefix_text": "Livraison estimée entre le",
+        "and_text": "et le",
+        "padding-block-start": 24,
+        "padding-block-end": 24,
+        "business_days": true
+      },
+      "disabled": true
+    },
+    "fm_objectif": {
+      "type": "st_how-to-media",
+      "blocks": {
+        "objectif_1": {
+          "type": "step",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/hf_20260910_200204_ef7dc045-b0c5-4e63-81a3-5aca7d2f17dc.png",
+            "image_demo_url": "",
+            "video_demo_url": "",
+            "icon_image_demo_url": "",
+            "title": "Bouger plus au quotidien",
+            "description": "<p><strong>Pack Essentiel Appartement</strong> : tapis de marche silencieux et inclinable, bandes élastiques 4 niveaux, tapis anti-bruit et gourde.</p>",
+            "show_button": true,
+            "button_text": "Voir le Pack Essentiel",
+            "button_link": "shopify://products/pack-essentiel-home-gym"
+          }
+        },
+        "objectif_2": {
+          "type": "step",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/hf_20260910_195044_eda4ffea-73ba-4ba4-872d-69037c9b2213_1.png",
+            "image_demo_url": "",
+            "video_demo_url": "",
+            "icon_image_demo_url": "",
+            "title": "Marcher pendant mes réunions",
+            "description": "<p><strong>Pack Télétravail Connecté</strong> : le tapis de marche se glisse sous votre bureau et la montre connectée compte vos pas.</p>",
+            "show_button": true,
+            "button_text": "Voir le Pack Télétravail",
+            "button_link": "shopify://products/pack-performance-connectee"
+          }
+        },
+        "objectif_3": {
+          "type": "step",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/31d7afdd-569e-46eb-88c9-2c74078d3dd9_e9705474-9718-403f-a684-aff6a3ac89f4.png",
+            "image_demo_url": "",
+            "video_demo_url": "",
+            "icon_image_demo_url": "",
+            "title": "Cardio et renforcement",
+            "description": "<p><strong>Pack Ultimate Home Gym</strong> : tapis de marche inclinable jusqu’à 15 % et montre connectée pour le cardio, lot d’haltères et barre pour le renforcement.</p>",
+            "show_button": true,
+            "button_text": "Voir le Pack Ultimate",
+            "button_link": "shopify://products/pack-ultimate-home-gym"
+          }
+        },
+        "objectif_4": {
+          "type": "step",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/hf_20260910_200617_470f3fcc-2062-46a0-8bdf-81dc41d09557.png",
+            "image_demo_url": "",
+            "video_demo_url": "",
+            "icon_image_demo_url": "",
+            "title": "M’entraîner en appartement",
+            "description": "<p><strong>Pack Essentiel Appartement</strong> : tapis anti-bruit 200 × 90 cm et tapis de marche silencieux pour ne pas déranger les voisins, rangé sous le lit après la séance.</p>",
+            "show_button": true,
+            "button_text": "Voir le Pack Essentiel",
+            "button_link": "shopify://products/pack-essentiel-home-gym"
+          }
+        }
+      },
+      "block_order": [
+        "objectif_1",
+        "objectif_2",
+        "objectif_3",
+        "objectif_4"
+      ],
+      "name": "Quel est votre objectif ?",
+      "settings": {
+        "margin_top": 50,
+        "margin_bottom": 50,
+        "section_background_color": "#ffffff",
+        "full_width": false,
+        "max_width": 1400,
+        "desktop_card_layout": false,
+        "section_bg_color": "#ffffff",
+        "mobile_layout": "swiper",
+        "header_font": "poppins_n6",
+        "section_title": "Quel est [votre objectif] ?",
+        "header_title_highlight_mode": "solid",
+        "header_title_highlight_color": "#ff6a13",
+        "header_title_highlight_gradient": "linear-gradient(99deg, #1A1A1A 0%, #FF6A13 100%)",
+        "header_color": "#1a1a1a",
+        "header_fontsize_desktop": 32,
+        "header_fontsize_mobile": 24,
+        "section_subtitle_font": "poppins_n4",
+        "section_subtitle": "Choisissez votre objectif : nous vous indiquons le pack adapté.",
+        "section_subtitle_color": "#5a5a5a",
+        "section_subtitle_fontsize_desktop": 16,
+        "section_subtitle_fontsize_mobile": 14,
+        "show_mute_button": false,
+        "mute_button_size": 35,
+        "mute_button_icon_color": "#ffffff",
+        "horizontal_alignment": "left",
+        "ratio": "square",
+        "card_gap": 20,
+        "card_border_radius": 12,
+        "add_line_break": false,
+        "brakeline_color": "#e5e5e5",
+        "card_shadow": false,
+        "icon": false,
+        "icon_size": 40,
+        "icon_padding": 5,
+        "icon_bg_enable": false,
+        "icon_bg_color": "#ffffff",
+        "icon_border_radius": 50,
+        "number_icon_color": "#1a1a1a",
+        "card_title_font": "poppins_n6",
+        "card_title_fontsize": 20,
+        "card_title_color": "#1a1a1a",
+        "card_title_hover_effect": false,
+        "card_description_font": "poppins_n4",
+        "card_description_fontsize": 14,
+        "card_description_color": "#5a5a5a",
+        "button_font": "poppins_n6",
+        "button_fontsize": 15,
+        "button_text_color": "#ffffff",
+        "button_bg_enable": true,
+        "button_bg_color": "#ff6a13",
+        "button_border_radius": 6
+      }
+    },
+    "packs_avantageux_section": {
+      "type": "packs-avantageux",
+      "blocks": {
+        "pack1": {
+          "type": "pack",
+          "settings": {
+            "featured": false,
+            "popular_badge": false,
+            "badge_savings": "Économisez 29,50 €",
+            "image": "shopify://shop_images/hf_20260910_200204_ef7dc045-b0c5-4e63-81a3-5aca7d2f17dc.png",
+            "title": "Pack Essentiel Appartement",
+            "description": "Marcher chez vous sans déranger les voisins, puis tout ranger sous le lit.",
+            "item1": "1x Tapis de marche pliable (1–10 km/h, inclinaison 15 %)",
+            "item2": "1x Tapis Fitness Pro 200×90 anti-bruit",
+            "item3": "1x Kit bandes de résistance (4 niveaux)",
+            "item4": "1x Gourde Tritan Sport",
+            "price_compare": "294,99 €",
+            "price_bundle": "265,49 €",
+            "button_label": "Voir le pack",
+            "button_link": "shopify://products/pack-essentiel-home-gym"
+          }
+        },
+        "pack2": {
+          "type": "pack",
+          "settings": {
+            "featured": true,
+            "popular_badge": true,
+            "badge_savings": "Économisez 38,50 €",
+            "image": "shopify://shop_images/image_3.webp",
+            "title": "Pack Télétravail Connecté",
+            "description": "Marchez sous votre bureau pendant vos réunions et suivez vos pas avec la montre.",
+            "item1": "1x Tapis de marche pliable (1–10 km/h, inclinaison 15 %)",
+            "item2": "1x Montre connectée",
+            "item3": "1x Brassard sport universel",
+            "item4": "1x Ceinture de sudation abdominale",
+            "price_compare": "385,00 €",
+            "price_bundle": "346,50 €",
+            "button_label": "Voir le pack",
+            "button_link": "shopify://products/pack-performance-connectee"
+          }
+        },
+        "pack3": {
+          "type": "pack",
+          "settings": {
+            "featured": false,
+            "popular_badge": false,
+            "badge_savings": "Économisez 51,53 €",
+            "image": "shopify://shop_images/31d7afdd-569e-46eb-88c9-2c74078d3dd9_e9705474-9718-403f-a684-aff6a3ac89f4.png",
+            "title": "Pack Ultimate Home Gym",
+            "description": "Cardio en pente, renforcement et suivi d’activité réunis en un seul pack.",
+            "item1": "1x Tapis de marche inclinable + 1x montre connectée",
+            "item2": "1x Tapis Fitness Pro anti-bruit",
+            "item3": "1x Lot d’haltères + 1x barre de musculation",
+            "item4": "1x Gourde Tritan + brassard sport + ceinture de sudation",
+            "price_compare": "515,31 €",
+            "price_bundle": "463,78 €",
+            "button_label": "Voir le pack",
+            "button_link": "shopify://products/pack-ultimate-home-gym"
+          }
+        }
+      },
+      "block_order": [
+        "pack1",
+        "pack2",
+        "pack3"
+      ],
+      "name": "Packs avantageux",
+      "settings": {
+        "heading": "Pourquoi un pack ?",
+        "subheading": "Pas le temps d’aller à la salle ? Chaque pack réunit le tapis de marche et les accessoires utiles, en un seul achat. Offre -10 % jusqu’au 31 octobre.",
+        "padding_top": 56,
+        "padding_bottom": 64
+      }
+    },
+    "st_testimonials_slider_WCkJ7H": {
+      "type": "st_testimonials-slider",
+      "blocks": {
+        "bewertung_GECThc": {
+          "type": "bewertung",
+          "settings": {
+            "bewertung_text": "<p>Le moteur silencieux est une véritable bénédiction pour le télétravail ! Je travaille à mon bureau et le Walking Pad fonctionne tellement silencieusement que je peux participer à des appels vidéo sans que mes collègues entendent mes pas. Même à 6 km/h, il est presque inaudible.</p>",
+            "review_image_demo_url": "",
+            "max_image_height": 200,
+            "image_position": "center",
+            "nutzer_profilbild_demo_url": "https://cdn.shopify.com/s/files/1/0799/5880/2740/files/profile-pic-3.png?v=1711989842",
+            "nutzer_name": "Roland B.",
+            "datum": "25 février 2026",
+            "anzahl_der_sterne": 5,
+            "verifizierte_bewertung": true
+          }
+        },
+        "bewertung_TJtYw8": {
+          "type": "bewertung",
+          "settings": {
+            "bewertung_text": "<p>Le tapis de course se glisse parfaitement sous mon bureau. Je peux travailler tout en restant active.</p>",
+            "review_image_demo_url": "",
+            "max_image_height": 200,
+            "image_position": "center",
+            "nutzer_profilbild_demo_url": "https://cdn.shopify.com/s/files/1/0799/5880/2740/files/profile-pic-3.png?v=1711989842",
+            "nutzer_name": "Julia G.",
+            "datum": "16 octobre 2025",
+            "anzahl_der_sterne": 5,
+            "verifizierte_bewertung": true
+          }
+        },
+        "bewertung_RyPmyE": {
+          "type": "bewertung",
+          "settings": {
+            "bewertung_text": "<p>Avec mes 125 kg, je suis très impressionné par la capacité maximale de 136 kg ! Le Walking Pad ne bouge pas, même lorsque je marche plus rapidement, jusqu’à 8 km/h. Sûr et fiable !</p>",
+            "review_image_demo_url": "",
+            "max_image_height": 200,
+            "image_position": "center",
+            "nutzer_profilbild_demo_url": "https://cdn.shopify.com/s/files/1/0799/5880/2740/files/profile-pic-3.png?v=1711989842",
+            "nutzer_name": "Bandaranayak",
+            "datum": "25 février 2026",
+            "anzahl_der_sterne": 5,
+            "verifizierte_bewertung": true
+          }
+        },
+        "bewertung_WrbLFz": {
+          "type": "bewertung",
+          "settings": {
+            "bewertung_text": "<p>Grâce à l’inclinaison, je peux brûler nettement plus de calories. Génial !</p>",
+            "review_image_demo_url": "",
+            "max_image_height": 200,
+            "image_position": "center",
+            "nutzer_profilbild_demo_url": "https://cdn.shopify.com/s/files/1/0799/5880/2740/files/profile-pic-3.png?v=1711989842",
+            "nutzer_name": "Torsten F.",
+            "datum": "16 octobre 2025",
+            "anzahl_der_sterne": 5,
+            "verifizierte_bewertung": true
+          }
+        },
+        "bewertung_GWxA7f": {
+          "type": "bewertung",
+          "settings": {
+            "bewertung_text": "<p>L’inclinaison rend l’entraînement nettement plus efficace tout en restant agréable pour les articulations. Il est silencieux et facile à ranger, ce qui le rend idéal pour la maison.</p>",
+            "review_image_demo_url": "",
+            "max_image_height": 200,
+            "image_position": "center",
+            "nutzer_profilbild_demo_url": "https://cdn.shopify.com/s/files/1/0799/5880/2740/files/profile-pic-3.png?v=1711989842",
+            "nutzer_name": "Eduard",
+            "datum": "27 novembre 2025",
+            "anzahl_der_sterne": 5,
+            "verifizierte_bewertung": true
+          }
+        },
+        "bewertung_rrLrRB": {
+          "type": "bewertung",
+          "settings": {
+            "bewertung_text": "<p>Il m’aide à atteindre mon objectif quotidien de pas et à rester en forme. Pour moi, c’est une excellente alternative aux tapis de course encombrants.</p>",
+            "review_image_demo_url": "",
+            "max_image_height": 200,
+            "image_position": "center",
+            "nutzer_profilbild_demo_url": "https://cdn.shopify.com/s/files/1/0799/5880/2740/files/profile-pic-3.png?v=1711989842",
+            "nutzer_name": "Vanessa",
+            "datum": "8 décembre 2025",
+            "anzahl_der_sterne": 5,
+            "verifizierte_bewertung": true
+          }
+        },
+        "bewertung_hkcBJG": {
+          "type": "bewertung",
+          "settings": {
+            "bewertung_text": "<p>La plage de vitesse de 1 à 10 km/h s’adapte parfaitement à mon rythme de travail ! Je reste à faible vitesse lorsque j’écris des e-mails et j’augmente un peu lorsque je suis au téléphone.</p>",
+            "review_image_demo_url": "",
+            "max_image_height": 200,
+            "image_position": "center",
+            "nutzer_profilbild_demo_url": "https://cdn.shopify.com/s/files/1/0799/5880/2740/files/profile-pic-3.png?v=1711989842",
+            "nutzer_name": "Gu lunat",
+            "datum": "25 février 2026",
+            "anzahl_der_sterne": 5,
+            "verifizierte_bewertung": true
+          }
+        },
+        "bewertung_DfYmq8": {
+          "type": "bewertung",
+          "settings": {
+            "bewertung_text": "<p>Pour le moment, il fonctionne très bien et est très facile à monter. Je suis très satisfaite. Sa taille est parfaite pour la maison.</p>",
+            "review_image_demo_url": "",
+            "max_image_height": 200,
+            "image_position": "center",
+            "nutzer_profilbild_demo_url": "https://cdn.shopify.com/s/files/1/0799/5880/2740/files/profile-pic-3.png?v=1711989842",
+            "nutzer_name": "Rose M.",
+            "datum": "18 septembre 2026",
+            "anzahl_der_sterne": 5,
+            "verifizierte_bewertung": true
+          }
+        }
+      },
+      "block_order": [
+        "bewertung_GECThc",
+        "bewertung_TJtYw8",
+        "bewertung_RyPmyE",
+        "bewertung_WrbLFz",
+        "bewertung_GWxA7f",
+        "bewertung_rrLrRB",
+        "bewertung_hkcBJG",
+        "bewertung_DfYmq8"
+      ],
+      "name": "💫: Testimonials Slider",
+      "settings": {
+        "stil": "trustpilot",
+        "gradient_start_color": "#ffffff",
+        "section_backround_color": "#efefef",
+        "own_logo_demo_url": "",
+        "slider_autoplay": true,
+        "margin_top": 50,
+        "margin_bottom": 50,
+        "box_padding_block": 60,
+        "section_background_color": "rgba(0,0,0,0)",
+        "full_width": false,
+        "max_width": 1400,
+        "desktop_card_layout": true,
+        "titel_farbe": "#1a1a1a",
+        "subtitel_farbe": "#000000",
+        "box_hintergrund": "#ffffff",
+        "box_text": "#000000",
+        "star_color_header": "#fdd663",
+        "star_color_box": "#1b1b1b",
+        "review_color": "#000000",
+        "verified_icon_color": "#9e9e9e",
+        "verified_text_color": "#9e9e9e",
+        "header": "Votre satisfaction, notre mission",
+        "header_title_fontsize_desktop": 30,
+        "header_title_fontsize_mobile": 24,
+        "header_title_highlight_mode": "solid",
+        "header_title_highlight_color": "#dbbd21",
+        "header_title_highlight_gradient": "linear-gradient(0deg, rgba(247, 222, 94, 1), rgba(219, 189, 33, 1) 100%)",
+        "subheader": "Ce que disent les acheteurs de notre tapis de marche sur Amazon",
+        "header_subtitle_fontsize_desktop": 16,
+        "header_subtitle_fontsize_mobile": 14,
+        "bewertung_text": "Avis clients Amazon",
+        "anzahl_der_bewertungen": 5,
+        "show_button": false,
+        "button_text": "",
+        "button_link": "",
+        "button_background_color": "#000000",
+        "button_text_color": "#ffffff",
+        "verified_text": "Avis Amazon",
+        "header_font": "poppins_n6",
+        "subtitle_font": "poppins_n4",
+        "review_font": "poppins_n4",
+        "show_avatars": false
+      }
+    },
+    "fm_avis": {
+      "type": "st_image-testimonials",
+      "blocks": {
+        "avis_2": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/pdp-image-f33f25cf.png",
+            "image_demo_url": "",
+            "rating": 5,
+            "text": "Un super tapis de course d’excellente qualité, avec tout ce dont on a besoin ! Il fonctionne de manière fluide et presque silencieuse et sa construction est très stable.\n\nIl est léger et peu encombrant, et peut être rangé en quelques minutes, que ce soit debout contre un mur ou à plat, par exemple sous un lit.\n\nLe service client est excellent et le fabricant fournit rapidement des informations compétentes. Pour une utilisation quotidienne, je ne peux que le recommander !",
+            "name": "Camille R.",
+            "show_verified_badge": false
+          }
+        },
+        "avis_3": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/pdp-image-60021435.png",
+            "image_demo_url": "",
+            "rating": 5,
+            "text": "Petit tapis de course pratique et facile à utiliser.\n\nÀ mon avis, il est plutôt adapté à la marche rapide et au walking, car il est assez étroit et court.\n\nIl fait parfaitement ce qu’on lui demande et, pour son prix, c’est une très bonne option.",
+            "name": "Julien M.",
+            "show_verified_badge": false
+          }
+        },
+        "avis_4": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/pdp-image-dfcfe499.png",
+            "image_demo_url": "",
+            "rating": 5,
+            "text": "Super appareil. Il n’est pas très bruyant et se glisse facilement sous le canapé.\n\nLe seul point un peu gênant est la barre, qui ne peut pas être simplement rabattue. Il faut la dévisser pour pouvoir ranger le tapis sous le canapé.",
+            "name": "Nadia B.",
+            "show_verified_badge": false
+          }
+        },
+        "avis_5": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/pdp-image-968c1a48.png",
+            "image_demo_url": "",
+            "rating": 5,
+            "text": "C’est incroyable d’avoir un appareil aussi abordable et pourtant aussi performant. Il fonctionne parfaitement et même les enfants l’utilisent.",
+            "name": "Thomas L.",
+            "show_verified_badge": false
+          }
+        }
+      },
+      "block_order": [
+        "avis_2",
+        "avis_3",
+        "avis_4",
+        "avis_5"
+      ],
+      "disabled": true,
+      "name": "💫: Image Testimonials",
+      "settings": {
+        "margin_top": 50,
+        "margin_bottom": 50,
+        "section_background_color": "rgba(0,0,0,0)",
+        "full_width": false,
+        "max_width": 1400,
+        "desktop_card_layout": false,
+        "bg_color_mode": "solid",
+        "section_bg_color": "#ffffff",
+        "section_bg_gradient": "linear-gradient(180deg, #f9f9f9 0%, #eaeaea 100%)",
+        "show_header": true,
+        "header_alignment": "center",
+        "content_gap": 30,
+        "header_title": "Ce que disent [nos clients]",
+        "header_title_color": "#1a1a1a",
+        "header_title_highlight_mode": "solid",
+        "header_title_highlight_color_solid": "#ff6a13",
+        "header_title_highlight_color_gradient": "linear-gradient(99deg, #1A1A1A 0%, #FF6A13 100%)",
+        "header_title_font": "poppins_n6",
+        "header_title_fontsize_desktop": 30,
+        "header_title_fontsize_mobile": 24,
+        "header_subtitle": "",
+        "header_subtitle_color": "#666666",
+        "header_subtitle_font": "poppins_n4",
+        "header_subtitle_fontsize_desktop": 16,
+        "header_subtitle_fontsize_mobile": 14,
+        "image_aspect_ratio": "4 / 6",
+        "star_color": "#ffffff",
+        "review_text_color": "#ffffff",
+        "review_text_font": "poppins_n4",
+        "review_text_fontsize_desktop": 13,
+        "review_text_fontsize_mobile": 14,
+        "name_color": "#ffffff",
+        "name_font": "poppins_n6",
+        "name_fontsize": 14,
+        "verified_badge_color": "#1d9bf0"
+      }
+    },
+    "story_section": {
+      "type": "section",
+      "blocks": {
+        "image_col": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "center",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 0,
+            "width": "custom",
+            "custom_width": 42,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "background_media": "none",
+            "background_color": "",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "img": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/image.png",
+                "link": "",
+                "image_ratio": "portrait",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 20,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "img"
+          ]
+        },
+        "text_col": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 20,
+            "width": "custom",
+            "custom_width": 50,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "background_media": "none",
+            "background_color": "",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "eyebrow": {
+              "type": "group",
+              "settings": {
+                "content_direction": "row",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 10,
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "background_media": "none",
+                "background_color": "",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0,
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "dash": {
+                  "type": "group",
+                  "settings": {
+                    "content_direction": "row",
+                    "vertical_on_mobile": true,
+                    "horizontal_alignment": "center",
+                    "vertical_alignment": "center",
+                    "align_baseline": false,
+                    "horizontal_alignment_flex_direction_column": "center",
+                    "vertical_alignment_flex_direction_column": "center",
+                    "gap": 0,
+                    "width": "custom",
+                    "custom_width": 100,
+                    "width_mobile": "fit-content",
+                    "custom_width_mobile": 100,
+                    "height": "custom",
+                    "custom_height": 100,
+                    "background_media": "none",
+                    "background_color": "#e66c25",
+                    "video_position": "cover",
+                    "background_image_position": "cover",
+                    "toggle_overlay": false,
+                    "overlay_color": "#00000026",
+                    "overlay_style": "solid",
+                    "gradient_direction": "to top",
+                    "border": "none",
+                    "border_width": 1,
+                    "border_opacity": 100,
+                    "border_color": "",
+                    "border_radius": 2,
+                    "link": "",
+                    "open_in_new_tab": false,
+                    "placeholder": "",
+                    "padding-block-start": 1,
+                    "padding-block-end": 1,
+                    "padding-inline-start": 14,
+                    "padding-inline-end": 14
+                  },
+                  "blocks": {}
+                },
+                "label": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p><strong>NOTRE MISSION</strong></p>",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "0.85rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "#e66c25",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "dash",
+                "label"
+              ]
+            },
+            "heading": {
+              "type": "text",
+              "settings": {
+                "text": "<h2>Le sport ne devrait jamais être un sacrifice</h2>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h1",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "body1": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Fitness Maison est né d'un constat simple : entre le travail, les trajets et la vie de famille, trouver le temps d'aller à la salle est devenu un luxe. Nous croyons que le sport doit s'adapter à votre vie — pas l'inverse.</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1.05rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "#444444",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "body2": {
+              "type": "text",
+              "settings": {
+                "text": "<p>C'est pourquoi nous sélectionnons des équipements compacts, silencieux et durables, pensés pour s'intégrer dans un salon, une chambre ou un bureau — sans jamais sacrifier la qualité. Notre objectif : vous permettre de bouger chaque jour, chez vous, sans contrainte, et de tenir cette habitude sur la durée.</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1.05rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "#444444",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "eyebrow",
+            "heading",
+            "body1",
+            "body2"
+          ]
+        }
+      },
+      "block_order": [
+        "image_col",
+        "text_col"
+      ],
+      "name": "t:names.section",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "space-between",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 48,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "background_color": "#ffffff",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
+    "fm_choisir": {
+      "type": "st_how-to",
+      "blocks": {
+        "step_1_choose": {
+          "type": "step",
+          "settings": {
+            "icon_image_demo_url": "/apps/sternify/icon/house.svg?c=FF6A13&s=48&w=duotone&g=FF6A13&role=pageAccent",
+            "title": "Vous débutez",
+            "description": "<p>Le Pack Essentiel : tapis de course pliable, tapis anti-bruit, bandes élastiques 4 niveaux et gourde.</p>",
+            "show_button": true,
+            "button_text": "Voir le pack",
+            "button_link": "shopify://products/pack-essentiel-home-gym"
+          }
+        },
+        "step_2_choose": {
+          "type": "step",
+          "settings": {
+            "icon_image_demo_url": "/apps/sternify/icon/chart-bar.svg?c=FF6A13&s=48&w=duotone&g=FF6A13&role=pageAccent",
+            "title": "Vous voulez suivre vos progrès",
+            "description": "<p>Le Pack Performance : tapis de course pliable, montre connectée, brassard sport et ceinture de sudation.</p>",
+            "show_button": true,
+            "button_text": "Voir le pack",
+            "button_link": "shopify://products/pack-performance-connectee"
+          }
+        },
+        "step_3_choose": {
+          "type": "step",
+          "settings": {
+            "icon_image_demo_url": "/apps/sternify/icon/flame.svg?c=FF6A13&s=48&w=duotone&g=FF6A13&role=pageAccent",
+            "title": "Cardio et renforcement",
+            "description": "<p>Le Pack Ultimate : tapis de course, montre, tapis anti-bruit, lot d’haltères et barre, gourde, brassard et ceinture.</p>",
+            "show_button": true,
+            "button_text": "Voir le pack",
+            "button_link": "shopify://products/pack-ultimate-home-gym"
+          }
+        }
+      },
+      "block_order": [
+        "step_1_choose",
+        "step_2_choose",
+        "step_3_choose"
+      ],
+      "disabled": true,
+      "name": "Sternify - How It Works",
+      "settings": {
+        "margin_top": 50,
+        "margin_bottom": 50,
+        "section_background_color": "#ffffff",
+        "full_width": false,
+        "max_width": 1400,
+        "desktop_card_layout": false,
+        "section_bg_color": "#ffffff",
+        "mobile_layout": "swiper",
+        "header_font": "poppins_n6",
+        "section_title": "Comment choisir [votre pack]",
+        "header_title_highlight_mode": "gradient",
+        "header_title_highlight_color": "#ff6a13",
+        "header_title_highlight_gradient": "linear-gradient(99deg, #1A1A1A 0%, #FF6A13 100%)",
+        "header_color": "#1a1a1a",
+        "header_fontsize_desktop": 30,
+        "header_fontsize_mobile": 24,
+        "section_subtitle_font": "poppins_n3",
+        "section_subtitle": "Trois packs, trois façons de s’entraîner chez soi",
+        "section_subtitle_color": "#5a5a5a",
+        "section_subtitle_fontsize_desktop": 16,
+        "section_subtitle_fontsize_mobile": 14,
+        "horizontal_alignment": "left",
+        "card_gap": 20,
+        "card_bg_color": "#f9f9f9",
+        "card_border_radius": 8,
+        "add_line_break": true,
+        "brakeline_color": "#dadada",
+        "card_shadow": false,
+        "icon_size": 50,
+        "icon_padding": 12,
+        "icon_bg_enable": true,
+        "icon_bg_color": "#f9f9f9",
+        "icon_border_radius": 50,
+        "number_icon_color": "#ff6a13",
+        "card_title_font": "poppins_n5",
+        "card_title_fontsize": 20,
+        "card_title_color": "#1a1a1a",
+        "card_title_hover_effect": true,
+        "card_description_font": "poppins_n4",
+        "card_description_fontsize": 14,
+        "card_description_color": "#585858",
+        "button_font": "poppins_n6",
+        "button_fontsize": 16,
+        "button_text_color": "#1a1a1a",
+        "button_bg_enable": false,
+        "button_bg_color": "#ff6a13",
+        "button_border_radius": 6,
+        "arrow_color": "#1a1a1a"
+      }
+    },
+    "testimonials_section": {
+      "type": "section",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Ce qui nous distingue</h2>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "h2",
+            "font": "var(--font-heading--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "#0a0a0a",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 24,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "cards_row": {
+          "type": "group",
+          "settings": {
+            "content_direction": "row",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "space-between",
+            "vertical_alignment": "flex-start",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 20,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "background_media": "none",
+            "background_color": "",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "t1": {
+              "type": "group",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "center",
+                "vertical_alignment_flex_direction_column": "flex-start",
+                "gap": 12,
+                "width": "custom",
+                "custom_width": 31,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "background_media": "none",
+                "background_color": "#ffffff",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "border": "solid",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "#c9a96e",
+                "border_radius": 16,
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 24,
+                "padding-block-end": 24,
+                "padding-inline-start": 24,
+                "padding-inline-end": 24
+              },
+              "blocks": {
+                "icon": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>🛡️</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1.6rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "#0a0a0a",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "title": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p><strong>Garantie 2 ans</strong></p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "center",
+                    "type_preset": "h6",
+                    "font": "var(--font-heading--family)",
+                    "font_size": "0.95rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "#0a0a0a",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "body": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Le tapis de course de chaque pack est couvert par une garantie de 2 ans.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "center",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "0.95rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "#0a0a0a",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "icon",
+                "title",
+                "body"
+              ]
+            },
+            "t2": {
+              "type": "group",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "center",
+                "vertical_alignment_flex_direction_column": "flex-start",
+                "gap": 12,
+                "width": "custom",
+                "custom_width": 31,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "background_media": "none",
+                "background_color": "#ffffff",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "border": "solid",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "#c9a96e",
+                "border_radius": 16,
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 24,
+                "padding-block-end": 24,
+                "padding-inline-start": 24,
+                "padding-inline-end": 24
+              },
+              "blocks": {
+                "icon": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>🔄</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1.6rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "#0a0a0a",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "title": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p><strong>14 jours pour changer d’avis</strong></p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "center",
+                    "type_preset": "h6",
+                    "font": "var(--font-heading--family)",
+                    "font_size": "0.95rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "#0a0a0a",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "body": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Vous disposez de 14 jours après réception pour changer d’avis, conformément au droit de rétractation.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "center",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "0.95rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "#0a0a0a",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "icon",
+                "title",
+                "body"
+              ]
+            },
+            "t3": {
+              "type": "group",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "center",
+                "vertical_alignment_flex_direction_column": "flex-start",
+                "gap": 12,
+                "width": "custom",
+                "custom_width": 31,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "background_media": "none",
+                "background_color": "#ffffff",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "border": "solid",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "#c9a96e",
+                "border_radius": 16,
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 24,
+                "padding-block-end": 24,
+                "padding-inline-start": 24,
+                "padding-inline-end": 24
+              },
+              "blocks": {
+                "icon": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>🚚</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1.6rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "#0a0a0a",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "title": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p><strong>Livraison gratuite</strong></p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "center",
+                    "type_preset": "h6",
+                    "font": "var(--font-heading--family)",
+                    "font_size": "0.95rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "#0a0a0a",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "body": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>La livraison est offerte sur tous les packs, directement chez vous.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "center",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "0.95rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "#0a0a0a",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "icon",
+                "title",
+                "body"
+              ]
+            }
+          },
+          "block_order": [
+            "t1",
+            "t2",
+            "t3"
+          ]
+        }
+      },
+      "block_order": [
+        "heading",
+        "cards_row"
+      ],
+      "disabled": true,
+      "name": "t:names.section",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "center",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "background_color": "#ffffff",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
+        "padding-block-start": 64,
+        "padding-block-end": 64
+      }
+    },
+    "faq_section": {
+      "type": "section",
+      "blocks": {
+        "faq_heading": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Vos questions, nos réponses</h2><p>Choisissez le pack qui correspond à votre façon de vous entraîner à la maison.</p>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "h2",
+            "font": "var(--font-heading--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "#0a0a0a",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 24,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "faq_accordion": {
+          "type": "accordion",
+          "settings": {
+            "icon": "caret",
+            "dividers": true,
+            "divider_color": "",
+            "type_preset": "h6",
+            "background_color": "#ffffff",
+            "text_color": "#0a0a0a",
+            "border": "solid",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "#c9a96e",
+            "border_radius": 16,
+            "padding-block-start": 8,
+            "padding-block-end": 8,
+            "padding-inline-start": 16,
+            "padding-inline-end": 16
+          },
+          "blocks": {
+            "accordion_row_U4FNwa": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_row",
+              "settings": {
+                "heading": "Le délai de retour et la garantie de 2 ans couvrent-ils tout le pack ?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_nYHTKC": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Les trois packs bénéficient de 14 jours pour changer d’avis après réception.</p><p>La garantie de 2 ans concerne uniquement le tapis de course, et non l’ensemble des accessoires du pack.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_nYHTKC"
+              ]
+            },
+            "accordion_row_CpmkqY": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_row",
+              "settings": {
+                "heading": "Le tapis est-il assez silencieux pour le télétravail et l’appartement ?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_Pteefn": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Oui. Son moteur est discret et son triple amortissement limite le bruit de vos pas. Des acheteurs l’utilisent pendant leurs appels vidéo. Les packs Essentiel et Ultimate incluent aussi un tapis anti-bruit 200 × 90 cm qui limite les vibrations transmises au sol.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_Pteefn"
+              ]
+            },
+            "row1": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Le tapis de marche est-il facile à ranger ?",
+                "open_by_default": true,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "row1_text": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Oui. Son format fin se range à plat sous un lit, un canapé ou un bureau après la séance.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "row1_text"
+              ]
+            },
+            "row2": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Que comprend chaque pack ?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "row2_text": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p><strong>Essentiel Appartement :</strong> tapis de marche pliable, kit de bandes élastiques 4 niveaux, tapis Fitness Pro anti-bruit 200 × 90 cm et gourde.<br/><strong>Télétravail Connecté :</strong> tapis de marche pliable, montre connectée, brassard sport universel et ceinture de sudation.<br/><strong>Ultimate Home Gym :</strong> tapis de marche pliable, montre connectée, tapis Fitness Pro anti-bruit, lot d’haltères, barre de musculation, gourde Tritan, brassard sport et ceinture de sudation.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "row2_text"
+              ]
+            },
+            "row3": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Quel pack choisir selon mon objectif ?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "row3_text": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Pour bouger chez vous sans déranger les voisins : <strong>Essentiel Appartement</strong>.</p><p>Pour marcher sous votre bureau pendant vos réunions et suivre vos pas : <strong>Télétravail Connecté</strong>.</p><p>Pour combiner cardio en pente et renforcement : <strong>Ultimate Home Gym</strong>.</p><p>Ces repères décrivent le contenu des packs, sans garantir de résultat particulier.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "row3_text"
+              ]
+            },
+            "row4": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Quels sont les avantages communs aux trois packs ?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "row4_text": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Les trois packs incluent la <strong>livraison gratuite</strong>, <strong>14 jours pour changer d’avis</strong> et une <strong>garantie de 2 ans sur le tapis de course uniquement</strong>.</p><p>Pour les modalités applicables à votre commande, consultez les fiches produits correspondantes.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "row4_text"
+              ]
+            },
+            "row_poids": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Quel poids maximal le tapis supporte-t-il ?",
+                "open_by_default": true,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "row_poids_text": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Le tapis de marche est conçu pour supporter jusqu’à 136 kg. Sa vitesse va de 1 à 10 km/h et son inclinaison monte jusqu’à 15 %.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "row_poids_text"
+              ]
+            },
+            "row_livraison": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Quel est le délai de livraison ?",
+                "open_by_default": true,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "row_livraison_text": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>La livraison est gratuite. Comptez 2 à 3 semaines selon votre adresse : la date estimée s’affiche sur la fiche produit avant la commande. Un lien de suivi vous est envoyé dès l’expédition.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "row_livraison_text"
+              ]
+            }
+          },
+          "block_order": [
+            "accordion_row_U4FNwa",
+            "accordion_row_CpmkqY",
+            "row1",
+            "row_poids",
+            "row2",
+            "row3",
+            "row4",
+            "row_livraison"
+          ]
+        }
+      },
+      "block_order": [
+        "faq_heading",
+        "faq_accordion"
+      ],
+      "name": "t:names.section",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "center",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "background_color": "#ffffff",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
+        "padding-block-start": 64,
+        "padding-block-end": 64
+      }
+    },
+    "newsletter_section": {
+      "type": "section",
+      "blocks": {
+        "newsletter_heading": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Ne ratez plus vos objectifs</h2><p>Adoptez une nouvelle routine !</p>",
+            "width": "100%",
+            "max_width": "narrow",
+            "alignment": "center",
+            "type_preset": "h2",
+            "font": "var(--font-heading--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "#ffffff",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 24,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "email_signup": {
+          "type": "email-signup",
+          "settings": {
+            "width": "custom",
+            "custom_width": 40,
+            "heading": "",
+            "heading_text_color": "",
+            "heading_preset": "h3",
+            "border_style": "all",
+            "input_style": "default",
+            "border_width": 1,
+            "border_radius": 100,
+            "input_background_color": "",
+            "input_text_color": "",
+            "input_border_color": "",
+            "input_type_preset": "paragraph",
+            "style_class": "button-custom",
+            "custom_button_background": "#ff6a13",
+            "custom_button_text": "#ffffff",
+            "custom_button_border": "#ff6a13",
+            "link_text_color": "",
+            "display_type": "text",
+            "label": "S'inscrire",
+            "integrated_button": true,
+            "button_type_preset": "paragraph",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "newsletter_heading",
+        "email_signup"
+      ],
+      "name": "t:names.section",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "center",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "background_color": "#1a1a1a",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
+        "padding-block-start": 64,
+        "padding-block-end": 64
+      }
+    },
+    "cta_section": {
+      "type": "section",
+      "blocks": {
+        "cta_heading": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Commencez aujourd'hui. Même 10 minutes suffisent.</h2>",
+            "width": "100%",
+            "max_width": "narrow",
+            "alignment": "center",
+            "type_preset": "h2",
+            "font": "var(--font-heading--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "#ffffff",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 12,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "cta_subtext": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Livraison gratuite · 14 jours pour changer d’avis · Garantie 2 ans</p><p>© 2026 FITNESS MAISON — Tous droits réservés. Les résultats peuvent varier selon les individus. Le droit de rétractation de 14 jours s'applique selon les conditions générales de vente disponibles sur notre site.</p>",
+            "width": "100%",
+            "max_width": "narrow",
+            "alignment": "center",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "#ffffff",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 28,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "cta_button": {
+          "type": "button",
+          "settings": {
+            "label": "Découvrir les packs",
+            "link": "shopify://collections/tapis-de-course-pliable",
+            "open_in_new_tab": false,
+            "style_class": "button-custom",
+            "custom_button_background": "#ff6a13",
+            "custom_button_text": "#ffffff",
+            "custom_button_border": "#ff6a13",
+            "link_text_color": "",
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 100
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "cta_heading",
+        "cta_subtext",
+        "cta_button"
+      ],
+      "name": "t:names.section",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "center",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "background_color": "#1a1a1a",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
+        "padding-block-start": 72,
+        "padding-block-end": 72
+      }
+    }
+  },
+  "order": [
+    "hero_section",
+    "fm_avantages",
+    "story_section",
+    "livraison_estimee_section",
+    "fm_objectif",
+    "packs_avantageux_section",
+    "st_testimonials_slider_WCkJ7H",
+    "fm_avis",
+    "fm_choisir",
+    "testimonials_section",
+    "faq_section",
+    "newsletter_section",
+    "cta_section"
+  ]
+}

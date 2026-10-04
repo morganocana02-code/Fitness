@@ -1,0 +1,1775 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "product_information": {
+      "type": "st_product-information",
+      "blocks": {
+        "title_1_product_information": {
+          "type": "title",
+          "settings": {
+            "custom_title": "",
+            "title_uppercase": false,
+            "title_color": "#1a1a1a",
+            "title_gradient_enable": true,
+            "title_gradient": "linear-gradient(99deg, #1A1A1A 0%, #FF6A13 100%)",
+            "highlight_color": "linear-gradient(99deg, #1A1A1A 0%, #FF6A13 100%)",
+            "title_size_desktop": 30,
+            "title_size_mobile": 24
+          }
+        },
+        "app_review_stars_1_1": {
+          "type": "shopify://apps/sternify/blocks/review_stars/fcc6e879-7d9e-4924-b387-68cfab68cec6",
+          "disabled": true,
+          "settings": {
+            "advanced_settings": false,
+            "show_all_products": false,
+            "product": "",
+            "manual_mode": false,
+            "manual_count": 0,
+            "manual_rating": "4.8",
+            "text_format": "<p>[count] avis</p>",
+            "hide_text": false,
+            "widget_alignment": "left",
+            "text_color": "#1a1a1a",
+            "star_color": "#ffb800",
+            "text_size": 14
+          }
+        },
+        "subtitle_2_product_information": {
+          "type": "subtitle",
+          "settings": {
+            "text": "Votre [salle complète] à domicile en un seul ensemble coordonné",
+            "subtitle_color": "#5a5a5a",
+            "highlight_color": "linear-gradient(99deg, #1A1A1A 0%, #FF6A13 100%)",
+            "subtitle_size": 16,
+            "subtitle_size_mobile": 14
+          }
+        },
+        "app_trust_badge_2_1": {
+          "type": "shopify://apps/sternify/blocks/trust_badge/fcc6e879-7d9e-4924-b387-68cfab68cec6",
+          "settings": {
+            "style": "3",
+            "alignment": "flex-start",
+            "Abstand_oben": 0,
+            "Abstand_unten": 0,
+            "box_icon_demo_url": "/apps/sternify/icon/package.svg?c=FF6A13&s=24&w=fill&g=FF6A13&role=sectionAccent",
+            "box_text": "Tapis de marche pliable et tapis Fitness Pro anti-bruit",
+            "font_picker": "poppins_n4",
+            "text_size": 14,
+            "icon_size": 45,
+            "box_background_color": "#f9f9f9",
+            "bg_gradient": "",
+            "text_farbe": "#1a1a1a"
+          }
+        },
+        "price_3_product_information": {
+          "type": "price",
+          "settings": {
+            "show_unit_price": true,
+            "show_sale_badge": true,
+            "show_callout": false,
+            "callout_text": "Pack complet à tarif avantageux",
+            "callout_position": "top",
+            "callout_bg_color": "#ff6a13",
+            "callout_gradient_enable": true,
+            "callout_gradient": "linear-gradient(99deg, #FF6A13 0%, #FF6A13 100%)",
+            "callout_text_color": "#ffffff",
+            "price_color": "#1a1a1a",
+            "price_size": 24,
+            "sale_badge_bg_color": "#ff6a13",
+            "sale_badge_gradient_enable": false,
+            "sale_badge_gradient": "linear-gradient(99deg, #FF6A13 0%, #FF6A13 100%)",
+            "sale_badge_text_color": "#ffffff"
+          }
+        },
+        "app_benefit_usp_with_icons_3_1": {
+          "type": "shopify://apps/sternify/blocks/benefit_usp_with_icons/fcc6e879-7d9e-4924-b387-68cfab68cec6",
+          "settings": {
+            "layout": "column",
+            "wrap_align": "start",
+            "column_gap": 16,
+            "row_gap": 8,
+            "Abstand_oben": 0,
+            "Abstand_unten": 0,
+            "icon_1_demo_url": "/apps/sternify/placeholder/icon.svg?a=FF6A13&d=FF6A13&v=0&g=1&role=pageAccent",
+            "text_1": "Livraison gratuite",
+            "icon_2_demo_url": "/apps/sternify/placeholder/icon.svg?a=FF6A13&d=FF6A13&v=1&g=1&role=pageAccent",
+            "text_2": "Garantie 2 ans sur le tapis de marche",
+            "icon_3_demo_url": "/apps/sternify/placeholder/icon.svg?a=FF6A13&d=FF6A13&v=2&g=1&role=pageAccent",
+            "text_3": "14 jours pour changer d’avis",
+            "icon_4_demo_url": "/apps/sternify/placeholder/icon.svg?a=FF6A13&d=FF6A13&v=3&g=1&role=pageAccent",
+            "text_4": "8 équipements réunis en un seul achat",
+            "icon_5_demo_url": "/apps/sternify/placeholder/icon.svg?a=FF6A13&d=FF6A13&v=4&g=1&role=pageAccent",
+            "text_5": "Cardio, renforcement et suivi dans un seul pack",
+            "text_color": "#1a1a1a",
+            "text_size": 15,
+            "font_family": "poppins_n4",
+            "icon_size": 20,
+            "icon_fit": "natural",
+            "enable_card_mode": false,
+            "card_background_color": "#f9f9f9",
+            "bg_gradient": "",
+            "card_border_radius": 8,
+            "card_padding": 16,
+            "card_border_thickness": 0,
+            "card_border_style": "solid",
+            "card_border_color": "#d5d5d5"
+          }
+        },
+        "variant_picker_4_product_information": {
+          "type": "variant_picker",
+          "disabled": true,
+          "settings": {
+            "picker_type": "pills",
+            "enable_color_swatches": true,
+            "swatch_method": "color_list",
+            "swatch_color_map": "",
+            "pill_bg_color": "#f9f9f9",
+            "pill_text_color": "#1a1a1a",
+            "pill_border_color": "#d5d5d5",
+            "pill_selected_bg_color": "#f9f9f9",
+            "pill_selected_text_color": "#1a1a1a",
+            "pill_selected_border_color": "#ff6a13"
+          }
+        },
+        "app_inventory_4_1": {
+          "type": "shopify://apps/sternify/blocks/inventory/fcc6e879-7d9e-4924-b387-68cfab68cec6",
+          "settings": {
+            "inventory_tracking": "manual",
+            "Abstand_oben": 0,
+            "Abstand_unten": 0,
+            "mode": "available",
+            "inventory_text": "En stock",
+            "font_picker": "poppins_n4",
+            "font_size": 14,
+            "dynamic_available_text": "En stock",
+            "dynamic_sold_out_text": "Épuisé",
+            "product": ""
+          }
+        },
+        "quantity_5_product_information": {
+          "type": "quantity",
+          "settings": {}
+        },
+        "buy_buttons_6_product_information": {
+          "type": "buy_buttons",
+          "settings": {
+            "atc_text": "Ajouter au panier",
+            "atc_icon_demo_url": "",
+            "show_price_in_button": true,
+            "sold_out_text": "Épuisé",
+            "added_text": "Ajouté au panier",
+            "unavailable_text": "Non disponible",
+            "after_add": "stay",
+            "atc_bg_color": "#ff6a13",
+            "atc_gradient_enable": false,
+            "atc_gradient": "linear-gradient(99deg, #FF6A13 0%, #FF6A13 100%)",
+            "atc_text_color": "#ffffff",
+            "atc_border_radius": 8,
+            "atc_style": "key",
+            "atc_shadow_color": "#1a1a1a",
+            "show_cart_note": true,
+            "cart_note": "Livraison gratuite, 14 jours pour changer d’avis, garantie 2 ans sur le tapis",
+            "cart_note_icon_demo_url": "",
+            "cart_note_color": "#5a5a5a"
+          }
+        },
+        "app_payment_icons_6_1": {
+          "type": "shopify://apps/sternify/blocks/payment_icons/fcc6e879-7d9e-4924-b387-68cfab68cec6",
+          "settings": {
+            "Abstand_oben": 0,
+            "Abstand_unten": 0,
+            "alignment": "center",
+            "icon_height": 25,
+            "icon_gap": 5,
+            "grayscale": false,
+            "grayscale_opacity": 70,
+            "color_on_hover": true,
+            "show_secure_line": false,
+            "secure_text": "Paiement sécurisé",
+            "secure_text_size": 12,
+            "secure_text_color": "#1a1a1a",
+            "paypal": true,
+            "amex": true,
+            "klarna_rechnung": false,
+            "klarna_sofort": false,
+            "visa": true,
+            "mastercard": true,
+            "maestro": false,
+            "klarna": false,
+            "apple_pay": true,
+            "google_pay": true,
+            "shoppay": false,
+            "unionpay": false,
+            "twint": false,
+            "qrpayment": false,
+            "ideal": false,
+            "bancontact": false,
+            "efecty": false,
+            "nequi": false,
+            "pse": false,
+            "payu": false
+          }
+        },
+        "app_ugc_slider_6_2": {
+          "type": "shopify://apps/sternify/blocks/ugc_slider/fcc6e879-7d9e-4924-b387-68cfab68cec6",
+          "disabled": true,
+          "settings": {
+            "show_header": false,
+            "header_text": "",
+            "header_text_color": "#1a1a1a",
+            "header_highlight_mode": "solid",
+            "header_highlight_color": "#ff6a13",
+            "header_highlight_gradient": "linear-gradient(99deg, #1A1A1A 0%, #FF6A13 100%)",
+            "header_alignment": "center",
+            "header_font": "poppins_n4",
+            "header_font_size": 20,
+            "show_header_stars": true,
+            "header_star_style": "trustpilot",
+            "header_star_rating": 4.5,
+            "spacing_top": 0,
+            "spacing_bottom": 0,
+            "autoplay": true,
+            "show_nav_buttons": false,
+            "nav_bg_color": "#f9f9f9",
+            "nav_icon_color": "#1a1a1a",
+            "show_nav_border": false,
+            "nav_border_color": "#d5d5d5",
+            "show_play_button": true,
+            "play_position": "center",
+            "play_icon_size": 40,
+            "play_icon_color": "#ffffff",
+            "show_play_bg": true,
+            "play_bg_color": "#ffffff",
+            "play_overlay_opacity": 20,
+            "play_bg_blur": 4,
+            "show_play_border": false,
+            "play_border_color": "#ffffff",
+            "enable_block_bg": false,
+            "block_bg_color": "#f9f9f9",
+            "block_bg_radius": 12,
+            "slide_border_radius": 10,
+            "modal_mode": "fullscreen",
+            "modal_border_radius": 14,
+            "enable_video_progress": false,
+            "video_progress_position": "top",
+            "card_circular": false,
+            "circle_size": 96,
+            "show_card_border": false,
+            "card_border_color": "#dadada",
+            "enable_pagination": true,
+            "pagination_style": "progressbar",
+            "pagination_color": "#dadada",
+            "pagination_active_color": "#ff6a13",
+            "slide_1_active": true,
+            "slide_1_video_demo_url": "",
+            "slide_1_poster_demo_url": "",
+            "slide_2_active": true,
+            "slide_2_video_demo_url": "",
+            "slide_2_poster_demo_url": "",
+            "slide_3_active": true,
+            "slide_3_video_demo_url": "",
+            "slide_3_poster_demo_url": "",
+            "slide_4_active": true,
+            "slide_4_video_demo_url": "",
+            "slide_4_poster_demo_url": "",
+            "slide_5_active": true,
+            "slide_5_video_demo_url": "",
+            "slide_5_poster_demo_url": "",
+            "slide_6_active": false,
+            "slide_6_video_demo_url": "",
+            "slide_6_poster_demo_url": ""
+          }
+        },
+        "app_shipping_timeline_6_3": {
+          "type": "shopify://apps/sternify/blocks/shipping_timeline/fcc6e879-7d9e-4924-b387-68cfab68cec6",
+          "settings": {
+            "Abstand_oben": 0,
+            "Abstand_unten": 0,
+            "shipping_time_enabled": true,
+            "shipping_time": 3,
+            "delivery_time": 10,
+            "buffer_time": 5,
+            "calculate_weekends": false,
+            "show_shipping_days_as_text": false,
+            "cutoff_hour": 0,
+            "ordered_text": "Commandé",
+            "ordered_text_under": "Aujourd’hui",
+            "shipped_text": "Expédié",
+            "arrived_text": "Livré chez vous",
+            "delivery_text_enabled": true,
+            "delivery_text_start": "Commandez d’ici",
+            "delivery_text_end": "recevez-le dès le",
+            "delivery_hours": "heures",
+            "delivery_minutes": "min",
+            "animated_line": true,
+            "box_color": "#f9f9f9",
+            "bg_gradient": "",
+            "text_color": "#1a1a1a",
+            "icon_color": "#1a1a1a",
+            "hours_color": "#ff6a13",
+            "icon_size": 30
+          }
+        },
+        "gallery_box_7_product_information": {
+          "type": "gallery_box",
+          "settings": {
+            "icon": "check",
+            "custom_icon_demo_url": "/apps/sternify/icon/check-circle.svg?c=FF6A13&s=24&w=fill&g=FF6A13&role=sectionAccent",
+            "heading": "Solution globale",
+            "text": "8 équipements réunis"
+          }
+        },
+        "gallery_box_8_product_information": {
+          "type": "gallery_box",
+          "settings": {
+            "icon": "shield",
+            "custom_icon_demo_url": "/apps/sternify/icon/house.svg?c=FF6A13&s=24&w=fill&g=FF6A13&role=sectionAccent",
+            "heading": "Gain de place",
+            "text": "Tapis de marche pliable"
+          }
+        },
+        "gallery_box_9_product_information": {
+          "type": "gallery_box",
+          "settings": {
+            "icon": "leaf",
+            "custom_icon_demo_url": "/apps/sternify/icon/shield-check.svg?c=FF6A13&s=24&w=fill&g=FF6A13&role=sectionAccent",
+            "heading": "Confort sonore",
+            "text": "Tapis Fitness Pro anti-bruit"
+          }
+        },
+        "collapsible_row_10_product_information": {
+          "type": "collapsible_row",
+          "settings": {
+            "icon": "check",
+            "heading": "Contenu du pack",
+            "content": "<p>Le pack comprend : 1 tapis de marche pliable, 1 montre connectée, 1 tapis Fitness Pro anti-bruit, 1 lot d’haltères, 1 barre de musculation, 1 gourde Tritan, 1 brassard sport et 1 ceinture de sudation.</p>",
+            "open_default": false
+          }
+        },
+        "collapsible_row_11_product_information": {
+          "type": "collapsible_row",
+          "settings": {
+            "icon": "shield",
+            "heading": "Mise en route &amp; Conseils",
+            "content": "<p>Installez le tapis Fitness Pro sur une surface plane pour protéger votre sol. Dépliez le tapis de marche, attachez la montre connectée à votre poignet et suivez les consignes de sécurité de la notice avant votre première séance.</p>",
+            "open_default": false
+          }
+        },
+        "collapsible_row_12_product_information": {
+          "type": "collapsible_row",
+          "settings": {
+            "icon": "leaf",
+            "heading": "Livraison &amp; Garantie",
+            "content": "<p>Livraison gratuite à domicile. Vous disposez de 14 jours après réception pour changer d’avis et d’une garantie de 2 ans sur le tapis de marche.</p>",
+            "open_default": false
+          }
+        },
+        "cause_banner_13_product_information": {
+          "type": "cause_banner",
+          "settings": {
+            "text": "<p><strong>Garantie 2 ans sur le tapis de marche</strong>, 14 jours pour changer d’avis et livraison gratuite.</p>",
+            "icon_demo_url": "/apps/sternify/icon/shield-check.svg?c=FF6A13&s=24&w=fill&g=FF6A13&role=sectionAccent"
+          }
+        }
+      },
+      "block_order": [
+        "title_1_product_information",
+        "app_review_stars_1_1",
+        "subtitle_2_product_information",
+        "app_trust_badge_2_1",
+        "price_3_product_information",
+        "app_benefit_usp_with_icons_3_1",
+        "variant_picker_4_product_information",
+        "app_inventory_4_1",
+        "quantity_5_product_information",
+        "buy_buttons_6_product_information",
+        "app_payment_icons_6_1",
+        "app_ugc_slider_6_2",
+        "app_shipping_timeline_6_3",
+        "gallery_box_7_product_information",
+        "gallery_box_8_product_information",
+        "gallery_box_9_product_information",
+        "collapsible_row_10_product_information",
+        "collapsible_row_11_product_information",
+        "collapsible_row_12_product_information",
+        "cause_banner_13_product_information"
+      ],
+      "name": "Sternify - Product Information",
+      "settings": {
+        "margin_top": 0,
+        "margin_bottom": 50,
+        "max_width": 1400,
+        "section_bg_color": "#ffffff",
+        "section_bg_gradient_enable": false,
+        "section_bg_gradient": "linear-gradient(99deg, #FFFFFF 0%, #FFFFFF 100%)",
+        "media_position": "left",
+        "heading_font": "poppins_n6",
+        "body_font": "poppins_n4",
+        "image_ratio": "square",
+        "cause_bg_color": "#f9f9f9",
+        "cause_text_color": "#1a1a1a",
+        "cause_icon_color": "#ff6a13",
+        "cause_text_size": 15,
+        "thumbs_align_desktop": "center",
+        "thumbs_align_mobile": "center",
+        "thumbs_size_desktop": 84,
+        "thumbs_size_mobile": 72,
+        "show_gallery_arrows": true,
+        "arrow_bg_color": "#f9f9f9",
+        "arrow_icon_color": "#1a1a1a",
+        "image_border_radius": 8,
+        "gallery_boxes_position": "right",
+        "gallery_boxes_show_mobile": false,
+        "gallery_boxes_width": 120,
+        "gallery_boxes_gap": 8,
+        "gallery_box_bg_color": "#f9f9f9",
+        "gallery_box_gradient_enable": false,
+        "gallery_box_gradient": "linear-gradient(99deg, #1A1A1A 0%, #FF6A13 100%)",
+        "gallery_box_border_enable": true,
+        "gallery_box_border_color": "#d5d5d5",
+        "gallery_box_border_width": 1,
+        "gallery_box_text_color": "#1a1a1a",
+        "gallery_box_icon_color": "#ff6a13",
+        "gallery_box_icon_gradient_enable": true,
+        "gallery_box_icon_gradient_start": "#ff6a13",
+        "gallery_box_icon_gradient_end": "#ff6a13",
+        "gallery_box_radius": 8,
+        "row_border_color": "#dadada",
+        "row_text_color": "#1a1a1a",
+        "row_icon_color": "#ff6a13"
+      }
+    },
+    "buy_now_button": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"fm-bn-src\" data-fm-bn-src hidden>\n  <button type=\"button\" class=\"fm-bn\" data-fm-buy-now {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}>\n    <span data-fm-bn-label>Acheter maintenant</span>\n  </button>\n</div>\n<style>\n  .fm-bn { display:flex; align-items:center; justify-content:center; width:100%; min-height:52px; margin-top:10px; padding:14px 20px; background:#1A1A1A; color:#FFFFFF; border:0; border-radius:8px; font:inherit; font-size:16px; font-weight:700; letter-spacing:.02em; cursor:pointer; transition:opacity .15s ease; }\n  .fm-bn:hover:not(:disabled) { opacity:.88; }\n  .fm-bn:disabled { opacity:.5; cursor:not-allowed; }\n</style>\n<script>\n  (function () {\n    function place() {\n      var src = document.querySelector('[data-fm-bn-src]');\n      var atc = document.querySelector('form.st_pi-form [data-st-atc]');\n      if (!src || !atc) return;\n      var btn = src.querySelector('[data-fm-buy-now]');\n      if (!btn || btn.dataset.fmBound) return;\n      btn.dataset.fmBound = '1';\n      atc.insertAdjacentElement('afterend', btn);\n      var section = src.closest('.shopify-section');\n      if (section) section.style.display = 'none';\n      var form = atc.closest('form');\n      function sync() { btn.disabled = atc.disabled || atc.hasAttribute('data-st-disabled'); }\n      if (window.MutationObserver) new MutationObserver(sync).observe(atc, { attributes: true, attributeFilter: ['disabled', 'data-st-disabled'] });\n      btn.addEventListener('click', function () {\n        if (btn.disabled) return;\n        var idInput = form.querySelector('[data-st-variant-id]') || form.querySelector('[name=\"id\"]');\n        var variantId = idInput && idInput.value;\n        if (!variantId) return;\n        var qtyInput = (form.id && document.querySelector('[data-st-qty-input][form=\"' + form.id + '\"]')) || form.querySelector('[data-st-qty-input]');\n        var qty = Math.max(1, parseInt(qtyInput && qtyInput.value, 10) || 1);\n        var label = btn.querySelector('[data-fm-bn-label]');\n        var original = label.textContent;\n        var root = (window.Shopify && window.Shopify.routes && window.Shopify.routes.root) || '/';\n        btn.disabled = true;\n        label.textContent = 'Redirection vers le paiement…';\n        fetch(root + 'cart/add.js', {\n          method: 'POST',\n          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },\n          body: JSON.stringify({ items: [{ id: Number(variantId), quantity: qty }] })\n        }).then(function (res) {\n          if (!res.ok) return res.json().then(function (e) { throw new Error(e.description || e.message || 'Erreur'); });\n          window.location.href = root + 'checkout';\n        }).catch(function (err) {\n          btn.disabled = false;\n          label.textContent = original;\n          var box = form.querySelector('[data-st-error]');\n          if (box) box.textContent = err.message || 'Impossible d’ajouter ce produit au panier.';\n        });\n      });\n    }\n    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', place); else place();\n    document.addEventListener('shopify:section:load', place);\n  })();\n</script>\n{%- if product.tags contains 'promo-10' -%}\n{%- assign fm_full = product.selected_or_first_available_variant.price -%}\n{%- assign fm_disc = fm_full | times: 0.9 | round -%}\n<script>\n  (function () {\n    var FULL = {{ fm_full | money | strip_html | json }};\n    var DISC = {{ fm_disc | money | strip_html | json }};\n    function apply() {\n      var p = document.querySelector('[data-st-price]');\n      var c = document.querySelector('[data-st-compare]');\n      var b = document.querySelector('[data-st-sale-badge]');\n      var l = document.querySelector('[data-st-atc-label]');\n      if (p && p.textContent.trim() !== DISC) p.textContent = DISC;\n      if (c && (c.textContent.trim() !== FULL || c.style.display === 'none')) { c.textContent = FULL; c.style.display = ''; }\n      if (b && (b.textContent.trim() !== '-10%' || !b.classList.contains('is-visible'))) { b.textContent = '-10%'; b.classList.add('is-visible'); }\n      if (l && l.textContent.indexOf(FULL) !== -1) l.textContent = l.textContent.split(FULL).join(DISC);\n    }\n    function init() {\n      apply();\n      if (!window.MutationObserver) return;\n      var mo = new MutationObserver(apply);\n      var row = document.querySelector('.st_pi-price-row');\n      var l = document.querySelector('[data-st-atc-label]');\n      if (row) mo.observe(row, { childList: true, characterData: true, subtree: true, attributes: true });\n      if (l) mo.observe(l, { childList: true, characterData: true, subtree: true });\n    }\n    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();\n  })();\n</script>\n{%- endif -%}\n",
+        "background_color": "",
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "scrolling_benefits": {
+      "type": "st_scrolling-benefits",
+      "blocks": {
+        "benefit_1_scrolling_benefits": {
+          "type": "benefit",
+          "settings": {
+            "icon_demo_url": "/apps/sternify/icon/package.svg?c=FF6A13&s=48&w=duotone&g=FF6A13&role=pageAccent",
+            "benefit_text": "8 équipements réunis en un seul pack"
+          }
+        },
+        "benefit_2_scrolling_benefits": {
+          "type": "benefit",
+          "settings": {
+            "icon_demo_url": "/apps/sternify/icon/shield-check.svg?c=FF6A13&s=48&w=duotone&g=FF6A13&role=pageAccent",
+            "benefit_text": "Tapis de marche pliable"
+          }
+        },
+        "benefit_3_scrolling_benefits": {
+          "type": "benefit",
+          "settings": {
+            "icon_demo_url": "/apps/sternify/icon/moon.svg?c=FF6A13&s=48&w=duotone&g=FF6A13&role=pageAccent",
+            "benefit_text": "Tapis Fitness Pro anti-bruit"
+          }
+        },
+        "benefit_4_scrolling_benefits": {
+          "type": "benefit",
+          "settings": {
+            "icon_demo_url": "/apps/sternify/icon/chart-bar.svg?c=FF6A13&s=48&w=duotone&g=FF6A13&role=pageAccent",
+            "benefit_text": "Suivi de vos progrès avec la montre connectée"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_1_scrolling_benefits",
+        "benefit_2_scrolling_benefits",
+        "benefit_3_scrolling_benefits",
+        "benefit_4_scrolling_benefits"
+      ],
+      "name": "Sternify - Scrolling Benefits",
+      "settings": {
+        "margin_top": 50,
+        "margin_bottom": 50,
+        "section_background_color": "#ffffff",
+        "full_width": false,
+        "max_width": 1400,
+        "enable_card_layout": false,
+        "section_bg_color": "#ffffff",
+        "show_header": false,
+        "content_gap": 15,
+        "header_title": "Vos [avantages clés]",
+        "header_title_color": "#1a1a1a",
+        "header_title_highlight_mode": "gradient",
+        "header_title_highlight_color": "#ff6a13",
+        "header_title_highlight_gradient": "linear-gradient(99deg, #1A1A1A 0%, #FF6A13 100%)",
+        "header_title_font": "poppins_n6",
+        "header_title_fontsize_desktop": 30,
+        "header_title_fontsize_mobile": 24,
+        "header_subtitle": "L'expérience d'entraînement complète sans quitter votre salon",
+        "header_subtitle_color": "#5a5a5a",
+        "header_subtitle_font": "poppins_n4",
+        "header_subtitle_fontsize_desktop": 16,
+        "header_subtitle_fontsize_mobile": 14,
+        "benefit_text_color": "#1a1a1a",
+        "benefit_text_font": "poppins_n4",
+        "benefit_text_size_desktop": 14,
+        "benefit_text_size_mobile": 12,
+        "black_white_filter": false,
+        "icon_size": 32,
+        "icon_size_mobile": 28,
+        "spacing_between": 60,
+        "scroll_speed": 30,
+        "scroll_direction": "left",
+        "pause_on_hover": false,
+        "show_slider_fade": true
+      }
+    },
+    "media_and_content": {
+      "type": "st_media-and-content",
+      "blocks": {
+        "title_1_media_and_content": {
+          "type": "title",
+          "settings": {
+            "heading_text": "Cardio et renforcement, [tout en un] seul pack",
+            "title_color": "#1a1a1a",
+            "header_title_highlight_mode": "gradient",
+            "highlight_color": "#ff6a13",
+            "header_title_highlight_gradient": "linear-gradient(99deg, #1A1A1A 0%, #FF6A13 100%)",
+            "title_font": "poppins_n6",
+            "title_size": 30,
+            "mobile_title_size": 24,
+            "title_line_height": 1.2
+          }
+        },
+        "description_2_media_and_content": {
+          "type": "description",
+          "settings": {
+            "description": "<p>Plus besoin de jongler avec plusieurs équipements et plusieurs achats. Un tapis de marche pliable et une montre connectée pour le cardio et le suivi de vos progrès, un tapis Fitness Pro anti-bruit pour protéger votre sol, un lot d’haltères et une barre pour le renforcement, ainsi qu’une gourde Tritan, un brassard sport et une ceinture de sudation pour compléter chaque séance.</p>",
+            "description_font": "poppins_n4",
+            "description_size": 16,
+            "description_line_height": 1.7,
+            "mobile_description_size": 14,
+            "description_color": "#585858"
+          }
+        },
+        "icon_and_text_3_media_and_content": {
+          "type": "icon_and_text",
+          "settings": {
+            "feature_text": "Cardio avec tapis de marche et montre",
+            "icon_demo_url": "/apps/sternify/icon/trend-up.svg?c=FF6A13&s=48&w=duotone&g=FF6A13&role=sectionAccent",
+            "feature_font": "poppins_n4",
+            "feature_size": 15,
+            "feature_color": "#1a1a1a",
+            "icon_size": 20,
+            "icon_background": "#ff6a13",
+            "icon_color": "#ffffff",
+            "icon_opacity": 1
+          }
+        },
+        "icon_and_text_4_media_and_content": {
+          "type": "icon_and_text",
+          "settings": {
+            "feature_text": "Tapis anti-bruit pour protéger le sol",
+            "icon_demo_url": "/apps/sternify/icon/shield-check.svg?c=FF6A13&s=48&w=duotone&g=FF6A13&role=sectionAccent",
+            "feature_font": "poppins_n4",
+            "feature_size": 15,
+            "feature_color": "#1a1a1a",
+            "icon_size": 20,
+            "icon_background": "#ff6a13",
+            "icon_color": "#ffffff",
+            "icon_opacity": 1
+          }
+        },
+        "icon_and_text_5_media_and_content": {
+          "type": "icon_and_text",
+          "settings": {
+            "feature_text": "Renforcement avec haltères et barre",
+            "icon_demo_url": "/apps/sternify/icon/target.svg?c=FF6A13&s=48&w=duotone&g=FF6A13&role=sectionAccent",
+            "feature_font": "poppins_n4",
+            "feature_size": 15,
+            "feature_color": "#1a1a1a",
+            "icon_size": 20,
+            "icon_background": "#ff6a13",
+            "icon_color": "#ffffff",
+            "icon_opacity": 1
+          }
+        },
+        "social_proof_6_media_and_content": {
+          "type": "social_proof",
+          "disabled": true,
+          "settings": {
+            "avatar_demo_url": "/apps/sternify/placeholder/avatar.svg?a=FF6A13&d=1A1A1A&v=6",
+            "testimonial": "",
+            "customer_name": "",
+            "rating": 4.5,
+            "star_color": "#ffb800",
+            "star_color_background": "#e1e1e1",
+            "star_size": 16,
+            "show_border": true,
+            "border_color": "#d9d9d9",
+            "background_color": "#fdfdfd",
+            "border_radius": 8,
+            "padding": 20,
+            "avatar_size": 50,
+            "testimonial_font": "poppins_n4",
+            "testimonial_size": 16,
+            "testimonial_color": "#1a1a1a",
+            "name_font": "poppins_n6",
+            "name_size": 14,
+            "name_color": "#1a1a1a"
+          }
+        }
+      },
+      "block_order": [
+        "title_1_media_and_content",
+        "description_2_media_and_content",
+        "icon_and_text_3_media_and_content",
+        "icon_and_text_4_media_and_content",
+        "icon_and_text_5_media_and_content",
+        "social_proof_6_media_and_content"
+      ],
+      "name": "Sternify - Media and Content",
+      "settings": {
+        "media_type": "image",
+        "image": "shopify://shop_images/image_25da0335-5809-4e85-8ee5-91eb10088c52.png",
+        "image_demo_url": "/apps/sternify/placeholder/square.svg?a=FF6A13&d=1A1A1A&v=5",
+        "video_file_demo_url": "",
+        "video_with_sound": false,
+        "video_poster_demo_url": "",
+        "play_button_color": "#ffffff",
+        "play_button_background": "#00000099",
+        "desktop_layout": "media_right",
+        "mobile_layout": "media_top",
+        "content_padding": 40,
+        "content_gap": 25,
+        "space_from_top": 50,
+        "space_from_bottom": 50,
+        "section_background_color": "#ffffff",
+        "full_width": false,
+        "section_max_width": 1400,
+        "box_enabled": true,
+        "border_radius": 8,
+        "background_color": "#f9f9f9"
+      }
+    },
+    "features_icons": {
+      "type": "st_features-icons",
+      "blocks": {
+        "feature_1_features_icons": {
+          "type": "feature",
+          "settings": {
+            "icon_demo_url": "/apps/sternify/icon/house.svg?c=FF6A13&s=48&w=duotone&g=FF6A13&role=pageAccent",
+            "title": "Tapis de marche pliable"
+          }
+        },
+        "feature_2_features_icons": {
+          "type": "feature",
+          "settings": {
+            "icon_demo_url": "/apps/sternify/icon/chart-bar.svg?c=FF6A13&s=48&w=duotone&g=FF6A13&role=pageAccent",
+            "title": "Suivi en temps réel"
+          }
+        },
+        "feature_3_features_icons": {
+          "type": "feature",
+          "settings": {
+            "icon_demo_url": "/apps/sternify/icon/shield-check.svg?c=FF6A13&s=48&w=duotone&g=FF6A13&role=pageAccent",
+            "title": "Tapis anti-bruit"
+          }
+        },
+        "feature_4_features_icons": {
+          "type": "feature",
+          "settings": {
+            "icon_demo_url": "/apps/sternify/icon/drop.svg?c=FF6A13&s=48&w=duotone&g=FF6A13&role=pageAccent",
+            "title": "Gourde Tritan"
+          }
+        },
+        "feature_5_features_icons": {
+          "type": "feature",
+          "settings": {
+            "icon_demo_url": "/apps/sternify/icon/barbell.svg?c=FF6A13&s=48&w=duotone&g=FF6A13&role=pageAccent",
+            "title": "Renforcement musculaire"
+          }
+        },
+        "feature_6_features_icons": {
+          "type": "feature",
+          "settings": {
+            "icon_demo_url": "/apps/sternify/icon/truck.svg?c=FF6A13&s=48&w=duotone&g=FF6A13&role=pageAccent",
+            "title": "Livraison offerte"
+          }
+        }
+      },
+      "block_order": [
+        "feature_1_features_icons",
+        "feature_2_features_icons",
+        "feature_3_features_icons",
+        "feature_4_features_icons",
+        "feature_5_features_icons",
+        "feature_6_features_icons"
+      ],
+      "name": "Sternify - Features Icons",
+      "settings": {
+        "margin_top": 50,
+        "margin_bottom": 50,
+        "section_background_color": "#ffffff",
+        "full_width": false,
+        "max_width": 1400,
+        "desktop_card_layout": false,
+        "section_bg_color": "#ffffff",
+        "section_scroll_on_mobile": true,
+        "header_font": "poppins_n6",
+        "section_title": "L'essentiel [clé en main]",
+        "header_title_highlight_mode": "gradient",
+        "header_title_highlight_color": "#ff6a13",
+        "header_title_highlight_gradient": "linear-gradient(99deg, #1A1A1A 0%, #FF6A13 100%)",
+        "header_color": "#1a1a1a",
+        "header_fontsize_desktop": 30,
+        "header_fontsize_mobile": 24,
+        "section_subtitle_font": "poppins_n3",
+        "section_subtitle": "Tout le nécessaire pour courir et vous muscler chez vous",
+        "section_subtitle_color": "#5a5a5a",
+        "section_subtitle_fontsize_desktop": 16,
+        "section_subtitle_fontsize_mobile": 14,
+        "feature_gap": 5,
+        "feature_bg_enable": false,
+        "feature_bg_color": "#f9f9f9",
+        "feature_shadow": false,
+        "feature_border_radius": 8,
+        "feature_hover_effect": false,
+        "icon_size": 70,
+        "icon_margin_bottom": 15,
+        "icon_bg_enable": false,
+        "icon_bg_color": "#f9f9f9",
+        "icon_padding": 15,
+        "icon_border_radius": 50,
+        "feature_title_font": "poppins_n5",
+        "feature_title_fontsize": 16,
+        "feature_title_color": "#1a1a1a"
+      }
+    },
+    "stats_with_image": {
+      "type": "st_stats-with-image",
+      "blocks": {
+        "stat_1_stats_with_image": {
+          "type": "stat",
+          "settings": {
+            "stat_text": "",
+            "stat_title": "Zone protégée",
+            "stat_subtitle": ""
+          }
+        },
+        "stat_2_stats_with_image": {
+          "type": "stat",
+          "settings": {
+            "stat_text": "",
+            "stat_title": "Pente maximale",
+            "stat_subtitle": ""
+          }
+        },
+        "stat_3_stats_with_image": {
+          "type": "stat",
+          "settings": {
+            "stat_text": "",
+            "stat_title": "Épaisseur dalle",
+            "stat_subtitle": ""
+          }
+        }
+      },
+      "block_order": [
+        "stat_1_stats_with_image",
+        "stat_2_stats_with_image",
+        "stat_3_stats_with_image"
+      ],
+      "disabled": true,
+      "name": "Sternify - Stats with Image",
+      "settings": {
+        "margin_top": 50,
+        "margin_bottom": 50,
+        "section_background_color": "#ffffff",
+        "full_width": false,
+        "max_width": 1400,
+        "desktop_card_layout": true,
+        "bg_color_mode": "solid",
+        "section_bg_color_solid": "#f9f9f9",
+        "section_bg_color_gradient": "linear-gradient(99deg, #F9F9F9 0%, #F9F9F9 100%)",
+        "header_alignment": "center",
+        "header_title": "La [précision] en chiffres",
+        "header_title_color": "#1a1a1a",
+        "header_title_highlight_mode": "gradient",
+        "header_title_highlight_color_solid": "#ff6a13",
+        "header_title_highlight_color_gradient": "linear-gradient(99deg, #1A1A1A 0%, #FF6A13 100%)",
+        "header_title_font": "poppins_n6",
+        "header_title_fontsize_desktop": 30,
+        "header_title_fontsize_mobile": 24,
+        "header_subtitle": "Des spécifications validées pour un entraînement serein.",
+        "header_subtitle_color": "#585858",
+        "header_subtitle_font": "poppins_n4",
+        "header_subtitle_fontsize_desktop": 16,
+        "header_subtitle_fontsize_mobile": 14,
+        "stat_color_mode": "solid",
+        "stat_color_solid": "#ff6a13",
+        "stat_color_gradient": "linear-gradient(99deg, #1A1A1A 0%, #FF6A13 100%)",
+        "stat_font": "poppins_n6",
+        "stat_fontsize_desktop": 48,
+        "stat_fontsize_mobile": 36,
+        "stat_title_color": "#1a1a1a",
+        "stat_title_font": "poppins_n6",
+        "stat_title_fontsize_desktop": 16,
+        "stat_title_fontsize_mobile": 14,
+        "stat_subtitle_color": "#585858",
+        "stat_subtitle_font": "poppins_n4",
+        "stat_subtitle_fontsize_desktop": 14,
+        "stat_subtitle_fontsize_mobile": 13,
+        "stat_divider": true,
+        "stat_divider_color": "#d5d5d5",
+        "image_demo_url": "/apps/sternify/placeholder/square.svg?a=FF6A13&d=1A1A1A&v=7",
+        "desktop_image_position": "right",
+        "image_size": 45,
+        "image_border_radius": 8,
+        "show_footer": true,
+        "footer_text": "",
+        "footer_text_color": "#1a1a1a",
+        "footer_text_font": "poppins_n4",
+        "footer_text_fontsize_desktop": 13,
+        "footer_text_fontsize_mobile": 12,
+        "footer_icon_demo_url": "/apps/sternify/placeholder/icon.svg?a=FF6A13&d=FF6A13&v=8&g=1&role=sectionAccent",
+        "footer_icon_size": 16,
+        "footer_border_color": "#d5d5d5"
+      }
+    },
+    "how_to": {
+      "type": "st_how-to",
+      "blocks": {
+        "step_1_how_to": {
+          "type": "step",
+          "settings": {
+            "icon_image_demo_url": "/apps/sternify/icon/house.svg?c=FF6A13&s=48&w=duotone&g=FF6A13&role=pageAccent",
+            "title": "Installez la zone",
+            "description": "<p>Posez le tapis Fitness Pro anti-bruit sur votre sol pour le protéger et limiter le bruit.</p>",
+            "show_button": false,
+            "button_text": "Découvrir le tapis",
+            "button_link": ""
+          }
+        },
+        "step_2_how_to": {
+          "type": "step",
+          "settings": {
+            "icon_image_demo_url": "/apps/sternify/icon/lightning.svg?c=FF6A13&s=48&w=duotone&g=FF6A13&role=pageAccent",
+            "title": "Déployez le tapis",
+            "description": "<p>Dépliez le tapis de marche en suivant la notice fournie.</p>",
+            "show_button": false,
+            "button_text": "Voir le châssis",
+            "button_link": ""
+          }
+        },
+        "step_3_how_to": {
+          "type": "step",
+          "settings": {
+            "icon_image_demo_url": "/apps/sternify/icon/chart-bar.svg?c=FF6A13&s=48&w=duotone&g=FF6A13&role=pageAccent",
+            "title": "Synchronisez la montre",
+            "description": "<p>Passez la montre connectée au poignet pour suivre votre activité et vos progrès.</p>",
+            "show_button": false,
+            "button_text": "Lancer le capteur",
+            "button_link": ""
+          }
+        },
+        "step_4_how_to": {
+          "type": "step",
+          "settings": {
+            "icon_image_demo_url": "/apps/sternify/icon/flame.svg?c=FF6A13&s=48&w=duotone&g=FF6A13&role=pageAccent",
+            "title": "Lancez la séance",
+            "description": "<p>Remplissez votre gourde, équipez-vous du brassard et de la ceinture, puis lancez votre séance de cardio ou de renforcement.</p>",
+            "show_button": false,
+            "button_text": "Commencer la séance",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "step_1_how_to",
+        "step_2_how_to",
+        "step_3_how_to",
+        "step_4_how_to"
+      ],
+      "name": "Sternify - How It Works",
+      "settings": {
+        "margin_top": 50,
+        "margin_bottom": 50,
+        "section_background_color": "#ffffff",
+        "full_width": false,
+        "max_width": 1400,
+        "desktop_card_layout": false,
+        "section_bg_color": "#ffffff",
+        "mobile_layout": "swiper",
+        "header_font": "poppins_n6",
+        "section_title": "Prêt à courir en [4 étapes simples]",
+        "header_title_highlight_mode": "gradient",
+        "header_title_highlight_color": "#ff6a13",
+        "header_title_highlight_gradient": "linear-gradient(99deg, #1A1A1A 0%, #FF6A13 100%)",
+        "header_color": "#1a1a1a",
+        "header_fontsize_desktop": 30,
+        "header_fontsize_mobile": 24,
+        "section_subtitle_font": "poppins_n3",
+        "section_subtitle": "De la réception du colis à votre première séance",
+        "section_subtitle_color": "#5a5a5a",
+        "section_subtitle_fontsize_desktop": 16,
+        "section_subtitle_fontsize_mobile": 14,
+        "horizontal_alignment": "left",
+        "card_gap": 20,
+        "card_bg_color": "#f9f9f9",
+        "card_border_radius": 8,
+        "add_line_break": true,
+        "brakeline_color": "#dadada",
+        "card_shadow": false,
+        "icon_size": 50,
+        "icon_padding": 12,
+        "icon_bg_enable": true,
+        "icon_bg_color": "#f9f9f9",
+        "icon_border_radius": 50,
+        "number_icon_color": "#ff6a13",
+        "card_title_font": "poppins_n5",
+        "card_title_fontsize": 20,
+        "card_title_color": "#1a1a1a",
+        "card_title_hover_effect": true,
+        "card_description_font": "poppins_n4",
+        "card_description_fontsize": 14,
+        "card_description_color": "#585858",
+        "button_font": "poppins_n6",
+        "button_fontsize": 16,
+        "button_text_color": "#1a1a1a",
+        "button_bg_enable": false,
+        "button_bg_color": "#ff6a13",
+        "button_border_radius": 6,
+        "arrow_color": "#1a1a1a"
+      }
+    },
+    "product_benefit_tabs": {
+      "type": "st_product-benefit-tabs",
+      "blocks": {
+        "benefit_tab_1_product_benefit_tabs": {
+          "type": "benefit_tab",
+          "settings": {
+            "slider_image": "shopify://shop_images/hf_20260910_192738_d58e43ae-ae79-40b0-b809-74627c3d7d9b_1.png",
+            "slider_image_demo_url": "/apps/sternify/placeholder/square.svg?a=FF6A13&d=1A1A1A&v=9",
+            "slider_icon_demo_url": "/apps/sternify/icon/trend-up.svg?c=FF6A13&s=48&w=duotone&g=FF6A13&role=sectionAccent",
+            "icon_title": "Cardio",
+            "slider_subtitle": "Courir ou marcher chez soi",
+            "slider_description": "<p>Le tapis de marche pliable accueille vos séances de cardio et se range une fois la séance terminée.</p>"
+          }
+        },
+        "benefit_tab_2_product_benefit_tabs": {
+          "type": "benefit_tab",
+          "settings": {
+            "slider_image": "shopify://shop_images/hf_20260910_152821_4d99f156-beb1-4a06-8559-6cccda09ad1b.png",
+            "slider_image_demo_url": "/apps/sternify/placeholder/square.svg?a=FF6A13&d=1A1A1A&v=10",
+            "slider_icon_demo_url": "/apps/sternify/icon/moon.svg?c=FF6A13&s=48&w=duotone&g=FF6A13&role=sectionAccent",
+            "icon_title": "Tapis anti-bruit",
+            "slider_subtitle": "Protégez votre sol",
+            "slider_description": "<p>Le tapis Fitness Pro anti-bruit protège votre sol et préserve la tranquillité du foyer.</p>"
+          }
+        },
+        "benefit_tab_3_product_benefit_tabs": {
+          "type": "benefit_tab",
+          "settings": {
+            "slider_image": "shopify://shop_images/hf_20260910_195044_eda4ffea-73ba-4ba4-872d-69037c9b2213_1.png",
+            "slider_image_demo_url": "/apps/sternify/placeholder/square.svg?a=FF6A13&d=1A1A1A&v=11",
+            "slider_icon_demo_url": "/apps/sternify/icon/chart-bar.svg?c=FF6A13&s=48&w=duotone&g=FF6A13&role=sectionAccent",
+            "icon_title": "Suivi des progrès",
+            "slider_subtitle": "Ajustez votre effort",
+            "slider_description": "<p>La montre connectée suit votre activité pour mesurer vos progrès séance après séance.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_tab_1_product_benefit_tabs",
+        "benefit_tab_2_product_benefit_tabs",
+        "benefit_tab_3_product_benefit_tabs"
+      ],
+      "name": "Sternify - Product Benefit Tabs",
+      "settings": {
+        "margin_top": 50,
+        "margin_bottom": 50,
+        "section_background_color": "#ffffff",
+        "full_width": false,
+        "max_width": 1400,
+        "desktop_card_layout": true,
+        "section_bg_color": "#f9f9f9",
+        "title": "L'exigence au cœur de [chaque élément]",
+        "header_title_highlight_mode": "gradient",
+        "header_title_highlight_color": "#ff6a13",
+        "header_title_highlight_gradient": "linear-gradient(99deg, rgba(26, 26, 26, 1), rgba(255, 106, 19, 1) 100%)",
+        "title_font": "poppins_n6",
+        "title_fontsize_desktop": 30,
+        "title_fontsize_mobile": 24,
+        "tab_font": "poppins_n5",
+        "tab_fontsize": 15,
+        "subtitle_font": "poppins_n6",
+        "subtitle_fontsize_desktop": 16,
+        "subtitle_fontsize_mobile": 14,
+        "text_font": "poppins_n4",
+        "text_fontsize": 16,
+        "text_alignment": "center",
+        "show_icons": true,
+        "show_tabs": true,
+        "title_color": "#1a1a1a",
+        "subtitle_color": "#585858",
+        "description_color": "#585858",
+        "nav_button_background": "#fdfdfd",
+        "nav_button_arrow": "#1a1a1a",
+        "tab_background": "#e7e7e7",
+        "tab_text": "#1a1a1a",
+        "active_tab_background": "#fefefe",
+        "active_tab_text": "#1a1a1a",
+        "active_tab_border": "#ff6a13",
+        "active_tab_border_thickness": 1
+      }
+    },
+    "table": {
+      "type": "st_table",
+      "blocks": {
+        "Reihe_1_table": {
+          "type": "Reihe",
+          "settings": {
+            "reihe_text": "Tout en un seul achat",
+            "compare_1_mode": "icon",
+            "compare_1": "check",
+            "compare_1_text": "",
+            "compare_2_mode": "icon",
+            "compare_2": "check",
+            "compare_2_text": "",
+            "compare_3_mode": "icon",
+            "compare_3": "cross",
+            "compare_3_text": ""
+          }
+        },
+        "Reihe_2_table": {
+          "type": "Reihe",
+          "settings": {
+            "reihe_text": "Tapis de sol anti-bruit inclus",
+            "compare_1_mode": "icon",
+            "compare_1": "check",
+            "compare_1_text": "",
+            "compare_2_mode": "icon",
+            "compare_2": "check",
+            "compare_2_text": "",
+            "compare_3_mode": "icon",
+            "compare_3": "cross",
+            "compare_3_text": ""
+          }
+        },
+        "Reihe_3_table": {
+          "type": "Reihe",
+          "settings": {
+            "reihe_text": "Montre connectée incluse",
+            "compare_1_mode": "icon",
+            "compare_1": "check",
+            "compare_1_text": "",
+            "compare_2_mode": "icon",
+            "compare_2": "check",
+            "compare_2_text": "",
+            "compare_3_mode": "icon",
+            "compare_3": "cross",
+            "compare_3_text": ""
+          }
+        },
+        "Reihe_4_table": {
+          "type": "Reihe",
+          "settings": {
+            "reihe_text": "Haltères et barre inclus",
+            "compare_1_mode": "icon",
+            "compare_1": "check",
+            "compare_1_text": "",
+            "compare_2_mode": "icon",
+            "compare_2": "check",
+            "compare_2_text": "",
+            "compare_3_mode": "icon",
+            "compare_3": "cross",
+            "compare_3_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "Reihe_1_table",
+        "Reihe_2_table",
+        "Reihe_3_table",
+        "Reihe_4_table"
+      ],
+      "name": "Sternify - Table",
+      "settings": {
+        "columns_number": "3",
+        "margin_top": 50,
+        "margin_bottom": 50,
+        "section_background_color": "#ffffff",
+        "full_width": false,
+        "max_width": 1400,
+        "desktop_card_layout": true,
+        "section_bg_color": "#1a1a1a",
+        "header_text": "[Comparatif] d'entraînement",
+        "header_title_color": "#ffffff",
+        "header_title_highlight_mode": "gradient",
+        "header_title_highlight_color": "#ff6a13",
+        "header_title_highlight_gradient": "linear-gradient(99deg, #FFFFFF 0%, #FF6A13 100%)",
+        "header_title_font": "poppins_n6",
+        "header_size": 30,
+        "mobile_header_size": 24,
+        "header_style": "normal",
+        "font_picker": "poppins_n4",
+        "column_1_text": "Pack Ultimate Home Gym",
+        "column_1_image_demo_url": "/apps/sternify/placeholder/logo.svg?a=FFFFFF&d=FFFFFF&v=12&role=darkEmphasisText",
+        "column_2_text": "Achats séparés dépareillés",
+        "column_3_text": "Sans équipement à domicile",
+        "highlighted_color": "#ff6a13",
+        "highlighted_text_color": "#ffffff",
+        "highlighted_icon_color": "#ffffff",
+        "others_text_color": "#ffffff",
+        "others_icon_color": "#cccccc",
+        "benefit_color": "#ffffff",
+        "table_color": "#1a1a1a",
+        "border_color": "#3a3a3a",
+        "border_thickness": 2,
+        "border_radius": 8
+      }
+    },
+    "testimonials_slider": {
+      "type": "st_testimonials-slider",
+      "blocks": {
+        "bewertung_1_testimonials_slider": {
+          "type": "bewertung",
+          "settings": {
+            "bewertung_text": "",
+            "review_image_demo_url": "/apps/sternify/placeholder/portrait.svg?a=FF6A13&d=1A1A1A&v=14",
+            "max_image_height": 200,
+            "image_position": "center",
+            "nutzer_profilbild_demo_url": "/apps/sternify/placeholder/avatar.svg?a=FF6A13&d=1A1A1A&v=15",
+            "nutzer_name": "",
+            "datum": "",
+            "anzahl_der_sterne": 5,
+            "verifizierte_bewertung": true
+          }
+        },
+        "bewertung_2_testimonials_slider": {
+          "type": "bewertung",
+          "settings": {
+            "bewertung_text": "",
+            "review_image_demo_url": "/apps/sternify/placeholder/portrait.svg?a=FF6A13&d=1A1A1A&v=16",
+            "max_image_height": 200,
+            "image_position": "center",
+            "nutzer_profilbild_demo_url": "/apps/sternify/placeholder/avatar.svg?a=FF6A13&d=1A1A1A&v=17",
+            "nutzer_name": "",
+            "datum": "",
+            "anzahl_der_sterne": 5,
+            "verifizierte_bewertung": true
+          }
+        },
+        "bewertung_3_testimonials_slider": {
+          "type": "bewertung",
+          "settings": {
+            "bewertung_text": "",
+            "review_image_demo_url": "/apps/sternify/placeholder/portrait.svg?a=FF6A13&d=1A1A1A&v=18",
+            "max_image_height": 200,
+            "image_position": "center",
+            "nutzer_profilbild_demo_url": "/apps/sternify/placeholder/avatar.svg?a=FF6A13&d=1A1A1A&v=19",
+            "nutzer_name": "",
+            "datum": "",
+            "anzahl_der_sterne": 5,
+            "verifizierte_bewertung": true
+          }
+        },
+        "bewertung_4_testimonials_slider": {
+          "type": "bewertung",
+          "settings": {
+            "bewertung_text": "",
+            "review_image_demo_url": "/apps/sternify/placeholder/portrait.svg?a=FF6A13&d=1A1A1A&v=20",
+            "max_image_height": 200,
+            "image_position": "center",
+            "nutzer_profilbild_demo_url": "/apps/sternify/placeholder/avatar.svg?a=FF6A13&d=1A1A1A&v=21",
+            "nutzer_name": "",
+            "datum": "",
+            "anzahl_der_sterne": 5,
+            "verifizierte_bewertung": true
+          }
+        }
+      },
+      "block_order": [
+        "bewertung_1_testimonials_slider",
+        "bewertung_2_testimonials_slider",
+        "bewertung_3_testimonials_slider",
+        "bewertung_4_testimonials_slider"
+      ],
+      "disabled": true,
+      "name": "Sternify - Testimonials Slider",
+      "settings": {
+        "stil": "custom",
+        "gradient_start_color": "#f9f9f9",
+        "section_backround_color": "#f9f9f9",
+        "own_logo_demo_url": "/apps/sternify/placeholder/logo.svg?a=FFFFFF&d=FFFFFF&v=13&role=sectionButtonText",
+        "slider_autoplay": true,
+        "margin_top": 50,
+        "margin_bottom": 50,
+        "box_padding_block": 60,
+        "section_background_color": "#ffffff",
+        "full_width": false,
+        "max_width": 1400,
+        "desktop_card_layout": true,
+        "titel_farbe": "#1a1a1a",
+        "subtitel_farbe": "#585858",
+        "box_hintergrund": "#fdfdfd",
+        "box_text": "#1a1a1a",
+        "star_color_header": "#ffb800",
+        "star_color_box": "#ffb800",
+        "review_color": "#1a1a1a",
+        "verified_icon_color": "#9e9e9e",
+        "verified_text_color": "#9e9e9e",
+        "header": "Leur quotidien avec le [Pack Ultimate]",
+        "header_title_fontsize_desktop": 30,
+        "header_title_fontsize_mobile": 24,
+        "header_title_highlight_mode": "gradient",
+        "header_title_highlight_color": "#ff6a13",
+        "header_title_highlight_gradient": "linear-gradient(99deg, #1A1A1A 0%, #FF6A13 100%)",
+        "subheader": "Des sportifs à domicile partagent leur expérience",
+        "header_subtitle_fontsize_desktop": 16,
+        "header_subtitle_fontsize_mobile": 14,
+        "bewertung_text": "",
+        "anzahl_der_bewertungen": 5,
+        "show_button": true,
+        "button_text": "",
+        "button_link": "",
+        "button_background_color": "#ff6a13",
+        "button_text_color": "#ffffff",
+        "verified_text": "",
+        "header_font": "poppins_n6",
+        "subtitle_font": "poppins_n4",
+        "review_font": "poppins_n4",
+        "show_avatars": true
+      }
+    },
+    "faq_and_text": {
+      "type": "st_faq-and-text",
+      "blocks": {
+        "faq_item_1_faq_and_text": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Que contient exactement le pack ?",
+            "answer": "<p>Le pack comprend un tapis de marche pliable, une montre connectée, un tapis Fitness Pro anti-bruit, un lot d’haltères, une barre de musculation, une gourde Tritan, un brassard sport et une ceinture de sudation.</p>"
+          }
+        },
+        "faq_item_2_faq_and_text": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Le tapis est-il facile à ranger ?",
+            "answer": "<p>Oui, le tapis de marche est pliable : une fois la séance terminée, il se range facilement dans un coin de pièce.</p>"
+          }
+        },
+        "faq_item_3_faq_and_text": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Le bruit gêne-t-il les voisins ?",
+            "answer": "<p>Le tapis Fitness Pro anti-bruit protège votre sol et limite les bruits d’impact pour préserver la tranquillité du foyer.</p>"
+          }
+        },
+        "faq_item_4_faq_and_text": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Comment fonctionne la garantie ?",
+            "answer": "<p>Vous bénéficiez de la livraison gratuite, de 14 jours pour changer d’avis et d’une garantie de 2 ans sur le tapis de marche.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_1_faq_and_text",
+        "faq_item_2_faq_and_text",
+        "faq_item_3_faq_and_text",
+        "faq_item_4_faq_and_text"
+      ],
+      "name": "Sternify - FAQ Section",
+      "settings": {
+        "space_from_top": 50,
+        "space_from_bottom": 50,
+        "section_background_color": "#f9f9f9",
+        "full_width": false,
+        "section_max_width": 1400,
+        "left_column_width": 40,
+        "accordion_behavior": true,
+        "box_mode_enabled": true,
+        "background_color": "#f9f9f9",
+        "border_radius": 8,
+        "layout_style": "simple",
+        "box_bg_color": "#fdfdfd",
+        "box_border_radius": 8,
+        "box_spacing": 15,
+        "heading_text": "Vos questions sur le [Pack Ultimate]",
+        "title_font": "poppins_n6",
+        "title_size": 30,
+        "mobile_title_size": 24,
+        "mobile_title_alignment": "center",
+        "title_line_height": 1.2,
+        "title_color": "#1a1a1a",
+        "highlight_mode": "gradient",
+        "highlight_color": "#ff6a13",
+        "highlight_gradient": "linear-gradient(99deg, #1A1A1A 0%, #FF6A13 100%)",
+        "show_social_proof": false,
+        "social_proof_visibility": "both",
+        "social_image_1_demo_url": "/apps/sternify/placeholder/portrait.svg?a=FF6A13&d=1A1A1A&v=27",
+        "social_image_2_demo_url": "/apps/sternify/placeholder/portrait.svg?a=FF6A13&d=1A1A1A&v=28",
+        "social_image_3_demo_url": "/apps/sternify/placeholder/portrait.svg?a=FF6A13&d=1A1A1A&v=29",
+        "social_image_size": 50,
+        "social_text": "Une équipe à votre écoute",
+        "text_font": "poppins_n4",
+        "social_text_size": 14,
+        "social_text_color": "#1a1a1a",
+        "question_font": "poppins_n7",
+        "question_size": 18,
+        "mobile_question_size": 16,
+        "question_padding": 20,
+        "question_color": "#1a1a1a",
+        "icon_color": "#ff6a13",
+        "icon_size": 16,
+        "answer_font": "poppins_n4",
+        "answer_size": 16,
+        "mobile_answer_size": 14,
+        "answer_line_height": 1.6,
+        "answer_color": "#585858",
+        "divider_color": "#d5d5d5"
+      }
+    },
+    "st_review_slider_cta_88kmpA": {
+      "type": "st_review-slider-cta",
+      "blocks": {
+        "review_PKtQBK": {
+          "type": "review",
+          "settings": {
+            "image_demo_url": "",
+            "rating": 5,
+            "reviewer_name": "Bandaranayak",
+            "review_title": "Sûr et fiable",
+            "review_text": "Avec mes 125 kg, je suis très impressionné par la capacité maximale de 136 kg ! Le Walking Pad ne bouge pas, même lorsque je marche jusqu’à 8 km/h. Sûr et fiable !"
+          }
+        },
+        "review_Na9XUf": {
+          "type": "review",
+          "settings": {
+            "image_demo_url": "",
+            "rating": 5,
+            "reviewer_name": "Torsten F.",
+            "review_title": "Forte dépense calorique",
+            "review_text": "Grâce à l’inclinaison, je peux brûler nettement plus de calories. Génial !"
+          }
+        },
+        "review_yDCUgR": {
+          "type": "review",
+          "settings": {
+            "image_demo_url": "",
+            "rating": 5,
+            "reviewer_name": "Eduard",
+            "review_title": "Très satisfait",
+            "review_text": "L’inclinaison rend l’entraînement nettement plus efficace tout en restant agréable pour les articulations. Il est silencieux et facile à ranger, ce qui le rend idéal pour la maison."
+          }
+        },
+        "review_AH4f7n": {
+          "type": "review",
+          "settings": {
+            "image_demo_url": "",
+            "rating": 5,
+            "reviewer_name": "John",
+            "review_title": "Très bon produit",
+            "review_text": "Le brassard a été livré rapidement et était bien emballé. Il comprend un velcro supplémentaire pour différents tours de bras.\n\nJe l’ai acheté pour mon Samsung Galaxy S20 FE et j’en suis très satisfait. Les picots antidérapants à l’intérieur assurent une excellente tenue, même lorsqu’on transpire.\n\nL’ouverture du téléphone dispose également d’un velcro qui empêche le smartphone de tomber. Le compartiment pour les clés et autres petits objets est étonnamment spacieux et l’écran tactile reste facilement utilisable."
+          }
+        },
+        "review_dV9ER3": {
+          "type": "review",
+          "settings": {
+            "image_demo_url": "",
+            "rating": 5,
+            "reviewer_name": "Andreas K.",
+            "review_title": "Excellentes conditions de garantie",
+            "review_text": "La garantie de 2 ans me rassure. Le service client est également rapide et serviable."
+          }
+        },
+        "review_MHtq64": {
+          "type": "review",
+          "settings": {
+            "image_demo_url": "",
+            "rating": 5,
+            "reviewer_name": "Roland B.",
+            "review_title": "Parfait pour le télétravail",
+            "review_text": "Le moteur silencieux est une véritable bénédiction pour le télétravail ! Je peux participer à des appels vidéo sans que mes collègues entendent mes pas. Même à 6 km/h, il est presque inaudible."
+          }
+        },
+        "review_MNJkdw": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/femme-heureuse.png",
+            "image_demo_url": "",
+            "rating": 5,
+            "reviewer_name": "Emma",
+            "review_title": "Absolument recommandable !",
+            "review_text": "Excellent appareil, rapport qualité-prix irréprochable et très simple à utiliser. Pendant la course, il est possible de régler l’inclinaison, ce qui est très pratique puisqu’il n’est pas nécessaire d’arrêter le tapis pour modifier l’inclinaison."
+          }
+        },
+        "review_39C9mN": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/homme-sportif-premium.png",
+            "image_demo_url": "",
+            "rating": 4.5,
+            "reviewer_name": "Marco",
+            "review_title": "Très bon et écran bien visible",
+            "review_text": "Pour le moment, il fonctionne très bien et est très facile à monter. Je suis très satisfaite et sa taille est parfaite pour la maison."
+          }
+        },
+        "review_WQ8aMw": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/visage-de-sportive.png",
+            "image_demo_url": "",
+            "rating": 4.5,
+            "reviewer_name": "Lara",
+            "review_title": "Design fin et facile à ranger",
+            "review_text": "Ce walking pad est vraiment excellent.\nL’inclinaison de 15 % permet un entraînement intense et efficace. La vitesse de 8 à 10 km/h est parfaite pour marcher et faire du jogging. Le moteur de 2,5 CV est puissant et très silencieux.\n\nLe triple système d’amortissement rend la surface douce et confortable. Il réduit le bruit et protège les articulations. Le tapis est stable et sûr pendant l’utilisation.\n\nIl supporte jusqu’à 136 kg sans problème. Son design fin permet de le ranger facilement et de le déplacer dans la maison. Il convient parfaitement à la maison, au bureau ou aux petits espaces.\n\nJ’aime particulièrement pouvoir l’utiliser tout en travaillant à mon bureau. Très bonne qualité et fonctionnement fluide. Je suis très satisfait de ce walking pad."
+          }
+        },
+        "review_aEGE83": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/portrait-illustratif-9.png",
+            "image_demo_url": "",
+            "rating": 5,
+            "reviewer_name": "Oliver",
+            "review_title": "Excellent appareil",
+            "review_text": "Excellent Walking Pad. La qualité est vraiment très bonne et l’appareil donne une impression haut de gamme. Il atteint une vitesse maximale de 10 km/h et dispose d’une inclinaison intégrée, ce qui en fait un appareil d’entraînement parfait.\n\nL’écran permet de voir la vitesse actuelle. Il est également très silencieux, ce qui permet de regarder tranquillement un film pendant l’utilisation."
+          }
+        }
+      },
+      "block_order": [
+        "review_PKtQBK",
+        "review_Na9XUf",
+        "review_yDCUgR",
+        "review_AH4f7n",
+        "review_dV9ER3",
+        "review_MHtq64",
+        "review_MNJkdw",
+        "review_39C9mN",
+        "review_WQ8aMw",
+        "review_aEGE83"
+      ],
+      "name": "💫: Review Slider CTA",
+      "settings": {
+        "margin_top": 50,
+        "margin_bottom": 50,
+        "section_background_color": "rgba(0,0,0,0)",
+        "full_width": false,
+        "max_width": 1400,
+        "desktop_card_layout": true,
+        "section_bg_color": "#f9f9f9",
+        "layout_type": "inline",
+        "header_title": "<em>AVIS DES UTILISATEURS</em>",
+        "header_title_color": "#1a1a1a",
+        "header_title_highlight_mode": "solid",
+        "header_title_highlight_color_solid": "#dbbd21",
+        "header_title_highlight_color_gradient": "linear-gradient(0deg, rgba(247, 222, 94, 1), rgba(219, 189, 33, 1) 100%)",
+        "header_title_font": "poppins_n6",
+        "header_title_fontsize_desktop": 30,
+        "header_title_fontsize_mobile": 24,
+        "image_slide_width": 300,
+        "image_slide_width_mobile": 78,
+        "image_border_radius": 10,
+        "show_image_fade": false,
+        "cta_button_enabled": false,
+        "cta_button_text": "",
+        "cta_button_url": "",
+        "cta_button_text_color": "#ffffff",
+        "cta_button_text_font": "poppins_n6",
+        "cta_button_text_fontsize_desktop": 16,
+        "cta_button_text_fontsize_mobile": 16,
+        "cta_bg_color_mode": "solid",
+        "cta_bg_color_solid": "#000000",
+        "cta_bg_color_gradient": "linear-gradient(0deg, #000000 0%, #4a4a4a 100%)",
+        "cta_border_radius": 6,
+        "reviews_star_rating_color": "#ffd700",
+        "reviews_reviewer_name_color": "#1a1a1a",
+        "reviews_reviewer_name_font": "poppins_n5",
+        "reviews_reviewer_name_fontsize_desktop": 13,
+        "reviews_reviewer_name_fontsize_mobile": 12,
+        "reviews_title_color": "#1a1a1a",
+        "reviews_title_font": "poppins_n6",
+        "reviews_title_fontsize_desktop": 17,
+        "reviews_title_fontsize_mobile": 16,
+        "reviews_body_color": "#666666",
+        "reviews_body_font": "poppins_n4",
+        "reviews_body_fontsize_desktop": 14,
+        "reviews_body_fontsize_mobile": 13,
+        "nav_pagination_color": "#1a1a1a",
+        "nav_pagination_border": true,
+        "nav_pagination_border_radius": 18,
+        "nav_counter_font": "poppins_n4"
+      }
+    },
+    "related_products": {
+      "type": "st_related-products",
+      "name": "Sternify - Related Products",
+      "settings": {
+        "margin_top": 50,
+        "margin_bottom": 50,
+        "section_background_color": "#ffffff",
+        "full_width": false,
+        "max_width": 1400,
+        "desktop_card_layout": true,
+        "section_bg_color": "#f9f9f9",
+        "product_source": "api",
+        "collection": "",
+        "product_order": "default",
+        "product_limit": 4,
+        "header_font": "poppins_n6",
+        "section_title": "Vous aimerez [aussi]",
+        "header_title_highlight_mode": "gradient",
+        "header_title_highlight_color": "#ff6a13",
+        "header_title_highlight_gradient": "linear-gradient(99deg, #1A1A1A 0%, #FF6A13 100%)",
+        "header_color": "#1a1a1a",
+        "header_fontsize_desktop": 30,
+        "header_fontsize_mobile": 24,
+        "show_subtitle": true,
+        "section_subtitle_font": "poppins_n3",
+        "section_subtitle": "Complétez votre espace d'entraînement avec nos modules dédiés",
+        "section_subtitle_color": "#585858",
+        "section_subtitle_fontsize_desktop": 16,
+        "section_subtitle_fontsize_mobile": 14,
+        "card_style": "text_card",
+        "card_bg_color": "#fdfdfd",
+        "card_border_color": "#d9d9d9",
+        "mobile_card_size": 280,
+        "enable_card_hover_lift": true,
+        "product_gap": 20,
+        "image_border_radius": 8,
+        "product_info_alignment": "left",
+        "product_title_font": "poppins_n5",
+        "product_title_fontsize": 16,
+        "product_title_color": "#1a1a1a",
+        "product_price_font": "poppins_n4",
+        "product_price_fontsize": 14,
+        "product_price_color": "#1a1a1a",
+        "enable_sale_badge": true,
+        "badge_text": "Offre pack",
+        "badge_show_amount_in_euro": false,
+        "badge_text_size": 10,
+        "badge_text_color": "#ffffff",
+        "enable_badge_gradient": false,
+        "badge_gradient": "linear-gradient(99deg, #FF6A13 0%, #FF6A13 100%)",
+        "badge_bg_color": "#ff6a13",
+        "badge_border_radius": 4,
+        "nav_arrow_color": "#1a1a1a",
+        "enable_nav_arrow_background": false,
+        "nav_arrow_bg_color": "#fdfdfd"
+      }
+    },
+    "reviews_list": {
+      "type": "apps",
+      "blocks": {
+        "review_widget": {
+          "type": "shopify://apps/sternify/blocks/review_widget/fcc6e879-7d9e-4924-b387-68cfab68cec6",
+          "settings": {
+            "use_section_layout": true,
+            "full_width": false,
+            "max_width": 1400,
+            "space_from_top": 50,
+            "space_from_bottom": 50,
+            "desktop_gutter": 45,
+            "mobile_gutter": 20,
+            "advanced_settings": false,
+            "show_all_products": false,
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "review_widget"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "footer": {
+      "type": "st_footer",
+      "blocks": {
+        "newsletter_1_footer": {
+          "type": "newsletter",
+          "settings": {
+            "newsletter_br": true,
+            "newsletter_border_color": "#3a3a3a",
+            "title": "Conseils pour s’entraîner à la maison",
+            "show_description": true,
+            "description": "Recevez nos conseils pour vous entraîner à la maison.",
+            "show_firstname": true,
+            "firstname_placeholder": "Votre prénom",
+            "email_placeholder": "Votre adresse e-mail",
+            "button_text": "Rejoindre",
+            "title_font": "poppins_n7",
+            "title_size": 24,
+            "mobile_title_size": 20,
+            "title_color": "#ffffff",
+            "description_font": "poppins_n4",
+            "description_size": 15,
+            "mobile_description_size": 13,
+            "description_color": "#cccccc",
+            "input_bg_color": "#2a2a2a",
+            "input_text_color": "#ffffff",
+            "input_placeholder_color": "#bbbbbb",
+            "input_border_color": "#4a4a4a",
+            "form_border_radius": 0,
+            "button_bg_color": "#ffffff",
+            "button_text_color": "#1a1a1a",
+            "enable_button_hover": false,
+            "button_hover_bg_color": "#ffffff",
+            "button_hover_text_color": "#1a1a1a",
+            "newsletter_form_success_title": "Merci pour votre inscription",
+            "newsletter_form_success_subtitle": "Votre inscription à notre newsletter est confirmée."
+          }
+        },
+        "shop_detail_2_footer": {
+          "type": "shop_detail",
+          "settings": {
+            "show_logo": true,
+            "logo_demo_url": "/apps/sternify/placeholder/logo.svg?a=FF6A13&d=1A1A1A&v=30",
+            "logo_width": 160,
+            "description": "<p>FITNESS MAISON sélectionne des packs d’équipement de fitness pour s’entraîner à la maison, sans encombrer votre intérieur.</p>",
+            "description_font": "poppins_n4",
+            "description_size": 14,
+            "mobile_description_size": 13,
+            "description_color": "#cccccc",
+            "show_support_badge": true,
+            "support_badge_avatar_demo_url": "/apps/sternify/placeholder/avatar.svg?a=FF6A13&d=1A1A1A&v=31",
+            "support_badge_text": "Une question ? Notre service client vous répond.",
+            "support_badge_avatar_size": 34,
+            "support_badge_bg_color": "#2a2a2a",
+            "support_badge_text_font": "poppins_n4",
+            "support_badge_text_size": 12,
+            "mobile_support_badge_text_size": 11,
+            "support_badge_text_color": "#ffffff",
+            "enable_badge_link": true,
+            "badge_link_url": ""
+          }
+        },
+        "menu_links_3_footer": {
+          "type": "menu_links",
+          "settings": {
+            "title": "Navigation",
+            "menu": "main-menu",
+            "title_font": "poppins_n6",
+            "title_size": 18,
+            "mobile_title_size": 16,
+            "title_color": "#ffffff",
+            "link_font": "poppins_n4",
+            "link_size": 14,
+            "mobile_link_size": 13,
+            "link_color": "#ffffff",
+            "link_hover_color": "#ffffff",
+            "mobile_bottom_border": true,
+            "mobile_border_color": "#3a3a3a"
+          }
+        },
+        "important_links_4_footer": {
+          "type": "important_links",
+          "settings": {
+            "title": "Informations légales",
+            "menu": "footer",
+            "title_font": "poppins_n6",
+            "title_size": 18,
+            "mobile_title_size": 16,
+            "title_color": "#ffffff",
+            "link_font": "poppins_n4",
+            "link_size": 14,
+            "mobile_link_size": 13,
+            "link_color": "#ffffff",
+            "link_hover_color": "#ffffff",
+            "mobile_bottom_border": true,
+            "mobile_border_color": "#3a3a3a"
+          }
+        },
+        "social_media_5_footer": {
+          "type": "social_media",
+          "disabled": true,
+          "settings": {
+            "title": "Nous suivre",
+            "facebook_url": "/collections",
+            "instagram_url": "/collections",
+            "youtube_url": "/collections",
+            "tiktok_url": "/collections",
+            "twitter_url": "",
+            "title_font": "poppins_n6",
+            "title_size": 18,
+            "mobile_title_size": 16,
+            "title_color": "#ffffff",
+            "icon_size": 40,
+            "icon_gap": 10,
+            "enable_hover_effects": true,
+            "enable_transparent_bg": true,
+            "icon_bg_color": "#2a2a2a",
+            "icon_hover_bg_color": "#2a2a2a",
+            "icon_color": "#ffffff",
+            "icon_hover_color": "#ff6a13",
+            "icon_border_radius": 8
+          }
+        },
+        "footer_6_footer": {
+          "type": "footer",
+          "settings": {
+            "show_copyright": true,
+            "copyright_text": "© 2026 FITNESS MAISON",
+            "show_payment_methods": true,
+            "show_default_icons": true,
+            "custom_icon_1_demo_url": "",
+            "custom_icon_2_demo_url": "",
+            "custom_icon_3_demo_url": "",
+            "custom_icon_4_demo_url": "",
+            "text_font": "poppins_n4",
+            "text_size": 12,
+            "mobile_text_size": 11,
+            "text_color": "#ffffff",
+            "icon_width": 45,
+            "icon_height": 32
+          }
+        }
+      },
+      "block_order": [
+        "newsletter_1_footer",
+        "shop_detail_2_footer",
+        "menu_links_3_footer",
+        "important_links_4_footer",
+        "social_media_5_footer",
+        "footer_6_footer"
+      ],
+      "name": "Sternify - Footer",
+      "settings": {
+        "margin_top": 50,
+        "section_background_color": "#1a1a1a",
+        "full_width": true,
+        "max_width": 1400,
+        "section_bg_color": "#1a1a1a"
+      }
+    }
+  },
+  "order": [
+    "product_information",
+    "buy_now_button",
+    "scrolling_benefits",
+    "media_and_content",
+    "features_icons",
+    "stats_with_image",
+    "how_to",
+    "product_benefit_tabs",
+    "table",
+    "testimonials_slider",
+    "faq_and_text",
+    "st_review_slider_cta_88kmpA",
+    "related_products",
+    "reviews_list",
+    "footer"
+  ]
+}

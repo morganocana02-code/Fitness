@@ -1243,7 +1243,7 @@
         "verify_bg": true,
         "verify_radius": 100,
         "verify_border_thickness": 0,
-        "verify": "Avis Amazon",
+        "verify": "Utilisateur de ce modèle",
         "verify_custom": false,
         "verify_font": "josefin_sans_n4",
         "verify_size": 12,

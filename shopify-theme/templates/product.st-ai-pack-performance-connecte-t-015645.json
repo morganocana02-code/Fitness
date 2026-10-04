@@ -1472,7 +1472,7 @@
             "rating": 5,
             "text": "Le moteur silencieux est une véritable bénédiction pour le télétravail ! Je peux participer à des appels vidéo sans que mes collègues entendent mes pas. Même à 6 km/h, il est presque inaudible.",
             "name": "Roland B.",
-            "show_verified_badge": true
+            "show_verified_badge": false
           }
         },
         "testimonial_RqhCCC": {
@@ -1482,7 +1482,7 @@
             "rating": 5,
             "text": "Le tapis de course se glisse parfaitement sous mon bureau. Je peux travailler tout en restant active.",
             "name": "Julia G.",
-            "show_verified_badge": true
+            "show_verified_badge": false
           }
         },
         "testimonial_MUzCCc": {
@@ -1492,7 +1492,7 @@
             "rating": 5,
             "text": "La plage de vitesse de 1 à 10 km/h s’adapte parfaitement à mon rythme de travail ! Je reste à faible vitesse lorsque j’écris des e-mails et j’augmente un peu lorsque je suis au téléphone.",
             "name": "Gu lunat",
-            "show_verified_badge": true
+            "show_verified_badge": false
           }
         },
         "testimonial_PXwBXU": {
@@ -1502,7 +1502,7 @@
             "rating": 5,
             "text": "Il m’aide à atteindre mon objectif quotidien de pas et à rester en forme. Pour moi, c’est une excellente alternative aux tapis de course encombrants.",
             "name": "Vanessa",
-            "show_verified_badge": true
+            "show_verified_badge": false
           }
         },
         "testimonial_7tYbJq": {
@@ -1512,7 +1512,7 @@
             "rating": 5,
             "text": "Le moteur est extrêmement silencieux, idéal pour s’entraîner sans être dérangé.",
             "name": "Adam B.",
-            "show_verified_badge": true
+            "show_verified_badge": false
           }
         }
       },

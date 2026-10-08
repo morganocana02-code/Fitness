@@ -1,61 +1,81 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Politique d’expédition</title>
-<style>body{font-family:system-ui,sans-serif;max-width:760px;margin:24px auto;padding:0 16px;line-height:1.55;color:#1a1a1a;background:#fff}.note{background:#fff4e5;border:1px solid #ffb35c;padding:12px 14px;border-radius:8px;font-size:14px}#txt{border:1px dashed #bbb;padding:16px;border-radius:8px}</style></head><body>
-<div class="note"><strong>À coller dans :</strong> Shopify → Réglages → Politiques → <strong>Expédition / Shipping policy</strong>. Sélectionnez tout le texte du cadre ci-dessous (du début à la fin), copiez, puis collez dans l’éditeur en remplaçant l’ancien texte. Enregistrez.</div>
-<h1>Politique d’expédition</h1><div id="txt">
-<p>Vous trouverez ci-dessous le détail de nos conditions de livraison.</p>
-<h3>1. Frais de livraison</h3>
-<p>La livraison est entièrement gratuite pour toutes les commandes, sans montant minimum d'achat. Aucun frais de port ne vous sera facturé au moment du paiement.</p>
-<h3>2. Zone de livraison</h3>
-<p>Nous expédions actuellement en France métropolitaine (Corse incluse). Les livraisons vers les DOM-TOM et l'international ne sont pas proposées pour le moment.</p>
-<h3>3. Heure limite de commande</h3>
-<p>L'heure limite de prise en compte des commandes est fixée à 23h59 (heure de Paris). Toute commande validée et payée au plus tard à 23h59 (heure de Paris) est prise en compte le jour même ; la préparation démarre ensuite le jour ouvré suivant (du lundi au vendredi).</p>
-<h3>4. Délai de préparation</h3>
-<p>Le délai de préparation de votre colis est de 3 jours ouvrés (du lundi au vendredi, hors week-ends et jours fériés). Ce délai correspond au temps nécessaire pour contrôler, emballer et remettre votre commande au transporteur.</p>
-<h3>5. Délai d'acheminement</h3>
-<p>Une fois votre colis remis au transporteur, le délai d'acheminement est de 2 à 4 jours ouvrés pour toutes les destinations en France métropolitaine.</p>
-<h3>6. Délai de livraison total estimé</h3>
-<p>En additionnant la préparation et l'acheminement, le délai de livraison total estimé est de 5 à 7 jours ouvrés à compter de la validation de votre commande.</p>
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Politique d’expédition</title>
+<style>
+:root{--bg:#fff;--fg:#1a1a1a;--muted:#5a5a5a;--line:#e3e3e3;--accent:#ff6a13;--note:#fff4e5}
+@media (prefers-color-scheme:dark){:root{--bg:#151515;--fg:#f2f2f2;--muted:#b5b5b5;--line:#333;--note:#2a2016}}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:20px 16px 48px}
+.note{background:var(--note);border:1px solid var(--accent);border-radius:10px;padding:12px 14px;font-size:14px}
+.note ol{margin:6px 0 0;padding-left:20px}
+button{margin-top:10px;background:var(--accent);color:#fff;border:0;border-radius:8px;padding:10px 16px;font:600 15px system-ui;cursor:pointer}
+#ok{margin-left:10px;color:var(--muted);font-size:14px}
+#txt{margin-top:20px;border-top:3px solid var(--accent);padding-top:8px}
+#txt h2{font-size:20px;margin:28px 0 8px}
+#txt table{border-collapse:collapse;width:100%}#txt td{border:1px solid var(--line);padding:8px 10px;vertical-align:top}
+#txt li{margin:4px 0} a{color:var(--accent)}
+</style></head><body><div class="wrap">
+<div class="note"><strong>À coller dans Shopify → Réglages → Politiques → « Politique d’expédition »</strong>
+<ol><li>Cliquez sur le bouton ci-dessous (ou sélectionnez tout le texte sous la ligne orange et copiez).</li>
+<li>Dans Shopify, effacez l’ancien texte de la case, collez, puis enregistrez.</li></ol>
+<button id="copy">Copier le texte</button><span id="ok"></span></div>
+<h1>Politique d’expédition</h1>
+<div id="txt">
+<p><em>Dernière mise à jour : 8 octobre 2026</em></p>
+<h2>L’essentiel</h2>
 <table><tbody>
-<tr>
-<td><strong>Étape</strong></td>
-<td><strong>Délai</strong></td>
-</tr>
-<tr>
-<td>Heure limite de commande</td>
-<td>23h59 (heure de Paris)</td>
-</tr>
-<tr>
-<td>Préparation</td>
-<td>3 jours ouvrés</td>
-</tr>
-<tr>
-<td>Acheminement</td>
-<td>2 à 4 jours ouvrés</td>
-</tr>
-<tr>
-<td>Total estimé</td>
-<td>5 à 7 jours ouvrés</td>
-</tr>
+<tr><td><strong>Frais de livraison</strong></td><td>Gratuits, sans minimum d’achat</td></tr>
+<tr><td><strong>Zone de livraison</strong></td><td>France métropolitaine (Corse incluse)</td></tr>
+<tr><td><strong>Heure limite de commande</strong></td><td>23h59 (heure de Paris)</td></tr>
+<tr><td><strong>Préparation</strong></td><td>3 jours ouvrés</td></tr>
+<tr><td><strong>Transport</strong></td><td>2 à 4 jours ouvrés</td></tr>
+<tr><td><strong>Délai total estimé</strong></td><td>5 à 7 jours ouvrés</td></tr>
 </tbody></table>
-<h3>7. Jours sans expédition</h3>
-<p>Les commandes ne sont ni préparées ni expédiées les samedis, dimanches et jours fériés. Une commande passée le week-end ou un jour férié est traitée à partir du jour ouvré suivant.</p>
-<h3>8. Transporteurs et mode de livraison</h3>
-<p>Vos colis sont confiés à des transporteurs partenaires. Selon votre adresse et le format du produit, la livraison peut s'effectuer à domicile ou en point relais.</p>
-<h3>9. Confirmation et suivi de commande</h3>
-<p>Vous recevez un e-mail de confirmation dès la validation de votre commande, puis un second e-mail contenant un numéro de suivi dès l'expédition. Vous pouvez aussi suivre votre colis sur notre page <a href="/apps/parcelpanel">Suivre votre commande</a>.</p>
-<h3>10. Adresse de livraison erronée ou incomplète</h3>
-<p>Il vous appartient de vérifier l'exactitude de votre adresse lors de la commande. En cas d'adresse erronée ou incomplète entraînant un retour ou une non-livraison, contactez-nous au plus vite : nous vous aiderons à réexpédier le colis dès qu'il nous est retourné.</p>
-<h3>11. Colis en retard ou non livré</h3>
-<p>Si votre colis dépasse le délai annoncé de plusieurs jours ouvrés, vérifiez d'abord le suivi puis contactez-nous. Nous ouvrons une enquête auprès du transporteur et vous proposons une solution (réexpédition ou remboursement).</p>
-<h3>12. Colis perdu ou endommagé</h3>
-<p>Si votre colis arrive endommagé, refusez-le si possible ou prenez des photos à la réception. En cas de colis perdu ou abîmé, contactez-nous à <a href="mailto:morganocana02@gmail.com">morganocana02@gmail.com</a> : un remplacement ou un remboursement vous sera proposé.</p>
-<h3>13. Retours et remboursements</h3>
-<p>Vous disposez de 14 jours à compter de la réception pour retourner un article. Les conditions complètes figurent dans notre <a href="/policies/refund-policy">politique de remboursement et de retour</a>.</p>
-<hr>
-<h3>Service client</h3>
-<p>Une question avant ou après votre commande ? Notre équipe basée en France est à votre écoute :</p>
-<p>E-mail : <a href="mailto:morganocana02@gmail.com">morganocana02@gmail.com</a><br>Téléphone : <a href="tel:+33669224142">+33 6 69 22 41 42</a></p>
-<p>Horaires : du lundi au vendredi, de 9h00 à 18h00 (heure de Paris). Fermé les week-ends et jours fériés.</p>
-<p>Adresse : WhisperWalk – Global Freelance Academy, 179 avenue Lacaneau, Villa Les Pignes, chez Giovanni La Greca, 13700 Marignane, France</p>
-<p>Nous nous efforçons de répondre à toutes les demandes sous 24 à 48 heures ouvrées.</p>
-</div></body></html>
+<p>Jours ouvrés : du lundi au vendredi, hors jours fériés.</p>
+<h2>1. Frais de livraison</h2>
+<p>La livraison est <strong>gratuite pour toutes les commandes</strong>, sans montant minimum. Aucun frais de port n’est facturé au paiement.</p>
+<h2>2. Zone de livraison</h2>
+<p>Nous livrons en <strong>France métropolitaine, Corse incluse</strong>. Les DOM-TOM et l’international ne sont pas desservis pour le moment.</p>
+<h2>3. Heure limite de commande</h2>
+<p>Toute commande validée et payée <strong>au plus tard à 23h59 (heure de Paris)</strong> est prise en compte le jour même. Sa préparation démarre le jour ouvré suivant.</p>
+<h2>4. Préparation de votre colis</h2>
+<p>Nous préparons votre colis en <strong>3 jours ouvrés</strong> : contrôle, emballage et remise au transporteur.</p>
+<p>Aucune commande n’est préparée ni expédiée le samedi, le dimanche et les jours fériés. Une commande passée ces jours-là est traitée à partir du jour ouvré suivant.</p>
+<h2>5. Transport</h2>
+<p>Une fois remis au transporteur, votre colis arrive en <strong>2 à 4 jours ouvrés</strong>, partout en France métropolitaine.</p>
+<p>Selon votre adresse et la taille du produit, la livraison se fait à domicile ou en point relais.</p>
+<h2>6. Suivi de commande</h2>
+<ul>
+<li>Un <strong>e-mail de confirmation</strong> dès la validation de votre commande.</li>
+<li>Un second e-mail avec votre <strong>numéro de suivi</strong> dès l’expédition.</li>
+<li>Vous pouvez aussi suivre votre colis sur notre page <a href="/apps/parcelpanel">Suivre votre commande</a>.</li>
+</ul>
+<h2>7. En cas de problème</h2>
+<ul>
+<li><strong>Adresse erronée ou incomplète :</strong> vérifiez votre adresse en commandant. En cas d’erreur entraînant un retour du colis, contactez-nous vite : nous vous aiderons à le réexpédier dès qu’il nous revient.</li>
+<li><strong>Colis en retard :</strong> si le délai annoncé est dépassé de plusieurs jours ouvrés, vérifiez le suivi puis contactez-nous. Nous ouvrons une enquête auprès du transporteur et vous proposons une solution (réexpédition ou remboursement).</li>
+<li><strong>Colis abîmé ou perdu :</strong> refusez le colis abîmé si possible, ou prenez des photos à la réception, puis écrivez-nous à <a href="mailto:morganocana02@gmail.com">morganocana02@gmail.com</a>. Nous vous proposons un remplacement ou un remboursement.</li>
+</ul>
+<h2>8. Retours</h2>
+<p>Vous avez <strong>14 jours après réception</strong> pour retourner un article. Tous les détails sont dans notre <a href="/policies/refund-policy">politique de remboursement</a>.</p>
+<h2>Nous contacter</h2>
+<ul>
+<li><strong>E-mail :</strong> <a href="mailto:morganocana02@gmail.com">morganocana02@gmail.com</a></li>
+<li><strong>Téléphone :</strong> <a href="tel:+33669224142">+33 6 69 22 41 42</a></li>
+<li><strong>Horaires :</strong> du lundi au vendredi, de 9h00 à 18h00 (heure de Paris), hors week-ends et jours fériés</li>
+<li><strong>Délai de réponse :</strong> sous 24 à 48 heures ouvrées</li>
+<li><strong>Adresse :</strong> WhisperWalk – Global Freelance Academy, 179 avenue Lacaneau, Villa Les Pignes, chez Giovanni La Greca, 13700 Marignane, France</li>
+</ul>
+</div></div>
+<script>
+document.getElementById('copy').onclick=function(){
+  var el=document.getElementById('txt'),ok=document.getElementById('ok');
+  try{
+    if(navigator.clipboard&&window.ClipboardItem){
+      navigator.clipboard.write([new ClipboardItem({'text/html':new Blob([el.innerHTML],{type:'text/html'}),'text/plain':new Blob([el.innerText],{type:'text/plain'})})]).then(function(){ok.textContent='Copié ✓'},fallback);
+    } else fallback();
+  }catch(e){fallback()}
+  function fallback(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);
+    ok.textContent=document.execCommand('copy')?'Copié ✓':'Sélectionné : faites Ctrl+C / Cmd+C';}
+};
+</script></body></html>

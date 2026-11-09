@@ -607,7 +607,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Surtitre", "default": "Les packs" },
     { "type": "text", "id": "title", "label": "Titre", "default": "Un pack pour chaque moment." },
-    { "type": "text", "id": "text", "label": "Texte", "default": "Le même tapis de marche au cœur de chaque pack. Choisissez ce qui l'accompagne selon votre façon de bouger." },
+    { "type": "text", "id": "text", "label": "Texte", "default": "Un tapis de marche pliable au cœur de chaque pack. Choisissez ce qui l'accompagne selon votre façon de bouger." },
     { "type": "text", "id": "button_label", "label": "Texte du bouton", "default": "Découvrir le pack" },
     { "type": "checkbox", "id": "mist", "label": "Fond gris clair", "default": false }
   ],
@@ -756,7 +756,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Surtitre", "default": "Le tapis de marche" },
     { "type": "text", "id": "title", "label": "Titre", "default": "Fin, discret, rangé en quelques secondes." },
-    { "type": "text", "id": "text", "label": "Texte", "default": "Le même tapis de marche pliable est inclus dans les trois packs." },
+    { "type": "text", "id": "text", "label": "Texte", "default": "Inclus dans les trois packs, avec les mêmes caractéristiques." },
     { "type": "text", "id": "footnote", "label": "Note sous les chiffres (facultative)" }
   ],
   "blocks": [
@@ -1156,7 +1156,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
       "settings": {
         "eyebrow": "Les packs",
         "title": "Un pack pour chaque moment.",
-        "text": "Le même tapis de marche au cœur de chaque pack. Choisissez ce qui l'accompagne selon votre façon de bouger.",
+        "text": "Un tapis de marche pliable au cœur de chaque pack. Choisissez ce qui l'accompagne selon votre façon de bouger.",
         "button_label": "Découvrir le pack",
         "mist": false
       },
@@ -1248,7 +1248,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
       "settings": {
         "eyebrow": "Le tapis de marche",
         "title": "Fin, discret, rangé en quelques secondes.",
-        "text": "Le même tapis de marche pliable est inclus dans les trois packs.",
+        "text": "Inclus dans les trois packs, avec les mêmes caractéristiques.",
         "footnote": ""
       },
       "blocks": {
@@ -1410,7 +1410,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
       "settings": {
         "eyebrow": "Comparer",
         "title": "Les trois packs.",
-        "text": "Le même tapis de marche, trois façons de l'accompagner.",
+        "text": "Un tapis de marche pliable, trois façons de l'accompagner.",
         "button_label": "Découvrir le pack",
         "mist": false
       },

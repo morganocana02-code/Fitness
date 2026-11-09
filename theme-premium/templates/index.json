@@ -65,7 +65,7 @@
       "settings": {
         "eyebrow": "Les packs",
         "title": "Un pack pour chaque moment.",
-        "text": "Le même tapis de marche au cœur de chaque pack. Choisissez ce qui l'accompagne selon votre façon de bouger.",
+        "text": "Un tapis de marche pliable au cœur de chaque pack. Choisissez ce qui l'accompagne selon votre façon de bouger.",
         "button_label": "Découvrir le pack",
         "mist": false
       },
@@ -157,7 +157,7 @@
       "settings": {
         "eyebrow": "Le tapis de marche",
         "title": "Fin, discret, rangé en quelques secondes.",
-        "text": "Le même tapis de marche pliable est inclus dans les trois packs.",
+        "text": "Inclus dans les trois packs, avec les mêmes caractéristiques.",
         "footnote": ""
       },
       "blocks": {

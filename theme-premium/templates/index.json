@@ -5,16 +5,21 @@
       "settings": {
         "eyebrow": "Entreprise française · Expédition depuis la France",
         "title": "Marchez chez vous.\nCommandez l'esprit tranquille.",
-        "text": "Un tapis de marche pliable et discret, qui se range sous le lit ou le bureau. Le prix affiché est le prix total, la livraison est offerte, et chaque question reçoit une réponse sous 24 à 48 heures ouvrées.",
+        "text": "Un tapis de marche pliable et discret, qui se range sous le lit ou le bureau. Prix total affiché, livraison offerte, réponse sous 24 à 48 heures ouvrées.",
         "collection": "tapis-de-course-pliable",
         "price_prefix": "Packs à partir de",
         "price_note": "livraison offerte",
+        "show_eta": true,
         "button_label": "Choisir mon pack",
         "button_link": "",
-        "button2_label": "Comment se passe la commande",
+        "button2_label": "Comment se passe la commande ?",
         "button2_link": "",
         "show_contact": true,
         "contact_intro": "Une question avant d'acheter ? Appelez le",
+        "show_sticky": true,
+        "sticky_prefix": "Dès",
+        "sticky_text": "Livraison offerte · 14 jours pour changer d'avis",
+        "sticky_button": "Voir les packs",
         "product": "pack-essentiel-home-gym"
       },
       "blocks": {
@@ -56,7 +61,7 @@
         "eyebrow": "Les packs",
         "title": "Choisissez votre pack.",
         "text": "Un tapis de marche pliable au cœur de chaque pack. Le contenu du carton et le prix total sont indiqués clairement.",
-        "button_label": "Découvrir le pack",
+        "button_label": "Ajouter au panier",
         "note": "Pour les trois packs : livraison offerte en 5 à 7 jours ouvrés, 14 jours pour changer d'avis et garantie légale de 2 ans.",
         "mist": false
       },
@@ -96,6 +101,109 @@
         "pack_essentiel",
         "pack_teletravail",
         "pack_ultimate"
+      ]
+    },
+    "comparatif": {
+      "type": "ww-comparatif",
+      "settings": {
+        "eyebrow": "Comparatif",
+        "title": "Les trois packs, côte à côte.",
+        "text": "Ce qui change d'un pack à l'autre, en un coup d'œil.",
+        "product_1": "pack-essentiel-home-gym",
+        "name_1": "Pack Essentiel",
+        "badge_1": "",
+        "product_2": "pack-performance-connectee",
+        "name_2": "Pack Télétravail",
+        "badge_2": "",
+        "product_3": "pack-ultimate-home-gym",
+        "name_3": "Pack Ultimate",
+        "badge_3": "Le plus complet",
+        "note": "Pour les trois packs : prix total, 14 jours pour changer d'avis et garantie légale de 2 ans.",
+        "mist": true
+      },
+      "blocks": {
+        "r1": {
+          "type": "row",
+          "settings": {
+            "label": "Idéal pour",
+            "value_1": "Le soir, sans déranger",
+            "value_2": "En télétravail",
+            "value_3": "Cardio et renforcement"
+          }
+        },
+        "r2": {
+          "type": "row",
+          "settings": {
+            "label": "Tapis de marche pliable",
+            "value_1": "oui",
+            "value_2": "oui",
+            "value_3": "oui"
+          }
+        },
+        "r3": {
+          "type": "row",
+          "settings": {
+            "label": "Tapis Fitness Pro anti-bruit",
+            "value_1": "oui",
+            "value_2": "oui",
+            "value_3": "oui"
+          }
+        },
+        "r4": {
+          "type": "row",
+          "settings": {
+            "label": "Réhausseur de bureau assis-debout",
+            "value_1": "non",
+            "value_2": "oui",
+            "value_3": "non"
+          }
+        },
+        "r5": {
+          "type": "row",
+          "settings": {
+            "label": "Paire d'haltères réglables",
+            "value_1": "non",
+            "value_2": "non",
+            "value_3": "oui"
+          }
+        },
+        "r6": {
+          "type": "row",
+          "settings": {
+            "label": "Banc pliable",
+            "value_1": "non",
+            "value_2": "non",
+            "value_3": "oui"
+          }
+        },
+        "r7": {
+          "type": "row",
+          "settings": {
+            "label": "Programme 30 jours (PDF)",
+            "value_1": "non",
+            "value_2": "non",
+            "value_3": "Offert"
+          }
+        },
+        "r8": {
+          "type": "row",
+          "settings": {
+            "label": "Livraison offerte en 5 à 7 jours ouvrés",
+            "value_1": "oui",
+            "value_2": "oui",
+            "value_3": "oui"
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5",
+        "r6",
+        "r7",
+        "r8"
       ]
     },
     "moments": {
@@ -373,53 +481,60 @@
         "q1": {
           "type": "question",
           "settings": {
+            "question": "Quel pack choisir ?",
+            "answer": "<p><strong>Pack Essentiel Appartement</strong> : pour marcher chez vous sans déranger, avec le tapis de marche et le tapis anti-bruit. <strong>Pack Télétravail</strong> : pour marcher à votre bureau, il ajoute un réhausseur assis-debout. <strong>Pack Ultimate Home Gym</strong> : pour ajouter du renforcement, avec des haltères réglables, un banc pliable et le programme 30 jours offert. <a href=\"#ww-comparatif\">Voir le comparatif</a></p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
             "question": "Qui se cache derrière WhisperWalk ?",
             "answer": "<p>Morgan OCANA, entrepreneur individuel installé à Dijon (SIREN 914 877 022), qui exploite la boutique sous la marque WhisperWalk. Toutes nos coordonnées figurent dans nos <a href=\"/policies/contact-information\">informations de contact</a> et nos <a href=\"/policies/legal-notice\">mentions légales</a>.</p>"
           }
         },
-        "q2": {
+        "q3": {
           "type": "question",
           "settings": {
             "question": "Quand vais-je recevoir mon pack ?",
             "answer": "<p>Comptez 5 à 7 jours ouvrés en France métropolitaine, Corse incluse : 3 jours ouvrés de préparation à partir du jour ouvré qui suit votre commande, puis 2 à 4 jours ouvrés de transport. Votre numéro de suivi vous est envoyé par e-mail dès l'expédition. <a href=\"/policies/shipping-policy\">Politique d'expédition</a></p>"
           }
         },
-        "q3": {
+        "q4": {
           "type": "question",
           "settings": {
             "question": "La livraison est-elle vraiment offerte ?",
             "answer": "<p>Oui, pour toutes les commandes, sans minimum d'achat. Le prix affiché est le prix total : TVA non applicable (article 293 B du CGI), livraison comprise.</p>"
           }
         },
-        "q4": {
+        "q5": {
           "type": "question",
           "settings": {
             "question": "Et si le pack ne me convient pas ?",
             "answer": "<p>Vous avez 14 jours après réception pour changer d'avis, sans vous justifier. Écrivez-nous avec votre numéro de commande : nous vous envoyons l'adresse de retour. Les frais de retour sont à votre charge, sans frais de réapprovisionnement, et le remboursement intervient sous 7 jours après réception et contrôle du retour. <a href=\"/policies/refund-policy\">Politique de remboursement</a></p>"
           }
         },
-        "q5": {
+        "q6": {
           "type": "question",
           "settings": {
             "question": "Et s'il arrive abîmé ou ne fonctionne pas ?",
             "answer": "<p>Contactez-nous, si possible sous 48 heures, avec des photos. Le retour et le remboursement, ou l'échange, sont alors entièrement à nos frais. Vous gardez dans tous les cas la garantie légale de conformité de 2 ans et la garantie contre les vices cachés.</p>"
           }
         },
-        "q6": {
+        "q7": {
           "type": "question",
           "settings": {
             "question": "Le paiement est-il sécurisé ?",
             "answer": "<p>Oui. Le paiement se fait en ligne via une connexion chiffrée, par carte bancaire (CB, Visa, Mastercard, American Express), PayPal, Apple Pay, Google Pay ou Shop Pay. Nous ne conservons aucune donnée bancaire complète. <a href=\"/pages/moyens-de-paiement\">Moyens de paiement</a></p>"
           }
         },
-        "q7": {
+        "q8": {
           "type": "question",
           "settings": {
             "question": "Que contient chaque pack ?",
             "answer": "<p><strong>Pack Essentiel Appartement</strong> : 1 tapis de marche pliable et 1 tapis Fitness Pro anti-bruit 200 × 90 cm.</p><p><strong>Pack Télétravail</strong> : 1 tapis de marche pliable, 1 réhausseur de bureau assis-debout et 1 tapis Fitness Pro anti-bruit 200 × 90 cm.</p><p><strong>Pack Ultimate Home Gym</strong> : 1 tapis de marche pliable, 1 tapis Fitness Pro anti-bruit, 1 paire d'haltères réglables et 1 banc pliable, avec le programme 30 jours (PDF) offert.</p>"
           }
         },
-        "q8": {
+        "q9": {
           "type": "question",
           "settings": {
             "question": "Puis-je annuler ma commande ?",
@@ -435,7 +550,8 @@
         "q5",
         "q6",
         "q7",
-        "q8"
+        "q8",
+        "q9"
       ]
     },
     "cta": {
@@ -444,7 +560,8 @@
         "eyebrow": "",
         "title": "Votre prochaine réunion peut être votre première séance.",
         "text": "",
-        "button_label": "Choisir mon pack",
+        "collection": "tapis-de-course-pliable",
+        "button_label": "",
         "button_link": "",
         "facts": "Livraison offerte | Expédié depuis la France | 14 jours pour changer d'avis | Garantie légale de 2 ans",
         "show_contact": true,
@@ -455,6 +572,7 @@
   "order": [
     "hero",
     "packs",
+    "comparatif",
     "moments",
     "tapis",
     "etapes",

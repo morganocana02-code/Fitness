@@ -436,6 +436,80 @@
 .ww-details { max-width: 760px; }
 .ww-app-block { margin-top: 24px; }
 
+/* ---------- Conversion : achat direct, comparatif, barres fixes ---------- */
+
+/* Bouton texte (action secondaire discrète) */
+.ww-btn--text { padding: 16px 6px; background: none; border: 0; color: var(--ww-black); font-size: 15px; letter-spacing: 0; text-transform: none; text-decoration: underline; text-underline-offset: 4px; }
+.ww-btn--text:hover { color: var(--ww-violet); }
+
+/* Date de livraison estimée dans l'accroche */
+.ww-hero__eta { display: flex; align-items: flex-start; gap: 10px; margin: 12px 0 0; font-size: 15px; line-height: 1.45; color: var(--ww-black); }
+.ww-hero__eta .ww-icon { margin-top: 1px; color: var(--ww-success); }
+
+/* Carte pack : achat direct */
+.ww-pack__eta { display: flex; align-items: center; gap: 8px; margin: -6px 0 14px; font-size: 13px; line-height: 1.4; color: var(--ww-fog); }
+.ww-pack__eta .ww-icon { width: 16px; height: 16px; color: var(--ww-success); }
+.ww-pack__form { margin: 0; }
+.ww-pack__trust { display: flex; align-items: center; justify-content: center; gap: 6px; margin: 10px 0 0; font-size: 12px; line-height: 1.4; color: var(--ww-fog); }
+.ww-pack__trust .ww-icon { width: 14px; height: 14px; color: var(--ww-success); }
+.ww-pack__more { display: flex; justify-content: center; margin-top: 14px; }
+
+/* Tableau comparatif */
+.ww-compare { overflow-x: auto; border: 1px solid var(--ww-hairline); border-radius: var(--ww-radius-card); background: var(--ww-white); }
+.ww-compare__table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 14px; line-height: 1.4; }
+.ww-compare__table th,
+.ww-compare__table td { padding: 12px 6px; border-bottom: 1px solid var(--ww-hairline); text-align: center; vertical-align: middle; overflow-wrap: break-word; hyphens: auto; }
+.ww-compare__table tbody th { padding-left: 14px; text-align: left; font-weight: 500; }
+.ww-compare__corner { width: 32%; }
+.ww-compare__head { padding-top: 18px; vertical-align: bottom; }
+.ww-compare__head a { display: block; font-size: 14px; font-weight: 600; letter-spacing: -0.01em; text-decoration: none; }
+.ww-compare__price { display: block; margin-top: 6px; font-size: 16px; font-weight: 600; letter-spacing: -0.02em; }
+.ww-compare__tag { display: inline-block; margin-bottom: 8px; padding: 4px 8px; border-radius: var(--ww-radius-pill); background: var(--ww-black); color: var(--ww-white); font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+.ww-compare .is-current { background: var(--ww-violet-soft); }
+.ww-compare__head.is-current .ww-compare__tag { background: var(--ww-violet); }
+.ww-compare__table .ww-icon { width: 24px; height: 24px; padding: 4px; border-radius: 50%; background: var(--ww-violet-soft); color: var(--ww-violet); stroke-width: 2.6; }
+.ww-compare .is-current .ww-icon { background: var(--ww-white); }
+.ww-compare__no { color: #a9aeb8; }
+.ww-compare__table tfoot td { padding: 16px 6px 20px; border-bottom: 0; vertical-align: top; }
+.ww-compare__form { margin: 0; }
+.ww-compare__btn { width: 100%; min-height: 40px; padding: 10px 4px; font-size: 11px; letter-spacing: 0.02em; }
+.ww-compare__btn-long { display: none; }
+.ww-compare__more { margin-top: 10px; font-size: 12px; }
+@media (min-width: 750px) {
+  .ww-compare__table { font-size: 15px; }
+  .ww-compare__table th,
+  .ww-compare__table td { padding: 16px 14px; }
+  .ww-compare__table tbody th { padding-left: 24px; }
+  .ww-compare__head a { font-size: 17px; }
+  .ww-compare__price { font-size: 20px; }
+  .ww-compare__btn { min-height: 44px; padding: 14px 16px; font-size: 13px; letter-spacing: 0.04em; }
+  .ww-compare__more { font-size: 13px; }
+  .ww-compare__btn-long { display: inline; }
+  .ww-compare__btn-short { display: none; }
+}
+
+/* Barre d'achat fixe en bas de l'écran (mobile) */
+.ww-sticky { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 10px; padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px)); padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); border-top: 1px solid var(--ww-hairline); background: var(--ww-white); box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.08); color: var(--ww-black); }
+.ww-sticky[hidden] { display: none; }
+.ww-sticky__text { display: grid; min-width: 0; line-height: 1.3; }
+.ww-sticky__text strong { overflow: hidden; font-size: 15px; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+.ww-sticky__text span { font-size: 12px; line-height: 1.35; color: var(--ww-fog); }
+.ww-sticky .ww-btn { flex: none; min-height: 46px; padding: 12px 18px; font-size: 13px; letter-spacing: 0.04em; }
+@media (min-width: 990px) { .ww-sticky { display: none !important; } }
+@media (max-width: 989px) { body.ww-has-sticky { padding-bottom: calc(84px + env(safe-area-inset-bottom, 0px)); } }
+
+/* Fiche produit : lien vers le comparatif */
+.ww-product__compare { margin-top: 12px; }
+
+/* Appel final : accès direct aux trois packs */
+.ww-cta__packs { display: grid; gap: 10px; margin-top: 28px; }
+@media (min-width: 750px) { .ww-cta__packs { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; } }
+.ww-cta__pack { display: flex; align-items: center; gap: 12px; padding: 16px 18px; border: 1px solid #3a3a3a; border-radius: 16px; color: var(--ww-white); text-decoration: none; transition: border-color .2s ease, background-color .2s ease; }
+.ww-cta__pack:hover { border-color: var(--ww-white); background: #111111; }
+.ww-cta__pack span { font-size: 15px; font-weight: 600; }
+.ww-cta__pack strong { margin-left: auto; font-size: 15px; font-weight: 600; white-space: nowrap; }
+.ww-cta__pack .ww-icon { width: 18px; height: 18px; color: var(--ww-ash); }
+
 /* Accessibilité : réduire les animations si demandé */
 @media (prefers-reduced-motion: reduce) {
   .ww *, .ww *::before, .ww *::after { transition: none !important; }

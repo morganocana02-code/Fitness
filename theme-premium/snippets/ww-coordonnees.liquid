@@ -1,10 +1,11 @@
 {%- comment -%}
-  Coordonnées de la boutique, réunies en un seul endroit.
+  Coordonnées et délais de livraison de la boutique, réunis en un seul endroit.
   Elles doivent rester identiques à vos politiques et à Google Merchant Center :
   si l'une change, modifiez-la ici, puis dans vos politiques et dans Merchant Center.
 
   Paramètre « part » :
-  email, phone, hours, hours_short, response, address, ville, siren, exploitant, vendeur, nom, expedition
+  email, phone, hours, hours_short, response, address, ville, siren, exploitant, vendeur, nom, expedition,
+  delai_min, delai_max (délai total en jours ouvrés, comme dans la politique d'expédition)
 {%- endcomment -%}
 {%- liquid
   assign ww_nom = 'WhisperWalk'
@@ -20,6 +21,8 @@
   assign ww_hours_short = 'lun.–ven., 9h–18h'
   assign ww_response = 'Réponse sous 24 à 48 heures ouvrées'
   assign ww_expedition = 'Depuis la France'
+  assign ww_delai_min = 5
+  assign ww_delai_max = 7
 
   case part
     when 'email'
@@ -46,5 +49,9 @@
       echo ww_nom
     when 'expedition'
       echo ww_expedition
+    when 'delai_min'
+      echo ww_delai_min
+    when 'delai_max'
+      echo ww_delai_max
   endcase
 -%}

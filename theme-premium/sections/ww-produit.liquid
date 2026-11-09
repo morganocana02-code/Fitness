@@ -1,4 +1,5 @@
 {{ 'ww-premium.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'ww-premium.js' | asset_url }}" defer="defer"></script>
 
 {%- liquid
   assign title_parts = product.title | split: ' | '
@@ -12,7 +13,7 @@
 
 <script type="application/ld+json">{{ product | structured_data }}</script>
 
-<section class="ww ww-product" aria-labelledby="ww-product-title-{{ section.id }}">
+<section class="ww ww-product" data-ww-product aria-labelledby="ww-product-title-{{ section.id }}">
   <div class="ww-container">
     <div class="ww-product__grid">
 
@@ -64,7 +65,7 @@
         <p class="ww-product__price" data-ww-price>{{ current_variant.price | money }}</p>
         <p class="ww-product__tax">{{ section.settings.tax_note | escape }}</p>
 
-        {%- form 'product', product, class: 'ww-form', id: 'ww-product-form', novalidate: 'novalidate' -%}
+        {%- form 'product', product, class: 'ww-form', id: 'ww-product-form', novalidate: 'novalidate', data-ww-main-form: 'true' -%}
           {%- if product.has_only_default_variant -%}
             <input type="hidden" name="id" value="{{ current_variant.id }}">
           {%- else -%}
@@ -98,7 +99,7 @@
           </div>
 
           <button type="submit" name="add" class="ww-btn ww-btn--primary ww-btn--block" {% unless current_variant.available %}disabled{% endunless %}>
-            {%- if current_variant.available -%}Ajouter au panier{%- else -%}Épuisé{%- endif -%}
+            {%- if current_variant.available -%}Ajouter au panier · <span data-ww-price>{{ current_variant.price | money }}</span>{%- else -%}Épuisé{%- endif -%}
           </button>
           {%- if section.settings.show_dynamic_checkout -%}
             {{ form | payment_button }}
@@ -107,15 +108,18 @@
 
         {%- if section.settings.show_eta -%}
           {%- comment -%} Date estimée calculée dans le navigateur à partir des délais de la politique d'expédition {%- endcomment -%}
-          <p class="ww-eta" data-ww-eta data-min="{{ section.settings.eta_min }}" data-max="{{ section.settings.eta_max }}">
+          <p class="ww-eta" data-ww-eta data-prefix="Commandez aujourd'hui : livraison estimée entre le " data-min="{% render 'ww-coordonnees', part: 'delai_min' %}" data-max="{% render 'ww-coordonnees', part: 'delai_max' %}">
             {% render 'ww-icon', name: 'truck' %}
             <span>
-              <strong data-ww-eta-range>Livraison offerte en {{ section.settings.eta_min }} à {{ section.settings.eta_max }} jours ouvrés</strong>
+              <strong data-ww-eta-range>Livraison offerte en {% render 'ww-coordonnees', part: 'delai_min' %} à {% render 'ww-coordonnees', part: 'delai_max' %} jours ouvrés</strong>
               Commande validée avant 23h59 (heure de Paris) : préparation dès le jour ouvré suivant, envoi depuis la France avec numéro de suivi par e-mail.
             </span>
           </p>
         {%- endif -%}
 
+        {%- if section.settings.show_compare_link -%}
+          <a class="ww-link ww-product__compare" href="#ww-comparatif">Vous hésitez ? Comparer les 3 packs {% render 'ww-icon', name: 'arrow' %}</a>
+        {%- endif -%}
         {%- comment -%} Contenu exact du carton, défini par pack dans l'éditeur (blocs « Contenu du carton ») {%- endcomment -%}
         {%- for block in section.blocks -%}
           {%- if block.type == 'contents' and block.settings.product != blank and block.settings.product.id == product.id -%}
@@ -195,6 +199,18 @@
       </div>
     </div>
   </div>
+
+  {%- if section.settings.show_sticky -%}
+    <div class="ww-sticky" data-ww-sticky-product hidden>
+      <div class="ww-sticky__text">
+        <strong>{{ pack_name | escape }}</strong>
+        <span><span data-ww-price>{{ current_variant.price | money }}</span> · Livraison offerte</span>
+      </div>
+      <button type="button" class="ww-btn ww-btn--primary" data-ww-sticky-submit {% unless current_variant.available %}disabled{% endunless %}>
+        {%- if current_variant.available -%}Ajouter au panier{%- else -%}Épuisé{%- endif -%}
+      </button>
+    </div>
+  {%- endif -%}
 </section>
 
 {%- if product.description != blank -%}
@@ -209,73 +225,6 @@
   </section>
 {%- endif -%}
 
-<script>
-  (function () {
-    var root = document.getElementById('ww-product-form');
-    if (root) {
-      // Boutons + / − de la quantité
-      root.querySelectorAll('[data-ww-qty]').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          var input = root.querySelector('input[name="quantity"]');
-          var next = (parseInt(input.value, 10) || 1) + parseInt(btn.getAttribute('data-ww-qty'), 10);
-          input.value = Math.max(1, next);
-        });
-      });
-      // Mise à jour du prix si le produit a plusieurs variantes
-      var select = root.querySelector('[data-ww-variant]');
-      var price = document.querySelector('[data-ww-price]');
-      if (select && price) {
-        select.addEventListener('change', function () {
-          var option = select.options[select.selectedIndex];
-          if (option && option.dataset.price) price.textContent = option.dataset.price;
-        });
-      }
-    }
-
-    // Livraison estimée : jours ouvrés (lundi-vendredi, hors jours fériés en France), à partir de la date du jour à Paris
-    document.querySelectorAll('[data-ww-eta]').forEach(function (box) {
-      var out = box.querySelector('[data-ww-eta-range]');
-      var minDays = parseInt(box.getAttribute('data-min'), 10);
-      var maxDays = parseInt(box.getAttribute('data-max'), 10);
-      if (!out || !minDays || !maxDays || !window.Intl) return;
-      var DAY = 86400000;
-      function easter(y) {
-        var a = y % 19, b = Math.floor(y / 100), c = y % 100, d = Math.floor(b / 4), e = b % 4,
-            f = Math.floor((b + 8) / 25), g = Math.floor((b - f + 1) / 3), h = (19 * a + b - d - g + 15) % 30,
-            i = Math.floor(c / 4), k = c % 4, l = (32 + 2 * e + 2 * i - h - k) % 7, m = Math.floor((a + 11 * h + 22 * l) / 451),
-            month = Math.floor((h + l - 7 * m + 114) / 31), day = ((h + l - 7 * m + 114) % 31) + 1;
-        return Date.UTC(y, month - 1, day);
-      }
-      var holidays = {};
-      function isHoliday(t) {
-        var y = new Date(t).getUTCFullYear();
-        if (!holidays[y]) {
-          var e = easter(y);
-          holidays[y] = [[1, 1], [5, 1], [5, 8], [7, 14], [8, 15], [11, 1], [11, 11], [12, 25]]
-            .map(function (md) { return Date.UTC(y, md[0] - 1, md[1]); })
-            .concat([e + DAY, e + 39 * DAY, e + 50 * DAY]);
-        }
-        return holidays[y].indexOf(t) !== -1;
-      }
-      function addBusinessDays(t, n) {
-        while (n > 0) {
-          t += DAY;
-          var w = new Date(t).getUTCDay();
-          if (w !== 0 && w !== 6 && !isHoliday(t)) n--;
-        }
-        return t;
-      }
-      var p = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date()).split('-');
-      var today = Date.UTC(+p[0], +p[1] - 1, +p[2]);
-      var from = new Date(addBusinessDays(today, minDays));
-      var to = new Date(addBusinessDays(today, maxDays));
-      var full = new Intl.DateTimeFormat('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'UTC' });
-      var short = new Intl.DateTimeFormat('fr-FR', { weekday: 'long', day: 'numeric', timeZone: 'UTC' });
-      var sameMonth = from.getUTCMonth() === to.getUTCMonth();
-      out.textContent = 'Livraison offerte, estimée entre le ' + (sameMonth ? short.format(from) : full.format(from)) + ' et le ' + full.format(to);
-    });
-  })();
-</script>
 
 {% schema %}
 {
@@ -288,8 +237,8 @@
     { "type": "text", "id": "contents_title", "label": "Titre du contenu du carton", "default": "Dans le carton" },
     { "type": "checkbox", "id": "show_dynamic_checkout", "label": "Afficher le bouton de paiement rapide", "default": true },
     { "type": "checkbox", "id": "show_eta", "label": "Afficher la date de livraison estimée", "default": true },
-    { "type": "number", "id": "eta_min", "label": "Délai minimal (jours ouvrés)", "default": 5 },
-    { "type": "number", "id": "eta_max", "label": "Délai maximal (jours ouvrés)", "default": 7 }
+    { "type": "checkbox", "id": "show_compare_link", "label": "Afficher le lien « Comparer les 3 packs »", "default": true },
+    { "type": "checkbox", "id": "show_sticky", "label": "Afficher la barre d'achat fixe sur mobile", "info": "Si une application affiche déjà sa propre barre d'achat, gardez une seule des deux.", "default": true }
   ],
   "blocks": [
     {

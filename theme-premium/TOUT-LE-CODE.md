@@ -1,4 +1,4 @@
-# Refonte WhisperWalk « confiance » — tout le code
+# Refonte WhisperWalk « confiance et achat » — tout le code
 
 Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Shopify (voir LISEZMOI.md).
 
@@ -443,6 +443,80 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
 .ww-details { max-width: 760px; }
 .ww-app-block { margin-top: 24px; }
 
+/* ---------- Conversion : achat direct, comparatif, barres fixes ---------- */
+
+/* Bouton texte (action secondaire discrète) */
+.ww-btn--text { padding: 16px 6px; background: none; border: 0; color: var(--ww-black); font-size: 15px; letter-spacing: 0; text-transform: none; text-decoration: underline; text-underline-offset: 4px; }
+.ww-btn--text:hover { color: var(--ww-violet); }
+
+/* Date de livraison estimée dans l'accroche */
+.ww-hero__eta { display: flex; align-items: flex-start; gap: 10px; margin: 12px 0 0; font-size: 15px; line-height: 1.45; color: var(--ww-black); }
+.ww-hero__eta .ww-icon { margin-top: 1px; color: var(--ww-success); }
+
+/* Carte pack : achat direct */
+.ww-pack__eta { display: flex; align-items: center; gap: 8px; margin: -6px 0 14px; font-size: 13px; line-height: 1.4; color: var(--ww-fog); }
+.ww-pack__eta .ww-icon { width: 16px; height: 16px; color: var(--ww-success); }
+.ww-pack__form { margin: 0; }
+.ww-pack__trust { display: flex; align-items: center; justify-content: center; gap: 6px; margin: 10px 0 0; font-size: 12px; line-height: 1.4; color: var(--ww-fog); }
+.ww-pack__trust .ww-icon { width: 14px; height: 14px; color: var(--ww-success); }
+.ww-pack__more { display: flex; justify-content: center; margin-top: 14px; }
+
+/* Tableau comparatif */
+.ww-compare { overflow-x: auto; border: 1px solid var(--ww-hairline); border-radius: var(--ww-radius-card); background: var(--ww-white); }
+.ww-compare__table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 14px; line-height: 1.4; }
+.ww-compare__table th,
+.ww-compare__table td { padding: 12px 6px; border-bottom: 1px solid var(--ww-hairline); text-align: center; vertical-align: middle; overflow-wrap: break-word; hyphens: auto; }
+.ww-compare__table tbody th { padding-left: 14px; text-align: left; font-weight: 500; }
+.ww-compare__corner { width: 32%; }
+.ww-compare__head { padding-top: 18px; vertical-align: bottom; }
+.ww-compare__head a { display: block; font-size: 14px; font-weight: 600; letter-spacing: -0.01em; text-decoration: none; }
+.ww-compare__price { display: block; margin-top: 6px; font-size: 16px; font-weight: 600; letter-spacing: -0.02em; }
+.ww-compare__tag { display: inline-block; margin-bottom: 8px; padding: 4px 8px; border-radius: var(--ww-radius-pill); background: var(--ww-black); color: var(--ww-white); font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+.ww-compare .is-current { background: var(--ww-violet-soft); }
+.ww-compare__head.is-current .ww-compare__tag { background: var(--ww-violet); }
+.ww-compare__table .ww-icon { width: 24px; height: 24px; padding: 4px; border-radius: 50%; background: var(--ww-violet-soft); color: var(--ww-violet); stroke-width: 2.6; }
+.ww-compare .is-current .ww-icon { background: var(--ww-white); }
+.ww-compare__no { color: #a9aeb8; }
+.ww-compare__table tfoot td { padding: 16px 6px 20px; border-bottom: 0; vertical-align: top; }
+.ww-compare__form { margin: 0; }
+.ww-compare__btn { width: 100%; min-height: 40px; padding: 10px 4px; font-size: 11px; letter-spacing: 0.02em; }
+.ww-compare__btn-long { display: none; }
+.ww-compare__more { margin-top: 10px; font-size: 12px; }
+@media (min-width: 750px) {
+  .ww-compare__table { font-size: 15px; }
+  .ww-compare__table th,
+  .ww-compare__table td { padding: 16px 14px; }
+  .ww-compare__table tbody th { padding-left: 24px; }
+  .ww-compare__head a { font-size: 17px; }
+  .ww-compare__price { font-size: 20px; }
+  .ww-compare__btn { min-height: 44px; padding: 14px 16px; font-size: 13px; letter-spacing: 0.04em; }
+  .ww-compare__more { font-size: 13px; }
+  .ww-compare__btn-long { display: inline; }
+  .ww-compare__btn-short { display: none; }
+}
+
+/* Barre d'achat fixe en bas de l'écran (mobile) */
+.ww-sticky { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 10px; padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px)); padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); border-top: 1px solid var(--ww-hairline); background: var(--ww-white); box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.08); color: var(--ww-black); }
+.ww-sticky[hidden] { display: none; }
+.ww-sticky__text { display: grid; min-width: 0; line-height: 1.3; }
+.ww-sticky__text strong { overflow: hidden; font-size: 15px; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+.ww-sticky__text span { font-size: 12px; line-height: 1.35; color: var(--ww-fog); }
+.ww-sticky .ww-btn { flex: none; min-height: 46px; padding: 12px 18px; font-size: 13px; letter-spacing: 0.04em; }
+@media (min-width: 990px) { .ww-sticky { display: none !important; } }
+@media (max-width: 989px) { body.ww-has-sticky { padding-bottom: calc(84px + env(safe-area-inset-bottom, 0px)); } }
+
+/* Fiche produit : lien vers le comparatif */
+.ww-product__compare { margin-top: 12px; }
+
+/* Appel final : accès direct aux trois packs */
+.ww-cta__packs { display: grid; gap: 10px; margin-top: 28px; }
+@media (min-width: 750px) { .ww-cta__packs { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; } }
+.ww-cta__pack { display: flex; align-items: center; gap: 12px; padding: 16px 18px; border: 1px solid #3a3a3a; border-radius: 16px; color: var(--ww-white); text-decoration: none; transition: border-color .2s ease, background-color .2s ease; }
+.ww-cta__pack:hover { border-color: var(--ww-white); background: #111111; }
+.ww-cta__pack span { font-size: 15px; font-weight: 600; }
+.ww-cta__pack strong { margin-left: auto; font-size: 15px; font-weight: 600; white-space: nowrap; }
+.ww-cta__pack .ww-icon { width: 18px; height: 18px; color: var(--ww-ash); }
+
 /* Accessibilité : réduire les animations si demandé */
 @media (prefers-reduced-motion: reduce) {
   .ww *, .ww *::before, .ww *::after { transition: none !important; }
@@ -455,6 +529,153 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
 .ww { --ww-cta: #000000; --ww-cta-hover: #191919; --ww-cta-text: #ffffff; }
 .ww-section--dark, .ww-section--carbon { --ww-cta: #ffffff; --ww-cta-hover: #e9e9e9; --ww-cta-text: #000000; }
 [SUPPRIMER POUR ACTIVER] */
+```
+
+## assets/ww-premium.js
+
+```js
+/* ==========================================================================
+   WhisperWalk — scripts de la refonte
+   Quantité, prix selon la variante, date de livraison estimée et barres
+   d'achat fixes sur mobile. Chargé avec « defer » par les sections qui
+   en ont besoin ; il ne s'exécute qu'une fois, même s'il est inclus plusieurs fois.
+   ========================================================================== */
+(function () {
+  if (window.wwPremium) return;
+  window.wwPremium = true;
+
+  /* ---------- 1. Boutons + / − de la quantité ---------- */
+  document.addEventListener('click', function (event) {
+    var button = event.target.closest('[data-ww-qty]');
+    if (!button) return;
+    var box = button.closest('.ww-qty');
+    var input = box && box.querySelector('input[name="quantity"]');
+    if (!input) return;
+    var next = (parseInt(input.value, 10) || 1) + parseInt(button.getAttribute('data-ww-qty'), 10);
+    input.value = Math.max(1, next);
+  });
+
+  /* ---------- 2. Prix affiché selon la variante choisie ---------- */
+  document.addEventListener('change', function (event) {
+    var select = event.target.closest('[data-ww-variant]');
+    if (!select) return;
+    var option = select.options[select.selectedIndex];
+    var root = select.closest('[data-ww-product]') || document;
+    if (!option || !option.dataset.price) return;
+    root.querySelectorAll('[data-ww-price]').forEach(function (el) { el.textContent = option.dataset.price; });
+  });
+
+  /* ---------- 3. Date de livraison estimée ----------
+     Jours ouvrés = du lundi au vendredi, hors jours fériés en France,
+     comptés à partir du lendemain de la commande (date du jour à Paris). */
+  var DAY = 86400000;
+  var holidays = {};
+
+  function easter(year) {
+    var a = year % 19, b = Math.floor(year / 100), c = year % 100, d = Math.floor(b / 4), e = b % 4,
+        f = Math.floor((b + 8) / 25), g = Math.floor((b - f + 1) / 3), h = (19 * a + b - d - g + 15) % 30,
+        i = Math.floor(c / 4), k = c % 4, l = (32 + 2 * e + 2 * i - h - k) % 7,
+        m = Math.floor((a + 11 * h + 22 * l) / 451),
+        month = Math.floor((h + l - 7 * m + 114) / 31), day = ((h + l - 7 * m + 114) % 31) + 1;
+    return Date.UTC(year, month - 1, day);
+  }
+
+  function isHoliday(time) {
+    var year = new Date(time).getUTCFullYear();
+    if (!holidays[year]) {
+      var e = easter(year);
+      holidays[year] = [[1, 1], [5, 1], [5, 8], [7, 14], [8, 15], [11, 1], [11, 11], [12, 25]]
+        .map(function (md) { return Date.UTC(year, md[0] - 1, md[1]); })
+        .concat([e + DAY, e + 39 * DAY, e + 50 * DAY]); // lundi de Pâques, Ascension, lundi de Pentecôte
+    }
+    return holidays[year].indexOf(time) !== -1;
+  }
+
+  function addBusinessDays(time, count) {
+    while (count > 0) {
+      time += DAY;
+      var weekday = new Date(time).getUTCDay();
+      if (weekday !== 0 && weekday !== 6 && !isHoliday(time)) count--;
+    }
+    return time;
+  }
+
+  function todayInParis() {
+    var parts = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris', year: 'numeric', month: '2-digit', day: '2-digit' })
+      .format(new Date()).split('-');
+    return Date.UTC(+parts[0], +parts[1] - 1, +parts[2]);
+  }
+
+  if (window.Intl) {
+    var longDate = new Intl.DateTimeFormat('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'UTC' });
+    var longDay = new Intl.DateTimeFormat('fr-FR', { weekday: 'long', day: 'numeric', timeZone: 'UTC' });
+    var shortDate = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'short', timeZone: 'UTC' });
+    var shortDay = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', timeZone: 'UTC' });
+    var today = todayInParis();
+
+    document.querySelectorAll('[data-ww-eta]').forEach(function (el) {
+      var min = parseInt(el.getAttribute('data-min'), 10);
+      var max = parseInt(el.getAttribute('data-max'), 10);
+      var out = el.querySelector('[data-ww-eta-range]') || el;
+      if (!min || !max) return;
+      var from = new Date(addBusinessDays(today, min));
+      var to = new Date(addBusinessDays(today, max));
+      var sameMonth = from.getUTCMonth() === to.getUTCMonth();
+      var range = el.getAttribute('data-style') === 'short'
+        ? (sameMonth ? shortDay.format(from) : shortDate.format(from)) + ' et le ' + shortDate.format(to)
+        : (sameMonth ? longDay.format(from) : longDate.format(from)) + ' et le ' + longDate.format(to);
+      out.textContent = (el.getAttribute('data-prefix') || 'Livraison estimée entre le ') + range;
+    });
+  }
+
+  /* ---------- 4. Barres d'achat fixes (mobile) ---------- */
+  if (!('IntersectionObserver' in window)) return;
+
+  function setSticky(bar, show) {
+    bar.hidden = !show;
+    var visible = Array.prototype.some.call(document.querySelectorAll('.ww-sticky'), function (el) {
+      return !el.hidden && el.getClientRects().length > 0;
+    });
+    document.body.classList.toggle('ww-has-sticky', visible);
+  }
+
+  // Fiche produit : la barre apparaît quand le bouton « Ajouter au panier » n'est plus visible
+  document.querySelectorAll('[data-ww-sticky-product]').forEach(function (bar) {
+    var root = bar.closest('[data-ww-product]');
+    var form = root && root.querySelector('form[data-ww-main-form]');
+    var submit = form && form.querySelector('[type="submit"]');
+    if (!submit) return;
+    new IntersectionObserver(function (entries) {
+      setSticky(bar, !entries[0].isIntersecting);
+    }).observe(submit);
+    var button = bar.querySelector('[data-ww-sticky-submit]');
+    if (button) {
+      button.addEventListener('click', function () {
+        if (form.requestSubmit) form.requestSubmit(submit); else submit.click();
+      });
+    }
+  });
+
+  // Accueil : la barre apparaît après l'accroche, et s'efface quand les packs ou l'appel final sont à l'écran
+  document.querySelectorAll('[data-ww-sticky-home]').forEach(function (bar) {
+    var hero = bar.closest('.ww-hero');
+    if (!hero) return;
+    var heroVisible = true;
+    var visibleTargets = [];
+    var targets = Array.prototype.slice.call(document.querySelectorAll('#ww-packs, #ww-comparatif, .ww-cta'));
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.target === hero) { heroVisible = entry.isIntersecting; return; }
+        var index = visibleTargets.indexOf(entry.target);
+        if (entry.isIntersecting && index === -1) visibleTargets.push(entry.target);
+        if (!entry.isIntersecting && index !== -1) visibleTargets.splice(index, 1);
+      });
+      setSticky(bar, !heroVisible && visibleTargets.length === 0);
+    });
+    observer.observe(hero);
+    targets.forEach(function (target) { observer.observe(target); });
+  });
+})();
 ```
 
 ## snippets/ww-icon.liquid
@@ -511,12 +732,13 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
 
 ```liquid
 {%- comment -%}
-  Coordonnées de la boutique, réunies en un seul endroit.
+  Coordonnées et délais de livraison de la boutique, réunis en un seul endroit.
   Elles doivent rester identiques à vos politiques et à Google Merchant Center :
   si l'une change, modifiez-la ici, puis dans vos politiques et dans Merchant Center.
 
   Paramètre « part » :
-  email, phone, hours, hours_short, response, address, ville, siren, exploitant, vendeur, nom, expedition
+  email, phone, hours, hours_short, response, address, ville, siren, exploitant, vendeur, nom, expedition,
+  delai_min, delai_max (délai total en jours ouvrés, comme dans la politique d'expédition)
 {%- endcomment -%}
 {%- liquid
   assign ww_nom = 'WhisperWalk'
@@ -532,6 +754,8 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
   assign ww_hours_short = 'lun.–ven., 9h–18h'
   assign ww_response = 'Réponse sous 24 à 48 heures ouvrées'
   assign ww_expedition = 'Depuis la France'
+  assign ww_delai_min = 5
+  assign ww_delai_max = 7
 
   case part
     when 'email'
@@ -558,6 +782,10 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
       echo ww_nom
     when 'expedition'
       echo ww_expedition
+    when 'delai_min'
+      echo ww_delai_min
+    when 'delai_max'
+      echo ww_delai_max
   endcase
 -%}
 ```
@@ -566,13 +794,14 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
 
 ```liquid
 {%- comment -%}
-  Carte d'un pack.
-  Paramètres : p (produit), moment, pitch, contents (texte enrichi), badge, button_label
+  Carte d'un pack, avec achat direct.
+  Paramètres : p (produit), moment, pitch, contents (texte enrichi), badge, button_label,
+  card_image (image facultative qui remplace la photo principale du produit sur la carte)
   Le prix, le nom et l'image viennent directement du produit Shopify.
 {%- endcomment -%}
 {%- assign title_parts = p.title | split: ' | ' -%}
 {%- assign pack_name = title_parts | first -%}
-{%- assign image = p.featured_media.preview_image | default: p.featured_image -%}
+{%- assign image = card_image | default: p.featured_media.preview_image | default: p.featured_image -%}
 
 <article class="ww-pack">
   <a class="ww-pack__media" href="{{ p.url }}" tabindex="-1" aria-hidden="true">
@@ -608,13 +837,22 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
     <div class="ww-pack__footer">
       <div class="ww-pack__price">
         <span class="ww-pack__amount">{{ p.price | money }}</span>
-        <span class="ww-pack__shipping">Livraison offerte</span>
+        <span class="ww-pack__shipping">Prix total · Livraison offerte</span>
       </div>
+      <p class="ww-pack__eta" data-ww-eta data-style="short" data-prefix="Livraison estimée entre le " data-min="{% render 'ww-coordonnees', part: 'delai_min' %}" data-max="{% render 'ww-coordonnees', part: 'delai_max' %}">
+        {% render 'ww-icon', name: 'truck' %}<span data-ww-eta-range>Livraison en {% render 'ww-coordonnees', part: 'delai_min' %} à {% render 'ww-coordonnees', part: 'delai_max' %} jours ouvrés</span>
+      </p>
       {%- if p.available -%}
-        <a class="ww-btn ww-btn--dark ww-btn--block" href="{{ p.url }}">{{ button_label | default: 'Découvrir le pack' | escape }}</a>
+        {%- form 'product', p, class: 'ww-pack__form' -%}
+          <input type="hidden" name="id" value="{{ p.selected_or_first_available_variant.id }}">
+          <input type="hidden" name="quantity" value="1">
+          <button type="submit" name="add" class="ww-btn ww-btn--primary ww-btn--block">{{ button_label | default: 'Ajouter au panier' | escape }}</button>
+        {%- endform -%}
+        <p class="ww-pack__trust">{% render 'ww-icon', name: 'lock' %}Paiement sécurisé · 14 jours pour changer d'avis</p>
       {%- else -%}
-        <a class="ww-btn ww-btn--outline ww-btn--block" href="{{ p.url }}">Épuisé</a>
+        <span class="ww-btn ww-btn--outline ww-btn--block" aria-disabled="true">Momentanément épuisé</span>
       {%- endif -%}
+      <a class="ww-link ww-pack__more" href="{{ p.url }}">Voir le détail du pack {% render 'ww-icon', name: 'arrow' %}</a>
     </div>
   </div>
 </article>
@@ -624,6 +862,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
 
 ```liquid
 {{ 'ww-premium.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'ww-premium.js' | asset_url }}" defer="defer"></script>
 
 {%- liquid
   assign featured = section.settings.product
@@ -658,12 +897,18 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
           </p>
         {%- endif -%}
 
+        {%- if section.settings.show_eta -%}
+          <p class="ww-hero__eta" data-ww-eta data-prefix="Commandez aujourd'hui : livraison estimée entre le " data-min="{% render 'ww-coordonnees', part: 'delai_min' %}" data-max="{% render 'ww-coordonnees', part: 'delai_max' %}">
+            {% render 'ww-icon', name: 'truck' %}<span data-ww-eta-range>Livraison offerte en {% render 'ww-coordonnees', part: 'delai_min' %} à {% render 'ww-coordonnees', part: 'delai_max' %} jours ouvrés</span>
+          </p>
+        {%- endif -%}
+
         <div class="ww-actions">
           {%- if section.settings.button_label != blank -%}
             <a class="ww-btn ww-btn--primary" href="{{ section.settings.button_link | default: '#ww-packs' }}">{{ section.settings.button_label | escape }}</a>
           {%- endif -%}
           {%- if section.settings.button2_label != blank -%}
-            <a class="ww-btn ww-btn--outline" href="{{ section.settings.button2_link | default: '#ww-etapes' }}">{{ section.settings.button2_label | escape }}</a>
+            <a class="ww-btn ww-btn--text" href="{{ section.settings.button2_link | default: '#ww-etapes' }}">{{ section.settings.button2_label | escape }}</a>
           {%- endif -%}
         </div>
       </div>
@@ -713,6 +958,16 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
 
     </div>
   </div>
+
+  {%- if section.settings.show_sticky and cheapest != blank -%}
+    <div class="ww-sticky" data-ww-sticky-home hidden>
+      <div class="ww-sticky__text">
+        <strong>{{ section.settings.sticky_prefix | escape }} {{ cheapest.price | money }}</strong>
+        <span>{{ section.settings.sticky_text | escape }}</span>
+      </div>
+      <a class="ww-btn ww-btn--primary" href="{{ section.settings.button_link | default: '#ww-packs' }}">{{ section.settings.sticky_button | escape }}</a>
+    </div>
+  {%- endif -%}
 </section>
 
 {% schema %}
@@ -726,12 +981,18 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
     { "type": "collection", "id": "collection", "label": "Collection des packs", "info": "Sert à afficher le prix du pack le moins cher." },
     { "type": "text", "id": "price_prefix", "label": "Texte avant le prix", "default": "Packs à partir de" },
     { "type": "text", "id": "price_note", "label": "Texte après le prix", "default": "livraison offerte" },
+    { "type": "checkbox", "id": "show_eta", "label": "Afficher la date de livraison estimée", "default": true },
     { "type": "text", "id": "button_label", "label": "Bouton principal", "default": "Choisir mon pack" },
     { "type": "url", "id": "button_link", "label": "Lien du bouton principal (vide = section des packs)" },
-    { "type": "text", "id": "button2_label", "label": "Bouton secondaire", "default": "Comment se passe la commande" },
+    { "type": "text", "id": "button2_label", "label": "Lien secondaire", "default": "Comment se passe la commande ?" },
     { "type": "url", "id": "button2_link", "label": "Lien du bouton secondaire (vide = étapes de commande)" },
     { "type": "checkbox", "id": "show_contact", "label": "Afficher le téléphone et l'e-mail", "default": true },
     { "type": "text", "id": "contact_intro", "label": "Texte avant les coordonnées", "default": "Une question avant d'acheter ? Appelez le" },
+    { "type": "header", "content": "Barre fixe sur mobile" },
+    { "type": "checkbox", "id": "show_sticky", "label": "Afficher la barre « Voir les packs » en bas de l'écran", "default": true },
+    { "type": "text", "id": "sticky_prefix", "label": "Texte avant le prix", "default": "Dès" },
+    { "type": "text", "id": "sticky_text", "label": "Sous-titre", "default": "Livraison offerte · 14 jours pour changer d'avis" },
+    { "type": "text", "id": "sticky_button", "label": "Texte du bouton", "default": "Voir les packs" },
     { "type": "product", "id": "product", "label": "Pack mis en avant", "info": "Sa photo principale, son nom et son prix s'affichent à côté du texte." },
     { "type": "image_picker", "id": "image", "label": "Image (facultative, remplace la photo du pack)" }
   ],
@@ -764,6 +1025,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
 
 ```liquid
 {{ 'ww-premium.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'ww-premium.js' | asset_url }}" defer="defer"></script>
 
 <section class="ww ww-section{% if section.settings.mist %} ww-section--mist{% endif %}" id="ww-packs" aria-labelledby="ww-packs-{{ section.id }}">
   <div class="ww-container">
@@ -784,6 +1046,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
               pitch: block.settings.pitch,
               contents: block.settings.contents,
               badge: block.settings.badge,
+              card_image: block.settings.image,
               button_label: section.settings.button_label
             -%}
           </div>
@@ -806,7 +1069,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
     { "type": "text", "id": "eyebrow", "label": "Surtitre", "default": "Les packs" },
     { "type": "text", "id": "title", "label": "Titre", "default": "Choisissez votre pack." },
     { "type": "text", "id": "text", "label": "Texte", "default": "Un tapis de marche pliable au cœur de chaque pack. Choisissez ce qui l'accompagne selon votre façon de bouger." },
-    { "type": "text", "id": "button_label", "label": "Texte du bouton", "default": "Découvrir le pack" },
+    { "type": "text", "id": "button_label", "label": "Texte du bouton", "default": "Ajouter au panier" },
     { "type": "text", "id": "note", "label": "Phrase sous les packs", "default": "Pour les trois packs : livraison offerte en 5 à 7 jours ouvrés, 14 jours pour changer d'avis et garantie légale de 2 ans." },
     { "type": "checkbox", "id": "mist", "label": "Fond gris clair", "default": false }
   ],
@@ -819,7 +1082,8 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
         { "type": "text", "id": "moment", "label": "Moment", "default": "Le soir" },
         { "type": "text", "id": "pitch", "label": "Phrase d'accroche" },
         { "type": "richtext", "id": "contents", "label": "Contenu du pack" },
-        { "type": "text", "id": "badge", "label": "Étiquette sur l'image (facultative)" }
+        { "type": "text", "id": "badge", "label": "Étiquette sur l'image (facultative)" },
+        { "type": "image_picker", "id": "image", "label": "Photo de la carte (facultative)", "info": "Remplace la photo principale du produit sur cette carte uniquement." }
       ]
     }
   ],
@@ -833,6 +1097,159 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
       ]
     }
   ]
+}
+{% endschema %}
+```
+
+## sections/ww-comparatif.liquid
+
+```liquid
+{{ 'ww-premium.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  Tableau comparatif des packs.
+  Colonnes : jusqu'à 3 produits (réglages). Lignes : blocs « Ligne » avec une valeur par pack :
+  « oui » affiche une coche, « non » ou vide affiche un tiret, tout autre texte s'affiche tel quel.
+  Sur une fiche produit, la colonne du pack consulté est mise en évidence.
+{%- endcomment -%}
+
+<section class="ww ww-section{% if section.settings.mist %} ww-section--mist{% endif %}" id="ww-comparatif" aria-labelledby="ww-comparatif-{{ section.id }}">
+  <div class="ww-container">
+    <div class="ww-head">
+      {%- if section.settings.eyebrow != blank -%}<p class="ww-eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+      <h2 class="ww-h2" id="ww-comparatif-{{ section.id }}">{{ section.settings.title | escape }}</h2>
+      {%- if section.settings.text != blank -%}<p class="ww-lead">{{ section.settings.text | escape }}</p>{%- endif -%}
+    </div>
+
+    <div class="ww-compare">
+      <table class="ww-compare__table">
+        <caption class="ww-visually-hidden">{{ section.settings.title | escape }}</caption>
+        <thead>
+          <tr>
+            <td class="ww-compare__corner"></td>
+            {%- for i in (1..3) -%}
+              {%- capture key -%}product_{{ i }}{%- endcapture -%}
+              {%- assign p = section.settings[key] -%}
+              {%- if p != blank -%}
+                {%- capture name_key -%}name_{{ i }}{%- endcapture -%}
+                {%- capture badge_key -%}badge_{{ i }}{%- endcapture -%}
+                {%- assign is_current = false -%}
+                {%- if product != blank and product.id == p.id -%}{%- assign is_current = true -%}{%- endif -%}
+                <th scope="col" class="ww-compare__head{% if is_current %} is-current{% endif %}">
+                  {%- if is_current -%}
+                    <span class="ww-compare__tag">Votre sélection</span>
+                  {%- elsif section.settings[badge_key] != blank -%}
+                    <span class="ww-compare__tag">{{ section.settings[badge_key] | escape }}</span>
+                  {%- endif -%}
+                  <a href="{{ p.url }}">{{ section.settings[name_key] | default: p.title | escape }}</a>
+                  <span class="ww-compare__price">{{ p.price | money }}</span>
+                </th>
+              {%- endif -%}
+            {%- endfor -%}
+          </tr>
+        </thead>
+
+        <tbody>
+          {%- for block in section.blocks -%}
+            <tr {{ block.shopify_attributes }}>
+              <th scope="row">{{ block.settings.label | escape }}</th>
+              {%- for i in (1..3) -%}
+                {%- capture key -%}product_{{ i }}{%- endcapture -%}
+                {%- assign p = section.settings[key] -%}
+                {%- if p != blank -%}
+                  {%- capture value_key -%}value_{{ i }}{%- endcapture -%}
+                  {%- assign value = block.settings[value_key] | strip -%}
+                  {%- assign value_test = value | downcase -%}
+                  <td{% if product != blank and product.id == p.id %} class="is-current"{% endif %}>
+                    {%- if value_test == 'oui' -%}
+                      {% render 'ww-icon', name: 'check' %}<span class="ww-visually-hidden">Inclus</span>
+                    {%- elsif value_test == 'non' or value == blank -%}
+                      <span class="ww-compare__no" aria-hidden="true">—</span><span class="ww-visually-hidden">Non inclus</span>
+                    {%- else -%}
+                      {{ value | escape }}
+                    {%- endif -%}
+                  </td>
+                {%- endif -%}
+              {%- endfor -%}
+            </tr>
+          {%- endfor -%}
+        </tbody>
+
+        <tfoot>
+          <tr>
+            <td></td>
+            {%- for i in (1..3) -%}
+              {%- capture key -%}product_{{ i }}{%- endcapture -%}
+              {%- assign p = section.settings[key] -%}
+              {%- if p != blank -%}
+                {%- capture name_key -%}name_{{ i }}{%- endcapture -%}
+                {%- assign col_name = section.settings[name_key] | default: p.title -%}
+                <td{% if product != blank and product.id == p.id %} class="is-current"{% endif %}>
+                  {%- if p.available -%}
+                    {%- form 'product', p, class: 'ww-compare__form' -%}
+                      <input type="hidden" name="id" value="{{ p.selected_or_first_available_variant.id }}">
+                      <input type="hidden" name="quantity" value="1">
+                      <button type="submit" name="add" class="ww-btn ww-btn--primary ww-compare__btn" aria-label="Ajouter le {{ col_name | escape }} au panier">
+                        <span class="ww-compare__btn-long">Ajouter au panier</span><span class="ww-compare__btn-short">Ajouter</span>
+                      </button>
+                    {%- endform -%}
+                  {%- else -%}
+                    <span class="ww-compare__no">Épuisé</span>
+                  {%- endif -%}
+                  <a class="ww-link ww-compare__more" href="{{ p.url }}">Voir le détail</a>
+                </td>
+              {%- endif -%}
+            {%- endfor -%}
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    {%- if section.settings.note != blank -%}
+      <p class="ww-note">{% render 'ww-icon', name: 'shield' %}<span>{{ section.settings.note | escape }}</span></p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "WW · Comparatif",
+  "tag": "div",
+  "max_blocks": 12,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Surtitre", "default": "Comparatif" },
+    { "type": "text", "id": "title", "label": "Titre", "default": "Les trois packs, côte à côte." },
+    { "type": "text", "id": "text", "label": "Texte" },
+    { "type": "header", "content": "Colonne 1" },
+    { "type": "product", "id": "product_1", "label": "Pack" },
+    { "type": "text", "id": "name_1", "label": "Nom court", "default": "Pack Essentiel" },
+    { "type": "text", "id": "badge_1", "label": "Étiquette (facultative)" },
+    { "type": "header", "content": "Colonne 2" },
+    { "type": "product", "id": "product_2", "label": "Pack" },
+    { "type": "text", "id": "name_2", "label": "Nom court", "default": "Pack Télétravail" },
+    { "type": "text", "id": "badge_2", "label": "Étiquette (facultative)" },
+    { "type": "header", "content": "Colonne 3" },
+    { "type": "product", "id": "product_3", "label": "Pack" },
+    { "type": "text", "id": "name_3", "label": "Nom court", "default": "Pack Ultimate" },
+    { "type": "text", "id": "badge_3", "label": "Étiquette (facultative)" },
+    { "type": "header", "content": "Bas du tableau" },
+    { "type": "text", "id": "note", "label": "Phrase sous le tableau" },
+    { "type": "checkbox", "id": "mist", "label": "Fond gris clair", "default": false }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Ligne",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Intitulé", "default": "Tapis de marche pliable" },
+        { "type": "paragraph", "content": "Écrivez « oui » pour une coche, « non » pour un tiret, ou un texte court." },
+        { "type": "text", "id": "value_1", "label": "Colonne 1", "default": "oui" },
+        { "type": "text", "id": "value_2", "label": "Colonne 2", "default": "oui" },
+        { "type": "text", "id": "value_3", "label": "Colonne 3", "default": "oui" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "WW · Comparatif", "blocks": [{ "type": "row" }] }]
 }
 {% endschema %}
 ```
@@ -1294,9 +1711,22 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
     {%- if section.settings.eyebrow != blank -%}<p class="ww-eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
     <h2 class="ww-display ww-display--md" id="ww-cta-{{ section.id }}">{{ section.settings.title | escape | newline_to_br }}</h2>
     {%- if section.settings.text != blank -%}<p class="ww-lead">{{ section.settings.text | escape }}</p>{%- endif -%}
-    <div class="ww-actions">
-      <a class="ww-btn ww-btn--primary" href="{{ section.settings.button_link | default: '#ww-packs' }}">{{ section.settings.button_label | escape }}</a>
-    </div>
+    {%- if section.settings.collection != blank -%}
+      <div class="ww-cta__packs">
+        {%- for p in section.settings.collection.products limit: 3 -%}
+          <a class="ww-cta__pack" href="{{ p.url }}">
+            <span>{{ p.title | split: ' | ' | first | escape }}</span>
+            <strong>{{ p.price | money }}</strong>
+            {% render 'ww-icon', name: 'arrow' %}
+          </a>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+    {%- if section.settings.button_label != blank -%}
+      <div class="ww-actions">
+        <a class="ww-btn ww-btn--primary" href="{{ section.settings.button_link | default: '#ww-packs' }}">{{ section.settings.button_label | escape }}</a>
+      </div>
+    {%- endif -%}
     {%- if section.settings.facts != blank -%}
       {%- assign facts = section.settings.facts | split: '|' -%}
       <ul class="ww-cta__facts">
@@ -1320,7 +1750,8 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
     { "type": "text", "id": "eyebrow", "label": "Surtitre" },
     { "type": "textarea", "id": "title", "label": "Titre", "default": "Votre prochaine réunion peut être votre première séance." },
     { "type": "text", "id": "text", "label": "Texte" },
-    { "type": "text", "id": "button_label", "label": "Texte du bouton", "default": "Choisir mon pack" },
+    { "type": "collection", "id": "collection", "label": "Collection des packs", "info": "Affiche un accès direct à chaque pack, avec son prix." },
+    { "type": "text", "id": "button_label", "label": "Texte du bouton (vide = pas de bouton)", "default": "Choisir mon pack" },
     { "type": "url", "id": "button_link", "label": "Lien du bouton (vide = section des packs)" },
     { "type": "text", "id": "facts", "label": "Engagements (séparés par |)", "default": "Livraison offerte | Expédié depuis la France | 14 jours pour changer d'avis | Garantie légale de 2 ans" },
     { "type": "checkbox", "id": "show_contact", "label": "Afficher le téléphone et l'e-mail", "default": true },
@@ -1335,6 +1766,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
 
 ```liquid
 {{ 'ww-premium.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'ww-premium.js' | asset_url }}" defer="defer"></script>
 
 {%- liquid
   assign title_parts = product.title | split: ' | '
@@ -1348,7 +1780,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
 
 <script type="application/ld+json">{{ product | structured_data }}</script>
 
-<section class="ww ww-product" aria-labelledby="ww-product-title-{{ section.id }}">
+<section class="ww ww-product" data-ww-product aria-labelledby="ww-product-title-{{ section.id }}">
   <div class="ww-container">
     <div class="ww-product__grid">
 
@@ -1400,7 +1832,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
         <p class="ww-product__price" data-ww-price>{{ current_variant.price | money }}</p>
         <p class="ww-product__tax">{{ section.settings.tax_note | escape }}</p>
 
-        {%- form 'product', product, class: 'ww-form', id: 'ww-product-form', novalidate: 'novalidate' -%}
+        {%- form 'product', product, class: 'ww-form', id: 'ww-product-form', novalidate: 'novalidate', data-ww-main-form: 'true' -%}
           {%- if product.has_only_default_variant -%}
             <input type="hidden" name="id" value="{{ current_variant.id }}">
           {%- else -%}
@@ -1434,7 +1866,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
           </div>
 
           <button type="submit" name="add" class="ww-btn ww-btn--primary ww-btn--block" {% unless current_variant.available %}disabled{% endunless %}>
-            {%- if current_variant.available -%}Ajouter au panier{%- else -%}Épuisé{%- endif -%}
+            {%- if current_variant.available -%}Ajouter au panier · <span data-ww-price>{{ current_variant.price | money }}</span>{%- else -%}Épuisé{%- endif -%}
           </button>
           {%- if section.settings.show_dynamic_checkout -%}
             {{ form | payment_button }}
@@ -1443,15 +1875,18 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
 
         {%- if section.settings.show_eta -%}
           {%- comment -%} Date estimée calculée dans le navigateur à partir des délais de la politique d'expédition {%- endcomment -%}
-          <p class="ww-eta" data-ww-eta data-min="{{ section.settings.eta_min }}" data-max="{{ section.settings.eta_max }}">
+          <p class="ww-eta" data-ww-eta data-prefix="Commandez aujourd'hui : livraison estimée entre le " data-min="{% render 'ww-coordonnees', part: 'delai_min' %}" data-max="{% render 'ww-coordonnees', part: 'delai_max' %}">
             {% render 'ww-icon', name: 'truck' %}
             <span>
-              <strong data-ww-eta-range>Livraison offerte en {{ section.settings.eta_min }} à {{ section.settings.eta_max }} jours ouvrés</strong>
+              <strong data-ww-eta-range>Livraison offerte en {% render 'ww-coordonnees', part: 'delai_min' %} à {% render 'ww-coordonnees', part: 'delai_max' %} jours ouvrés</strong>
               Commande validée avant 23h59 (heure de Paris) : préparation dès le jour ouvré suivant, envoi depuis la France avec numéro de suivi par e-mail.
             </span>
           </p>
         {%- endif -%}
 
+        {%- if section.settings.show_compare_link -%}
+          <a class="ww-link ww-product__compare" href="#ww-comparatif">Vous hésitez ? Comparer les 3 packs {% render 'ww-icon', name: 'arrow' %}</a>
+        {%- endif -%}
         {%- comment -%} Contenu exact du carton, défini par pack dans l'éditeur (blocs « Contenu du carton ») {%- endcomment -%}
         {%- for block in section.blocks -%}
           {%- if block.type == 'contents' and block.settings.product != blank and block.settings.product.id == product.id -%}
@@ -1531,6 +1966,18 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
       </div>
     </div>
   </div>
+
+  {%- if section.settings.show_sticky -%}
+    <div class="ww-sticky" data-ww-sticky-product hidden>
+      <div class="ww-sticky__text">
+        <strong>{{ pack_name | escape }}</strong>
+        <span><span data-ww-price>{{ current_variant.price | money }}</span> · Livraison offerte</span>
+      </div>
+      <button type="button" class="ww-btn ww-btn--primary" data-ww-sticky-submit {% unless current_variant.available %}disabled{% endunless %}>
+        {%- if current_variant.available -%}Ajouter au panier{%- else -%}Épuisé{%- endif -%}
+      </button>
+    </div>
+  {%- endif -%}
 </section>
 
 {%- if product.description != blank -%}
@@ -1545,73 +1992,6 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
   </section>
 {%- endif -%}
 
-<script>
-  (function () {
-    var root = document.getElementById('ww-product-form');
-    if (root) {
-      // Boutons + / − de la quantité
-      root.querySelectorAll('[data-ww-qty]').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          var input = root.querySelector('input[name="quantity"]');
-          var next = (parseInt(input.value, 10) || 1) + parseInt(btn.getAttribute('data-ww-qty'), 10);
-          input.value = Math.max(1, next);
-        });
-      });
-      // Mise à jour du prix si le produit a plusieurs variantes
-      var select = root.querySelector('[data-ww-variant]');
-      var price = document.querySelector('[data-ww-price]');
-      if (select && price) {
-        select.addEventListener('change', function () {
-          var option = select.options[select.selectedIndex];
-          if (option && option.dataset.price) price.textContent = option.dataset.price;
-        });
-      }
-    }
-
-    // Livraison estimée : jours ouvrés (lundi-vendredi, hors jours fériés en France), à partir de la date du jour à Paris
-    document.querySelectorAll('[data-ww-eta]').forEach(function (box) {
-      var out = box.querySelector('[data-ww-eta-range]');
-      var minDays = parseInt(box.getAttribute('data-min'), 10);
-      var maxDays = parseInt(box.getAttribute('data-max'), 10);
-      if (!out || !minDays || !maxDays || !window.Intl) return;
-      var DAY = 86400000;
-      function easter(y) {
-        var a = y % 19, b = Math.floor(y / 100), c = y % 100, d = Math.floor(b / 4), e = b % 4,
-            f = Math.floor((b + 8) / 25), g = Math.floor((b - f + 1) / 3), h = (19 * a + b - d - g + 15) % 30,
-            i = Math.floor(c / 4), k = c % 4, l = (32 + 2 * e + 2 * i - h - k) % 7, m = Math.floor((a + 11 * h + 22 * l) / 451),
-            month = Math.floor((h + l - 7 * m + 114) / 31), day = ((h + l - 7 * m + 114) % 31) + 1;
-        return Date.UTC(y, month - 1, day);
-      }
-      var holidays = {};
-      function isHoliday(t) {
-        var y = new Date(t).getUTCFullYear();
-        if (!holidays[y]) {
-          var e = easter(y);
-          holidays[y] = [[1, 1], [5, 1], [5, 8], [7, 14], [8, 15], [11, 1], [11, 11], [12, 25]]
-            .map(function (md) { return Date.UTC(y, md[0] - 1, md[1]); })
-            .concat([e + DAY, e + 39 * DAY, e + 50 * DAY]);
-        }
-        return holidays[y].indexOf(t) !== -1;
-      }
-      function addBusinessDays(t, n) {
-        while (n > 0) {
-          t += DAY;
-          var w = new Date(t).getUTCDay();
-          if (w !== 0 && w !== 6 && !isHoliday(t)) n--;
-        }
-        return t;
-      }
-      var p = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date()).split('-');
-      var today = Date.UTC(+p[0], +p[1] - 1, +p[2]);
-      var from = new Date(addBusinessDays(today, minDays));
-      var to = new Date(addBusinessDays(today, maxDays));
-      var full = new Intl.DateTimeFormat('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'UTC' });
-      var short = new Intl.DateTimeFormat('fr-FR', { weekday: 'long', day: 'numeric', timeZone: 'UTC' });
-      var sameMonth = from.getUTCMonth() === to.getUTCMonth();
-      out.textContent = 'Livraison offerte, estimée entre le ' + (sameMonth ? short.format(from) : full.format(from)) + ' et le ' + full.format(to);
-    });
-  })();
-</script>
 
 {% schema %}
 {
@@ -1624,8 +2004,8 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
     { "type": "text", "id": "contents_title", "label": "Titre du contenu du carton", "default": "Dans le carton" },
     { "type": "checkbox", "id": "show_dynamic_checkout", "label": "Afficher le bouton de paiement rapide", "default": true },
     { "type": "checkbox", "id": "show_eta", "label": "Afficher la date de livraison estimée", "default": true },
-    { "type": "number", "id": "eta_min", "label": "Délai minimal (jours ouvrés)", "default": 5 },
-    { "type": "number", "id": "eta_max", "label": "Délai maximal (jours ouvrés)", "default": 7 }
+    { "type": "checkbox", "id": "show_compare_link", "label": "Afficher le lien « Comparer les 3 packs »", "default": true },
+    { "type": "checkbox", "id": "show_sticky", "label": "Afficher la barre d'achat fixe sur mobile", "info": "Si une application affiche déjà sa propre barre d'achat, gardez une seule des deux.", "default": true }
   ],
   "blocks": [
     {
@@ -1653,16 +2033,21 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
       "settings": {
         "eyebrow": "Entreprise française · Expédition depuis la France",
         "title": "Marchez chez vous.\nCommandez l'esprit tranquille.",
-        "text": "Un tapis de marche pliable et discret, qui se range sous le lit ou le bureau. Le prix affiché est le prix total, la livraison est offerte, et chaque question reçoit une réponse sous 24 à 48 heures ouvrées.",
+        "text": "Un tapis de marche pliable et discret, qui se range sous le lit ou le bureau. Prix total affiché, livraison offerte, réponse sous 24 à 48 heures ouvrées.",
         "collection": "tapis-de-course-pliable",
         "price_prefix": "Packs à partir de",
         "price_note": "livraison offerte",
+        "show_eta": true,
         "button_label": "Choisir mon pack",
         "button_link": "",
-        "button2_label": "Comment se passe la commande",
+        "button2_label": "Comment se passe la commande ?",
         "button2_link": "",
         "show_contact": true,
         "contact_intro": "Une question avant d'acheter ? Appelez le",
+        "show_sticky": true,
+        "sticky_prefix": "Dès",
+        "sticky_text": "Livraison offerte · 14 jours pour changer d'avis",
+        "sticky_button": "Voir les packs",
         "product": "pack-essentiel-home-gym"
       },
       "blocks": {
@@ -1704,7 +2089,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
         "eyebrow": "Les packs",
         "title": "Choisissez votre pack.",
         "text": "Un tapis de marche pliable au cœur de chaque pack. Le contenu du carton et le prix total sont indiqués clairement.",
-        "button_label": "Découvrir le pack",
+        "button_label": "Ajouter au panier",
         "note": "Pour les trois packs : livraison offerte en 5 à 7 jours ouvrés, 14 jours pour changer d'avis et garantie légale de 2 ans.",
         "mist": false
       },
@@ -1744,6 +2129,109 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
         "pack_essentiel",
         "pack_teletravail",
         "pack_ultimate"
+      ]
+    },
+    "comparatif": {
+      "type": "ww-comparatif",
+      "settings": {
+        "eyebrow": "Comparatif",
+        "title": "Les trois packs, côte à côte.",
+        "text": "Ce qui change d'un pack à l'autre, en un coup d'œil.",
+        "product_1": "pack-essentiel-home-gym",
+        "name_1": "Pack Essentiel",
+        "badge_1": "",
+        "product_2": "pack-performance-connectee",
+        "name_2": "Pack Télétravail",
+        "badge_2": "",
+        "product_3": "pack-ultimate-home-gym",
+        "name_3": "Pack Ultimate",
+        "badge_3": "Le plus complet",
+        "note": "Pour les trois packs : prix total, 14 jours pour changer d'avis et garantie légale de 2 ans.",
+        "mist": true
+      },
+      "blocks": {
+        "r1": {
+          "type": "row",
+          "settings": {
+            "label": "Idéal pour",
+            "value_1": "Le soir, sans déranger",
+            "value_2": "En télétravail",
+            "value_3": "Cardio et renforcement"
+          }
+        },
+        "r2": {
+          "type": "row",
+          "settings": {
+            "label": "Tapis de marche pliable",
+            "value_1": "oui",
+            "value_2": "oui",
+            "value_3": "oui"
+          }
+        },
+        "r3": {
+          "type": "row",
+          "settings": {
+            "label": "Tapis Fitness Pro anti-bruit",
+            "value_1": "oui",
+            "value_2": "oui",
+            "value_3": "oui"
+          }
+        },
+        "r4": {
+          "type": "row",
+          "settings": {
+            "label": "Réhausseur de bureau assis-debout",
+            "value_1": "non",
+            "value_2": "oui",
+            "value_3": "non"
+          }
+        },
+        "r5": {
+          "type": "row",
+          "settings": {
+            "label": "Paire d'haltères réglables",
+            "value_1": "non",
+            "value_2": "non",
+            "value_3": "oui"
+          }
+        },
+        "r6": {
+          "type": "row",
+          "settings": {
+            "label": "Banc pliable",
+            "value_1": "non",
+            "value_2": "non",
+            "value_3": "oui"
+          }
+        },
+        "r7": {
+          "type": "row",
+          "settings": {
+            "label": "Programme 30 jours (PDF)",
+            "value_1": "non",
+            "value_2": "non",
+            "value_3": "Offert"
+          }
+        },
+        "r8": {
+          "type": "row",
+          "settings": {
+            "label": "Livraison offerte en 5 à 7 jours ouvrés",
+            "value_1": "oui",
+            "value_2": "oui",
+            "value_3": "oui"
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5",
+        "r6",
+        "r7",
+        "r8"
       ]
     },
     "moments": {
@@ -2021,53 +2509,60 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
         "q1": {
           "type": "question",
           "settings": {
+            "question": "Quel pack choisir ?",
+            "answer": "<p><strong>Pack Essentiel Appartement</strong> : pour marcher chez vous sans déranger, avec le tapis de marche et le tapis anti-bruit. <strong>Pack Télétravail</strong> : pour marcher à votre bureau, il ajoute un réhausseur assis-debout. <strong>Pack Ultimate Home Gym</strong> : pour ajouter du renforcement, avec des haltères réglables, un banc pliable et le programme 30 jours offert. <a href=\"#ww-comparatif\">Voir le comparatif</a></p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
             "question": "Qui se cache derrière WhisperWalk ?",
             "answer": "<p>Morgan OCANA, entrepreneur individuel installé à Dijon (SIREN 914 877 022), qui exploite la boutique sous la marque WhisperWalk. Toutes nos coordonnées figurent dans nos <a href=\"/policies/contact-information\">informations de contact</a> et nos <a href=\"/policies/legal-notice\">mentions légales</a>.</p>"
           }
         },
-        "q2": {
+        "q3": {
           "type": "question",
           "settings": {
             "question": "Quand vais-je recevoir mon pack ?",
             "answer": "<p>Comptez 5 à 7 jours ouvrés en France métropolitaine, Corse incluse : 3 jours ouvrés de préparation à partir du jour ouvré qui suit votre commande, puis 2 à 4 jours ouvrés de transport. Votre numéro de suivi vous est envoyé par e-mail dès l'expédition. <a href=\"/policies/shipping-policy\">Politique d'expédition</a></p>"
           }
         },
-        "q3": {
+        "q4": {
           "type": "question",
           "settings": {
             "question": "La livraison est-elle vraiment offerte ?",
             "answer": "<p>Oui, pour toutes les commandes, sans minimum d'achat. Le prix affiché est le prix total : TVA non applicable (article 293 B du CGI), livraison comprise.</p>"
           }
         },
-        "q4": {
+        "q5": {
           "type": "question",
           "settings": {
             "question": "Et si le pack ne me convient pas ?",
             "answer": "<p>Vous avez 14 jours après réception pour changer d'avis, sans vous justifier. Écrivez-nous avec votre numéro de commande : nous vous envoyons l'adresse de retour. Les frais de retour sont à votre charge, sans frais de réapprovisionnement, et le remboursement intervient sous 7 jours après réception et contrôle du retour. <a href=\"/policies/refund-policy\">Politique de remboursement</a></p>"
           }
         },
-        "q5": {
+        "q6": {
           "type": "question",
           "settings": {
             "question": "Et s'il arrive abîmé ou ne fonctionne pas ?",
             "answer": "<p>Contactez-nous, si possible sous 48 heures, avec des photos. Le retour et le remboursement, ou l'échange, sont alors entièrement à nos frais. Vous gardez dans tous les cas la garantie légale de conformité de 2 ans et la garantie contre les vices cachés.</p>"
           }
         },
-        "q6": {
+        "q7": {
           "type": "question",
           "settings": {
             "question": "Le paiement est-il sécurisé ?",
             "answer": "<p>Oui. Le paiement se fait en ligne via une connexion chiffrée, par carte bancaire (CB, Visa, Mastercard, American Express), PayPal, Apple Pay, Google Pay ou Shop Pay. Nous ne conservons aucune donnée bancaire complète. <a href=\"/pages/moyens-de-paiement\">Moyens de paiement</a></p>"
           }
         },
-        "q7": {
+        "q8": {
           "type": "question",
           "settings": {
             "question": "Que contient chaque pack ?",
             "answer": "<p><strong>Pack Essentiel Appartement</strong> : 1 tapis de marche pliable et 1 tapis Fitness Pro anti-bruit 200 × 90 cm.</p><p><strong>Pack Télétravail</strong> : 1 tapis de marche pliable, 1 réhausseur de bureau assis-debout et 1 tapis Fitness Pro anti-bruit 200 × 90 cm.</p><p><strong>Pack Ultimate Home Gym</strong> : 1 tapis de marche pliable, 1 tapis Fitness Pro anti-bruit, 1 paire d'haltères réglables et 1 banc pliable, avec le programme 30 jours (PDF) offert.</p>"
           }
         },
-        "q8": {
+        "q9": {
           "type": "question",
           "settings": {
             "question": "Puis-je annuler ma commande ?",
@@ -2083,7 +2578,8 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
         "q5",
         "q6",
         "q7",
-        "q8"
+        "q8",
+        "q9"
       ]
     },
     "cta": {
@@ -2092,7 +2588,8 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
         "eyebrow": "",
         "title": "Votre prochaine réunion peut être votre première séance.",
         "text": "",
-        "button_label": "Choisir mon pack",
+        "collection": "tapis-de-course-pliable",
+        "button_label": "",
         "button_link": "",
         "facts": "Livraison offerte | Expédié depuis la France | 14 jours pour changer d'avis | Garantie légale de 2 ans",
         "show_contact": true,
@@ -2103,6 +2600,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
   "order": [
     "hero",
     "packs",
+    "comparatif",
     "moments",
     "tapis",
     "etapes",
@@ -2128,8 +2626,8 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
         "contents_title": "Dans le carton",
         "show_dynamic_checkout": true,
         "show_eta": true,
-        "eta_min": 5,
-        "eta_max": 7
+        "show_compare_link": true,
+        "show_sticky": true
       },
       "blocks": {
         "contents_essentiel": {
@@ -2163,6 +2661,109 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
         "contents_ultimate"
       ]
     },
+    "comparatif": {
+      "type": "ww-comparatif",
+      "settings": {
+        "eyebrow": "Comparatif",
+        "title": "Les trois packs, côte à côte.",
+        "text": "Ce qui change d'un pack à l'autre, en un coup d'œil.",
+        "product_1": "pack-essentiel-home-gym",
+        "name_1": "Pack Essentiel",
+        "badge_1": "",
+        "product_2": "pack-performance-connectee",
+        "name_2": "Pack Télétravail",
+        "badge_2": "",
+        "product_3": "pack-ultimate-home-gym",
+        "name_3": "Pack Ultimate",
+        "badge_3": "Le plus complet",
+        "note": "Pour les trois packs : prix total, 14 jours pour changer d'avis et garantie légale de 2 ans.",
+        "mist": false
+      },
+      "blocks": {
+        "r1": {
+          "type": "row",
+          "settings": {
+            "label": "Idéal pour",
+            "value_1": "Le soir, sans déranger",
+            "value_2": "En télétravail",
+            "value_3": "Cardio et renforcement"
+          }
+        },
+        "r2": {
+          "type": "row",
+          "settings": {
+            "label": "Tapis de marche pliable",
+            "value_1": "oui",
+            "value_2": "oui",
+            "value_3": "oui"
+          }
+        },
+        "r3": {
+          "type": "row",
+          "settings": {
+            "label": "Tapis Fitness Pro anti-bruit",
+            "value_1": "oui",
+            "value_2": "oui",
+            "value_3": "oui"
+          }
+        },
+        "r4": {
+          "type": "row",
+          "settings": {
+            "label": "Réhausseur de bureau assis-debout",
+            "value_1": "non",
+            "value_2": "oui",
+            "value_3": "non"
+          }
+        },
+        "r5": {
+          "type": "row",
+          "settings": {
+            "label": "Paire d'haltères réglables",
+            "value_1": "non",
+            "value_2": "non",
+            "value_3": "oui"
+          }
+        },
+        "r6": {
+          "type": "row",
+          "settings": {
+            "label": "Banc pliable",
+            "value_1": "non",
+            "value_2": "non",
+            "value_3": "oui"
+          }
+        },
+        "r7": {
+          "type": "row",
+          "settings": {
+            "label": "Programme 30 jours (PDF)",
+            "value_1": "non",
+            "value_2": "non",
+            "value_3": "Offert"
+          }
+        },
+        "r8": {
+          "type": "row",
+          "settings": {
+            "label": "Livraison offerte en 5 à 7 jours ouvrés",
+            "value_1": "oui",
+            "value_2": "oui",
+            "value_3": "oui"
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5",
+        "r6",
+        "r7",
+        "r8"
+      ]
+    },
     "etapes": {
       "type": "ww-etapes",
       "settings": {
@@ -2172,7 +2773,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
         "note": "Délai total estimé : 5 à 7 jours ouvrés (du lundi au vendredi, hors jours fériés).",
         "link_label": "Politique d'expédition",
         "link": "/policies/shipping-policy",
-        "mist": false
+        "mist": true
       },
       "blocks": {
         "s1": {
@@ -2223,60 +2824,12 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
         "s4",
         "s5"
       ]
-    },
-    "packs": {
-      "type": "ww-packs",
-      "settings": {
-        "eyebrow": "Comparer",
-        "title": "Les trois packs.",
-        "text": "Un tapis de marche pliable, trois façons de l'accompagner.",
-        "button_label": "Découvrir le pack",
-        "note": "Pour les trois packs : livraison offerte en 5 à 7 jours ouvrés, 14 jours pour changer d'avis et garantie légale de 2 ans.",
-        "mist": true
-      },
-      "blocks": {
-        "pack_essentiel": {
-          "type": "pack",
-          "settings": {
-            "product": "pack-essentiel-home-gym",
-            "moment": "Le soir",
-            "pitch": "Peu de place et des voisins en dessous ? Le tapis anti-bruit limite les vibrations, et le tapis de marche se range à plat sous le lit.",
-            "contents": "<ul><li>1 tapis de marche pliable</li><li>1 tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
-            "badge": ""
-          }
-        },
-        "pack_teletravail": {
-          "type": "pack",
-          "settings": {
-            "product": "pack-performance-connectee",
-            "moment": "En journée",
-            "pitch": "Votre bureau actuel devient un poste de marche : le réhausseur le met à hauteur debout, le tapis se glisse dessous.",
-            "contents": "<ul><li>1 tapis de marche pliable</li><li>1 réhausseur de bureau assis-debout</li><li>1 tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
-            "badge": ""
-          }
-        },
-        "pack_ultimate": {
-          "type": "pack",
-          "settings": {
-            "product": "pack-ultimate-home-gym",
-            "moment": "Le week-end",
-            "pitch": "Cardio en pente et renforcement, sans abonnement ni trajet. Après la séance, tout se range.",
-            "contents": "<ul><li>1 tapis de marche pliable</li><li>1 tapis Fitness Pro anti-bruit</li><li>1 paire d'haltères réglables</li><li>1 banc pliable</li><li>Offert : le programme 30 jours (PDF)</li></ul>",
-            "badge": "Le plus complet"
-          }
-        }
-      },
-      "block_order": [
-        "pack_essentiel",
-        "pack_teletravail",
-        "pack_ultimate"
-      ]
     }
   },
   "order": [
     "main",
-    "etapes",
-    "packs"
+    "comparatif",
+    "etapes"
   ]
 }
 ```

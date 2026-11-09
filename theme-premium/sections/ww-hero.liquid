@@ -1,4 +1,5 @@
 {{ 'ww-premium.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'ww-premium.js' | asset_url }}" defer="defer"></script>
 
 {%- liquid
   assign featured = section.settings.product
@@ -33,12 +34,18 @@
           </p>
         {%- endif -%}
 
+        {%- if section.settings.show_eta -%}
+          <p class="ww-hero__eta" data-ww-eta data-prefix="Commandez aujourd'hui : livraison estimée entre le " data-min="{% render 'ww-coordonnees', part: 'delai_min' %}" data-max="{% render 'ww-coordonnees', part: 'delai_max' %}">
+            {% render 'ww-icon', name: 'truck' %}<span data-ww-eta-range>Livraison offerte en {% render 'ww-coordonnees', part: 'delai_min' %} à {% render 'ww-coordonnees', part: 'delai_max' %} jours ouvrés</span>
+          </p>
+        {%- endif -%}
+
         <div class="ww-actions">
           {%- if section.settings.button_label != blank -%}
             <a class="ww-btn ww-btn--primary" href="{{ section.settings.button_link | default: '#ww-packs' }}">{{ section.settings.button_label | escape }}</a>
           {%- endif -%}
           {%- if section.settings.button2_label != blank -%}
-            <a class="ww-btn ww-btn--outline" href="{{ section.settings.button2_link | default: '#ww-etapes' }}">{{ section.settings.button2_label | escape }}</a>
+            <a class="ww-btn ww-btn--text" href="{{ section.settings.button2_link | default: '#ww-etapes' }}">{{ section.settings.button2_label | escape }}</a>
           {%- endif -%}
         </div>
       </div>
@@ -88,6 +95,16 @@
 
     </div>
   </div>
+
+  {%- if section.settings.show_sticky and cheapest != blank -%}
+    <div class="ww-sticky" data-ww-sticky-home hidden>
+      <div class="ww-sticky__text">
+        <strong>{{ section.settings.sticky_prefix | escape }} {{ cheapest.price | money }}</strong>
+        <span>{{ section.settings.sticky_text | escape }}</span>
+      </div>
+      <a class="ww-btn ww-btn--primary" href="{{ section.settings.button_link | default: '#ww-packs' }}">{{ section.settings.sticky_button | escape }}</a>
+    </div>
+  {%- endif -%}
 </section>
 
 {% schema %}
@@ -101,12 +118,18 @@
     { "type": "collection", "id": "collection", "label": "Collection des packs", "info": "Sert à afficher le prix du pack le moins cher." },
     { "type": "text", "id": "price_prefix", "label": "Texte avant le prix", "default": "Packs à partir de" },
     { "type": "text", "id": "price_note", "label": "Texte après le prix", "default": "livraison offerte" },
+    { "type": "checkbox", "id": "show_eta", "label": "Afficher la date de livraison estimée", "default": true },
     { "type": "text", "id": "button_label", "label": "Bouton principal", "default": "Choisir mon pack" },
     { "type": "url", "id": "button_link", "label": "Lien du bouton principal (vide = section des packs)" },
-    { "type": "text", "id": "button2_label", "label": "Bouton secondaire", "default": "Comment se passe la commande" },
+    { "type": "text", "id": "button2_label", "label": "Lien secondaire", "default": "Comment se passe la commande ?" },
     { "type": "url", "id": "button2_link", "label": "Lien du bouton secondaire (vide = étapes de commande)" },
     { "type": "checkbox", "id": "show_contact", "label": "Afficher le téléphone et l'e-mail", "default": true },
     { "type": "text", "id": "contact_intro", "label": "Texte avant les coordonnées", "default": "Une question avant d'acheter ? Appelez le" },
+    { "type": "header", "content": "Barre fixe sur mobile" },
+    { "type": "checkbox", "id": "show_sticky", "label": "Afficher la barre « Voir les packs » en bas de l'écran", "default": true },
+    { "type": "text", "id": "sticky_prefix", "label": "Texte avant le prix", "default": "Dès" },
+    { "type": "text", "id": "sticky_text", "label": "Sous-titre", "default": "Livraison offerte · 14 jours pour changer d'avis" },
+    { "type": "text", "id": "sticky_button", "label": "Texte du bouton", "default": "Voir les packs" },
     { "type": "product", "id": "product", "label": "Pack mis en avant", "info": "Sa photo principale, son nom et son prix s'affichent à côté du texte." },
     { "type": "image_picker", "id": "image", "label": "Image (facultative, remplace la photo du pack)" }
   ],

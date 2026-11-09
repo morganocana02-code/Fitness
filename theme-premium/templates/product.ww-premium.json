@@ -9,8 +9,8 @@
         "contents_title": "Dans le carton",
         "show_dynamic_checkout": true,
         "show_eta": true,
-        "eta_min": 5,
-        "eta_max": 7
+        "show_compare_link": true,
+        "show_sticky": true
       },
       "blocks": {
         "contents_essentiel": {
@@ -44,6 +44,109 @@
         "contents_ultimate"
       ]
     },
+    "comparatif": {
+      "type": "ww-comparatif",
+      "settings": {
+        "eyebrow": "Comparatif",
+        "title": "Les trois packs, côte à côte.",
+        "text": "Ce qui change d'un pack à l'autre, en un coup d'œil.",
+        "product_1": "pack-essentiel-home-gym",
+        "name_1": "Pack Essentiel",
+        "badge_1": "",
+        "product_2": "pack-performance-connectee",
+        "name_2": "Pack Télétravail",
+        "badge_2": "",
+        "product_3": "pack-ultimate-home-gym",
+        "name_3": "Pack Ultimate",
+        "badge_3": "Le plus complet",
+        "note": "Pour les trois packs : prix total, 14 jours pour changer d'avis et garantie légale de 2 ans.",
+        "mist": false
+      },
+      "blocks": {
+        "r1": {
+          "type": "row",
+          "settings": {
+            "label": "Idéal pour",
+            "value_1": "Le soir, sans déranger",
+            "value_2": "En télétravail",
+            "value_3": "Cardio et renforcement"
+          }
+        },
+        "r2": {
+          "type": "row",
+          "settings": {
+            "label": "Tapis de marche pliable",
+            "value_1": "oui",
+            "value_2": "oui",
+            "value_3": "oui"
+          }
+        },
+        "r3": {
+          "type": "row",
+          "settings": {
+            "label": "Tapis Fitness Pro anti-bruit",
+            "value_1": "oui",
+            "value_2": "oui",
+            "value_3": "oui"
+          }
+        },
+        "r4": {
+          "type": "row",
+          "settings": {
+            "label": "Réhausseur de bureau assis-debout",
+            "value_1": "non",
+            "value_2": "oui",
+            "value_3": "non"
+          }
+        },
+        "r5": {
+          "type": "row",
+          "settings": {
+            "label": "Paire d'haltères réglables",
+            "value_1": "non",
+            "value_2": "non",
+            "value_3": "oui"
+          }
+        },
+        "r6": {
+          "type": "row",
+          "settings": {
+            "label": "Banc pliable",
+            "value_1": "non",
+            "value_2": "non",
+            "value_3": "oui"
+          }
+        },
+        "r7": {
+          "type": "row",
+          "settings": {
+            "label": "Programme 30 jours (PDF)",
+            "value_1": "non",
+            "value_2": "non",
+            "value_3": "Offert"
+          }
+        },
+        "r8": {
+          "type": "row",
+          "settings": {
+            "label": "Livraison offerte en 5 à 7 jours ouvrés",
+            "value_1": "oui",
+            "value_2": "oui",
+            "value_3": "oui"
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5",
+        "r6",
+        "r7",
+        "r8"
+      ]
+    },
     "etapes": {
       "type": "ww-etapes",
       "settings": {
@@ -53,7 +156,7 @@
         "note": "Délai total estimé : 5 à 7 jours ouvrés (du lundi au vendredi, hors jours fériés).",
         "link_label": "Politique d'expédition",
         "link": "/policies/shipping-policy",
-        "mist": false
+        "mist": true
       },
       "blocks": {
         "s1": {
@@ -104,59 +207,11 @@
         "s4",
         "s5"
       ]
-    },
-    "packs": {
-      "type": "ww-packs",
-      "settings": {
-        "eyebrow": "Comparer",
-        "title": "Les trois packs.",
-        "text": "Un tapis de marche pliable, trois façons de l'accompagner.",
-        "button_label": "Découvrir le pack",
-        "note": "Pour les trois packs : livraison offerte en 5 à 7 jours ouvrés, 14 jours pour changer d'avis et garantie légale de 2 ans.",
-        "mist": true
-      },
-      "blocks": {
-        "pack_essentiel": {
-          "type": "pack",
-          "settings": {
-            "product": "pack-essentiel-home-gym",
-            "moment": "Le soir",
-            "pitch": "Peu de place et des voisins en dessous ? Le tapis anti-bruit limite les vibrations, et le tapis de marche se range à plat sous le lit.",
-            "contents": "<ul><li>1 tapis de marche pliable</li><li>1 tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
-            "badge": ""
-          }
-        },
-        "pack_teletravail": {
-          "type": "pack",
-          "settings": {
-            "product": "pack-performance-connectee",
-            "moment": "En journée",
-            "pitch": "Votre bureau actuel devient un poste de marche : le réhausseur le met à hauteur debout, le tapis se glisse dessous.",
-            "contents": "<ul><li>1 tapis de marche pliable</li><li>1 réhausseur de bureau assis-debout</li><li>1 tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
-            "badge": ""
-          }
-        },
-        "pack_ultimate": {
-          "type": "pack",
-          "settings": {
-            "product": "pack-ultimate-home-gym",
-            "moment": "Le week-end",
-            "pitch": "Cardio en pente et renforcement, sans abonnement ni trajet. Après la séance, tout se range.",
-            "contents": "<ul><li>1 tapis de marche pliable</li><li>1 tapis Fitness Pro anti-bruit</li><li>1 paire d'haltères réglables</li><li>1 banc pliable</li><li>Offert : le programme 30 jours (PDF)</li></ul>",
-            "badge": "Le plus complet"
-          }
-        }
-      },
-      "block_order": [
-        "pack_essentiel",
-        "pack_teletravail",
-        "pack_ultimate"
-      ]
     }
   },
   "order": [
     "main",
-    "etapes",
-    "packs"
+    "comparatif",
+    "etapes"
   ]
 }

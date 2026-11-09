@@ -1,11 +1,12 @@
 {%- comment -%}
-  Carte d'un pack.
-  Paramètres : p (produit), moment, pitch, contents (texte enrichi), badge, button_label
+  Carte d'un pack, avec achat direct.
+  Paramètres : p (produit), moment, pitch, contents (texte enrichi), badge, button_label,
+  card_image (image facultative qui remplace la photo principale du produit sur la carte)
   Le prix, le nom et l'image viennent directement du produit Shopify.
 {%- endcomment -%}
 {%- assign title_parts = p.title | split: ' | ' -%}
 {%- assign pack_name = title_parts | first -%}
-{%- assign image = p.featured_media.preview_image | default: p.featured_image -%}
+{%- assign image = card_image | default: p.featured_media.preview_image | default: p.featured_image -%}
 
 <article class="ww-pack">
   <a class="ww-pack__media" href="{{ p.url }}" tabindex="-1" aria-hidden="true">
@@ -41,13 +42,22 @@
     <div class="ww-pack__footer">
       <div class="ww-pack__price">
         <span class="ww-pack__amount">{{ p.price | money }}</span>
-        <span class="ww-pack__shipping">Livraison offerte</span>
+        <span class="ww-pack__shipping">Prix total · Livraison offerte</span>
       </div>
+      <p class="ww-pack__eta" data-ww-eta data-style="short" data-prefix="Livraison estimée entre le " data-min="{% render 'ww-coordonnees', part: 'delai_min' %}" data-max="{% render 'ww-coordonnees', part: 'delai_max' %}">
+        {% render 'ww-icon', name: 'truck' %}<span data-ww-eta-range>Livraison en {% render 'ww-coordonnees', part: 'delai_min' %} à {% render 'ww-coordonnees', part: 'delai_max' %} jours ouvrés</span>
+      </p>
       {%- if p.available -%}
-        <a class="ww-btn ww-btn--dark ww-btn--block" href="{{ p.url }}">{{ button_label | default: 'Découvrir le pack' | escape }}</a>
+        {%- form 'product', p, class: 'ww-pack__form' -%}
+          <input type="hidden" name="id" value="{{ p.selected_or_first_available_variant.id }}">
+          <input type="hidden" name="quantity" value="1">
+          <button type="submit" name="add" class="ww-btn ww-btn--primary ww-btn--block">{{ button_label | default: 'Ajouter au panier' | escape }}</button>
+        {%- endform -%}
+        <p class="ww-pack__trust">{% render 'ww-icon', name: 'lock' %}Paiement sécurisé · 14 jours pour changer d'avis</p>
       {%- else -%}
-        <a class="ww-btn ww-btn--outline ww-btn--block" href="{{ p.url }}">Épuisé</a>
+        <span class="ww-btn ww-btn--outline ww-btn--block" aria-disabled="true">Momentanément épuisé</span>
       {%- endif -%}
+      <a class="ww-link ww-pack__more" href="{{ p.url }}">Voir le détail du pack {% render 'ww-icon', name: 'arrow' %}</a>
     </div>
   </div>
 </article>

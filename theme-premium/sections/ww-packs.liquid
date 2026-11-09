@@ -1,4 +1,5 @@
 {{ 'ww-premium.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'ww-premium.js' | asset_url }}" defer="defer"></script>
 
 <section class="ww ww-section{% if section.settings.mist %} ww-section--mist{% endif %}" id="ww-packs" aria-labelledby="ww-packs-{{ section.id }}">
   <div class="ww-container">
@@ -19,6 +20,7 @@
               pitch: block.settings.pitch,
               contents: block.settings.contents,
               badge: block.settings.badge,
+              card_image: block.settings.image,
               button_label: section.settings.button_label
             -%}
           </div>
@@ -41,7 +43,7 @@
     { "type": "text", "id": "eyebrow", "label": "Surtitre", "default": "Les packs" },
     { "type": "text", "id": "title", "label": "Titre", "default": "Choisissez votre pack." },
     { "type": "text", "id": "text", "label": "Texte", "default": "Un tapis de marche pliable au cœur de chaque pack. Choisissez ce qui l'accompagne selon votre façon de bouger." },
-    { "type": "text", "id": "button_label", "label": "Texte du bouton", "default": "Découvrir le pack" },
+    { "type": "text", "id": "button_label", "label": "Texte du bouton", "default": "Ajouter au panier" },
     { "type": "text", "id": "note", "label": "Phrase sous les packs", "default": "Pour les trois packs : livraison offerte en 5 à 7 jours ouvrés, 14 jours pour changer d'avis et garantie légale de 2 ans." },
     { "type": "checkbox", "id": "mist", "label": "Fond gris clair", "default": false }
   ],
@@ -54,7 +56,8 @@
         { "type": "text", "id": "moment", "label": "Moment", "default": "Le soir" },
         { "type": "text", "id": "pitch", "label": "Phrase d'accroche" },
         { "type": "richtext", "id": "contents", "label": "Contenu du pack" },
-        { "type": "text", "id": "badge", "label": "Étiquette sur l'image (facultative)" }
+        { "type": "text", "id": "badge", "label": "Étiquette sur l'image (facultative)" },
+        { "type": "image_picker", "id": "image", "label": "Photo de la carte (facultative)", "info": "Remplace la photo principale du produit sur cette carte uniquement." }
       ]
     }
   ],

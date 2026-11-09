@@ -5,9 +5,22 @@
     {%- if section.settings.eyebrow != blank -%}<p class="ww-eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
     <h2 class="ww-display ww-display--md" id="ww-cta-{{ section.id }}">{{ section.settings.title | escape | newline_to_br }}</h2>
     {%- if section.settings.text != blank -%}<p class="ww-lead">{{ section.settings.text | escape }}</p>{%- endif -%}
-    <div class="ww-actions">
-      <a class="ww-btn ww-btn--primary" href="{{ section.settings.button_link | default: '#ww-packs' }}">{{ section.settings.button_label | escape }}</a>
-    </div>
+    {%- if section.settings.collection != blank -%}
+      <div class="ww-cta__packs">
+        {%- for p in section.settings.collection.products limit: 3 -%}
+          <a class="ww-cta__pack" href="{{ p.url }}">
+            <span>{{ p.title | split: ' | ' | first | escape }}</span>
+            <strong>{{ p.price | money }}</strong>
+            {% render 'ww-icon', name: 'arrow' %}
+          </a>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+    {%- if section.settings.button_label != blank -%}
+      <div class="ww-actions">
+        <a class="ww-btn ww-btn--primary" href="{{ section.settings.button_link | default: '#ww-packs' }}">{{ section.settings.button_label | escape }}</a>
+      </div>
+    {%- endif -%}
     {%- if section.settings.facts != blank -%}
       {%- assign facts = section.settings.facts | split: '|' -%}
       <ul class="ww-cta__facts">
@@ -31,7 +44,8 @@
     { "type": "text", "id": "eyebrow", "label": "Surtitre" },
     { "type": "textarea", "id": "title", "label": "Titre", "default": "Votre prochaine réunion peut être votre première séance." },
     { "type": "text", "id": "text", "label": "Texte" },
-    { "type": "text", "id": "button_label", "label": "Texte du bouton", "default": "Choisir mon pack" },
+    { "type": "collection", "id": "collection", "label": "Collection des packs", "info": "Affiche un accès direct à chaque pack, avec son prix." },
+    { "type": "text", "id": "button_label", "label": "Texte du bouton (vide = pas de bouton)", "default": "Choisir mon pack" },
     { "type": "url", "id": "button_link", "label": "Lien du bouton (vide = section des packs)" },
     { "type": "text", "id": "facts", "label": "Engagements (séparés par |)", "default": "Livraison offerte | Expédié depuis la France | 14 jours pour changer d'avis | Garantie légale de 2 ans" },
     { "type": "checkbox", "id": "show_contact", "label": "Afficher le téléphone et l'e-mail", "default": true },

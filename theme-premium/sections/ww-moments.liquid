@@ -1,0 +1,71 @@
+{{ 'ww-premium.css' | asset_url | stylesheet_tag }}
+
+<section class="ww ww-section ww-section--dark" aria-labelledby="ww-moments-{{ section.id }}">
+  <div class="ww-container">
+    <div class="ww-head">
+      {%- if section.settings.eyebrow != blank -%}<p class="ww-eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+      <h2 class="ww-h2" id="ww-moments-{{ section.id }}">{{ section.settings.title | escape }}</h2>
+      {%- if section.settings.text != blank -%}<p class="ww-lead">{{ section.settings.text | escape }}</p>{%- endif -%}
+    </div>
+
+    <div class="ww-grid ww-grid--3">
+      {%- for block in section.blocks -%}
+        {%- assign p = block.settings.product -%}
+        {%- capture moment_inner -%}
+          <div class="ww-moment__media">
+            {%- if block.settings.image != blank -%}
+              {{
+                block.settings.image
+                | image_url: width: 900
+                | image_tag: loading: 'lazy', widths: '400, 600, 900', sizes: '(min-width: 750px) 33vw, 92vw', alt: block.settings.image.alt
+              }}
+            {%- endif -%}
+          </div>
+          <div class="ww-moment__body">
+            <span class="ww-moment__label">{{ block.settings.label | escape }}</span>
+            <h3 class="ww-h3">{{ block.settings.title | escape }}</h3>
+            <p class="ww-text">{{ block.settings.text | escape }}</p>
+            {%- if p != blank -%}
+              <span class="ww-moment__link">{{ block.settings.link_label | default: 'Voir le pack' | escape }}</span>
+            {%- endif -%}
+          </div>
+        {%- endcapture -%}
+        {%- if p != blank -%}
+          <a class="ww-moment" href="{{ p.url }}" {{ block.shopify_attributes }}>{{ moment_inner }}</a>
+        {%- else -%}
+          <div class="ww-moment" {{ block.shopify_attributes }}>{{ moment_inner }}</div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "WW · Moments",
+  "tag": "div",
+  "max_blocks": 3,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Surtitre", "default": "Votre journée" },
+    { "type": "text", "id": "title", "label": "Titre", "default": "Le mouvement, là où vous êtes déjà." },
+    { "type": "text", "id": "text", "label": "Texte", "default": "Pas de temps en plus à trouver : le tapis s'installe dans votre bureau, votre salon ou votre chambre, puis se range." }
+  ],
+  "blocks": [
+    {
+      "type": "moment",
+      "name": "Moment",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image (facultative)" },
+        { "type": "text", "id": "label", "label": "Moment", "default": "En journée" },
+        { "type": "text", "id": "title", "label": "Titre", "default": "Marchez pendant vos réunions." },
+        { "type": "textarea", "id": "text", "label": "Texte" },
+        { "type": "product", "id": "product", "label": "Pack associé" },
+        { "type": "text", "id": "link_label", "label": "Texte du lien", "default": "Voir le pack" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "WW · Moments", "blocks": [{ "type": "moment" }, { "type": "moment" }, { "type": "moment" }] }
+  ]
+}
+{% endschema %}

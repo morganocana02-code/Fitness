@@ -1,0 +1,62 @@
+{{ 'ww-premium.css' | asset_url | stylesheet_tag }}
+
+<section class="ww ww-section--dark ww-hero" aria-labelledby="ww-hero-{{ section.id }}">
+  <div class="ww-container">
+    <div class="ww-hero__grid{% if section.settings.image != blank %} ww-hero__grid--media{% endif %}">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="ww-eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+        <h1 class="ww-display" id="ww-hero-{{ section.id }}">{{ section.settings.title | newline_to_br }}</h1>
+        {%- if section.settings.text != blank -%}
+          <p class="ww-lead">{{ section.settings.text | escape }}</p>
+        {%- endif -%}
+        <div class="ww-actions">
+          {%- if section.settings.button_label != blank -%}
+            <a class="ww-btn ww-btn--primary" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">{{ section.settings.button_label | escape }}</a>
+          {%- endif -%}
+          {%- if section.settings.button2_label != blank -%}
+            <a class="ww-btn ww-btn--outline" href="{{ section.settings.button2_link | default: '#ww-packs' }}">{{ section.settings.button2_label | escape }}</a>
+          {%- endif -%}
+        </div>
+        {%- if section.settings.note != blank -%}
+          <p class="ww-hero__note">{{ section.settings.note | escape }}</p>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.image != blank -%}
+        <div class="ww-hero__media">
+          {{
+            section.settings.image
+            | image_url: width: 1400
+            | image_tag:
+              loading: 'eager',
+              preload: true,
+              widths: '600, 900, 1200, 1400',
+              sizes: '(min-width: 990px) 45vw, 92vw',
+              alt: section.settings.image.alt
+          }}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "WW · Accroche",
+  "tag": "div",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Surtitre", "default": "WhisperWalk · Fitness à la maison" },
+    { "type": "textarea", "id": "title", "label": "Titre", "default": "Bougez pendant\nvotre journée." },
+    { "type": "textarea", "id": "text", "label": "Texte", "default": "Un tapis de marche discret qui se glisse sous votre bureau ou sous votre lit. Trois packs, un pour chaque moment de la journée." },
+    { "type": "text", "id": "button_label", "label": "Bouton principal", "default": "Choisir mon pack" },
+    { "type": "url", "id": "button_link", "label": "Lien du bouton principal" },
+    { "type": "text", "id": "button2_label", "label": "Bouton secondaire", "default": "Comparer les packs" },
+    { "type": "url", "id": "button2_link", "label": "Lien du bouton secondaire (vide = section des packs)" },
+    { "type": "text", "id": "note", "label": "Mention sous les boutons", "default": "Expédié depuis la France · Livraison offerte" },
+    { "type": "image_picker", "id": "image", "label": "Image (facultative, une vraie photo du produit de préférence)" }
+  ],
+  "presets": [{ "name": "WW · Accroche" }]
+}
+{% endschema %}

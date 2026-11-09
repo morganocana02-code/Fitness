@@ -1,0 +1,47 @@
+{{ 'ww-premium.css' | asset_url | stylesheet_tag }}
+
+<section class="ww ww-section{% if section.settings.mist %} ww-section--mist{% endif %}" aria-labelledby="ww-faq-{{ section.id }}">
+  <div class="ww-container">
+    <div class="ww-head ww-head--center">
+      {%- if section.settings.eyebrow != blank -%}<p class="ww-eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+      <h2 class="ww-h2" id="ww-faq-{{ section.id }}">{{ section.settings.title | escape }}</h2>
+    </div>
+
+    <div class="ww-faq">
+      {%- for block in section.blocks -%}
+        <details class="ww-faq__item" {{ block.shopify_attributes }}>
+          <summary class="ww-faq__q">{{ block.settings.question | escape }}</summary>
+          <div class="ww-faq__a">{{ block.settings.answer }}</div>
+        </details>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.contact_text != blank -%}
+      <p class="ww-contact" style="text-align:center">{{ section.settings.contact_text }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "WW · Questions",
+  "tag": "div",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Surtitre", "default": "Questions fréquentes" },
+    { "type": "text", "id": "title", "label": "Titre", "default": "Avant de vous lancer." },
+    { "type": "inline_richtext", "id": "contact_text", "label": "Texte de contact", "default": "Une autre question ? <a href=\"/pages/contact\">Écrivez-nous</a>, nous répondons sous 24 à 48 heures ouvrées." },
+    { "type": "checkbox", "id": "mist", "label": "Fond gris clair", "default": true }
+  ],
+  "blocks": [
+    {
+      "type": "question",
+      "name": "Question",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question", "default": "Quel est le délai de livraison ?" },
+        { "type": "richtext", "id": "answer", "label": "Réponse", "default": "<p>Réponse.</p>" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "WW · Questions", "blocks": [{ "type": "question" }] }]
+}
+{% endschema %}

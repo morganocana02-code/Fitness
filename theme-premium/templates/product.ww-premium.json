@@ -1,0 +1,64 @@
+{
+  "sections": {
+    "main": {
+      "type": "ww-produit",
+      "settings": {
+        "eyebrow": "",
+        "tax_note": "Prix total · TVA non applicable, art. 293 B du CGI · Livraison offerte",
+        "show_dynamic_checkout": true,
+        "contact_url": "shopify://pages/contact"
+      }
+    },
+    "packs": {
+      "type": "ww-packs",
+      "settings": {
+        "eyebrow": "Comparer",
+        "title": "Les trois packs.",
+        "text": "Le même tapis de marche, trois façons de l'accompagner.",
+        "button_label": "Découvrir le pack",
+        "mist": true
+      },
+      "blocks": {
+        "pack_essentiel": {
+          "type": "pack",
+          "settings": {
+            "product": "pack-essentiel-home-gym",
+            "moment": "Le soir",
+            "pitch": "Peu de place et des voisins en dessous ? Le tapis anti-bruit limite les vibrations, et le tapis de marche se range à plat sous le lit.",
+            "contents": "<ul><li>Tapis de marche pliable</li><li>Tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
+            "badge": ""
+          }
+        },
+        "pack_teletravail": {
+          "type": "pack",
+          "settings": {
+            "product": "pack-performance-connectee",
+            "moment": "En journée",
+            "pitch": "Votre bureau actuel devient un poste de marche : le réhausseur le met à hauteur debout, le tapis se glisse dessous.",
+            "contents": "<ul><li>Tapis de marche pliable</li><li>Réhausseur de bureau assis-debout</li><li>Tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
+            "badge": ""
+          }
+        },
+        "pack_ultimate": {
+          "type": "pack",
+          "settings": {
+            "product": "pack-ultimate-home-gym",
+            "moment": "Le week-end",
+            "pitch": "Cardio en pente et renforcement, sans abonnement ni trajet. Après la séance, tout se range.",
+            "contents": "<ul><li>Tapis de marche pliable</li><li>Tapis Fitness Pro anti-bruit</li><li>Paire d'haltères réglables</li><li>Banc pliable</li><li>Programme 30 jours (PDF) inclus</li></ul>",
+            "badge": "Le plus complet"
+          }
+        }
+      },
+      "block_order": [
+        "pack_essentiel",
+        "pack_teletravail",
+        "pack_ultimate"
+      ]
+    }
+  },
+  "order": [
+    "main",
+    "packs"
+  ]
+}

@@ -1,0 +1,64 @@
+{{ 'ww-premium.css' | asset_url | stylesheet_tag }}
+
+<section class="ww ww-section" aria-labelledby="ww-tapis-{{ section.id }}">
+  <div class="ww-container">
+    <div class="ww-head">
+      {%- if section.settings.eyebrow != blank -%}<p class="ww-eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+      <h2 class="ww-h2" id="ww-tapis-{{ section.id }}">{{ section.settings.title | escape }}</h2>
+      {%- if section.settings.text != blank -%}<p class="ww-lead">{{ section.settings.text | escape }}</p>{%- endif -%}
+    </div>
+
+    <div class="ww-metrics">
+      {%- for block in section.blocks -%}
+        <div class="ww-metric" {{ block.shopify_attributes }}>
+          <span class="ww-metric__value">{{ block.settings.value | escape }}</span>
+          <span class="ww-metric__label">{{ block.settings.label | escape }}</span>
+          {%- if block.settings.detail != blank -%}
+            <span class="ww-metric__detail">{{ block.settings.detail | escape }}</span>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.footnote != blank -%}
+      <p class="ww-footnote">{{ section.settings.footnote | escape }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "WW · Le tapis en chiffres",
+  "tag": "div",
+  "max_blocks": 5,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Surtitre", "default": "Le tapis de marche" },
+    { "type": "text", "id": "title", "label": "Titre", "default": "Fin, discret, rangé en un geste." },
+    { "type": "text", "id": "text", "label": "Texte", "default": "Le même tapis de marche pliable est inclus dans les trois packs." },
+    { "type": "text", "id": "footnote", "label": "Note", "default": "Caractéristiques indiquées par le fabricant. Pensé pour la marche, pas pour la course." }
+  ],
+  "blocks": [
+    {
+      "type": "metric",
+      "name": "Chiffre",
+      "settings": [
+        { "type": "text", "id": "value", "label": "Valeur", "default": "1–10 km/h" },
+        { "type": "text", "id": "label", "label": "Libellé", "default": "Vitesse" },
+        { "type": "text", "id": "detail", "label": "Précision" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "WW · Le tapis en chiffres",
+      "blocks": [
+        { "type": "metric", "settings": { "value": "1–10 km/h", "label": "Vitesse", "detail": "Lent pour écrire, plus vite au téléphone" } },
+        { "type": "metric", "settings": { "value": "15 %", "label": "Inclinaison", "detail": "Réglable sans arrêter le tapis" } },
+        { "type": "metric", "settings": { "value": "136 kg", "label": "Poids maximal", "detail": "Poids de l'utilisateur" } },
+        { "type": "metric", "settings": { "value": "×3", "label": "Amortissement", "detail": "Triple système" } },
+        { "type": "metric", "settings": { "value": "À plat", "label": "Rangement", "detail": "Sous un lit, un canapé ou un bureau" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

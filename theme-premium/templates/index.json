@@ -1,0 +1,294 @@
+{
+  "sections": {
+    "hero": {
+      "type": "ww-hero",
+      "settings": {
+        "eyebrow": "WhisperWalk · Fitness à la maison",
+        "title": "Bougez pendant\nvotre journée.",
+        "text": "Un tapis de marche discret qui se glisse sous votre bureau ou sous votre lit. Trois packs, un pour chaque moment de la journée.",
+        "button_label": "Choisir mon pack",
+        "button_link": "shopify://collections/tapis-de-course-pliable",
+        "button2_label": "Comparer les packs",
+        "button2_link": "",
+        "note": "Expédié depuis la France · Livraison offerte"
+      }
+    },
+    "assurances": {
+      "type": "ww-assurances",
+      "settings": {
+        "aria_label": "Nos engagements"
+      },
+      "blocks": {
+        "a1": {
+          "type": "item",
+          "settings": {
+            "title": "Livraison offerte",
+            "subtitle": "En 5 à 7 jours ouvrés",
+            "link": "/policies/shipping-policy"
+          }
+        },
+        "a2": {
+          "type": "item",
+          "settings": {
+            "title": "Expédié depuis la France",
+            "subtitle": "France métropolitaine et Corse",
+            "link": ""
+          }
+        },
+        "a3": {
+          "type": "item",
+          "settings": {
+            "title": "14 jours pour changer d'avis",
+            "subtitle": "Après réception",
+            "link": "/policies/refund-policy"
+          }
+        },
+        "a4": {
+          "type": "item",
+          "settings": {
+            "title": "Garantie légale de 2 ans",
+            "subtitle": "Sur tout le pack",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "a1",
+        "a2",
+        "a3",
+        "a4"
+      ]
+    },
+    "packs": {
+      "type": "ww-packs",
+      "settings": {
+        "eyebrow": "Les packs",
+        "title": "Un pack pour chaque moment.",
+        "text": "Le même tapis de marche au cœur de chaque pack. Choisissez ce qui l'accompagne selon votre façon de bouger.",
+        "button_label": "Découvrir le pack",
+        "mist": false
+      },
+      "blocks": {
+        "pack_essentiel": {
+          "type": "pack",
+          "settings": {
+            "product": "pack-essentiel-home-gym",
+            "moment": "Le soir",
+            "pitch": "Peu de place et des voisins en dessous ? Le tapis anti-bruit limite les vibrations, et le tapis de marche se range à plat sous le lit.",
+            "contents": "<ul><li>Tapis de marche pliable</li><li>Tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
+            "badge": ""
+          }
+        },
+        "pack_teletravail": {
+          "type": "pack",
+          "settings": {
+            "product": "pack-performance-connectee",
+            "moment": "En journée",
+            "pitch": "Votre bureau actuel devient un poste de marche : le réhausseur le met à hauteur debout, le tapis se glisse dessous.",
+            "contents": "<ul><li>Tapis de marche pliable</li><li>Réhausseur de bureau assis-debout</li><li>Tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
+            "badge": ""
+          }
+        },
+        "pack_ultimate": {
+          "type": "pack",
+          "settings": {
+            "product": "pack-ultimate-home-gym",
+            "moment": "Le week-end",
+            "pitch": "Cardio en pente et renforcement, sans abonnement ni trajet. Après la séance, tout se range.",
+            "contents": "<ul><li>Tapis de marche pliable</li><li>Tapis Fitness Pro anti-bruit</li><li>Paire d'haltères réglables</li><li>Banc pliable</li><li>Programme 30 jours (PDF) inclus</li></ul>",
+            "badge": "Le plus complet"
+          }
+        }
+      },
+      "block_order": [
+        "pack_essentiel",
+        "pack_teletravail",
+        "pack_ultimate"
+      ]
+    },
+    "moments": {
+      "type": "ww-moments",
+      "settings": {
+        "eyebrow": "Votre journée",
+        "title": "Le mouvement, là où vous êtes déjà.",
+        "text": "Pas de temps en plus à trouver : le tapis s'installe dans votre bureau, votre salon ou votre chambre, puis se range."
+      },
+      "blocks": {
+        "m1": {
+          "type": "moment",
+          "settings": {
+            "label": "En journée",
+            "title": "Marchez pendant vos réunions.",
+            "text": "Le réhausseur met votre bureau à hauteur debout et le tapis se glisse dessous. Vous avancez à votre rythme, de 1 à 10 km/h.",
+            "product": "pack-performance-connectee",
+            "link_label": "Voir le Pack Télétravail"
+          }
+        },
+        "m2": {
+          "type": "moment",
+          "settings": {
+            "label": "Le soir",
+            "title": "Dix minutes, sans déranger.",
+            "text": "Dépliez le tapis sur le tapis anti-bruit, marchez, puis rangez-le à plat sous le lit ou le canapé.",
+            "product": "pack-essentiel-home-gym",
+            "link_label": "Voir le Pack Essentiel"
+          }
+        },
+        "m3": {
+          "type": "moment",
+          "settings": {
+            "label": "Le week-end",
+            "title": "Une vraie séance, sans salle.",
+            "text": "Marche en pente jusqu'à 15 %, haltères réglables et banc pliable. Puis tout se range.",
+            "product": "pack-ultimate-home-gym",
+            "link_label": "Voir le Pack Ultimate"
+          }
+        }
+      },
+      "block_order": [
+        "m1",
+        "m2",
+        "m3"
+      ]
+    },
+    "tapis": {
+      "type": "ww-tapis",
+      "settings": {
+        "eyebrow": "Le tapis de marche",
+        "title": "Fin, discret, rangé en un geste.",
+        "text": "Le même tapis de marche pliable est inclus dans les trois packs.",
+        "footnote": "Caractéristiques indiquées par le fabricant. Pensé pour la marche, pas pour la course."
+      },
+      "blocks": {
+        "t1": {
+          "type": "metric",
+          "settings": {
+            "value": "1–10 km/h",
+            "label": "Vitesse",
+            "detail": "Lent pour écrire, plus vite au téléphone"
+          }
+        },
+        "t2": {
+          "type": "metric",
+          "settings": {
+            "value": "15 %",
+            "label": "Inclinaison",
+            "detail": "Réglable sans arrêter le tapis"
+          }
+        },
+        "t3": {
+          "type": "metric",
+          "settings": {
+            "value": "136 kg",
+            "label": "Poids maximal",
+            "detail": "Poids de l'utilisateur"
+          }
+        },
+        "t4": {
+          "type": "metric",
+          "settings": {
+            "value": "×3",
+            "label": "Amortissement",
+            "detail": "Triple système"
+          }
+        },
+        "t5": {
+          "type": "metric",
+          "settings": {
+            "value": "À plat",
+            "label": "Rangement",
+            "detail": "Sous un lit, un canapé ou un bureau"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4",
+        "t5"
+      ]
+    },
+    "faq": {
+      "type": "ww-faq",
+      "settings": {
+        "eyebrow": "Questions fréquentes",
+        "title": "Avant de vous lancer.",
+        "contact_text": "Une autre question ? <a href=\"/pages/contact\">Écrivez-nous</a>, nous répondons sous 24 à 48 heures ouvrées.",
+        "mist": true
+      },
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "Quel est le délai de livraison ?",
+            "answer": "<p>Comptez 5 à 7 jours ouvrés en France métropolitaine, Corse incluse : 3 jours ouvrés de préparation, puis 2 à 4 jours ouvrés de transport. Les colis sont expédiés depuis la France et la livraison est offerte. <a href=\"/policies/shipping-policy\">Politique d'expédition</a></p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "Puis-je retourner mon pack ?",
+            "answer": "<p>Oui, vous avez 14 jours après réception pour changer d'avis, sans vous justifier. Les frais de retour sont à votre charge, sans frais de réapprovisionnement. Le remboursement intervient sous 7 jours après réception et contrôle du retour. <a href=\"/policies/refund-policy\">Politique de remboursement</a></p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "Quelle garantie couvre le pack ?",
+            "answer": "<p>Tous les éléments du pack bénéficient de la garantie légale de conformité de 2 ans à compter de la livraison, et de la garantie contre les vices cachés.</p>"
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "Le tapis est-il adapté au télétravail et à l'appartement ?",
+            "answer": "<p>Son moteur est discret et son triple amortissement limite le bruit des pas. Chaque pack inclut un tapis Fitness Pro anti-bruit qui limite les vibrations transmises au sol.</p>"
+          }
+        },
+        "q5": {
+          "type": "question",
+          "settings": {
+            "question": "Peut-on courir sur ce tapis ?",
+            "answer": "<p>Non. Il est pensé pour la marche, de 1 à 10 km/h, avec une inclinaison jusqu'à 15 %. Il convient pour bouger au quotidien, pas pour l'entraînement d'un coureur.</p>"
+          }
+        },
+        "q6": {
+          "type": "question",
+          "settings": {
+            "question": "Quels moyens de paiement acceptez-vous ?",
+            "answer": "<p>Carte bancaire, PayPal, Apple Pay, Google Pay et Shop Pay, via une connexion chiffrée. Le prix affiché est le prix total, livraison offerte. <a href=\"/pages/moyens-de-paiement\">Moyens de paiement</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6"
+      ]
+    },
+    "cta": {
+      "type": "ww-cta",
+      "settings": {
+        "eyebrow": "",
+        "title": "Votre prochaine réunion\npeut être votre première séance.",
+        "text": "",
+        "button_label": "Choisir mon pack",
+        "button_link": "shopify://collections/tapis-de-course-pliable",
+        "facts": "Livraison offerte | Expédié depuis la France | 14 jours pour changer d'avis | Garantie légale de 2 ans"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "assurances",
+    "packs",
+    "moments",
+    "tapis",
+    "faq",
+    "cta"
+  ]
+}

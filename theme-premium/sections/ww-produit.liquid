@@ -1,0 +1,194 @@
+{{ 'ww-premium.css' | asset_url | stylesheet_tag }}
+
+{%- assign title_parts = product.title | split: ' | ' -%}
+{%- assign pack_name = title_parts | first -%}
+{%- assign pack_sub = '' -%}
+{%- if title_parts.size > 1 -%}{%- assign pack_sub = title_parts | last -%}{%- endif -%}
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+
+<script type="application/ld+json">{{ product | structured_data }}</script>
+
+<section class="ww ww-product" aria-labelledby="ww-product-title-{{ section.id }}">
+  <div class="ww-container">
+    <div class="ww-product__grid">
+
+      {%- comment -%} Galerie : défilement horizontal sur mobile, grille sur ordinateur {%- endcomment -%}
+      <div>
+        <div class="ww-gallery" aria-label="Photos du produit">
+          {%- for media in product.media -%}
+            {%- if media.media_type == 'image' -%}
+              {%- assign img_loading = 'lazy' -%}
+              {%- if forloop.first -%}{%- assign img_loading = 'eager' -%}{%- endif -%}
+              <div class="ww-gallery__item">
+                {{
+                  media.preview_image
+                  | image_url: width: 1400
+                  | image_tag:
+                    loading: img_loading,
+                    widths: '500, 800, 1100, 1400',
+                    sizes: '(min-width: 990px) 55vw, 88vw',
+                    alt: media.alt
+                }}
+              </div>
+            {%- endif -%}
+          {%- else -%}
+            {%- if product.featured_image != blank -%}
+              <div class="ww-gallery__item">
+                {{ product.featured_image | image_url: width: 1400 | image_tag: loading: 'eager', alt: product.featured_image.alt }}
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+        {%- if product.media.size > 1 -%}
+          <p class="ww-gallery__hint">Faites glisser pour voir les autres photos</p>
+        {%- endif -%}
+      </div>
+
+      {%- comment -%} Informations et achat {%- endcomment -%}
+      <div class="ww-product__info">
+        <p class="ww-eyebrow">{{ section.settings.eyebrow | default: shop.name | escape }}</p>
+        <h1 class="ww-product__title" id="ww-product-title-{{ section.id }}">{{ pack_name | escape }}</h1>
+        {%- if pack_sub != blank -%}
+          <p class="ww-product__subtitle">{{ pack_sub | escape }}</p>
+        {%- endif -%}
+
+        <p class="ww-product__price" data-ww-price>{{ current_variant.price | money }}</p>
+        <p class="ww-product__tax">{{ section.settings.tax_note | escape }}</p>
+
+        {%- if current_variant.available -%}
+          <p class="ww-product__stock">Disponible</p>
+        {%- else -%}
+          <p class="ww-product__stock ww-product__stock--out">Momentanément épuisé</p>
+        {%- endif -%}
+
+        {%- form 'product', product, class: 'ww-form', id: 'ww-product-form', novalidate: 'novalidate' -%}
+          {%- if product.has_only_default_variant -%}
+            <input type="hidden" name="id" value="{{ current_variant.id }}">
+          {%- else -%}
+            <div class="ww-field">
+              <label for="ww-variant-{{ section.id }}">Choix</label>
+              <select class="ww-select" id="ww-variant-{{ section.id }}" name="id" data-ww-variant>
+                {%- for variant in product.variants -%}
+                  <option
+                    value="{{ variant.id }}"
+                    data-price="{{ variant.price | money | escape }}"
+                    {% if variant == current_variant %}selected{% endif %}
+                    {% unless variant.available %}disabled{% endunless %}
+                  >{{ variant.title | escape }}{% unless variant.available %} — épuisé{% endunless %}</option>
+                {%- endfor -%}
+              </select>
+            </div>
+          {%- endif -%}
+
+          <div class="ww-field">
+            <label for="ww-qty-{{ section.id }}">Quantité</label>
+            <div class="ww-qty">
+              <button type="button" aria-label="Diminuer la quantité" data-ww-qty="-1">−</button>
+              <input id="ww-qty-{{ section.id }}" type="number" name="quantity" value="1" min="1" inputmode="numeric">
+              <button type="button" aria-label="Augmenter la quantité" data-ww-qty="1">+</button>
+            </div>
+          </div>
+
+          <button type="submit" name="add" class="ww-btn ww-btn--primary ww-btn--block" {% unless current_variant.available %}disabled{% endunless %}>
+            {%- if current_variant.available -%}Ajouter au panier{%- else -%}Épuisé{%- endif -%}
+          </button>
+          {%- if section.settings.show_dynamic_checkout -%}
+            {{ form | payment_button }}
+          {%- endif -%}
+        {%- endform -%}
+
+        <ul class="ww-promises">
+          <li><span>Livraison</span><span>Offerte · 5 à 7 jours ouvrés</span></li>
+          <li><span>Expédition</span><span>Depuis la France</span></li>
+          <li><span>Retours</span><span>14 jours pour changer d'avis</span></li>
+          <li><span>Garantie</span><span>Légale de conformité · 2 ans</span></li>
+        </ul>
+
+        <div class="ww-accordion">
+          <details>
+            <summary>Livraison</summary>
+            <div class="ww-accordion__body">
+              <p>Livraison offerte en France métropolitaine, Corse incluse. Les colis sont expédiés depuis la France.</p>
+              <p>Préparation en 3 jours ouvrés, puis 2 à 4 jours ouvrés de transport, soit 5 à 7 jours ouvrés au total. Toute commande passée avant 23h59 (heure de Paris) est prise en compte le jour même. Un numéro de suivi vous est envoyé par e-mail dès l'expédition.</p>
+              {%- if shop.shipping_policy != blank -%}<p><a href="{{ shop.shipping_policy.url }}">Politique d'expédition</a></p>{%- endif -%}
+            </div>
+          </details>
+          <details>
+            <summary>Retours et remboursement</summary>
+            <div class="ww-accordion__body">
+              <p>Vous disposez de 14 jours après réception pour changer d'avis, sans avoir à vous justifier. Les frais de retour sont à votre charge, sans frais de réapprovisionnement.</p>
+              <p>Le remboursement est effectué sous 7 jours après réception et contrôle du retour, et au plus tard 14 jours après votre demande, sur votre moyen de paiement d'origine. Un article abîmé ou non conforme est repris à nos frais.</p>
+              {%- if shop.refund_policy != blank -%}<p><a href="{{ shop.refund_policy.url }}">Politique de remboursement</a></p>{%- endif -%}
+            </div>
+          </details>
+          <details>
+            <summary>Garantie</summary>
+            <div class="ww-accordion__body">
+              <p>Tous les éléments du pack bénéficient de la garantie légale de conformité de 2 ans à compter de la livraison, et de la garantie contre les vices cachés.</p>
+              <p>En cas de problème, écrivez-nous avec votre numéro de commande et une photo : nous vous répondons sous 24 à 48 heures ouvrées.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Paiement</summary>
+            <div class="ww-accordion__body">
+              <p>Paiement en ligne sécurisé par carte bancaire, PayPal, Apple Pay, Google Pay ou Shop Pay. Le prix affiché est le prix total : TVA non applicable (article 293 B du CGI), livraison offerte.</p>
+            </div>
+          </details>
+        </div>
+
+        <p class="ww-contact">Une question avant de commander ? <a href="{{ section.settings.contact_url | default: '/pages/contact' }}">Contactez-nous</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{%- if product.description != blank -%}
+  <section class="ww ww-section ww-section--mist" aria-labelledby="ww-details-{{ section.id }}">
+    <div class="ww-container">
+      <div class="ww-details">
+        <p class="ww-eyebrow">En détail</p>
+        <h2 class="ww-h2" id="ww-details-{{ section.id }}">{{ pack_name | escape }}</h2>
+        <div class="ww-rte">{{ product.description }}</div>
+      </div>
+    </div>
+  </section>
+{%- endif -%}
+
+<script>
+  (function () {
+    var root = document.getElementById('ww-product-form');
+    if (!root) return;
+
+    // Boutons + / − de la quantité
+    root.querySelectorAll('[data-ww-qty]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var input = root.querySelector('input[name="quantity"]');
+        var next = (parseInt(input.value, 10) || 1) + parseInt(btn.getAttribute('data-ww-qty'), 10);
+        input.value = Math.max(1, next);
+      });
+    });
+
+    // Mise à jour du prix si le produit a plusieurs variantes
+    var select = root.querySelector('[data-ww-variant]');
+    var price = document.querySelector('[data-ww-price]');
+    if (select && price) {
+      select.addEventListener('change', function () {
+        var option = select.options[select.selectedIndex];
+        if (option && option.dataset.price) price.textContent = option.dataset.price;
+      });
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "WW · Fiche produit",
+  "tag": "div",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Surtitre (vide = nom de la boutique)" },
+    { "type": "text", "id": "tax_note", "label": "Mention sous le prix", "default": "Prix total · TVA non applicable, art. 293 B du CGI · Livraison offerte" },
+    { "type": "checkbox", "id": "show_dynamic_checkout", "label": "Afficher le bouton de paiement rapide", "default": true },
+    { "type": "url", "id": "contact_url", "label": "Lien de contact" }
+  ]
+}
+{% endschema %}

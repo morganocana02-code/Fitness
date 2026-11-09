@@ -194,8 +194,9 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
 .ww-hero { position: relative; display: flex; align-items: flex-end; min-height: 88vh; padding: 120px 0 64px; overflow: hidden; }
 .ww-hero--media { min-height: 0; padding: 20px 0 56px; }
 .ww-hero__grid { display: grid; gap: 32px; align-items: end; width: 100%; }
-.ww-hero__media { display: block; order: -1; border-radius: var(--ww-radius-card); overflow: hidden; background: var(--ww-carbon); aspect-ratio: 1 / 1; }
-.ww-hero__media img { width: 100%; height: 100%; object-fit: cover; }
+/* La photo garde ses proportions : rien n'est coupé */
+.ww-hero__media { display: block; order: -1; border-radius: var(--ww-radius-card); overflow: hidden; background: var(--ww-carbon); }
+.ww-hero__media img { width: 100%; height: auto; max-height: 80vh; object-fit: cover; }
 .ww-hero__note { margin-top: 28px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ww-ash); }
 
 @media (min-width: 990px) {
@@ -234,7 +235,8 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
 .ww-pack { display: flex; flex-direction: column; background: var(--ww-white); border: 1px solid var(--ww-hairline); border-radius: var(--ww-radius-card); overflow: hidden; }
 .ww-section--mist .ww-pack { border-color: transparent; }
 .ww-pack__media { position: relative; display: block; aspect-ratio: 1 / 1; background: var(--ww-mist); overflow: hidden; }
-.ww-pack__media img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+/* contain : la photo entière reste visible, même si elle n'est pas carrée */
+.ww-pack__media img { width: 100%; height: 100%; object-fit: contain; transition: transform .6s ease; }
 .ww-pack:hover .ww-pack__media img { transform: scale(1.03); }
 .ww-pack__badge { position: absolute; top: 16px; left: 16px; padding: 8px 14px; border-radius: var(--ww-radius-pill); background: var(--ww-black); color: var(--ww-white); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
 .ww-pack__body { display: flex; flex: 1; flex-direction: column; gap: 14px; padding: 28px; }
@@ -305,7 +307,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
 .ww-gallery { display: grid; grid-auto-flow: column; grid-auto-columns: 88%; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
 .ww-gallery::-webkit-scrollbar { display: none; }
 .ww-gallery__item { scroll-snap-align: start; border-radius: var(--ww-radius-card); overflow: hidden; background: var(--ww-mist); aspect-ratio: 1 / 1; }
-.ww-gallery__item img { width: 100%; height: 100%; object-fit: cover; }
+.ww-gallery__item img { width: 100%; height: 100%; object-fit: contain; }
 @media (min-width: 990px) {
   .ww-gallery { grid-auto-flow: row; grid-auto-columns: auto; grid-template-columns: 1fr 1fr; overflow: visible; }
   .ww-gallery__item:first-child,
@@ -753,9 +755,9 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
   "max_blocks": 5,
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Surtitre", "default": "Le tapis de marche" },
-    { "type": "text", "id": "title", "label": "Titre", "default": "Fin, discret, rangé en un geste." },
+    { "type": "text", "id": "title", "label": "Titre", "default": "Fin, discret, rangé en quelques secondes." },
     { "type": "text", "id": "text", "label": "Texte", "default": "Le même tapis de marche pliable est inclus dans les trois packs." },
-    { "type": "text", "id": "footnote", "label": "Note", "default": "Caractéristiques indiquées par le fabricant. Pensé pour la marche, pas pour la course." }
+    { "type": "text", "id": "footnote", "label": "Note sous les chiffres (facultative)" }
   ],
   "blocks": [
     {
@@ -1100,7 +1102,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
         "button2_label": "Comparer les packs",
         "button2_link": "",
         "note": "Expédié depuis la France · Livraison offerte",
-        "product": "pack-performance-connectee"
+        "product": "pack-essentiel-home-gym"
       }
     },
     "assurances": {
@@ -1245,9 +1247,9 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
       "type": "ww-tapis",
       "settings": {
         "eyebrow": "Le tapis de marche",
-        "title": "Fin, discret, rangé en un geste.",
+        "title": "Fin, discret, rangé en quelques secondes.",
         "text": "Le même tapis de marche pliable est inclus dans les trois packs.",
-        "footnote": "Caractéristiques indiquées par le fabricant. Pensé pour la marche, pas pour la course."
+        "footnote": ""
       },
       "blocks": {
         "t1": {
@@ -1338,14 +1340,14 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
           "type": "question",
           "settings": {
             "question": "Le tapis est-il adapté au télétravail et à l'appartement ?",
-            "answer": "<p>Son moteur est discret et son triple amortissement limite le bruit des pas. Chaque pack inclut un tapis Fitness Pro anti-bruit qui limite les vibrations transmises au sol.</p>"
+            "answer": "<p>Oui : moteur discret, triple amortissement et, dans chaque pack, un tapis Fitness Pro anti-bruit qui limite les vibrations transmises au sol. Après la séance, le tapis de marche se range à plat, sous un lit, un canapé ou un bureau.</p>"
           }
         },
         "q5": {
           "type": "question",
           "settings": {
-            "question": "Peut-on courir sur ce tapis ?",
-            "answer": "<p>Non. Il est pensé pour la marche, de 1 à 10 km/h, avec une inclinaison jusqu'à 15 %. Il convient pour bouger au quotidien, pas pour l'entraînement d'un coureur.</p>"
+            "question": "Que contient chaque pack ?",
+            "answer": "<p><strong>Pack Essentiel Appartement</strong> : tapis de marche pliable et tapis Fitness Pro anti-bruit 200 × 90 cm.</p><p><strong>Pack Télétravail</strong> : tapis de marche pliable, réhausseur de bureau assis-debout et tapis Fitness Pro anti-bruit 200 × 90 cm.</p><p><strong>Pack Ultimate Home Gym</strong> : tapis de marche pliable, tapis Fitness Pro anti-bruit, paire d'haltères réglables et banc pliable, avec le programme 30 jours (PDF) offert.</p>"
           }
         },
         "q6": {

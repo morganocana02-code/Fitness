@@ -11,7 +11,7 @@
         "button2_label": "Comparer les packs",
         "button2_link": "",
         "note": "Expédié depuis la France · Livraison offerte",
-        "product": "pack-performance-connectee"
+        "product": "pack-essentiel-home-gym"
       }
     },
     "assurances": {
@@ -156,9 +156,9 @@
       "type": "ww-tapis",
       "settings": {
         "eyebrow": "Le tapis de marche",
-        "title": "Fin, discret, rangé en un geste.",
+        "title": "Fin, discret, rangé en quelques secondes.",
         "text": "Le même tapis de marche pliable est inclus dans les trois packs.",
-        "footnote": "Caractéristiques indiquées par le fabricant. Pensé pour la marche, pas pour la course."
+        "footnote": ""
       },
       "blocks": {
         "t1": {
@@ -249,14 +249,14 @@
           "type": "question",
           "settings": {
             "question": "Le tapis est-il adapté au télétravail et à l'appartement ?",
-            "answer": "<p>Son moteur est discret et son triple amortissement limite le bruit des pas. Chaque pack inclut un tapis Fitness Pro anti-bruit qui limite les vibrations transmises au sol.</p>"
+            "answer": "<p>Oui : moteur discret, triple amortissement et, dans chaque pack, un tapis Fitness Pro anti-bruit qui limite les vibrations transmises au sol. Après la séance, le tapis de marche se range à plat, sous un lit, un canapé ou un bureau.</p>"
           }
         },
         "q5": {
           "type": "question",
           "settings": {
-            "question": "Peut-on courir sur ce tapis ?",
-            "answer": "<p>Non. Il est pensé pour la marche, de 1 à 10 km/h, avec une inclinaison jusqu'à 15 %. Il convient pour bouger au quotidien, pas pour l'entraînement d'un coureur.</p>"
+            "question": "Que contient chaque pack ?",
+            "answer": "<p><strong>Pack Essentiel Appartement</strong> : tapis de marche pliable et tapis Fitness Pro anti-bruit 200 × 90 cm.</p><p><strong>Pack Télétravail</strong> : tapis de marche pliable, réhausseur de bureau assis-debout et tapis Fitness Pro anti-bruit 200 × 90 cm.</p><p><strong>Pack Ultimate Home Gym</strong> : tapis de marche pliable, tapis Fitness Pro anti-bruit, paire d'haltères réglables et banc pliable, avec le programme 30 jours (PDF) offert.</p>"
           }
         },
         "q6": {

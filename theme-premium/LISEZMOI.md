@@ -7,12 +7,12 @@ Rien n'a été installé sur votre boutique : c'est vous qui choisissez quand le
 ## Ce que contient la refonte
 
 Page d'accueil (7 sections, dans cet ordre) :
-1. WW · Accroche : grand titre sur fond noir et photo du pack mis en avant (Pack Télétravail par défaut).
+1. WW · Accroche : grand titre sur fond noir et photo du pack mis en avant (Pack Essentiel par défaut).
 2. WW · Engagements : livraison offerte, expédition depuis la France, 14 jours, garantie légale de 2 ans.
 3. WW · Packs : les 3 packs côte à côte, avec prix et contenu.
 4. WW · Moments : en journée, le soir, le week-end, chacun relié à son pack.
 5. WW · Le tapis en chiffres : 1–10 km/h, 15 %, 136 kg, triple amortissement, rangement à plat.
-6. WW · Questions : 6 questions fréquentes, réponses tirées de vos politiques.
+6. WW · Questions : 6 questions fréquentes, réponses tirées de vos politiques et de vos fiches produits.
 7. WW · Appel final.
 
 Fiche produit (modèle « ww-premium ») : galerie, nom du pack, prix, stock, quantité,
@@ -56,6 +56,9 @@ Ordre conseillé : le CSS, le snippet, les 8 sections, puis les 2 modèles (ils 
 - Accroche : « Pack mis en avant » affiche la photo principale de ce pack. « Image » la remplace
   par une autre photo si vous le souhaitez.
 - Moments : les images sont facultatives. Sans image, les cartes restent en texte sur fond sombre.
+- Photos des produits : format carré conseillé (par exemple 2048 × 2048). Les photos ne sont jamais
+  coupées : une photo qui n'est pas carrée s'affiche entière, avec une bande gris clair sur les côtés.
+  Chaque photo doit montrer exactement ce qui est livré, avec les mêmes caractéristiques que la fiche.
 - Barre d'annonce (réglages Horizon) : fond violet #4a53ff, texte blanc, comme le prévoit votre référence de style.
 - En-tête (réglages Horizon) : fond noir, texte blanc, pour enchaîner avec l'accroche noire.
 - Avis clients plus tard : la section « WW · Fiche produit » accepte les blocs d'applications

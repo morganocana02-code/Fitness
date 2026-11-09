@@ -187,8 +187,9 @@
 .ww-hero { position: relative; display: flex; align-items: flex-end; min-height: 88vh; padding: 120px 0 64px; overflow: hidden; }
 .ww-hero--media { min-height: 0; padding: 20px 0 56px; }
 .ww-hero__grid { display: grid; gap: 32px; align-items: end; width: 100%; }
-.ww-hero__media { display: block; order: -1; border-radius: var(--ww-radius-card); overflow: hidden; background: var(--ww-carbon); aspect-ratio: 1 / 1; }
-.ww-hero__media img { width: 100%; height: 100%; object-fit: cover; }
+/* La photo garde ses proportions : rien n'est coupé */
+.ww-hero__media { display: block; order: -1; border-radius: var(--ww-radius-card); overflow: hidden; background: var(--ww-carbon); }
+.ww-hero__media img { width: 100%; height: auto; max-height: 80vh; object-fit: cover; }
 .ww-hero__note { margin-top: 28px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ww-ash); }
 
 @media (min-width: 990px) {
@@ -227,7 +228,8 @@
 .ww-pack { display: flex; flex-direction: column; background: var(--ww-white); border: 1px solid var(--ww-hairline); border-radius: var(--ww-radius-card); overflow: hidden; }
 .ww-section--mist .ww-pack { border-color: transparent; }
 .ww-pack__media { position: relative; display: block; aspect-ratio: 1 / 1; background: var(--ww-mist); overflow: hidden; }
-.ww-pack__media img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+/* contain : la photo entière reste visible, même si elle n'est pas carrée */
+.ww-pack__media img { width: 100%; height: 100%; object-fit: contain; transition: transform .6s ease; }
 .ww-pack:hover .ww-pack__media img { transform: scale(1.03); }
 .ww-pack__badge { position: absolute; top: 16px; left: 16px; padding: 8px 14px; border-radius: var(--ww-radius-pill); background: var(--ww-black); color: var(--ww-white); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
 .ww-pack__body { display: flex; flex: 1; flex-direction: column; gap: 14px; padding: 28px; }
@@ -298,7 +300,7 @@
 .ww-gallery { display: grid; grid-auto-flow: column; grid-auto-columns: 88%; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
 .ww-gallery::-webkit-scrollbar { display: none; }
 .ww-gallery__item { scroll-snap-align: start; border-radius: var(--ww-radius-card); overflow: hidden; background: var(--ww-mist); aspect-ratio: 1 / 1; }
-.ww-gallery__item img { width: 100%; height: 100%; object-fit: cover; }
+.ww-gallery__item img { width: 100%; height: 100%; object-fit: contain; }
 @media (min-width: 990px) {
   .ww-gallery { grid-auto-flow: row; grid-auto-columns: auto; grid-template-columns: 1fr 1fr; overflow: visible; }
   .ww-gallery__item:first-child,

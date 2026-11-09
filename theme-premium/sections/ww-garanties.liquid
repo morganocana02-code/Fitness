@@ -21,6 +21,10 @@
       {%- endfor -%}
     </div>
 
+    {%- if section.settings.rights != blank -%}
+      <p class="ww-rights">{% render 'ww-icon', name: 'scale' %}<span>{{ section.settings.rights | escape }}</span></p>
+    {%- endif -%}
+
     {%- if section.settings.show_payment_icons -%}
       <div class="ww-paybar">
         <p class="ww-paybar__label">{% render 'ww-icon', name: 'lock' %}{{ section.settings.payment_label | escape }}</p>
@@ -38,13 +42,14 @@
 {
   "name": "WW · Engagements",
   "tag": "div",
-  "max_blocks": 6,
+  "max_blocks": 9,
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Surtitre", "default": "Nos engagements" },
     { "type": "text", "id": "title", "label": "Titre", "default": "Tout est écrit noir sur blanc." },
     { "type": "text", "id": "text", "label": "Texte" },
     { "type": "checkbox", "id": "show_payment_icons", "label": "Afficher les moyens de paiement", "default": true },
     { "type": "text", "id": "payment_label", "label": "Texte à côté des moyens de paiement", "default": "Paiement sécurisé, connexion chiffrée" },
+    { "type": "textarea", "id": "rights", "label": "Rappel de vos droits (sous les engagements)" },
     { "type": "checkbox", "id": "mist", "label": "Fond gris clair", "default": false }
   ],
   "blocks": [
@@ -63,7 +68,10 @@
             { "value": "refund", "label": "Remboursement" },
             { "value": "shield", "label": "Garantie" },
             { "value": "lock", "label": "Paiement" },
-            { "value": "chat", "label": "Service client" }
+            { "value": "chat", "label": "Service client" },
+            { "value": "lifebuoy", "label": "Problème de colis" },
+            { "value": "privacy", "label": "Données personnelles" },
+            { "value": "scale", "label": "Litige" }
           ]
         },
         { "type": "text", "id": "title", "label": "Titre", "default": "Livraison offerte" },

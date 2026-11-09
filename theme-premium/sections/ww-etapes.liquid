@@ -8,8 +8,11 @@
       {%- if section.settings.text != blank -%}<p class="ww-lead">{{ section.settings.text | escape }}</p>{%- endif -%}
     </div>
 
-    <ol class="ww-steps" style="--ww-cols: {{ section.blocks.size }}">
-      {%- for block in section.blocks -%}
+    {%- assign order_steps = section.blocks | where: 'type', 'step' -%}
+    {%- assign return_steps = section.blocks | where: 'type', 'return' -%}
+
+    <ol class="ww-steps" style="--ww-cols: {{ order_steps.size }}">
+      {%- for block in order_steps -%}
         <li class="ww-step" {{ block.shopify_attributes }}>
           <span class="ww-step__icon">{% render 'ww-icon', name: block.settings.icon %}</span>
           <span class="ww-step__num">Étape {{ forloop.index }}</span>
@@ -25,6 +28,28 @@
         {%- if section.settings.link != blank %} <a href="{{ section.settings.link }}">{{ section.settings.link_label | escape }}</a>{%- endif -%}
       </p>
     {%- endif -%}
+
+    {%- comment -%} Procédure de retour, expliquée avant l'achat (blocs « Étape de retour ») {%- endcomment -%}
+    {%- if return_steps.size > 0 -%}
+      <div class="ww-returns">
+        <h3 class="ww-h3">{{ section.settings.returns_title | escape }}</h3>
+        {%- if section.settings.returns_text != blank -%}<p class="ww-text">{{ section.settings.returns_text | escape }}</p>{%- endif -%}
+        <ol class="ww-returns__list" style="--ww-cols: {{ return_steps.size }}">
+          {%- for block in return_steps -%}
+            <li {{ block.shopify_attributes }}>
+              <span class="ww-returns__num">{{ forloop.index }}</span>
+              <div>
+                <strong>{{ block.settings.title | escape }}</strong>
+                <p>{{ block.settings.text | escape }}</p>
+              </div>
+            </li>
+          {%- endfor -%}
+        </ol>
+        {%- if section.settings.returns_link != blank -%}
+          <a class="ww-link" href="{{ section.settings.returns_link }}">{{ section.settings.returns_link_label | escape }} {% render 'ww-icon', name: 'arrow' %}</a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
   </div>
 </section>
 
@@ -32,7 +57,7 @@
 {
   "name": "WW · Étapes de commande",
   "tag": "div",
-  "max_blocks": 6,
+  "max_blocks": 10,
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Surtitre", "default": "Après votre commande" },
     { "type": "text", "id": "title", "label": "Titre", "default": "Ce qui se passe, étape par étape." },
@@ -40,7 +65,13 @@
     { "type": "text", "id": "note", "label": "Note sous les étapes" },
     { "type": "text", "id": "link_label", "label": "Texte du lien", "default": "Politique d'expédition" },
     { "type": "url", "id": "link", "label": "Lien" },
-    { "type": "checkbox", "id": "mist", "label": "Fond gris clair", "default": true }
+    { "type": "checkbox", "id": "mist", "label": "Fond gris clair", "default": true },
+    { "type": "header", "content": "Procédure de retour" },
+    { "type": "paragraph", "content": "Affichée sous les étapes de commande dès qu'un bloc « Étape de retour » existe." },
+    { "type": "text", "id": "returns_title", "label": "Titre", "default": "Et si vous changez d'avis ?" },
+    { "type": "textarea", "id": "returns_text", "label": "Texte" },
+    { "type": "text", "id": "returns_link_label", "label": "Texte du lien", "default": "Politique de remboursement" },
+    { "type": "url", "id": "returns_link", "label": "Lien" }
   ],
   "blocks": [
     {
@@ -63,6 +94,14 @@
           ]
         },
         { "type": "text", "id": "title", "label": "Titre", "default": "Vous commandez" },
+        { "type": "textarea", "id": "text", "label": "Texte" }
+      ]
+    },
+    {
+      "type": "return",
+      "name": "Étape de retour",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Titre", "default": "Écrivez-nous" },
         { "type": "textarea", "id": "text", "label": "Texte" }
       ]
     }

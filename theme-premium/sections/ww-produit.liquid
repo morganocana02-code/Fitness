@@ -144,6 +144,8 @@
           <li>{% render 'ww-icon', name: 'return' %}<span>14 jours pour changer d'avis</span></li>
           <li>{% render 'ww-icon', name: 'shield' %}<span>Garantie légale de conformité de 2 ans</span></li>
           <li>{% render 'ww-icon', name: 'package' %}<span>Article abîmé ou non conforme : retour à nos frais</span></li>
+          <li>{% render 'ww-icon', name: 'lifebuoy' %}<span>Colis perdu : remplacement ou remboursement</span></li>
+          <li>{% render 'ww-icon', name: 'check' %}<span>Annulation possible tant que la commande n'est pas expédiée</span></li>
         </ul>
 
         <div class="ww-accordion">
@@ -179,6 +181,14 @@
               <p>Le prix affiché est le prix total : TVA non applicable (article 293 B du CGI), livraison offerte.</p>
             </div>
           </details>
+          <details>
+            <summary>En cas de problème</summary>
+            <div class="ww-accordion__body">
+              <p>Colis en retard : si le délai annoncé est dépassé de plusieurs jours ouvrés, vérifiez le suivi puis contactez-nous. Nous ouvrons une enquête auprès du transporteur et vous proposons une solution : réexpédition ou remboursement.</p>
+              <p>Colis abîmé ou perdu : refusez le colis abîmé si possible, ou prenez des photos à la réception, puis écrivez-nous. Nous vous proposons un remplacement ou un remboursement.</p>
+              <p>Désaccord : nous recherchons d'abord une solution amiable. Si votre réclamation écrite reste sans solution, vous pouvez saisir gratuitement un conciliateur de justice (www.conciliateurs.fr).</p>
+            </div>
+          </details>
         </div>
 
         {%- comment -%} Blocs d'applications (par exemple un widget d'avis), ajoutables depuis l'éditeur de thème {%- endcomment -%}
@@ -193,7 +203,14 @@
           <ul role="list">
             <li>{% render 'ww-icon', name: 'phone' %}<span>{% render 'ww-coordonnees', part: 'phone' %}</span></li>
             <li>{% render 'ww-icon', name: 'mail' %}<span>{% render 'ww-coordonnees', part: 'email' %}</span></li>
-            <li>{% render 'ww-icon', name: 'clock' %}<span>{% render 'ww-coordonnees', part: 'hours' %}. {% render 'ww-coordonnees', part: 'response' %}.</span></li>
+            <li>
+              {% render 'ww-icon', name: 'clock' %}
+              <span>
+                {% render 'ww-coordonnees', part: 'hours' %}. {% render 'ww-coordonnees', part: 'response' %}.<br>
+                <span class="ww-open" data-ww-open data-open="{% render 'ww-coordonnees', part: 'ouverture' %}" data-close="{% render 'ww-coordonnees', part: 'fermeture' %}"><span data-ww-open-text></span></span>
+              </span>
+            </li>
+            <li>{% render 'ww-icon', name: 'building' %}<span>{% render 'ww-coordonnees', part: 'vendeur' %} · SIREN {% render 'ww-coordonnees', part: 'siren' %} · {% render 'ww-coordonnees', part: 'address' %}</span></li>
           </ul>
         </div>
       </div>

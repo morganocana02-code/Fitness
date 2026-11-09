@@ -35,11 +35,21 @@
         <dl class="ww-facts">
           <div><dt>{% render 'ww-icon', name: 'building' %}Nom commercial</dt><dd>{% render 'ww-coordonnees', part: 'nom' %}</dd></div>
           <div><dt>{% render 'ww-icon', name: 'shield' %}Exploitant</dt><dd>{% render 'ww-coordonnees', part: 'exploitant' %} · SIREN {% render 'ww-coordonnees', part: 'siren' %}</dd></div>
+          <div><dt>{% render 'ww-icon', name: 'building' %}Immatriculation</dt><dd>{% render 'ww-coordonnees', part: 'rne' %}</dd></div>
           <div><dt>{% render 'ww-icon', name: 'pin' %}Adresse</dt><dd>{% render 'ww-coordonnees', part: 'address' %}</dd></div>
           <div><dt>{% render 'ww-icon', name: 'phone' %}Téléphone</dt><dd>{% render 'ww-coordonnees', part: 'phone' %}</dd></div>
           <div><dt>{% render 'ww-icon', name: 'mail' %}E-mail</dt><dd>{% render 'ww-coordonnees', part: 'email' %}</dd></div>
-          <div><dt>{% render 'ww-icon', name: 'clock' %}Horaires</dt><dd>{% render 'ww-coordonnees', part: 'hours' %}. {% render 'ww-coordonnees', part: 'response' %}.</dd></div>
+          <div>
+            <dt>{% render 'ww-icon', name: 'clock' %}Horaires</dt>
+            <dd>
+              {% render 'ww-coordonnees', part: 'hours' %}. {% render 'ww-coordonnees', part: 'response' %}.<br>
+              <span class="ww-open" data-ww-open data-open="{% render 'ww-coordonnees', part: 'ouverture' %}" data-close="{% render 'ww-coordonnees', part: 'fermeture' %}"><span data-ww-open-text></span></span>
+            </dd>
+          </div>
           <div><dt>{% render 'ww-icon', name: 'truck' %}Expédition</dt><dd>{% render 'ww-coordonnees', part: 'expedition' %}</dd></div>
+          <div><dt>{% render 'ww-icon', name: 'receipt' %}TVA</dt><dd>{% render 'ww-coordonnees', part: 'tva' %} : le prix affiché est le prix payé</dd></div>
+          <div><dt>{% render 'ww-icon', name: 'globe' %}Hébergement du site</dt><dd>{% render 'ww-coordonnees', part: 'hebergeur' %}</dd></div>
+          <div><dt>{% render 'ww-icon', name: 'scale' %}En cas de litige</dt><dd>{% render 'ww-coordonnees', part: 'litige' %}</dd></div>
         </dl>
 
         {%- if shop.policies.size > 0 -%}

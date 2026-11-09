@@ -20,7 +20,9 @@
         "sticky_prefix": "Dès",
         "sticky_text": "Livraison offerte · 14 jours pour changer d'avis",
         "sticky_button": "Voir les packs",
-        "product": "pack-essentiel-home-gym"
+        "product": "pack-essentiel-home-gym",
+        "show_seller": true,
+        "show_payment_icons": true
       },
       "blocks": {
         "c1": {
@@ -44,7 +46,7 @@
         "c4": {
           "type": "check",
           "settings": {
-            "text": "Paiement sécurisé"
+            "text": "Colis perdu : remplacé ou remboursé"
           }
         }
       },
@@ -62,7 +64,7 @@
         "title": "Choisissez votre pack.",
         "text": "Un tapis de marche pliable au cœur de chaque pack. Le contenu du carton et le prix total sont indiqués clairement.",
         "button_label": "Ajouter au panier",
-        "note": "Pour les trois packs : livraison offerte en 5 à 7 jours ouvrés, 14 jours pour changer d'avis et garantie légale de 2 ans.",
+        "note": "Pour les trois packs : livraison offerte en 5 à 7 jours ouvrés, 14 jours pour changer d'avis, garantie légale de 2 ans, et colis perdu ou abîmé remplacé ou remboursé.",
         "mist": false
       },
       "blocks": {
@@ -193,6 +195,24 @@
             "value_2": "oui",
             "value_3": "oui"
           }
+        },
+        "r9": {
+          "type": "row",
+          "settings": {
+            "label": "14 jours pour changer d'avis",
+            "value_1": "oui",
+            "value_2": "oui",
+            "value_3": "oui"
+          }
+        },
+        "r10": {
+          "type": "row",
+          "settings": {
+            "label": "Garantie légale de 2 ans",
+            "value_1": "oui",
+            "value_2": "oui",
+            "value_3": "oui"
+          }
         }
       },
       "block_order": [
@@ -203,7 +223,9 @@
         "r5",
         "r6",
         "r7",
-        "r8"
+        "r8",
+        "r9",
+        "r10"
       ]
     },
     "moments": {
@@ -323,7 +345,11 @@
         "note": "Délai total estimé : 5 à 7 jours ouvrés (du lundi au vendredi, hors jours fériés).",
         "link_label": "Politique d'expédition",
         "link": "/policies/shipping-policy",
-        "mist": true
+        "mist": true,
+        "returns_title": "Et si vous changez d'avis ?",
+        "returns_text": "Le retour est expliqué à l'avance. Les frais de retour sont à votre charge, sauf si l'article est abîmé, défectueux ou non conforme : dans ce cas, le retour est entièrement à nos frais.",
+        "returns_link_label": "Politique de remboursement",
+        "returns_link": "/policies/refund-policy"
       },
       "blocks": {
         "s1": {
@@ -365,6 +391,34 @@
             "title": "14 jours pour changer d'avis",
             "text": "Le pack ne vous convient pas ? Vous avez 14 jours après réception pour nous le retourner, sans vous justifier."
           }
+        },
+        "ret1": {
+          "type": "return",
+          "settings": {
+            "title": "Écrivez-nous",
+            "text": "Par e-mail, avec votre numéro de commande et le ou les articles concernés."
+          }
+        },
+        "ret2": {
+          "type": "return",
+          "settings": {
+            "title": "Recevez l'adresse de retour",
+            "text": "Nous vous envoyons l'adresse de retour et la marche à suivre."
+          }
+        },
+        "ret3": {
+          "type": "return",
+          "settings": {
+            "title": "Renvoyez le pack",
+            "text": "Emballez-le soigneusement, envoyez-le avec le transporteur de votre choix, puis transmettez-nous le numéro de suivi."
+          }
+        },
+        "ret4": {
+          "type": "return",
+          "settings": {
+            "title": "Soyez remboursé",
+            "text": "Sous 7 jours après réception et contrôle du retour, et au plus tard 14 jours après votre demande, sur votre moyen de paiement."
+          }
         }
       },
       "block_order": [
@@ -372,7 +426,11 @@
         "s2",
         "s3",
         "s4",
-        "s5"
+        "s5",
+        "ret1",
+        "ret2",
+        "ret3",
+        "ret4"
       ]
     },
     "garanties": {
@@ -383,7 +441,8 @@
         "text": "Les mêmes règles pour chaque commande, détaillées dans nos politiques.",
         "show_payment_icons": true,
         "payment_label": "Paiement sécurisé, connexion chiffrée",
-        "mist": false
+        "mist": false,
+        "rights": "Ces engagements s'ajoutent à vos droits, garantis par la loi : droit de rétractation (articles L221-18 et suivants du Code de la consommation), garantie légale de conformité (articles L217-3 et suivants du même code) et garantie contre les vices cachés (articles 1641 et suivants du Code civil)."
       },
       "blocks": {
         "g1": {
@@ -445,6 +504,36 @@
             "link_label": "Nous contacter",
             "link": "/pages/contact"
           }
+        },
+        "g7": {
+          "type": "item",
+          "settings": {
+            "icon": "lifebuoy",
+            "title": "Colis perdu, abîmé ou en retard",
+            "text": "<p>Nous ouvrons une enquête auprès du transporteur et vous proposons une solution : <strong>réexpédition, remplacement ou remboursement</strong>.</p>",
+            "link_label": "Politique d'expédition",
+            "link": "/policies/shipping-policy"
+          }
+        },
+        "g8": {
+          "type": "item",
+          "settings": {
+            "icon": "privacy",
+            "title": "Vos données protégées",
+            "text": "<p>Nous collectons uniquement les données utiles pour traiter votre commande et vous répondre. <strong>Nous ne vendons jamais vos données</strong>, et vous pouvez les consulter, les corriger ou les supprimer à tout moment.</p>",
+            "link_label": "Politique de confidentialité",
+            "link": "/policies/privacy-policy"
+          }
+        },
+        "g9": {
+          "type": "item",
+          "settings": {
+            "icon": "scale",
+            "title": "Un recours gratuit en cas de litige",
+            "text": "<p>Nous recherchons d’abord une solution amiable. Si votre réclamation écrite reste sans solution, vous pouvez saisir <strong>gratuitement un conciliateur de justice</strong> (conciliateurs.fr).</p>",
+            "link_label": "Mentions légales",
+            "link": "/policies/legal-notice"
+          }
         }
       },
       "block_order": [
@@ -452,8 +541,11 @@
         "g2",
         "g3",
         "g4",
+        "g7",
         "g5",
-        "g6"
+        "g8",
+        "g6",
+        "g9"
       ]
     },
     "vendeur": {
@@ -540,18 +632,50 @@
             "question": "Puis-je annuler ma commande ?",
             "answer": "<p>Oui, par e-mail, tant qu'elle n'a pas été expédiée. Si elle est déjà partie, il suffit de suivre la procédure de retour.</p>"
           }
+        },
+        "qa": {
+          "type": "question",
+          "settings": {
+            "question": "Puis-je vous appeler avant de commander ?",
+            "answer": "<p>Oui, au +33 6 69 22 41 42, du lundi au vendredi de 9h à 18h (heure de Paris), hors jours fériés. Vous pouvez aussi écrire à morganocana02@gmail.com : réponse sous 24 à 48 heures ouvrées.</p>"
+          }
+        },
+        "qb": {
+          "type": "question",
+          "settings": {
+            "question": "Mon colis est en retard ou perdu : que se passe-t-il ?",
+            "answer": "<p>Si le délai annoncé est dépassé de plusieurs jours ouvrés, vérifiez le suivi puis contactez-nous : nous ouvrons une enquête auprès du transporteur et vous proposons une solution, réexpédition ou remboursement. Un colis perdu est remplacé ou remboursé. <a href=\"/policies/shipping-policy\">Politique d'expédition</a></p>"
+          }
+        },
+        "qc": {
+          "type": "question",
+          "settings": {
+            "question": "Que faites-vous de mes données ?",
+            "answer": "<p>Nous collectons uniquement les données utiles pour traiter votre commande, vous répondre et faire fonctionner le site. Nous ne les vendons jamais. Vos données bancaires sont traitées par nos prestataires de paiement : nous n'en conservons aucune complète. <a href=\"/policies/privacy-policy\">Politique de confidentialité</a></p>"
+          }
+        },
+        "qd": {
+          "type": "question",
+          "settings": {
+            "question": "Et en cas de désaccord ?",
+            "answer": "<p>Écrivez-nous d'abord : nous recherchons en priorité une solution amiable. Si votre réclamation écrite reste sans solution, vous pouvez saisir gratuitement un conciliateur de justice (www.conciliateurs.fr). <a href=\"/policies/legal-notice\">Mentions légales</a></p>"
+          }
         }
       },
       "block_order": [
         "q1",
         "q2",
+        "qa",
         "q3",
         "q4",
         "q5",
         "q6",
+        "qb",
         "q7",
+        "qc",
         "q8",
-        "q9"
+        "q9",
+        "qd"
       ]
     },
     "cta": {
@@ -565,7 +689,8 @@
         "button_link": "",
         "facts": "Livraison offerte | Expédié depuis la France | 14 jours pour changer d'avis | Garantie légale de 2 ans",
         "show_contact": true,
-        "contact_intro": "Une question ?"
+        "contact_intro": "Une question ?",
+        "show_seller": true
       }
     }
   },

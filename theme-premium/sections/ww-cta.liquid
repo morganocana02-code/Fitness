@@ -33,6 +33,9 @@
         {% render 'ww-coordonnees', part: 'phone' %} · {% render 'ww-coordonnees', part: 'email' %} · {% render 'ww-coordonnees', part: 'response' %}.
       </p>
     {%- endif -%}
+    {%- if section.settings.show_seller -%}
+      <p class="ww-seller-line">{% render 'ww-icon', name: 'building' %}<span>Vendu par {% render 'ww-coordonnees', part: 'vendeur' %}, {% render 'ww-coordonnees', part: 'address' %} · SIREN {% render 'ww-coordonnees', part: 'siren' %}</span></p>
+    {%- endif -%}
   </div>
 </section>
 
@@ -49,7 +52,8 @@
     { "type": "url", "id": "button_link", "label": "Lien du bouton (vide = section des packs)" },
     { "type": "text", "id": "facts", "label": "Engagements (séparés par |)", "default": "Livraison offerte | Expédié depuis la France | 14 jours pour changer d'avis | Garantie légale de 2 ans" },
     { "type": "checkbox", "id": "show_contact", "label": "Afficher le téléphone et l'e-mail", "default": true },
-    { "type": "text", "id": "contact_intro", "label": "Texte avant les coordonnées", "default": "Une question ?" }
+    { "type": "text", "id": "contact_intro", "label": "Texte avant les coordonnées", "default": "Une question ?" },
+    { "type": "checkbox", "id": "show_seller", "label": "Afficher « Vendu par… · SIREN »", "default": true }
   ],
   "presets": [{ "name": "WW · Appel final" }]
 }

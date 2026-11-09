@@ -510,6 +510,45 @@
 .ww-cta__pack strong { margin-left: auto; font-size: 15px; font-weight: 600; white-space: nowrap; }
 .ww-cta__pack .ww-icon { width: 18px; height: 18px; color: var(--ww-ash); }
 
+/* ---------- Confiance : identité, service client, retours, droits ---------- */
+
+/* Petit drapeau français */
+.ww-flag { display: inline-block; flex: none; width: 18px; height: 12px; border-radius: 2px; box-shadow: 0 0 0 1px var(--ww-hairline); }
+
+/* Ligne « Vendu par… » */
+.ww-seller-line { display: flex; align-items: flex-start; gap: 8px; margin: 18px 0 0; font-size: 13px; line-height: 1.45; color: var(--ww-fog); }
+.ww-seller-line .ww-icon { width: 16px; height: 16px; margin-top: 1px; color: var(--ww-violet); }
+.ww-section--dark .ww-seller-line,
+.ww-section--dark .ww-seller-line .ww-icon { color: var(--ww-ash); }
+
+/* Moyens de paiement dans l'accroche */
+.ww-hero__pay { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin: 0; font-size: 13px; font-weight: 600; }
+.ww-hero__pay > span { display: inline-flex; align-items: center; gap: 6px; }
+.ww-hero__pay .ww-icon { width: 16px; height: 16px; color: var(--ww-success); }
+
+/* Service client ouvert ou fermé, d'après les horaires publiés */
+.ww-open { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--ww-black); }
+.ww-open::before { content: ""; flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--ww-ash); }
+.ww-open.is-open::before { background: var(--ww-success); box-shadow: 0 0 0 3px rgba(31, 157, 85, 0.18); }
+.ww-hero__contact .ww-open { display: flex; margin-top: 8px; }
+/* Sans JavaScript, le statut reste masqué : les horaires écrits suffisent */
+.ww-open:not(.is-open):not(.is-closed) { display: none; }
+
+/* Retourner un pack : la procédure, étape par étape */
+.ww-returns { margin-top: 48px; padding: 28px; border: 1px solid var(--ww-hairline); border-radius: var(--ww-radius-card); background: var(--ww-white); }
+.ww-returns .ww-text { max-width: 720px; margin-top: 10px; }
+.ww-returns__list { display: grid; gap: 18px; margin: 24px 0 0; padding: 0; list-style: none; }
+@media (min-width: 750px) { .ww-returns__list { grid-template-columns: repeat(var(--ww-cols, 4), minmax(0, 1fr)); gap: 24px; } }
+.ww-returns__list li { display: grid; grid-template-columns: 32px 1fr; column-gap: 12px; }
+.ww-returns__num { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--ww-violet-soft); color: var(--ww-violet); font-size: 14px; font-weight: 700; }
+.ww-returns__list strong { display: block; font-size: 16px; font-weight: 600; line-height: 1.3; }
+.ww-returns__list p { margin: 4px 0 0; font-size: 14px; line-height: 1.55; color: var(--ww-fog); }
+.ww-returns .ww-link { margin-top: 20px; }
+
+/* Vos droits, tels qu'écrits dans les CGV */
+.ww-rights { display: flex; align-items: flex-start; gap: 10px; margin: 20px 0 0; font-size: 14px; line-height: 1.55; color: var(--ww-fog); }
+.ww-rights .ww-icon { margin-top: 1px; color: var(--ww-violet); }
+
 /* Accessibilité : réduire les animations si demandé */
 @media (prefers-reduced-motion: reduce) {
   .ww *, .ww *::before, .ww *::after { transition: none !important; }

@@ -28,8 +28,24 @@ Pour vendre davantage sans abîmer la confiance :
   sur la fiche) ;
 - aucune fausse urgence, aucun compte à rebours, aucune promotion ni aucun avis inventé.
 
-Chaque phrase reprend une information de vos politiques publiées (mises à jour le 22 octobre 2026)
-ou de vos fiches produits. Aucun avis, note, badge, certification, compte à rebours ni promotion.
+La confiance, partout, à partir de faits vérifiables :
+- Accroche : drapeau français, « Vendu par WhisperWalk – Morgan OCANA (EI), à Dijon · SIREN », logos des
+  moyens de paiement, et état du service client en temps réel (« ouvert · jusqu'à 18h » ou
+  « fermé · réouverture demain à 9h »), calculé d'après vos horaires publiés et les jours fériés.
+- Comparatif : « 14 jours pour changer d'avis » et « Garantie légale de 2 ans » pour chaque pack.
+- Après votre commande : la procédure de retour en 4 étapes, telle qu'écrite dans votre politique.
+- Engagements (9) : livraison, rétractation, remboursement, garantie, colis perdu ou abîmé, paiement,
+  données jamais vendues, service client, recours gratuit au conciliateur ; puis le rappel de vos droits
+  avec les articles de loi cités dans vos CGV.
+- Qui sommes-nous : immatriculation au RNE, TVA, hébergeur du site (Shopify), recours en cas de litige.
+- Questions (13) : appeler avant de commander, colis en retard ou perdu, données personnelles, désaccord.
+- Fiche produit : colis perdu remplacé ou remboursé, annulation avant l'expédition, volet
+  « En cas de problème », identité du vendeur et état du service client dans la carte de contact.
+- Appel final : « Vendu par… », adresse et SIREN.
+
+Chaque phrase reprend une information de vos politiques publiées (mises à jour le 22 octobre 2026),
+de vos mentions légales, de vos CGV ou de vos fiches produits. Aucun avis, note, badge, certification,
+compte à rebours ni promotion.
 
 Fiche produit (modèle « ww-premium ») : galerie, nom, « Vendu par WhisperWalk – Morgan OCANA (EI), à Dijon »,
 prix total, bouton « Ajouter au panier · prix » et paiement rapide, date de livraison estimée,
@@ -81,8 +97,9 @@ Ordre conseillé : le CSS et le JS, les 3 snippets, les 11 sections, puis les 2 
 le téléphone, l'e-mail, les horaires et les délais de livraison (5 à 7 jours ouvrés). Toutes les sections s'en servent, pour que ces informations
 restent identiques partout, comme l'exige Google Merchant Center.
 Si l'une change : modifiez-la dans ce fichier, puis dans vos politiques et dans Merchant Center.
-Seule exception : la réponse « Qui se cache derrière WhisperWalk ? » de la FAQ cite le SIREN et Dijon
-(modifiable dans l'éditeur de thème).
+Exceptions, modifiables dans l'éditeur de thème : dans la FAQ, la réponse « Qui se cache derrière
+WhisperWalk ? » cite le SIREN et Dijon, et la réponse « Puis-je vous appeler avant de commander ? »
+cite le téléphone, l'e-mail et les horaires.
 
 ## Réglages dans l'éditeur de thème
 

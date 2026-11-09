@@ -517,6 +517,45 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
 .ww-cta__pack strong { margin-left: auto; font-size: 15px; font-weight: 600; white-space: nowrap; }
 .ww-cta__pack .ww-icon { width: 18px; height: 18px; color: var(--ww-ash); }
 
+/* ---------- Confiance : identité, service client, retours, droits ---------- */
+
+/* Petit drapeau français */
+.ww-flag { display: inline-block; flex: none; width: 18px; height: 12px; border-radius: 2px; box-shadow: 0 0 0 1px var(--ww-hairline); }
+
+/* Ligne « Vendu par… » */
+.ww-seller-line { display: flex; align-items: flex-start; gap: 8px; margin: 18px 0 0; font-size: 13px; line-height: 1.45; color: var(--ww-fog); }
+.ww-seller-line .ww-icon { width: 16px; height: 16px; margin-top: 1px; color: var(--ww-violet); }
+.ww-section--dark .ww-seller-line,
+.ww-section--dark .ww-seller-line .ww-icon { color: var(--ww-ash); }
+
+/* Moyens de paiement dans l'accroche */
+.ww-hero__pay { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin: 0; font-size: 13px; font-weight: 600; }
+.ww-hero__pay > span { display: inline-flex; align-items: center; gap: 6px; }
+.ww-hero__pay .ww-icon { width: 16px; height: 16px; color: var(--ww-success); }
+
+/* Service client ouvert ou fermé, d'après les horaires publiés */
+.ww-open { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--ww-black); }
+.ww-open::before { content: ""; flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--ww-ash); }
+.ww-open.is-open::before { background: var(--ww-success); box-shadow: 0 0 0 3px rgba(31, 157, 85, 0.18); }
+.ww-hero__contact .ww-open { display: flex; margin-top: 8px; }
+/* Sans JavaScript, le statut reste masqué : les horaires écrits suffisent */
+.ww-open:not(.is-open):not(.is-closed) { display: none; }
+
+/* Retourner un pack : la procédure, étape par étape */
+.ww-returns { margin-top: 48px; padding: 28px; border: 1px solid var(--ww-hairline); border-radius: var(--ww-radius-card); background: var(--ww-white); }
+.ww-returns .ww-text { max-width: 720px; margin-top: 10px; }
+.ww-returns__list { display: grid; gap: 18px; margin: 24px 0 0; padding: 0; list-style: none; }
+@media (min-width: 750px) { .ww-returns__list { grid-template-columns: repeat(var(--ww-cols, 4), minmax(0, 1fr)); gap: 24px; } }
+.ww-returns__list li { display: grid; grid-template-columns: 32px 1fr; column-gap: 12px; }
+.ww-returns__num { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--ww-violet-soft); color: var(--ww-violet); font-size: 14px; font-weight: 700; }
+.ww-returns__list strong { display: block; font-size: 16px; font-weight: 600; line-height: 1.3; }
+.ww-returns__list p { margin: 4px 0 0; font-size: 14px; line-height: 1.55; color: var(--ww-fog); }
+.ww-returns .ww-link { margin-top: 20px; }
+
+/* Vos droits, tels qu'écrits dans les CGV */
+.ww-rights { display: flex; align-items: flex-start; gap: 10px; margin: 20px 0 0; font-size: 14px; line-height: 1.55; color: var(--ww-fog); }
+.ww-rights .ww-icon { margin-top: 1px; color: var(--ww-violet); }
+
 /* Accessibilité : réduire les animations si demandé */
 @media (prefers-reduced-motion: reduce) {
   .ww *, .ww *::before, .ww *::after { transition: none !important; }
@@ -628,7 +667,36 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
     });
   }
 
-  /* ---------- 4. Barres d'achat fixes (mobile) ---------- */
+  /* ---------- 4. Service client ouvert ou fermé, d'après les horaires publiés ----------
+     Du lundi au vendredi, hors jours fériés, heure de Paris (heures lues dans data-open et data-close). */
+  if (window.Intl) {
+    document.querySelectorAll('[data-ww-open]').forEach(function (el) {
+      var open = parseInt(el.getAttribute('data-open'), 10);
+      var close = parseInt(el.getAttribute('data-close'), 10);
+      var out = el.querySelector('[data-ww-open-text]');
+      if (isNaN(open) || isNaN(close) || !out) return;
+      var parts = {};
+      new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', hourCycle: 'h23' })
+        .formatToParts(new Date()).forEach(function (part) { parts[part.type] = part.value; });
+      var day = Date.UTC(+parts.year, +parts.month - 1, +parts.day);
+      var hour = parseInt(parts.hour, 10);
+      var weekday = new Date(day).getUTCDay();
+      var businessDay = weekday !== 0 && weekday !== 6 && !isHoliday(day);
+      if (businessDay && hour >= open && hour < close) {
+        el.classList.add('is-open');
+        out.textContent = 'Service client ouvert · jusqu’à ' + close + 'h';
+        return;
+      }
+      var next = businessDay && hour < open ? day : addBusinessDays(day, 1);
+      var when = next === day ? 'aujourd’hui'
+        : next === day + DAY ? 'demain'
+        : new Intl.DateTimeFormat('fr-FR', { weekday: 'long', timeZone: 'UTC' }).format(new Date(next));
+      el.classList.add('is-closed');
+      out.textContent = 'Service client fermé · réouverture ' + when + ' à ' + open + 'h';
+    });
+  }
+
+  /* ---------- 5. Barres d'achat fixes (mobile) ---------- */
   if (!('IntersectionObserver' in window)) return;
 
   function setSticky(bar, show) {
@@ -684,8 +752,12 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
 {%- comment -%}
   Icônes au trait, dessinées en SVG (style Lucide, licence ISC).
   Paramètre : name (truck, return, refund, shield, lock, check, bag, package, home,
-  mail, phone, clock, pin, card, chat, building, arrow)
+  mail, phone, clock, pin, card, chat, building, arrow, lifebuoy, privacy, scale, globe, receipt,
+  flag : petit drapeau français en couleurs)
 {%- endcomment -%}
+{%- if name == 'flag' -%}
+<svg class="ww-flag" viewBox="0 0 3 2" aria-hidden="true" focusable="false"><rect width="1" height="2" fill="#0055A4"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#EF4135"/></svg>
+{%- else -%}
 <svg class="ww-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
   {%- case name -%}
     {%- when 'truck' -%}
@@ -720,12 +792,23 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
       <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
     {%- when 'building' -%}
       <rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/>
+    {%- when 'lifebuoy' -%}
+      <circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/><circle cx="12" cy="12" r="4"/>
+    {%- when 'privacy' -%}
+      <path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.53 13.53 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/><path d="M2 2l20 20"/><path d="M14.12 14.12a3 3 0 1 1-4.24-4.24"/>
+    {%- when 'scale' -%}
+      <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/>
+    {%- when 'globe' -%}
+      <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>
+    {%- when 'receipt' -%}
+      <path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 17.5v-11"/>
     {%- when 'arrow' -%}
       <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
     {%- else -%}
       <circle cx="12" cy="12" r="9"/>
   {%- endcase -%}
 </svg>
+{%- endif -%}
 ```
 
 ## snippets/ww-coordonnees.liquid
@@ -738,7 +821,8 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
 
   Paramètre « part » :
   email, phone, hours, hours_short, response, address, ville, siren, exploitant, vendeur, nom, expedition,
-  delai_min, delai_max (délai total en jours ouvrés, comme dans la politique d'expédition)
+  delai_min, delai_max (délai total en jours ouvrés, comme dans la politique d'expédition),
+  rne, tva, hebergeur, litige, ouverture, fermeture (heures du service client, heure de Paris)
 {%- endcomment -%}
 {%- liquid
   assign ww_nom = 'WhisperWalk'
@@ -756,6 +840,12 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
   assign ww_expedition = 'Depuis la France'
   assign ww_delai_min = 5
   assign ww_delai_max = 7
+  assign ww_rne = 'Registre national des entreprises (RNE), n° 914 877 022'
+  assign ww_tva = 'TVA non applicable, article 293 B du CGI'
+  assign ww_hebergeur = 'Shopify Inc.'
+  assign ww_litige = 'Solution amiable d’abord, puis conciliateur de justice gratuit (conciliateurs.fr)'
+  assign ww_ouverture = 9
+  assign ww_fermeture = 18
 
   case part
     when 'email'
@@ -786,6 +876,18 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
       echo ww_delai_min
     when 'delai_max'
       echo ww_delai_max
+    when 'rne'
+      echo ww_rne
+    when 'tva'
+      echo ww_tva
+    when 'hebergeur'
+      echo ww_hebergeur
+    when 'litige'
+      echo ww_litige
+    when 'ouverture'
+      echo ww_ouverture
+    when 'fermeture'
+      echo ww_fermeture
   endcase
 -%}
 ```
@@ -882,7 +984,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
 
       <div class="ww-hero__text">
         {%- if section.settings.eyebrow != blank -%}
-          <p class="ww-pill">{% render 'ww-icon', name: 'pin' %}{{ section.settings.eyebrow | escape }}</p>
+          <p class="ww-pill">{% render 'ww-icon', name: 'flag' %}{{ section.settings.eyebrow | escape }}</p>
         {%- endif -%}
         <h1 class="ww-hero__title" id="ww-hero-{{ section.id }}">{{ section.settings.title | escape | newline_to_br }}</h1>
         {%- if section.settings.text != blank -%}
@@ -911,6 +1013,10 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
             <a class="ww-btn ww-btn--text" href="{{ section.settings.button2_link | default: '#ww-etapes' }}">{{ section.settings.button2_label | escape }}</a>
           {%- endif -%}
         </div>
+
+        {%- if section.settings.show_seller -%}
+          <p class="ww-seller-line">{% render 'ww-icon', name: 'building' %}<span>Vendu par {% render 'ww-coordonnees', part: 'vendeur' %}, à {% render 'ww-coordonnees', part: 'ville' %} · SIREN {% render 'ww-coordonnees', part: 'siren' %}</span></p>
+        {%- endif -%}
       </div>
 
       <div class="ww-hero__trust">
@@ -921,11 +1027,24 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
             {%- endfor -%}
           </ul>
         {%- endif -%}
+        {%- if section.settings.show_payment_icons -%}
+          <div class="ww-hero__pay">
+            <span>{% render 'ww-icon', name: 'lock' %}Paiement sécurisé</span>
+            <ul class="ww-pay" role="list">
+              {%- for type in shop.enabled_payment_types -%}
+                <li>{{ type | payment_type_svg_tag: class: 'ww-pay__icon' }}</li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
         {%- if section.settings.show_contact -%}
-          <p class="ww-hero__contact">
+          <div class="ww-hero__contact">
             {% render 'ww-icon', name: 'chat' %}
-            <span>{{ section.settings.contact_intro | escape }} {% render 'ww-coordonnees', part: 'phone' %} ou écrivez à {% render 'ww-coordonnees', part: 'email' %} ({% render 'ww-coordonnees', part: 'hours_short' %}).</span>
-          </p>
+            <div>
+              <span>{{ section.settings.contact_intro | escape }} {% render 'ww-coordonnees', part: 'phone' %} ou écrivez à {% render 'ww-coordonnees', part: 'email' %} ({% render 'ww-coordonnees', part: 'hours_short' %}).</span>
+              <span class="ww-open" data-ww-open data-open="{% render 'ww-coordonnees', part: 'ouverture' %}" data-close="{% render 'ww-coordonnees', part: 'fermeture' %}"><span data-ww-open-text>{% render 'ww-coordonnees', part: 'response' %}</span></span>
+            </div>
+          </div>
         {%- endif -%}
       </div>
 
@@ -986,7 +1105,9 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
     { "type": "url", "id": "button_link", "label": "Lien du bouton principal (vide = section des packs)" },
     { "type": "text", "id": "button2_label", "label": "Lien secondaire", "default": "Comment se passe la commande ?" },
     { "type": "url", "id": "button2_link", "label": "Lien du bouton secondaire (vide = étapes de commande)" },
-    { "type": "checkbox", "id": "show_contact", "label": "Afficher le téléphone et l'e-mail", "default": true },
+    { "type": "checkbox", "id": "show_seller", "label": "Afficher « Vendu par… · SIREN » sous les boutons", "default": true },
+    { "type": "checkbox", "id": "show_payment_icons", "label": "Afficher les moyens de paiement", "default": true },
+    { "type": "checkbox", "id": "show_contact", "label": "Afficher le téléphone, l'e-mail et l'état du service client", "default": true },
     { "type": "text", "id": "contact_intro", "label": "Texte avant les coordonnées", "default": "Une question avant d'acheter ? Appelez le" },
     { "type": "header", "content": "Barre fixe sur mobile" },
     { "type": "checkbox", "id": "show_sticky", "label": "Afficher la barre « Voir les packs » en bas de l'écran", "default": true },
@@ -1013,7 +1134,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
         { "type": "check", "settings": { "text": "Livraison offerte en 5 à 7 jours ouvrés" } },
         { "type": "check", "settings": { "text": "14 jours pour changer d'avis" } },
         { "type": "check", "settings": { "text": "Garantie légale de 2 ans" } },
-        { "type": "check", "settings": { "text": "Paiement sécurisé" } }
+        { "type": "check", "settings": { "text": "Colis perdu : remplacé ou remboursé" } }
       ]
     }
   ]
@@ -1416,8 +1537,11 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
       {%- if section.settings.text != blank -%}<p class="ww-lead">{{ section.settings.text | escape }}</p>{%- endif -%}
     </div>
 
-    <ol class="ww-steps" style="--ww-cols: {{ section.blocks.size }}">
-      {%- for block in section.blocks -%}
+    {%- assign order_steps = section.blocks | where: 'type', 'step' -%}
+    {%- assign return_steps = section.blocks | where: 'type', 'return' -%}
+
+    <ol class="ww-steps" style="--ww-cols: {{ order_steps.size }}">
+      {%- for block in order_steps -%}
         <li class="ww-step" {{ block.shopify_attributes }}>
           <span class="ww-step__icon">{% render 'ww-icon', name: block.settings.icon %}</span>
           <span class="ww-step__num">Étape {{ forloop.index }}</span>
@@ -1433,6 +1557,28 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
         {%- if section.settings.link != blank %} <a href="{{ section.settings.link }}">{{ section.settings.link_label | escape }}</a>{%- endif -%}
       </p>
     {%- endif -%}
+
+    {%- comment -%} Procédure de retour, expliquée avant l'achat (blocs « Étape de retour ») {%- endcomment -%}
+    {%- if return_steps.size > 0 -%}
+      <div class="ww-returns">
+        <h3 class="ww-h3">{{ section.settings.returns_title | escape }}</h3>
+        {%- if section.settings.returns_text != blank -%}<p class="ww-text">{{ section.settings.returns_text | escape }}</p>{%- endif -%}
+        <ol class="ww-returns__list" style="--ww-cols: {{ return_steps.size }}">
+          {%- for block in return_steps -%}
+            <li {{ block.shopify_attributes }}>
+              <span class="ww-returns__num">{{ forloop.index }}</span>
+              <div>
+                <strong>{{ block.settings.title | escape }}</strong>
+                <p>{{ block.settings.text | escape }}</p>
+              </div>
+            </li>
+          {%- endfor -%}
+        </ol>
+        {%- if section.settings.returns_link != blank -%}
+          <a class="ww-link" href="{{ section.settings.returns_link }}">{{ section.settings.returns_link_label | escape }} {% render 'ww-icon', name: 'arrow' %}</a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
   </div>
 </section>
 
@@ -1440,7 +1586,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
 {
   "name": "WW · Étapes de commande",
   "tag": "div",
-  "max_blocks": 6,
+  "max_blocks": 10,
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Surtitre", "default": "Après votre commande" },
     { "type": "text", "id": "title", "label": "Titre", "default": "Ce qui se passe, étape par étape." },
@@ -1448,7 +1594,13 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
     { "type": "text", "id": "note", "label": "Note sous les étapes" },
     { "type": "text", "id": "link_label", "label": "Texte du lien", "default": "Politique d'expédition" },
     { "type": "url", "id": "link", "label": "Lien" },
-    { "type": "checkbox", "id": "mist", "label": "Fond gris clair", "default": true }
+    { "type": "checkbox", "id": "mist", "label": "Fond gris clair", "default": true },
+    { "type": "header", "content": "Procédure de retour" },
+    { "type": "paragraph", "content": "Affichée sous les étapes de commande dès qu'un bloc « Étape de retour » existe." },
+    { "type": "text", "id": "returns_title", "label": "Titre", "default": "Et si vous changez d'avis ?" },
+    { "type": "textarea", "id": "returns_text", "label": "Texte" },
+    { "type": "text", "id": "returns_link_label", "label": "Texte du lien", "default": "Politique de remboursement" },
+    { "type": "url", "id": "returns_link", "label": "Lien" }
   ],
   "blocks": [
     {
@@ -1471,6 +1623,14 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
           ]
         },
         { "type": "text", "id": "title", "label": "Titre", "default": "Vous commandez" },
+        { "type": "textarea", "id": "text", "label": "Texte" }
+      ]
+    },
+    {
+      "type": "return",
+      "name": "Étape de retour",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Titre", "default": "Écrivez-nous" },
         { "type": "textarea", "id": "text", "label": "Texte" }
       ]
     }
@@ -1506,6 +1666,10 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
       {%- endfor -%}
     </div>
 
+    {%- if section.settings.rights != blank -%}
+      <p class="ww-rights">{% render 'ww-icon', name: 'scale' %}<span>{{ section.settings.rights | escape }}</span></p>
+    {%- endif -%}
+
     {%- if section.settings.show_payment_icons -%}
       <div class="ww-paybar">
         <p class="ww-paybar__label">{% render 'ww-icon', name: 'lock' %}{{ section.settings.payment_label | escape }}</p>
@@ -1523,13 +1687,14 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
 {
   "name": "WW · Engagements",
   "tag": "div",
-  "max_blocks": 6,
+  "max_blocks": 9,
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Surtitre", "default": "Nos engagements" },
     { "type": "text", "id": "title", "label": "Titre", "default": "Tout est écrit noir sur blanc." },
     { "type": "text", "id": "text", "label": "Texte" },
     { "type": "checkbox", "id": "show_payment_icons", "label": "Afficher les moyens de paiement", "default": true },
     { "type": "text", "id": "payment_label", "label": "Texte à côté des moyens de paiement", "default": "Paiement sécurisé, connexion chiffrée" },
+    { "type": "textarea", "id": "rights", "label": "Rappel de vos droits (sous les engagements)" },
     { "type": "checkbox", "id": "mist", "label": "Fond gris clair", "default": false }
   ],
   "blocks": [
@@ -1548,7 +1713,10 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
             { "value": "refund", "label": "Remboursement" },
             { "value": "shield", "label": "Garantie" },
             { "value": "lock", "label": "Paiement" },
-            { "value": "chat", "label": "Service client" }
+            { "value": "chat", "label": "Service client" },
+            { "value": "lifebuoy", "label": "Problème de colis" },
+            { "value": "privacy", "label": "Données personnelles" },
+            { "value": "scale", "label": "Litige" }
           ]
         },
         { "type": "text", "id": "title", "label": "Titre", "default": "Livraison offerte" },
@@ -1603,11 +1771,21 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
         <dl class="ww-facts">
           <div><dt>{% render 'ww-icon', name: 'building' %}Nom commercial</dt><dd>{% render 'ww-coordonnees', part: 'nom' %}</dd></div>
           <div><dt>{% render 'ww-icon', name: 'shield' %}Exploitant</dt><dd>{% render 'ww-coordonnees', part: 'exploitant' %} · SIREN {% render 'ww-coordonnees', part: 'siren' %}</dd></div>
+          <div><dt>{% render 'ww-icon', name: 'building' %}Immatriculation</dt><dd>{% render 'ww-coordonnees', part: 'rne' %}</dd></div>
           <div><dt>{% render 'ww-icon', name: 'pin' %}Adresse</dt><dd>{% render 'ww-coordonnees', part: 'address' %}</dd></div>
           <div><dt>{% render 'ww-icon', name: 'phone' %}Téléphone</dt><dd>{% render 'ww-coordonnees', part: 'phone' %}</dd></div>
           <div><dt>{% render 'ww-icon', name: 'mail' %}E-mail</dt><dd>{% render 'ww-coordonnees', part: 'email' %}</dd></div>
-          <div><dt>{% render 'ww-icon', name: 'clock' %}Horaires</dt><dd>{% render 'ww-coordonnees', part: 'hours' %}. {% render 'ww-coordonnees', part: 'response' %}.</dd></div>
+          <div>
+            <dt>{% render 'ww-icon', name: 'clock' %}Horaires</dt>
+            <dd>
+              {% render 'ww-coordonnees', part: 'hours' %}. {% render 'ww-coordonnees', part: 'response' %}.<br>
+              <span class="ww-open" data-ww-open data-open="{% render 'ww-coordonnees', part: 'ouverture' %}" data-close="{% render 'ww-coordonnees', part: 'fermeture' %}"><span data-ww-open-text></span></span>
+            </dd>
+          </div>
           <div><dt>{% render 'ww-icon', name: 'truck' %}Expédition</dt><dd>{% render 'ww-coordonnees', part: 'expedition' %}</dd></div>
+          <div><dt>{% render 'ww-icon', name: 'receipt' %}TVA</dt><dd>{% render 'ww-coordonnees', part: 'tva' %} : le prix affiché est le prix payé</dd></div>
+          <div><dt>{% render 'ww-icon', name: 'globe' %}Hébergement du site</dt><dd>{% render 'ww-coordonnees', part: 'hebergeur' %}</dd></div>
+          <div><dt>{% render 'ww-icon', name: 'scale' %}En cas de litige</dt><dd>{% render 'ww-coordonnees', part: 'litige' %}</dd></div>
         </dl>
 
         {%- if shop.policies.size > 0 -%}
@@ -1739,6 +1917,9 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
         {% render 'ww-coordonnees', part: 'phone' %} · {% render 'ww-coordonnees', part: 'email' %} · {% render 'ww-coordonnees', part: 'response' %}.
       </p>
     {%- endif -%}
+    {%- if section.settings.show_seller -%}
+      <p class="ww-seller-line">{% render 'ww-icon', name: 'building' %}<span>Vendu par {% render 'ww-coordonnees', part: 'vendeur' %}, {% render 'ww-coordonnees', part: 'address' %} · SIREN {% render 'ww-coordonnees', part: 'siren' %}</span></p>
+    {%- endif -%}
   </div>
 </section>
 
@@ -1755,7 +1936,8 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
     { "type": "url", "id": "button_link", "label": "Lien du bouton (vide = section des packs)" },
     { "type": "text", "id": "facts", "label": "Engagements (séparés par |)", "default": "Livraison offerte | Expédié depuis la France | 14 jours pour changer d'avis | Garantie légale de 2 ans" },
     { "type": "checkbox", "id": "show_contact", "label": "Afficher le téléphone et l'e-mail", "default": true },
-    { "type": "text", "id": "contact_intro", "label": "Texte avant les coordonnées", "default": "Une question ?" }
+    { "type": "text", "id": "contact_intro", "label": "Texte avant les coordonnées", "default": "Une question ?" },
+    { "type": "checkbox", "id": "show_seller", "label": "Afficher « Vendu par… · SIREN »", "default": true }
   ],
   "presets": [{ "name": "WW · Appel final" }]
 }
@@ -1911,6 +2093,8 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
           <li>{% render 'ww-icon', name: 'return' %}<span>14 jours pour changer d'avis</span></li>
           <li>{% render 'ww-icon', name: 'shield' %}<span>Garantie légale de conformité de 2 ans</span></li>
           <li>{% render 'ww-icon', name: 'package' %}<span>Article abîmé ou non conforme : retour à nos frais</span></li>
+          <li>{% render 'ww-icon', name: 'lifebuoy' %}<span>Colis perdu : remplacement ou remboursement</span></li>
+          <li>{% render 'ww-icon', name: 'check' %}<span>Annulation possible tant que la commande n'est pas expédiée</span></li>
         </ul>
 
         <div class="ww-accordion">
@@ -1946,6 +2130,14 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
               <p>Le prix affiché est le prix total : TVA non applicable (article 293 B du CGI), livraison offerte.</p>
             </div>
           </details>
+          <details>
+            <summary>En cas de problème</summary>
+            <div class="ww-accordion__body">
+              <p>Colis en retard : si le délai annoncé est dépassé de plusieurs jours ouvrés, vérifiez le suivi puis contactez-nous. Nous ouvrons une enquête auprès du transporteur et vous proposons une solution : réexpédition ou remboursement.</p>
+              <p>Colis abîmé ou perdu : refusez le colis abîmé si possible, ou prenez des photos à la réception, puis écrivez-nous. Nous vous proposons un remplacement ou un remboursement.</p>
+              <p>Désaccord : nous recherchons d'abord une solution amiable. Si votre réclamation écrite reste sans solution, vous pouvez saisir gratuitement un conciliateur de justice (www.conciliateurs.fr).</p>
+            </div>
+          </details>
         </div>
 
         {%- comment -%} Blocs d'applications (par exemple un widget d'avis), ajoutables depuis l'éditeur de thème {%- endcomment -%}
@@ -1960,7 +2152,14 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
           <ul role="list">
             <li>{% render 'ww-icon', name: 'phone' %}<span>{% render 'ww-coordonnees', part: 'phone' %}</span></li>
             <li>{% render 'ww-icon', name: 'mail' %}<span>{% render 'ww-coordonnees', part: 'email' %}</span></li>
-            <li>{% render 'ww-icon', name: 'clock' %}<span>{% render 'ww-coordonnees', part: 'hours' %}. {% render 'ww-coordonnees', part: 'response' %}.</span></li>
+            <li>
+              {% render 'ww-icon', name: 'clock' %}
+              <span>
+                {% render 'ww-coordonnees', part: 'hours' %}. {% render 'ww-coordonnees', part: 'response' %}.<br>
+                <span class="ww-open" data-ww-open data-open="{% render 'ww-coordonnees', part: 'ouverture' %}" data-close="{% render 'ww-coordonnees', part: 'fermeture' %}"><span data-ww-open-text></span></span>
+              </span>
+            </li>
+            <li>{% render 'ww-icon', name: 'building' %}<span>{% render 'ww-coordonnees', part: 'vendeur' %} · SIREN {% render 'ww-coordonnees', part: 'siren' %} · {% render 'ww-coordonnees', part: 'address' %}</span></li>
           </ul>
         </div>
       </div>
@@ -2048,7 +2247,9 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
         "sticky_prefix": "Dès",
         "sticky_text": "Livraison offerte · 14 jours pour changer d'avis",
         "sticky_button": "Voir les packs",
-        "product": "pack-essentiel-home-gym"
+        "product": "pack-essentiel-home-gym",
+        "show_seller": true,
+        "show_payment_icons": true
       },
       "blocks": {
         "c1": {
@@ -2072,7 +2273,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
         "c4": {
           "type": "check",
           "settings": {
-            "text": "Paiement sécurisé"
+            "text": "Colis perdu : remplacé ou remboursé"
           }
         }
       },
@@ -2090,7 +2291,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
         "title": "Choisissez votre pack.",
         "text": "Un tapis de marche pliable au cœur de chaque pack. Le contenu du carton et le prix total sont indiqués clairement.",
         "button_label": "Ajouter au panier",
-        "note": "Pour les trois packs : livraison offerte en 5 à 7 jours ouvrés, 14 jours pour changer d'avis et garantie légale de 2 ans.",
+        "note": "Pour les trois packs : livraison offerte en 5 à 7 jours ouvrés, 14 jours pour changer d'avis, garantie légale de 2 ans, et colis perdu ou abîmé remplacé ou remboursé.",
         "mist": false
       },
       "blocks": {
@@ -2221,6 +2422,24 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
             "value_2": "oui",
             "value_3": "oui"
           }
+        },
+        "r9": {
+          "type": "row",
+          "settings": {
+            "label": "14 jours pour changer d'avis",
+            "value_1": "oui",
+            "value_2": "oui",
+            "value_3": "oui"
+          }
+        },
+        "r10": {
+          "type": "row",
+          "settings": {
+            "label": "Garantie légale de 2 ans",
+            "value_1": "oui",
+            "value_2": "oui",
+            "value_3": "oui"
+          }
         }
       },
       "block_order": [
@@ -2231,7 +2450,9 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
         "r5",
         "r6",
         "r7",
-        "r8"
+        "r8",
+        "r9",
+        "r10"
       ]
     },
     "moments": {
@@ -2351,7 +2572,11 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
         "note": "Délai total estimé : 5 à 7 jours ouvrés (du lundi au vendredi, hors jours fériés).",
         "link_label": "Politique d'expédition",
         "link": "/policies/shipping-policy",
-        "mist": true
+        "mist": true,
+        "returns_title": "Et si vous changez d'avis ?",
+        "returns_text": "Le retour est expliqué à l'avance. Les frais de retour sont à votre charge, sauf si l'article est abîmé, défectueux ou non conforme : dans ce cas, le retour est entièrement à nos frais.",
+        "returns_link_label": "Politique de remboursement",
+        "returns_link": "/policies/refund-policy"
       },
       "blocks": {
         "s1": {
@@ -2393,6 +2618,34 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
             "title": "14 jours pour changer d'avis",
             "text": "Le pack ne vous convient pas ? Vous avez 14 jours après réception pour nous le retourner, sans vous justifier."
           }
+        },
+        "ret1": {
+          "type": "return",
+          "settings": {
+            "title": "Écrivez-nous",
+            "text": "Par e-mail, avec votre numéro de commande et le ou les articles concernés."
+          }
+        },
+        "ret2": {
+          "type": "return",
+          "settings": {
+            "title": "Recevez l'adresse de retour",
+            "text": "Nous vous envoyons l'adresse de retour et la marche à suivre."
+          }
+        },
+        "ret3": {
+          "type": "return",
+          "settings": {
+            "title": "Renvoyez le pack",
+            "text": "Emballez-le soigneusement, envoyez-le avec le transporteur de votre choix, puis transmettez-nous le numéro de suivi."
+          }
+        },
+        "ret4": {
+          "type": "return",
+          "settings": {
+            "title": "Soyez remboursé",
+            "text": "Sous 7 jours après réception et contrôle du retour, et au plus tard 14 jours après votre demande, sur votre moyen de paiement."
+          }
         }
       },
       "block_order": [
@@ -2400,7 +2653,11 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
         "s2",
         "s3",
         "s4",
-        "s5"
+        "s5",
+        "ret1",
+        "ret2",
+        "ret3",
+        "ret4"
       ]
     },
     "garanties": {
@@ -2411,7 +2668,8 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
         "text": "Les mêmes règles pour chaque commande, détaillées dans nos politiques.",
         "show_payment_icons": true,
         "payment_label": "Paiement sécurisé, connexion chiffrée",
-        "mist": false
+        "mist": false,
+        "rights": "Ces engagements s'ajoutent à vos droits, garantis par la loi : droit de rétractation (articles L221-18 et suivants du Code de la consommation), garantie légale de conformité (articles L217-3 et suivants du même code) et garantie contre les vices cachés (articles 1641 et suivants du Code civil)."
       },
       "blocks": {
         "g1": {
@@ -2473,6 +2731,36 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
             "link_label": "Nous contacter",
             "link": "/pages/contact"
           }
+        },
+        "g7": {
+          "type": "item",
+          "settings": {
+            "icon": "lifebuoy",
+            "title": "Colis perdu, abîmé ou en retard",
+            "text": "<p>Nous ouvrons une enquête auprès du transporteur et vous proposons une solution : <strong>réexpédition, remplacement ou remboursement</strong>.</p>",
+            "link_label": "Politique d'expédition",
+            "link": "/policies/shipping-policy"
+          }
+        },
+        "g8": {
+          "type": "item",
+          "settings": {
+            "icon": "privacy",
+            "title": "Vos données protégées",
+            "text": "<p>Nous collectons uniquement les données utiles pour traiter votre commande et vous répondre. <strong>Nous ne vendons jamais vos données</strong>, et vous pouvez les consulter, les corriger ou les supprimer à tout moment.</p>",
+            "link_label": "Politique de confidentialité",
+            "link": "/policies/privacy-policy"
+          }
+        },
+        "g9": {
+          "type": "item",
+          "settings": {
+            "icon": "scale",
+            "title": "Un recours gratuit en cas de litige",
+            "text": "<p>Nous recherchons d’abord une solution amiable. Si votre réclamation écrite reste sans solution, vous pouvez saisir <strong>gratuitement un conciliateur de justice</strong> (conciliateurs.fr).</p>",
+            "link_label": "Mentions légales",
+            "link": "/policies/legal-notice"
+          }
         }
       },
       "block_order": [
@@ -2480,8 +2768,11 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
         "g2",
         "g3",
         "g4",
+        "g7",
         "g5",
-        "g6"
+        "g8",
+        "g6",
+        "g9"
       ]
     },
     "vendeur": {
@@ -2568,18 +2859,50 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
             "question": "Puis-je annuler ma commande ?",
             "answer": "<p>Oui, par e-mail, tant qu'elle n'a pas été expédiée. Si elle est déjà partie, il suffit de suivre la procédure de retour.</p>"
           }
+        },
+        "qa": {
+          "type": "question",
+          "settings": {
+            "question": "Puis-je vous appeler avant de commander ?",
+            "answer": "<p>Oui, au +33 6 69 22 41 42, du lundi au vendredi de 9h à 18h (heure de Paris), hors jours fériés. Vous pouvez aussi écrire à morganocana02@gmail.com : réponse sous 24 à 48 heures ouvrées.</p>"
+          }
+        },
+        "qb": {
+          "type": "question",
+          "settings": {
+            "question": "Mon colis est en retard ou perdu : que se passe-t-il ?",
+            "answer": "<p>Si le délai annoncé est dépassé de plusieurs jours ouvrés, vérifiez le suivi puis contactez-nous : nous ouvrons une enquête auprès du transporteur et vous proposons une solution, réexpédition ou remboursement. Un colis perdu est remplacé ou remboursé. <a href=\"/policies/shipping-policy\">Politique d'expédition</a></p>"
+          }
+        },
+        "qc": {
+          "type": "question",
+          "settings": {
+            "question": "Que faites-vous de mes données ?",
+            "answer": "<p>Nous collectons uniquement les données utiles pour traiter votre commande, vous répondre et faire fonctionner le site. Nous ne les vendons jamais. Vos données bancaires sont traitées par nos prestataires de paiement : nous n'en conservons aucune complète. <a href=\"/policies/privacy-policy\">Politique de confidentialité</a></p>"
+          }
+        },
+        "qd": {
+          "type": "question",
+          "settings": {
+            "question": "Et en cas de désaccord ?",
+            "answer": "<p>Écrivez-nous d'abord : nous recherchons en priorité une solution amiable. Si votre réclamation écrite reste sans solution, vous pouvez saisir gratuitement un conciliateur de justice (www.conciliateurs.fr). <a href=\"/policies/legal-notice\">Mentions légales</a></p>"
+          }
         }
       },
       "block_order": [
         "q1",
         "q2",
+        "qa",
         "q3",
         "q4",
         "q5",
         "q6",
+        "qb",
         "q7",
+        "qc",
         "q8",
-        "q9"
+        "q9",
+        "qd"
       ]
     },
     "cta": {
@@ -2593,7 +2916,8 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
         "button_link": "",
         "facts": "Livraison offerte | Expédié depuis la France | 14 jours pour changer d'avis | Garantie légale de 2 ans",
         "show_contact": true,
-        "contact_intro": "Une question ?"
+        "contact_intro": "Une question ?",
+        "show_seller": true
       }
     }
   },
@@ -2751,6 +3075,24 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
             "value_2": "oui",
             "value_3": "oui"
           }
+        },
+        "r9": {
+          "type": "row",
+          "settings": {
+            "label": "14 jours pour changer d'avis",
+            "value_1": "oui",
+            "value_2": "oui",
+            "value_3": "oui"
+          }
+        },
+        "r10": {
+          "type": "row",
+          "settings": {
+            "label": "Garantie légale de 2 ans",
+            "value_1": "oui",
+            "value_2": "oui",
+            "value_3": "oui"
+          }
         }
       },
       "block_order": [
@@ -2761,7 +3103,9 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
         "r5",
         "r6",
         "r7",
-        "r8"
+        "r8",
+        "r9",
+        "r10"
       ]
     },
     "etapes": {
@@ -2773,7 +3117,11 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
         "note": "Délai total estimé : 5 à 7 jours ouvrés (du lundi au vendredi, hors jours fériés).",
         "link_label": "Politique d'expédition",
         "link": "/policies/shipping-policy",
-        "mist": true
+        "mist": true,
+        "returns_title": "Et si vous changez d'avis ?",
+        "returns_text": "Le retour est expliqué à l'avance. Les frais de retour sont à votre charge, sauf si l'article est abîmé, défectueux ou non conforme : dans ce cas, le retour est entièrement à nos frais.",
+        "returns_link_label": "Politique de remboursement",
+        "returns_link": "/policies/refund-policy"
       },
       "blocks": {
         "s1": {
@@ -2815,6 +3163,34 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
             "title": "14 jours pour changer d'avis",
             "text": "Le pack ne vous convient pas ? Vous avez 14 jours après réception pour nous le retourner, sans vous justifier."
           }
+        },
+        "ret1": {
+          "type": "return",
+          "settings": {
+            "title": "Écrivez-nous",
+            "text": "Par e-mail, avec votre numéro de commande et le ou les articles concernés."
+          }
+        },
+        "ret2": {
+          "type": "return",
+          "settings": {
+            "title": "Recevez l'adresse de retour",
+            "text": "Nous vous envoyons l'adresse de retour et la marche à suivre."
+          }
+        },
+        "ret3": {
+          "type": "return",
+          "settings": {
+            "title": "Renvoyez le pack",
+            "text": "Emballez-le soigneusement, envoyez-le avec le transporteur de votre choix, puis transmettez-nous le numéro de suivi."
+          }
+        },
+        "ret4": {
+          "type": "return",
+          "settings": {
+            "title": "Soyez remboursé",
+            "text": "Sous 7 jours après réception et contrôle du retour, et au plus tard 14 jours après votre demande, sur votre moyen de paiement."
+          }
         }
       },
       "block_order": [
@@ -2822,7 +3198,11 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
         "s2",
         "s3",
         "s4",
-        "s5"
+        "s5",
+        "ret1",
+        "ret2",
+        "ret3",
+        "ret4"
       ]
     }
   },

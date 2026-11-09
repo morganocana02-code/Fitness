@@ -19,7 +19,7 @@
 
       <div class="ww-hero__text">
         {%- if section.settings.eyebrow != blank -%}
-          <p class="ww-pill">{% render 'ww-icon', name: 'pin' %}{{ section.settings.eyebrow | escape }}</p>
+          <p class="ww-pill">{% render 'ww-icon', name: 'flag' %}{{ section.settings.eyebrow | escape }}</p>
         {%- endif -%}
         <h1 class="ww-hero__title" id="ww-hero-{{ section.id }}">{{ section.settings.title | escape | newline_to_br }}</h1>
         {%- if section.settings.text != blank -%}
@@ -48,6 +48,10 @@
             <a class="ww-btn ww-btn--text" href="{{ section.settings.button2_link | default: '#ww-etapes' }}">{{ section.settings.button2_label | escape }}</a>
           {%- endif -%}
         </div>
+
+        {%- if section.settings.show_seller -%}
+          <p class="ww-seller-line">{% render 'ww-icon', name: 'building' %}<span>Vendu par {% render 'ww-coordonnees', part: 'vendeur' %}, à {% render 'ww-coordonnees', part: 'ville' %} · SIREN {% render 'ww-coordonnees', part: 'siren' %}</span></p>
+        {%- endif -%}
       </div>
 
       <div class="ww-hero__trust">
@@ -58,11 +62,24 @@
             {%- endfor -%}
           </ul>
         {%- endif -%}
+        {%- if section.settings.show_payment_icons -%}
+          <div class="ww-hero__pay">
+            <span>{% render 'ww-icon', name: 'lock' %}Paiement sécurisé</span>
+            <ul class="ww-pay" role="list">
+              {%- for type in shop.enabled_payment_types -%}
+                <li>{{ type | payment_type_svg_tag: class: 'ww-pay__icon' }}</li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
         {%- if section.settings.show_contact -%}
-          <p class="ww-hero__contact">
+          <div class="ww-hero__contact">
             {% render 'ww-icon', name: 'chat' %}
-            <span>{{ section.settings.contact_intro | escape }} {% render 'ww-coordonnees', part: 'phone' %} ou écrivez à {% render 'ww-coordonnees', part: 'email' %} ({% render 'ww-coordonnees', part: 'hours_short' %}).</span>
-          </p>
+            <div>
+              <span>{{ section.settings.contact_intro | escape }} {% render 'ww-coordonnees', part: 'phone' %} ou écrivez à {% render 'ww-coordonnees', part: 'email' %} ({% render 'ww-coordonnees', part: 'hours_short' %}).</span>
+              <span class="ww-open" data-ww-open data-open="{% render 'ww-coordonnees', part: 'ouverture' %}" data-close="{% render 'ww-coordonnees', part: 'fermeture' %}"><span data-ww-open-text>{% render 'ww-coordonnees', part: 'response' %}</span></span>
+            </div>
+          </div>
         {%- endif -%}
       </div>
 
@@ -123,7 +140,9 @@
     { "type": "url", "id": "button_link", "label": "Lien du bouton principal (vide = section des packs)" },
     { "type": "text", "id": "button2_label", "label": "Lien secondaire", "default": "Comment se passe la commande ?" },
     { "type": "url", "id": "button2_link", "label": "Lien du bouton secondaire (vide = étapes de commande)" },
-    { "type": "checkbox", "id": "show_contact", "label": "Afficher le téléphone et l'e-mail", "default": true },
+    { "type": "checkbox", "id": "show_seller", "label": "Afficher « Vendu par… · SIREN » sous les boutons", "default": true },
+    { "type": "checkbox", "id": "show_payment_icons", "label": "Afficher les moyens de paiement", "default": true },
+    { "type": "checkbox", "id": "show_contact", "label": "Afficher le téléphone, l'e-mail et l'état du service client", "default": true },
     { "type": "text", "id": "contact_intro", "label": "Texte avant les coordonnées", "default": "Une question avant d'acheter ? Appelez le" },
     { "type": "header", "content": "Barre fixe sur mobile" },
     { "type": "checkbox", "id": "show_sticky", "label": "Afficher la barre « Voir les packs » en bas de l'écran", "default": true },
@@ -150,7 +169,7 @@
         { "type": "check", "settings": { "text": "Livraison offerte en 5 à 7 jours ouvrés" } },
         { "type": "check", "settings": { "text": "14 jours pour changer d'avis" } },
         { "type": "check", "settings": { "text": "Garantie légale de 2 ans" } },
-        { "type": "check", "settings": { "text": "Paiement sécurisé" } }
+        { "type": "check", "settings": { "text": "Colis perdu : remplacé ou remboursé" } }
       ]
     }
   ]

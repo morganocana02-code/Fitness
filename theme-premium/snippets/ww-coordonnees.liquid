@@ -5,7 +5,8 @@
 
   Paramètre « part » :
   email, phone, hours, hours_short, response, address, ville, siren, exploitant, vendeur, nom, expedition,
-  delai_min, delai_max (délai total en jours ouvrés, comme dans la politique d'expédition)
+  delai_min, delai_max (délai total en jours ouvrés, comme dans la politique d'expédition),
+  rne, tva, hebergeur, litige, ouverture, fermeture (heures du service client, heure de Paris)
 {%- endcomment -%}
 {%- liquid
   assign ww_nom = 'WhisperWalk'
@@ -23,6 +24,12 @@
   assign ww_expedition = 'Depuis la France'
   assign ww_delai_min = 5
   assign ww_delai_max = 7
+  assign ww_rne = 'Registre national des entreprises (RNE), n° 914 877 022'
+  assign ww_tva = 'TVA non applicable, article 293 B du CGI'
+  assign ww_hebergeur = 'Shopify Inc.'
+  assign ww_litige = 'Solution amiable d’abord, puis conciliateur de justice gratuit (conciliateurs.fr)'
+  assign ww_ouverture = 9
+  assign ww_fermeture = 18
 
   case part
     when 'email'
@@ -53,5 +60,17 @@
       echo ww_delai_min
     when 'delai_max'
       echo ww_delai_max
+    when 'rne'
+      echo ww_rne
+    when 'tva'
+      echo ww_tva
+    when 'hebergeur'
+      echo ww_hebergeur
+    when 'litige'
+      echo ww_litige
+    when 'ouverture'
+      echo ww_ouverture
+    when 'fermeture'
+      echo ww_fermeture
   endcase
 -%}

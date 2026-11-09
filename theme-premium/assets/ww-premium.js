@@ -92,7 +92,36 @@
     });
   }
 
-  /* ---------- 4. Barres d'achat fixes (mobile) ---------- */
+  /* ---------- 4. Service client ouvert ou fermé, d'après les horaires publiés ----------
+     Du lundi au vendredi, hors jours fériés, heure de Paris (heures lues dans data-open et data-close). */
+  if (window.Intl) {
+    document.querySelectorAll('[data-ww-open]').forEach(function (el) {
+      var open = parseInt(el.getAttribute('data-open'), 10);
+      var close = parseInt(el.getAttribute('data-close'), 10);
+      var out = el.querySelector('[data-ww-open-text]');
+      if (isNaN(open) || isNaN(close) || !out) return;
+      var parts = {};
+      new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', hourCycle: 'h23' })
+        .formatToParts(new Date()).forEach(function (part) { parts[part.type] = part.value; });
+      var day = Date.UTC(+parts.year, +parts.month - 1, +parts.day);
+      var hour = parseInt(parts.hour, 10);
+      var weekday = new Date(day).getUTCDay();
+      var businessDay = weekday !== 0 && weekday !== 6 && !isHoliday(day);
+      if (businessDay && hour >= open && hour < close) {
+        el.classList.add('is-open');
+        out.textContent = 'Service client ouvert · jusqu’à ' + close + 'h';
+        return;
+      }
+      var next = businessDay && hour < open ? day : addBusinessDays(day, 1);
+      var when = next === day ? 'aujourd’hui'
+        : next === day + DAY ? 'demain'
+        : new Intl.DateTimeFormat('fr-FR', { weekday: 'long', timeZone: 'UTC' }).format(new Date(next));
+      el.classList.add('is-closed');
+      out.textContent = 'Service client fermé · réouverture ' + when + ' à ' + open + 'h';
+    });
+  }
+
+  /* ---------- 5. Barres d'achat fixes (mobile) ---------- */
   if (!('IntersectionObserver' in window)) return;
 
   function setSticky(bar, show) {

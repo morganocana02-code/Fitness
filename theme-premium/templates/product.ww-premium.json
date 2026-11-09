@@ -134,6 +134,24 @@
             "value_2": "oui",
             "value_3": "oui"
           }
+        },
+        "r9": {
+          "type": "row",
+          "settings": {
+            "label": "14 jours pour changer d'avis",
+            "value_1": "oui",
+            "value_2": "oui",
+            "value_3": "oui"
+          }
+        },
+        "r10": {
+          "type": "row",
+          "settings": {
+            "label": "Garantie légale de 2 ans",
+            "value_1": "oui",
+            "value_2": "oui",
+            "value_3": "oui"
+          }
         }
       },
       "block_order": [
@@ -144,7 +162,9 @@
         "r5",
         "r6",
         "r7",
-        "r8"
+        "r8",
+        "r9",
+        "r10"
       ]
     },
     "etapes": {
@@ -156,7 +176,11 @@
         "note": "Délai total estimé : 5 à 7 jours ouvrés (du lundi au vendredi, hors jours fériés).",
         "link_label": "Politique d'expédition",
         "link": "/policies/shipping-policy",
-        "mist": true
+        "mist": true,
+        "returns_title": "Et si vous changez d'avis ?",
+        "returns_text": "Le retour est expliqué à l'avance. Les frais de retour sont à votre charge, sauf si l'article est abîmé, défectueux ou non conforme : dans ce cas, le retour est entièrement à nos frais.",
+        "returns_link_label": "Politique de remboursement",
+        "returns_link": "/policies/refund-policy"
       },
       "blocks": {
         "s1": {
@@ -198,6 +222,34 @@
             "title": "14 jours pour changer d'avis",
             "text": "Le pack ne vous convient pas ? Vous avez 14 jours après réception pour nous le retourner, sans vous justifier."
           }
+        },
+        "ret1": {
+          "type": "return",
+          "settings": {
+            "title": "Écrivez-nous",
+            "text": "Par e-mail, avec votre numéro de commande et le ou les articles concernés."
+          }
+        },
+        "ret2": {
+          "type": "return",
+          "settings": {
+            "title": "Recevez l'adresse de retour",
+            "text": "Nous vous envoyons l'adresse de retour et la marche à suivre."
+          }
+        },
+        "ret3": {
+          "type": "return",
+          "settings": {
+            "title": "Renvoyez le pack",
+            "text": "Emballez-le soigneusement, envoyez-le avec le transporteur de votre choix, puis transmettez-nous le numéro de suivi."
+          }
+        },
+        "ret4": {
+          "type": "return",
+          "settings": {
+            "title": "Soyez remboursé",
+            "text": "Sous 7 jours après réception et contrôle du retour, et au plus tard 14 jours après votre demande, sur votre moyen de paiement."
+          }
         }
       },
       "block_order": [
@@ -205,7 +257,11 @@
         "s2",
         "s3",
         "s4",
-        "s5"
+        "s5",
+        "ret1",
+        "ret2",
+        "ret3",
+        "ret4"
       ]
     }
   },

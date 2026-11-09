@@ -1,0 +1,78 @@
+{{ 'ww-premium.css' | asset_url | stylesheet_tag }}
+
+<section class="ww ww-section{% if section.settings.mist %} ww-section--mist{% endif %}" id="ww-garanties" aria-labelledby="ww-garanties-{{ section.id }}">
+  <div class="ww-container">
+    <div class="ww-head">
+      {%- if section.settings.eyebrow != blank -%}<p class="ww-eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+      <h2 class="ww-h2" id="ww-garanties-{{ section.id }}">{{ section.settings.title | escape }}</h2>
+      {%- if section.settings.text != blank -%}<p class="ww-lead">{{ section.settings.text | escape }}</p>{%- endif -%}
+    </div>
+
+    <div class="ww-guarantees">
+      {%- for block in section.blocks -%}
+        <article class="ww-guarantee" {{ block.shopify_attributes }}>
+          <span class="ww-guarantee__icon">{% render 'ww-icon', name: block.settings.icon %}</span>
+          <h3 class="ww-guarantee__title">{{ block.settings.title | escape }}</h3>
+          <div class="ww-guarantee__text">{{ block.settings.text }}</div>
+          {%- if block.settings.link != blank -%}
+            <a class="ww-link" href="{{ block.settings.link }}">{{ block.settings.link_label | default: 'En savoir plus' | escape }} {% render 'ww-icon', name: 'arrow' %}</a>
+          {%- endif -%}
+        </article>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.show_payment_icons -%}
+      <div class="ww-paybar">
+        <p class="ww-paybar__label">{% render 'ww-icon', name: 'lock' %}{{ section.settings.payment_label | escape }}</p>
+        <ul class="ww-pay" role="list">
+          {%- for type in shop.enabled_payment_types -%}
+            <li>{{ type | payment_type_svg_tag: class: 'ww-pay__icon' }}</li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "WW · Engagements",
+  "tag": "div",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Surtitre", "default": "Nos engagements" },
+    { "type": "text", "id": "title", "label": "Titre", "default": "Tout est écrit noir sur blanc." },
+    { "type": "text", "id": "text", "label": "Texte" },
+    { "type": "checkbox", "id": "show_payment_icons", "label": "Afficher les moyens de paiement", "default": true },
+    { "type": "text", "id": "payment_label", "label": "Texte à côté des moyens de paiement", "default": "Paiement sécurisé, connexion chiffrée" },
+    { "type": "checkbox", "id": "mist", "label": "Fond gris clair", "default": false }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Engagement",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icône",
+          "default": "truck",
+          "options": [
+            { "value": "truck", "label": "Livraison" },
+            { "value": "return", "label": "Retour" },
+            { "value": "refund", "label": "Remboursement" },
+            { "value": "shield", "label": "Garantie" },
+            { "value": "lock", "label": "Paiement" },
+            { "value": "chat", "label": "Service client" }
+          ]
+        },
+        { "type": "text", "id": "title", "label": "Titre", "default": "Livraison offerte" },
+        { "type": "richtext", "id": "text", "label": "Texte" },
+        { "type": "text", "id": "link_label", "label": "Texte du lien", "default": "Lire la politique" },
+        { "type": "url", "id": "link", "label": "Lien" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "WW · Engagements", "blocks": [{ "type": "item" }, { "type": "item" }, { "type": "item" }] }]
+}
+{% endschema %}

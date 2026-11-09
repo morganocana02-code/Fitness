@@ -1,0 +1,50 @@
+{%- comment -%}
+  Coordonnées de la boutique, réunies en un seul endroit.
+  Elles doivent rester identiques à vos politiques et à Google Merchant Center :
+  si l'une change, modifiez-la ici, puis dans vos politiques et dans Merchant Center.
+
+  Paramètre « part » :
+  email, phone, hours, hours_short, response, address, ville, siren, exploitant, vendeur, nom, expedition
+{%- endcomment -%}
+{%- liquid
+  assign ww_nom = 'WhisperWalk'
+  assign ww_exploitant = 'Morgan OCANA, entrepreneur individuel'
+  assign ww_vendeur = 'WhisperWalk – Morgan OCANA (EI)'
+  assign ww_siren = '914 877 022'
+  assign ww_address = '6 ter rue Michelet, 21000 Dijon, France'
+  assign ww_ville = 'Dijon'
+  assign ww_email = 'morganocana02@gmail.com'
+  assign ww_phone = '+33 6 69 22 41 42'
+  assign ww_phone_href = '+33669224142'
+  assign ww_hours = 'Du lundi au vendredi, de 9h à 18h (heure de Paris), hors jours fériés'
+  assign ww_hours_short = 'lun.–ven., 9h–18h'
+  assign ww_response = 'Réponse sous 24 à 48 heures ouvrées'
+  assign ww_expedition = 'Depuis la France'
+
+  case part
+    when 'email'
+      echo '<a href="mailto:' | append: ww_email | append: '">' | append: ww_email | append: '</a>'
+    when 'phone'
+      echo '<a href="tel:' | append: ww_phone_href | append: '">' | append: ww_phone | append: '</a>'
+    when 'hours'
+      echo ww_hours
+    when 'hours_short'
+      echo ww_hours_short
+    when 'response'
+      echo ww_response
+    when 'address'
+      echo ww_address
+    when 'ville'
+      echo ww_ville
+    when 'siren'
+      echo ww_siren
+    when 'exploitant'
+      echo ww_exploitant
+    when 'vendeur'
+      echo ww_vendeur
+    when 'nom'
+      echo ww_nom
+    when 'expedition'
+      echo ww_expedition
+  endcase
+-%}

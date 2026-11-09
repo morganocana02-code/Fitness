@@ -6,29 +6,56 @@
   if hero_image == blank and featured != blank
     assign hero_image = featured.featured_media.preview_image | default: featured.featured_image
   endif
+  assign cheapest = blank
+  if section.settings.collection != blank
+    assign cheapest = section.settings.collection.products | sort: 'price' | first
+  endif
 -%}
 
-<section class="ww ww-section--dark ww-hero{% if hero_image != blank %} ww-hero--media{% endif %}" aria-labelledby="ww-hero-{{ section.id }}">
+<section class="ww ww-hero" aria-labelledby="ww-hero-{{ section.id }}">
   <div class="ww-container">
     <div class="ww-hero__grid{% if hero_image != blank %} ww-hero__grid--media{% endif %}">
-      <div>
+
+      <div class="ww-hero__text">
         {%- if section.settings.eyebrow != blank -%}
-          <p class="ww-eyebrow">{{ section.settings.eyebrow | escape }}</p>
+          <p class="ww-pill">{% render 'ww-icon', name: 'pin' %}{{ section.settings.eyebrow | escape }}</p>
         {%- endif -%}
-        <h1 class="ww-display" id="ww-hero-{{ section.id }}">{{ section.settings.title | escape | newline_to_br }}</h1>
+        <h1 class="ww-hero__title" id="ww-hero-{{ section.id }}">{{ section.settings.title | escape | newline_to_br }}</h1>
         {%- if section.settings.text != blank -%}
           <p class="ww-lead">{{ section.settings.text | escape }}</p>
         {%- endif -%}
+
+        {%- if cheapest != blank -%}
+          <p class="ww-hero__price">
+            <span>{{ section.settings.price_prefix | escape }}</span>
+            <strong>{{ cheapest.price | money }}</strong>
+            {%- if section.settings.price_note != blank -%}<span>{{ section.settings.price_note | escape }}</span>{%- endif -%}
+          </p>
+        {%- endif -%}
+
         <div class="ww-actions">
           {%- if section.settings.button_label != blank -%}
-            <a class="ww-btn ww-btn--primary" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">{{ section.settings.button_label | escape }}</a>
+            <a class="ww-btn ww-btn--primary" href="{{ section.settings.button_link | default: '#ww-packs' }}">{{ section.settings.button_label | escape }}</a>
           {%- endif -%}
           {%- if section.settings.button2_label != blank -%}
-            <a class="ww-btn ww-btn--outline" href="{{ section.settings.button2_link | default: '#ww-packs' }}">{{ section.settings.button2_label | escape }}</a>
+            <a class="ww-btn ww-btn--outline" href="{{ section.settings.button2_link | default: '#ww-etapes' }}">{{ section.settings.button2_label | escape }}</a>
           {%- endif -%}
         </div>
-        {%- if section.settings.note != blank -%}
-          <p class="ww-hero__note">{{ section.settings.note | escape }}</p>
+      </div>
+
+      <div class="ww-hero__trust">
+        {%- if section.blocks.size > 0 -%}
+          <ul class="ww-checks">
+            {%- for block in section.blocks -%}
+              <li {{ block.shopify_attributes }}>{% render 'ww-icon', name: 'check' %}<span>{{ block.settings.text | escape }}</span></li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+        {%- if section.settings.show_contact -%}
+          <p class="ww-hero__contact">
+            {% render 'ww-icon', name: 'chat' %}
+            <span>{{ section.settings.contact_intro | escape }} {% render 'ww-coordonnees', part: 'phone' %} ou écrivez à {% render 'ww-coordonnees', part: 'email' %} ({% render 'ww-coordonnees', part: 'hours_short' %}).</span>
+          </p>
         {%- endif -%}
       </div>
 
@@ -45,12 +72,20 @@
               alt: hero_image.alt
           }}
         {%- endcapture -%}
-        {%- if featured != blank -%}
-          <a class="ww-hero__media" href="{{ featured.url }}" tabindex="-1" aria-hidden="true">{{ hero_img }}</a>
-        {%- else -%}
-          <div class="ww-hero__media">{{ hero_img }}</div>
-        {%- endif -%}
+        <figure class="ww-hero__media">
+          {%- if featured != blank -%}
+            <a class="ww-hero__img" href="{{ featured.url }}" tabindex="-1" aria-hidden="true">{{ hero_img }}</a>
+            <figcaption class="ww-hero__caption">
+              <span class="ww-hero__caption-name">{{ featured.title | split: ' | ' | first | escape }}</span>
+              <span class="ww-hero__caption-price">{{ featured.price | money }}</span>
+              <a class="ww-link" href="{{ featured.url }}">Voir le pack {% render 'ww-icon', name: 'arrow' %}</a>
+            </figcaption>
+          {%- else -%}
+            <div class="ww-hero__img">{{ hero_img }}</div>
+          {%- endif -%}
+        </figure>
       {%- endif -%}
+
     </div>
   </div>
 </section>
@@ -60,17 +95,41 @@
   "name": "WW · Accroche",
   "tag": "div",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Surtitre", "default": "WhisperWalk · Fitness à la maison" },
-    { "type": "textarea", "id": "title", "label": "Titre", "default": "Bougez pendant\nvotre journée." },
-    { "type": "textarea", "id": "text", "label": "Texte", "default": "Un tapis de marche discret qui se glisse sous votre bureau ou sous votre lit. Trois packs, un pour chaque moment de la journée." },
+    { "type": "text", "id": "eyebrow", "label": "Pastille", "default": "Entreprise française · Expédition depuis la France" },
+    { "type": "textarea", "id": "title", "label": "Titre", "default": "Marchez chez vous.\nCommandez l'esprit tranquille." },
+    { "type": "textarea", "id": "text", "label": "Texte" },
+    { "type": "collection", "id": "collection", "label": "Collection des packs", "info": "Sert à afficher le prix du pack le moins cher." },
+    { "type": "text", "id": "price_prefix", "label": "Texte avant le prix", "default": "Packs à partir de" },
+    { "type": "text", "id": "price_note", "label": "Texte après le prix", "default": "livraison offerte" },
     { "type": "text", "id": "button_label", "label": "Bouton principal", "default": "Choisir mon pack" },
-    { "type": "url", "id": "button_link", "label": "Lien du bouton principal" },
-    { "type": "text", "id": "button2_label", "label": "Bouton secondaire", "default": "Comparer les packs" },
-    { "type": "url", "id": "button2_link", "label": "Lien du bouton secondaire (vide = section des packs)" },
-    { "type": "text", "id": "note", "label": "Mention sous les boutons", "default": "Expédié depuis la France · Livraison offerte" },
-    { "type": "product", "id": "product", "label": "Pack mis en avant", "info": "Sa photo principale s'affiche si aucune image n'est choisie ci-dessous. Un clic sur la photo ouvre le pack." },
+    { "type": "url", "id": "button_link", "label": "Lien du bouton principal (vide = section des packs)" },
+    { "type": "text", "id": "button2_label", "label": "Bouton secondaire", "default": "Comment se passe la commande" },
+    { "type": "url", "id": "button2_link", "label": "Lien du bouton secondaire (vide = étapes de commande)" },
+    { "type": "checkbox", "id": "show_contact", "label": "Afficher le téléphone et l'e-mail", "default": true },
+    { "type": "text", "id": "contact_intro", "label": "Texte avant les coordonnées", "default": "Une question avant d'acheter ? Appelez le" },
+    { "type": "product", "id": "product", "label": "Pack mis en avant", "info": "Sa photo principale, son nom et son prix s'affichent à côté du texte." },
     { "type": "image_picker", "id": "image", "label": "Image (facultative, remplace la photo du pack)" }
   ],
-  "presets": [{ "name": "WW · Accroche" }]
+  "blocks": [
+    {
+      "type": "check",
+      "name": "Garantie cochée",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Texte", "default": "Livraison offerte en 5 à 7 jours ouvrés" }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "WW · Accroche",
+      "blocks": [
+        { "type": "check", "settings": { "text": "Livraison offerte en 5 à 7 jours ouvrés" } },
+        { "type": "check", "settings": { "text": "14 jours pour changer d'avis" } },
+        { "type": "check", "settings": { "text": "Garantie légale de 2 ans" } },
+        { "type": "check", "settings": { "text": "Paiement sécurisé" } }
+      ]
+    }
+  ]
 }
 {% endschema %}

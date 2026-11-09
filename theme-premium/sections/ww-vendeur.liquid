@@ -1,0 +1,81 @@
+{{ 'ww-premium.css' | asset_url | stylesheet_tag }}
+
+<section class="ww ww-section{% if section.settings.mist %} ww-section--mist{% endif %}" id="ww-vendeur" aria-labelledby="ww-vendeur-{{ section.id }}">
+  <div class="ww-container">
+    <div class="ww-seller">
+
+      <div>
+        {%- if section.settings.eyebrow != blank -%}<p class="ww-eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+        <h2 class="ww-h2" id="ww-vendeur-{{ section.id }}">{{ section.settings.title | escape }}</h2>
+        {%- if section.settings.text != blank -%}<div class="ww-lead">{{ section.settings.text }}</div>{%- endif -%}
+
+        {%- comment -%} Mot personnel : affiché seulement si vous le remplissez (votre photo, vos mots) {%- endcomment -%}
+        {%- if section.settings.message != blank -%}
+          <figure class="ww-seller__note">
+            {%- if section.settings.photo != blank -%}
+              <div class="ww-seller__photo">
+                {{ section.settings.photo | image_url: width: 160 | image_tag: loading: 'lazy', alt: section.settings.signature }}
+              </div>
+            {%- endif -%}
+            <div>
+              <blockquote class="ww-seller__quote">{{ section.settings.message | escape }}</blockquote>
+              {%- if section.settings.signature != blank -%}<figcaption class="ww-seller__sign">{{ section.settings.signature | escape }}</figcaption>{%- endif -%}
+            </div>
+          </figure>
+        {%- endif -%}
+
+        <div class="ww-actions">
+          {%- if section.settings.button_label != blank -%}
+            <a class="ww-btn ww-btn--dark" href="{{ section.settings.button_link | default: '/pages/contact' }}">{{ section.settings.button_label | escape }}</a>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <div class="ww-seller__card">
+        <dl class="ww-facts">
+          <div><dt>{% render 'ww-icon', name: 'building' %}Nom commercial</dt><dd>{% render 'ww-coordonnees', part: 'nom' %}</dd></div>
+          <div><dt>{% render 'ww-icon', name: 'shield' %}Exploitant</dt><dd>{% render 'ww-coordonnees', part: 'exploitant' %} · SIREN {% render 'ww-coordonnees', part: 'siren' %}</dd></div>
+          <div><dt>{% render 'ww-icon', name: 'pin' %}Adresse</dt><dd>{% render 'ww-coordonnees', part: 'address' %}</dd></div>
+          <div><dt>{% render 'ww-icon', name: 'phone' %}Téléphone</dt><dd>{% render 'ww-coordonnees', part: 'phone' %}</dd></div>
+          <div><dt>{% render 'ww-icon', name: 'mail' %}E-mail</dt><dd>{% render 'ww-coordonnees', part: 'email' %}</dd></div>
+          <div><dt>{% render 'ww-icon', name: 'clock' %}Horaires</dt><dd>{% render 'ww-coordonnees', part: 'hours' %}. {% render 'ww-coordonnees', part: 'response' %}.</dd></div>
+          <div><dt>{% render 'ww-icon', name: 'truck' %}Expédition</dt><dd>{% render 'ww-coordonnees', part: 'expedition' %}</dd></div>
+        </dl>
+
+        {%- if shop.policies.size > 0 -%}
+          <div class="ww-seller__policies">
+            <p class="ww-seller__policies-title">Nos politiques</p>
+            <ul role="list">
+              {%- for policy in shop.policies -%}
+                <li><a href="{{ policy.url }}">{{ policy.title | escape }}</a></li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "WW · Qui sommes-nous",
+  "tag": "div",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Surtitre", "default": "Qui sommes-nous" },
+    { "type": "text", "id": "title", "label": "Titre", "default": "Qui se cache derrière WhisperWalk ?" },
+    { "type": "richtext", "id": "text", "label": "Texte" },
+    { "type": "header", "content": "Mot personnel (facultatif)" },
+    { "type": "paragraph", "content": "Une photo de vous et quelques phrases avec vos propres mots. Rien ne s'affiche tant que le message est vide." },
+    { "type": "image_picker", "id": "photo", "label": "Votre photo" },
+    { "type": "textarea", "id": "message", "label": "Votre message" },
+    { "type": "text", "id": "signature", "label": "Signature", "default": "Morgan OCANA, WhisperWalk" },
+    { "type": "header", "content": "Bouton" },
+    { "type": "text", "id": "button_label", "label": "Texte du bouton", "default": "Nous contacter" },
+    { "type": "url", "id": "button_link", "label": "Lien du bouton (vide = page contact)" },
+    { "type": "checkbox", "id": "mist", "label": "Fond gris clair", "default": true }
+  ],
+  "presets": [{ "name": "WW · Qui sommes-nous" }]
+}
+{% endschema %}

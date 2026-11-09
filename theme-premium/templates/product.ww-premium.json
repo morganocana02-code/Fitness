@@ -4,10 +4,106 @@
       "type": "ww-produit",
       "settings": {
         "eyebrow": "",
+        "show_seller": true,
         "tax_note": "Prix total · TVA non applicable, art. 293 B du CGI · Livraison offerte",
+        "contents_title": "Dans le carton",
         "show_dynamic_checkout": true,
-        "contact_url": "shopify://pages/contact"
-      }
+        "show_eta": true,
+        "eta_min": 5,
+        "eta_max": 7
+      },
+      "blocks": {
+        "contents_essentiel": {
+          "type": "contents",
+          "settings": {
+            "product": "pack-essentiel-home-gym",
+            "items": "<ul><li>1 tapis de marche pliable</li><li>1 tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
+            "note": ""
+          }
+        },
+        "contents_teletravail": {
+          "type": "contents",
+          "settings": {
+            "product": "pack-performance-connectee",
+            "items": "<ul><li>1 tapis de marche pliable</li><li>1 réhausseur de bureau assis-debout</li><li>1 tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
+            "note": ""
+          }
+        },
+        "contents_ultimate": {
+          "type": "contents",
+          "settings": {
+            "product": "pack-ultimate-home-gym",
+            "items": "<ul><li>1 tapis de marche pliable</li><li>1 tapis Fitness Pro anti-bruit</li><li>1 paire d'haltères réglables</li><li>1 banc pliable</li></ul>",
+            "note": "Offert : le programme 30 jours (PDF), 5 séances de 35 minutes maximum par semaine, conçu pour ce pack."
+          }
+        }
+      },
+      "block_order": [
+        "contents_essentiel",
+        "contents_teletravail",
+        "contents_ultimate"
+      ]
+    },
+    "etapes": {
+      "type": "ww-etapes",
+      "settings": {
+        "eyebrow": "Après votre commande",
+        "title": "Ce qui se passe, étape par étape.",
+        "text": "Du paiement à la livraison, vous savez à chaque étape où en est votre pack.",
+        "note": "Délai total estimé : 5 à 7 jours ouvrés (du lundi au vendredi, hors jours fériés).",
+        "link_label": "Politique d'expédition",
+        "link": "/policies/shipping-policy",
+        "mist": false
+      },
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "icon": "bag",
+            "title": "Vous commandez",
+            "text": "Paiement sécurisé. Une commande validée avant 23h59 (heure de Paris) est prise en compte le jour même, et un e-mail de confirmation vous est envoyé."
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "icon": "package",
+            "title": "Nous préparons votre colis",
+            "text": "Préparation en 3 jours ouvrés à partir du jour ouvré suivant : contrôle, emballage et remise au transporteur."
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "icon": "truck",
+            "title": "Il part de France",
+            "text": "Dès l'expédition, un second e-mail vous donne votre numéro de suivi."
+          }
+        },
+        "s4": {
+          "type": "step",
+          "settings": {
+            "icon": "home",
+            "title": "Livraison chez vous",
+            "text": "2 à 4 jours ouvrés de transport, à domicile ou en point relais selon votre adresse et la taille du colis. Livraison offerte."
+          }
+        },
+        "s5": {
+          "type": "step",
+          "settings": {
+            "icon": "return",
+            "title": "14 jours pour changer d'avis",
+            "text": "Le pack ne vous convient pas ? Vous avez 14 jours après réception pour nous le retourner, sans vous justifier."
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5"
+      ]
     },
     "packs": {
       "type": "ww-packs",
@@ -16,7 +112,8 @@
         "title": "Les trois packs.",
         "text": "Un tapis de marche pliable, trois façons de l'accompagner.",
         "button_label": "Découvrir le pack",
-        "mist": false
+        "note": "Pour les trois packs : livraison offerte en 5 à 7 jours ouvrés, 14 jours pour changer d'avis et garantie légale de 2 ans.",
+        "mist": true
       },
       "blocks": {
         "pack_essentiel": {
@@ -25,7 +122,7 @@
             "product": "pack-essentiel-home-gym",
             "moment": "Le soir",
             "pitch": "Peu de place et des voisins en dessous ? Le tapis anti-bruit limite les vibrations, et le tapis de marche se range à plat sous le lit.",
-            "contents": "<ul><li>Tapis de marche pliable</li><li>Tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
+            "contents": "<ul><li>1 tapis de marche pliable</li><li>1 tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
             "badge": ""
           }
         },
@@ -35,7 +132,7 @@
             "product": "pack-performance-connectee",
             "moment": "En journée",
             "pitch": "Votre bureau actuel devient un poste de marche : le réhausseur le met à hauteur debout, le tapis se glisse dessous.",
-            "contents": "<ul><li>Tapis de marche pliable</li><li>Réhausseur de bureau assis-debout</li><li>Tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
+            "contents": "<ul><li>1 tapis de marche pliable</li><li>1 réhausseur de bureau assis-debout</li><li>1 tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
             "badge": ""
           }
         },
@@ -45,7 +142,7 @@
             "product": "pack-ultimate-home-gym",
             "moment": "Le week-end",
             "pitch": "Cardio en pente et renforcement, sans abonnement ni trajet. Après la séance, tout se range.",
-            "contents": "<ul><li>Tapis de marche pliable</li><li>Tapis Fitness Pro anti-bruit</li><li>Paire d'haltères réglables</li><li>Banc pliable</li><li>Programme 30 jours (PDF) inclus</li></ul>",
+            "contents": "<ul><li>1 tapis de marche pliable</li><li>1 tapis Fitness Pro anti-bruit</li><li>1 paire d'haltères réglables</li><li>1 banc pliable</li><li>Offert : le programme 30 jours (PDF)</li></ul>",
             "badge": "Le plus complet"
           }
         }
@@ -59,6 +156,7 @@
   },
   "order": [
     "main",
+    "etapes",
     "packs"
   ]
 }

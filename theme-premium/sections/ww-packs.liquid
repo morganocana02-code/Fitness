@@ -25,6 +25,10 @@
         {%- endif -%}
       {%- endfor -%}
     </div>
+
+    {%- if section.settings.note != blank -%}
+      <p class="ww-note">{% render 'ww-icon', name: 'shield' %}<span>{{ section.settings.note | escape }}</span></p>
+    {%- endif -%}
   </div>
 </section>
 
@@ -35,9 +39,10 @@
   "max_blocks": 3,
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Surtitre", "default": "Les packs" },
-    { "type": "text", "id": "title", "label": "Titre", "default": "Un pack pour chaque moment." },
+    { "type": "text", "id": "title", "label": "Titre", "default": "Choisissez votre pack." },
     { "type": "text", "id": "text", "label": "Texte", "default": "Un tapis de marche pliable au cœur de chaque pack. Choisissez ce qui l'accompagne selon votre façon de bouger." },
     { "type": "text", "id": "button_label", "label": "Texte du bouton", "default": "Découvrir le pack" },
+    { "type": "text", "id": "note", "label": "Phrase sous les packs", "default": "Pour les trois packs : livraison offerte en 5 à 7 jours ouvrés, 14 jours pour changer d'avis et garantie légale de 2 ans." },
     { "type": "checkbox", "id": "mist", "label": "Fond gris clair", "default": false }
   ],
   "blocks": [

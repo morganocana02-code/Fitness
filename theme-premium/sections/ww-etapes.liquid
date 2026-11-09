@@ -1,0 +1,72 @@
+{{ 'ww-premium.css' | asset_url | stylesheet_tag }}
+
+<section class="ww ww-section{% if section.settings.mist %} ww-section--mist{% endif %}" id="ww-etapes" aria-labelledby="ww-etapes-{{ section.id }}">
+  <div class="ww-container">
+    <div class="ww-head">
+      {%- if section.settings.eyebrow != blank -%}<p class="ww-eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+      <h2 class="ww-h2" id="ww-etapes-{{ section.id }}">{{ section.settings.title | escape }}</h2>
+      {%- if section.settings.text != blank -%}<p class="ww-lead">{{ section.settings.text | escape }}</p>{%- endif -%}
+    </div>
+
+    <ol class="ww-steps" style="--ww-cols: {{ section.blocks.size }}">
+      {%- for block in section.blocks -%}
+        <li class="ww-step" {{ block.shopify_attributes }}>
+          <span class="ww-step__icon">{% render 'ww-icon', name: block.settings.icon %}</span>
+          <span class="ww-step__num">Étape {{ forloop.index }}</span>
+          <h3 class="ww-step__title">{{ block.settings.title | escape }}</h3>
+          <p class="ww-step__text">{{ block.settings.text | escape }}</p>
+        </li>
+      {%- endfor -%}
+    </ol>
+
+    {%- if section.settings.note != blank -%}
+      <p class="ww-footnote">
+        {{ section.settings.note | escape }}
+        {%- if section.settings.link != blank %} <a href="{{ section.settings.link }}">{{ section.settings.link_label | escape }}</a>{%- endif -%}
+      </p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "WW · Étapes de commande",
+  "tag": "div",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Surtitre", "default": "Après votre commande" },
+    { "type": "text", "id": "title", "label": "Titre", "default": "Ce qui se passe, étape par étape." },
+    { "type": "text", "id": "text", "label": "Texte" },
+    { "type": "text", "id": "note", "label": "Note sous les étapes" },
+    { "type": "text", "id": "link_label", "label": "Texte du lien", "default": "Politique d'expédition" },
+    { "type": "url", "id": "link", "label": "Lien" },
+    { "type": "checkbox", "id": "mist", "label": "Fond gris clair", "default": true }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Étape",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icône",
+          "default": "bag",
+          "options": [
+            { "value": "bag", "label": "Commande" },
+            { "value": "package", "label": "Colis" },
+            { "value": "truck", "label": "Camion" },
+            { "value": "home", "label": "Maison" },
+            { "value": "return", "label": "Retour" },
+            { "value": "shield", "label": "Bouclier" },
+            { "value": "mail", "label": "E-mail" }
+          ]
+        },
+        { "type": "text", "id": "title", "label": "Titre", "default": "Vous commandez" },
+        { "type": "textarea", "id": "text", "label": "Texte" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "WW · Étapes de commande", "blocks": [{ "type": "step" }, { "type": "step" }, { "type": "step" }] }]
+}
+{% endschema %}

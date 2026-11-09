@@ -1,23 +1,30 @@
-# Refonte premium WhisperWalk — guide d'installation
+# Refonte WhisperWalk « confiance » — guide d'installation
 
 Ces fichiers s'ajoutent à votre thème Horizon. Ils ne remplacent ni l'en-tête, ni le pied de page,
 ni le panier, ni le paiement : le fonctionnement e-commerce reste celui de Shopify.
 Rien n'a été installé sur votre boutique : c'est vous qui choisissez quand le faire.
 
-## Ce que contient la refonte
+## L'idée
 
-Page d'accueil (7 sections, dans cet ordre) :
-1. WW · Accroche : grand titre sur fond noir et photo du pack mis en avant (Pack Essentiel par défaut).
-2. WW · Engagements : livraison offerte, expédition depuis la France, 14 jours, garantie légale de 2 ans.
-3. WW · Packs : les 3 packs côte à côte, avec prix et contenu.
-4. WW · Moments : en journée, le soir, le week-end, chacun relié à son pack.
-5. WW · Le tapis en chiffres : 1–10 km/h, 15 %, 136 kg, triple amortissement, rangement à plat.
-6. WW · Questions : 6 questions fréquentes, réponses tirées de vos politiques et de vos fiches produits.
-7. WW · Appel final.
+Chaque section répond, dans l'ordre, à une question qu'un client se pose avant d'acheter :
 
-Fiche produit (modèle « ww-premium ») : galerie, nom du pack, prix, stock, quantité,
-« Ajouter au panier », paiement rapide (Shop Pay, etc.), engagements, détails dépliables
-(livraison, retours, garantie, paiement), description du produit, puis comparaison des 3 packs.
+1. Qu'est-ce que c'est, combien ça coûte, puis-je vous joindre ? (WW · Accroche)
+2. Quel pack choisir, que contient le carton ? (WW · Packs)
+3. Est-ce que ça trouve sa place dans ma journée ? (WW · Moments)
+4. Que vaut le tapis ? (WW · Le tapis en chiffres)
+5. Que se passe-t-il après ma commande ? (WW · Étapes de commande)
+6. Et si ça ne va pas ? (WW · Engagements, avec les moyens de paiement)
+7. Qui êtes-vous ? (WW · Qui sommes-nous : identité, adresse, téléphone, e-mail, politiques)
+8. Mes dernières questions (WW · Questions)
+9. J'y vais (WW · Appel final)
+
+Chaque phrase reprend une information de vos politiques publiées (mises à jour le 22 octobre 2026)
+ou de vos fiches produits. Aucun avis, note, badge, certification, compte à rebours ni promotion.
+
+Fiche produit (modèle « ww-premium ») : galerie, nom, « Vendu par WhisperWalk – Morgan OCANA (EI), à Dijon »,
+prix total, bouton d'achat et paiement rapide, date de livraison estimée, contenu exact du carton,
+moyens de paiement, engagements, détails dépliables, contact direct, description, étapes de commande,
+comparaison des 3 packs.
 
 ## Où placer chaque fichier
 
@@ -26,12 +33,16 @@ Dans Shopify : Boutique en ligne › Thèmes › sur une COPIE du thème : ⋯ �
 | Fichier | Dossier dans Shopify | Action |
 |---|---|---|
 | assets/ww-premium.css | Assets | « Ajouter un fichier » › créer `ww-premium.css` |
-| snippets/ww-pack-card.liquid | Snippets | « Ajouter un snippet » › `ww-pack-card` |
+| snippets/ww-icon.liquid | Snippets | « Ajouter un snippet » › `ww-icon` |
+| snippets/ww-coordonnees.liquid | Snippets | `ww-coordonnees` |
+| snippets/ww-pack-card.liquid | Snippets | `ww-pack-card` |
 | sections/ww-hero.liquid | Sections | « Ajouter une section » › `ww-hero` |
-| sections/ww-assurances.liquid | Sections | `ww-assurances` |
 | sections/ww-packs.liquid | Sections | `ww-packs` |
 | sections/ww-moments.liquid | Sections | `ww-moments` |
 | sections/ww-tapis.liquid | Sections | `ww-tapis` |
+| sections/ww-etapes.liquid | Sections | `ww-etapes` |
+| sections/ww-garanties.liquid | Sections | `ww-garanties` |
+| sections/ww-vendeur.liquid | Sections | `ww-vendeur` |
 | sections/ww-faq.liquid | Sections | `ww-faq` |
 | sections/ww-cta.liquid | Sections | `ww-cta` |
 | sections/ww-produit.liquid | Sections | `ww-produit` |
@@ -39,7 +50,7 @@ Dans Shopify : Boutique en ligne › Thèmes › sur une COPIE du thème : ⋯ �
 | templates/index.json | Templates | Remplacer tout le contenu de `index.json` existant |
 
 Pour chaque fichier : créer le fichier vide avec le bon nom, coller tout le contenu, puis Enregistrer.
-Ordre conseillé : le CSS, le snippet, les 8 sections, puis les 2 modèles (ils utilisent les sections).
+Ordre conseillé : le CSS, les 3 snippets, les 10 sections, puis les 2 modèles (ils utilisent les sections).
 
 ## Mise en ligne en toute sécurité
 
@@ -51,18 +62,35 @@ Ordre conseillé : le CSS, le snippet, les 8 sections, puis les 2 modèles (ils 
 4. Vérifier sur mobile et sur ordinateur : accueil, 3 fiches, ajout au panier, paiement, liens des politiques.
 5. Publier la copie.
 
+## Vos coordonnées : un seul fichier
+
+`snippets/ww-coordonnees.liquid` contient le nom commercial, l'exploitant, le SIREN, l'adresse,
+le téléphone, l'e-mail et les horaires. Toutes les sections s'en servent, pour que ces informations
+restent identiques partout, comme l'exige Google Merchant Center.
+Si l'une change : modifiez-la dans ce fichier, puis dans vos politiques et dans Merchant Center.
+Seule exception : la réponse « Qui se cache derrière WhisperWalk ? » de la FAQ cite le SIREN et Dijon
+(modifiable dans l'éditeur de thème).
+
 ## Réglages dans l'éditeur de thème
 
-- Accroche : « Pack mis en avant » affiche la photo principale de ce pack. « Image » la remplace
-  par une autre photo si vous le souhaitez.
-- Moments : les images sont facultatives. Sans image, les cartes restent en texte sur fond sombre.
-- Photos des produits : format carré conseillé (par exemple 2048 × 2048). Les photos ne sont jamais
-  coupées : une photo qui n'est pas carrée s'affiche entière, avec une bande gris clair sur les côtés.
-  Chaque photo doit montrer exactement ce qui est livré, avec les mêmes caractéristiques que la fiche.
-- Barre d'annonce (réglages Horizon) : fond violet #4a53ff, texte blanc, comme le prévoit votre référence de style.
-- En-tête (réglages Horizon) : fond noir, texte blanc, pour enchaîner avec l'accroche noire.
+- Accroche : « Pack mis en avant » (Pack Essentiel par défaut), « Collection des packs » (sert au prix
+  « à partir de », calculé automatiquement), 4 garanties cochées, téléphone et e-mail affichés.
+- Fiche produit : un bloc « Contenu du carton » par pack. Si le contenu d'un pack change,
+  modifiez ce bloc en même temps que la description du produit.
+- Fiche produit : la date de livraison estimée se calcule seule à partir de vos délais
+  (5 à 7 jours ouvrés, sans les week-ends ni les jours fériés).
+- Qui sommes-nous : un « mot personnel » facultatif (votre photo et quelques phrases avec vos mots).
+  Rien ne s'affiche tant qu'il est vide.
 - Avis clients plus tard : la section « WW · Fiche produit » accepte les blocs d'applications
-  (« Ajouter un bloc » › Applications), par exemple un widget d'avis, uniquement avec de vrais avis.
+  (« Ajouter un bloc » › Applications), uniquement avec de vrais avis.
+- Barre d'annonce (réglages Horizon) : fond violet #4a53ff, texte blanc.
+
+## Photos : le point le plus important pour la confiance
+
+Chaque photo doit montrer exactement ce qui est livré, avec les mêmes caractéristiques que la fiche
+(inclinaison, éléments du pack). Une photo qui montre autre chose fait perdre la confiance du client
+et peut être sanctionnée par Google comme « déclaration trompeuse ».
+Format conseillé : carré (par exemple 2048 × 2048). Les photos ne sont jamais coupées.
 
 ## Couleur des boutons principaux
 
@@ -74,15 +102,6 @@ les deux lignes marquées [SUPPRIMER POUR ACTIVER].
 
 - « Ajouter au panier » mène à la page panier (au lieu d'ouvrir le tiroir panier d'Horizon).
   Le paiement rapide (Shop Pay, etc.) reste disponible juste en dessous.
-- Les prix, noms, photos et descriptions viennent directement de vos produits Shopify :
-  si vous les modifiez dans l'administration, la page suit automatiquement.
-- Si un délai ou une condition change (livraison, retours…), changez-le partout :
-  politiques, textes de ces sections et Google Merchant Center.
-
-## Ce qui n'a PAS été inventé
-
-Tous les textes reprennent les informations déjà présentes sur la boutique : contenu des packs,
-caractéristiques du tapis (1–10 km/h, 15 %, 136 kg, triple amortissement, rangement à plat),
-livraison offerte en 5 à 7 jours ouvrés depuis la France, 14 jours pour changer d'avis,
-garantie légale de 2 ans, moyens de paiement, programme 30 jours (PDF) du Pack Ultimate.
-Aucun avis, note, badge de confiance, certification, compte à rebours ni promotion.
+- Les logos des moyens de paiement sont fournis par Shopify, selon les moyens activés sur la boutique.
+- Les prix, noms, photos et descriptions viennent directement de vos produits Shopify.
+- Le gris des textes secondaires est un peu plus foncé que dans la référence de style, pour la lisibilité.

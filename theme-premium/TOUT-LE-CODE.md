@@ -1,6 +1,6 @@
 # Refonte WhisperWalk — tout le code
 
-Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
+Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Shopify (voir LISEZMOI.md).
 
 ## assets/ww-premium.css
 
@@ -24,6 +24,11 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
   --ww-fog: #808080;
   --ww-ash: #999999;
 
+  /* Bouton principal (violet par défaut, voir l'option « noir et blanc » en fin de fichier) */
+  --ww-cta: var(--ww-violet);
+  --ww-cta-hover: var(--ww-violet-hover);
+  --ww-cta-text: var(--ww-white);
+
   /* Typographie : on réutilise la police déjà chargée par le thème (Inter) */
   --ww-font: var(--font-body--family, "Inter"), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 
@@ -46,8 +51,11 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
 .ww *::before,
 .ww *::after { box-sizing: border-box; }
 
-.ww img { display: block; max-width: 100%; height: auto; }
-.ww a { color: inherit; }
+/* :where() garde ces règles de base faibles, pour que les boutons et liens stylés gardent leurs couleurs */
+:where(.ww) img { display: block; max-width: 100%; height: auto; }
+:where(.ww) a { color: inherit; }
+
+.ww-visually-hidden { position: absolute !important; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
 @media (min-width: 750px) {
   .ww { --ww-gutter: 32px; --ww-section: 104px; }
@@ -81,11 +89,14 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
 
 .ww-display {
   margin: 0;
-  font-size: clamp(48px, 10vw, 120px);
+  font-size: clamp(44px, 11vw, 120px);
   font-weight: 500;
   line-height: 0.88;
   letter-spacing: -0.045em;
 }
+.ww-display--md { font-size: clamp(40px, 5.6vw, 80px); }
+/* Sur mobile, le texte revient à la ligne de lui-même */
+@media (max-width: 749px) { .ww-display br { display: none; } }
 
 .ww-h2 {
   margin: 0;
@@ -115,6 +126,10 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
 .ww-section--carbon .ww-lead { color: #b3b3b3; }
 
 .ww-text { margin: 0; font-size: 16px; line-height: 1.55; color: var(--ww-fog); }
+
+/* Retours à la ligne plus harmonieux (navigateurs récents, sans effet ailleurs) */
+.ww-display, .ww-h2, .ww-h3, .ww-pack__title, .ww-product__title { text-wrap: balance; }
+.ww-lead, .ww-text, .ww-pack__pitch { text-wrap: pretty; }
 .ww-section--dark .ww-text,
 .ww-section--carbon .ww-text { color: #b3b3b3; }
 
@@ -153,8 +168,8 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
 .ww-btn:focus-visible { outline: 2px solid var(--ww-violet); outline-offset: 3px; }
 .ww-btn:active { transform: scale(0.98); }
 
-.ww-btn--primary { background: var(--ww-violet); color: var(--ww-white); }
-.ww-btn--primary:hover { background: var(--ww-violet-hover); }
+.ww-btn--primary { background: var(--ww-cta); color: var(--ww-cta-text); }
+.ww-btn--primary:hover { background: var(--ww-cta-hover); }
 
 .ww-btn--light { background: var(--ww-white); color: var(--ww-black); }
 .ww-btn--light:hover { background: #e9e9e9; }
@@ -175,15 +190,19 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
 
 /* ---------- Hero ---------- */
 
+/* Sans image : grande affiche noire. Avec image : photo du pack puis texte sur mobile, côte à côte sur ordinateur. */
 .ww-hero { position: relative; display: flex; align-items: flex-end; min-height: 88vh; padding: 120px 0 64px; overflow: hidden; }
-.ww-hero__grid { display: grid; gap: 40px; align-items: end; width: 100%; }
-.ww-hero__media { border-radius: var(--ww-radius-card); overflow: hidden; background: var(--ww-carbon); aspect-ratio: 4 / 5; }
+.ww-hero--media { min-height: 0; padding: 20px 0 56px; }
+.ww-hero__grid { display: grid; gap: 32px; align-items: end; width: 100%; }
+.ww-hero__media { display: block; order: -1; border-radius: var(--ww-radius-card); overflow: hidden; background: var(--ww-carbon); aspect-ratio: 1 / 1; }
 .ww-hero__media img { width: 100%; height: 100%; object-fit: cover; }
 .ww-hero__note { margin-top: 28px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ww-ash); }
 
 @media (min-width: 990px) {
-  .ww-hero__grid--media { grid-template-columns: 1.25fr 1fr; }
-  .ww-hero__media { aspect-ratio: 4 / 5; max-height: 72vh; }
+  .ww-hero--media { padding: 72px 0; align-items: center; }
+  .ww-hero__grid--media { grid-template-columns: 1.2fr 1fr; gap: 64px; align-items: center; }
+  .ww-hero__grid--media .ww-display { font-size: clamp(56px, 5.8vw, 96px); }
+  .ww-hero__media { order: 0; }
 }
 
 /* ---------- Bandeau d'engagements ---------- */
@@ -208,11 +227,13 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
 @media (min-width: 750px) { .ww-grid--2 { grid-template-columns: repeat(2, 1fr); gap: 24px; } }
 
 .ww-card { background: var(--ww-mist); border-radius: var(--ww-radius-card); padding: 28px; }
+.ww-grid__item { display: flex; min-width: 0; }
+.ww-grid__item > * { flex: 1 1 auto; min-width: 0; }
 
 /* Carte pack */
 .ww-pack { display: flex; flex-direction: column; background: var(--ww-white); border: 1px solid var(--ww-hairline); border-radius: var(--ww-radius-card); overflow: hidden; }
 .ww-section--mist .ww-pack { border-color: transparent; }
-.ww-pack__media { position: relative; display: block; aspect-ratio: 4 / 5; background: var(--ww-mist); overflow: hidden; }
+.ww-pack__media { position: relative; display: block; aspect-ratio: 1 / 1; background: var(--ww-mist); overflow: hidden; }
 .ww-pack__media img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
 .ww-pack:hover .ww-pack__media img { transform: scale(1.03); }
 .ww-pack__badge { position: absolute; top: 16px; left: 16px; padding: 8px 14px; border-radius: var(--ww-radius-pill); background: var(--ww-black); color: var(--ww-white); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
@@ -244,11 +265,16 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
 /* Chiffres clés */
 .ww-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--ww-hairline); border: 1px solid var(--ww-hairline); border-radius: var(--ww-radius-card); overflow: hidden; }
 .ww-metric { background: var(--ww-white); padding: 28px 24px; }
-.ww-metric__value { display: block; font-size: clamp(36px, 5vw, 56px); font-weight: 500; line-height: 1; letter-spacing: -0.045em; }
+.ww-metric:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.ww-metric__value { display: block; white-space: nowrap; font-size: clamp(34px, 3.6vw, 52px); font-weight: 500; line-height: 1; letter-spacing: -0.045em; }
+.ww-metric__unit { margin-left: 0.14em; font-size: 0.42em; font-weight: 500; letter-spacing: -0.01em; }
 .ww-metric__label { display: block; margin-top: 12px; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ww-fog); }
 .ww-metric__detail { display: block; margin-top: 6px; font-size: 15px; color: var(--ww-fog); }
 .ww-footnote { margin: 20px 0 0; font-size: 14px; color: var(--ww-fog); }
-@media (min-width: 990px) { .ww-metrics { grid-template-columns: repeat(5, 1fr); } }
+@media (min-width: 990px) {
+  .ww-metrics { grid-template-columns: repeat(var(--ww-cols, 5), minmax(0, 1fr)); }
+  .ww-metric:last-child:nth-child(odd) { grid-column: auto; }
+}
 
 /* FAQ */
 .ww-faq { max-width: 860px; margin: 0 auto; border-top: 1px solid var(--ww-hairline); }
@@ -273,7 +299,7 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
 @media (min-width: 990px) {
   .ww-product { padding-top: 56px; }
   .ww-product__grid { grid-template-columns: 1.15fr 1fr; gap: 64px; align-items: start; }
-  .ww-product__info { position: sticky; top: 24px; }
+  .ww-product__info { position: sticky; top: calc(var(--header-height, 0px) + 24px); }
 }
 
 .ww-gallery { display: grid; grid-auto-flow: column; grid-auto-columns: 88%; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
@@ -282,7 +308,8 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
 .ww-gallery__item img { width: 100%; height: 100%; object-fit: cover; }
 @media (min-width: 990px) {
   .ww-gallery { grid-auto-flow: row; grid-auto-columns: auto; grid-template-columns: 1fr 1fr; overflow: visible; }
-  .ww-gallery__item:first-child { grid-column: 1 / -1; }
+  .ww-gallery__item:first-child,
+  .ww-gallery__item:nth-child(even):last-child { grid-column: 1 / -1; }
 }
 .ww-gallery__hint { margin: 10px 0 0; font-size: 13px; color: var(--ww-fog); }
 @media (min-width: 990px) { .ww-gallery__hint { display: none; } }
@@ -291,7 +318,7 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
 .ww-product__subtitle { margin: 14px 0 0; font-size: 18px; line-height: 1.4; color: var(--ww-fog); }
 .ww-product__price { margin: 28px 0 4px; font-size: clamp(36px, 4vw, 48px); font-weight: 500; letter-spacing: -0.045em; line-height: 1; }
 .ww-product__tax { margin: 0; font-size: 14px; color: var(--ww-fog); }
-.ww-product__stock { display: inline-flex; align-items: center; gap: 8px; margin: 20px 0 0; font-size: 14px; font-weight: 500; }
+.ww-product__stock { display: inline-flex; align-items: center; gap: 8px; margin: 0; font-size: 14px; font-weight: 500; }
 .ww-product__stock::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #1f9d55; }
 .ww-product__stock--out::before { background: var(--ww-ash); }
 
@@ -300,12 +327,12 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
 .ww-field label { font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ww-fog); }
 .ww-select,
 .ww-qty input { width: 100%; min-height: 52px; padding: 0 20px; border: 1.5px solid var(--ww-hairline); border-radius: var(--ww-radius-pill); background: var(--ww-white); font: inherit; font-size: 16px; color: var(--ww-black); }
-.ww-qty { display: grid; grid-template-columns: 52px 1fr 52px; align-items: center; max-width: 180px; border: 1.5px solid var(--ww-hairline); border-radius: var(--ww-radius-pill); }
+.ww-qty { display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; width: 148px; border: 1.5px solid var(--ww-hairline); border-radius: var(--ww-radius-pill); }
 .ww-qty input { border: 0; min-height: 48px; padding: 0; text-align: center; -moz-appearance: textfield; }
 .ww-qty input::-webkit-outer-spin-button,
 .ww-qty input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
-.ww-qty button { height: 48px; border: 0; background: none; font-size: 20px; cursor: pointer; color: var(--ww-black); }
-.ww-form__row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.ww-qty button { height: 44px; border: 0; background: none; font-size: 20px; cursor: pointer; color: var(--ww-black); }
+.ww-form__row { display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; margin-bottom: 4px; }
 .ww-form .shopify-payment-button__button { border-radius: var(--ww-radius-pill) !important; min-height: 52px; overflow: hidden; }
 .ww-form .shopify-payment-button__more-options { font-size: 14px; color: var(--ww-fog); }
 
@@ -324,14 +351,23 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
 .ww-accordion__body a { color: var(--ww-violet); }
 
 .ww-contact { margin: 24px 0 0; font-size: 15px; color: var(--ww-fog); }
-.ww-contact a { color: var(--ww-black); font-weight: 600; }
+.ww-contact a { color: var(--ww-black); font-weight: 600; white-space: nowrap; }
 
 .ww-details { max-width: 760px; }
+.ww-app-block { margin-top: 24px; }
 
 /* Accessibilité : réduire les animations si demandé */
 @media (prefers-reduced-motion: reduce) {
   .ww *, .ww *::before, .ww *::after { transition: none !important; }
 }
+
+/* ---------- Option « noir et blanc » ----------
+   Boutons principaux noirs (blancs sur les fonds noirs) au lieu du violet.
+   Pour l'activer : supprimez les deux lignes marquées [SUPPRIMER POUR ACTIVER]. */
+/* [SUPPRIMER POUR ACTIVER]
+.ww { --ww-cta: #000000; --ww-cta-hover: #191919; --ww-cta-text: #ffffff; }
+.ww-section--dark, .ww-section--carbon { --ww-cta: #ffffff; --ww-cta-hover: #e9e9e9; --ww-cta-text: #000000; }
+[SUPPRIMER POUR ACTIVER] */
 ```
 
 ## snippets/ww-pack-card.liquid
@@ -339,7 +375,7 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
 ```liquid
 {%- comment -%}
   Carte d'un pack.
-  Paramètres : p (produit), moment, pitch, contents (texte enrichi), badge, button_label
+  Paramètres : p (produit), moment, pitch, contents (texte enrichi), badge, button_label
   Le prix, le nom et l'image viennent directement du produit Shopify.
 {%- endcomment -%}
 {%- assign title_parts = p.title | split: ' | ' -%}
@@ -396,14 +432,22 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
 ```liquid
 {{ 'ww-premium.css' | asset_url | stylesheet_tag }}
 
-<section class="ww ww-section--dark ww-hero" aria-labelledby="ww-hero-{{ section.id }}">
+{%- liquid
+  assign featured = section.settings.product
+  assign hero_image = section.settings.image
+  if hero_image == blank and featured != blank
+    assign hero_image = featured.featured_media.preview_image | default: featured.featured_image
+  endif
+-%}
+
+<section class="ww ww-section--dark ww-hero{% if hero_image != blank %} ww-hero--media{% endif %}" aria-labelledby="ww-hero-{{ section.id }}">
   <div class="ww-container">
-    <div class="ww-hero__grid{% if section.settings.image != blank %} ww-hero__grid--media{% endif %}">
+    <div class="ww-hero__grid{% if hero_image != blank %} ww-hero__grid--media{% endif %}">
       <div>
         {%- if section.settings.eyebrow != blank -%}
           <p class="ww-eyebrow">{{ section.settings.eyebrow | escape }}</p>
         {%- endif -%}
-        <h1 class="ww-display" id="ww-hero-{{ section.id }}">{{ section.settings.title | newline_to_br }}</h1>
+        <h1 class="ww-display" id="ww-hero-{{ section.id }}">{{ section.settings.title | escape | newline_to_br }}</h1>
         {%- if section.settings.text != blank -%}
           <p class="ww-lead">{{ section.settings.text | escape }}</p>
         {%- endif -%}
@@ -420,19 +464,24 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
         {%- endif -%}
       </div>
 
-      {%- if section.settings.image != blank -%}
-        <div class="ww-hero__media">
+      {%- if hero_image != blank -%}
+        {%- capture hero_img -%}
           {{
-            section.settings.image
+            hero_image
             | image_url: width: 1400
             | image_tag:
               loading: 'eager',
               preload: true,
               widths: '600, 900, 1200, 1400',
               sizes: '(min-width: 990px) 45vw, 92vw',
-              alt: section.settings.image.alt
+              alt: hero_image.alt
           }}
-        </div>
+        {%- endcapture -%}
+        {%- if featured != blank -%}
+          <a class="ww-hero__media" href="{{ featured.url }}" tabindex="-1" aria-hidden="true">{{ hero_img }}</a>
+        {%- else -%}
+          <div class="ww-hero__media">{{ hero_img }}</div>
+        {%- endif -%}
       {%- endif -%}
     </div>
   </div>
@@ -451,7 +500,8 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
     { "type": "text", "id": "button2_label", "label": "Bouton secondaire", "default": "Comparer les packs" },
     { "type": "url", "id": "button2_link", "label": "Lien du bouton secondaire (vide = section des packs)" },
     { "type": "text", "id": "note", "label": "Mention sous les boutons", "default": "Expédié depuis la France · Livraison offerte" },
-    { "type": "image_picker", "id": "image", "label": "Image (facultative, une vraie photo du produit de préférence)" }
+    { "type": "product", "id": "product", "label": "Pack mis en avant", "info": "Sa photo principale s'affiche si aucune image n'est choisie ci-dessous. Un clic sur la photo ouvre le pack." },
+    { "type": "image_picker", "id": "image", "label": "Image (facultative, remplace la photo du pack)" }
   ],
   "presets": [{ "name": "WW · Accroche" }]
 }
@@ -531,7 +581,7 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
       {%- for block in section.blocks -%}
         {%- assign p = block.settings.product -%}
         {%- if p != blank -%}
-          <div {{ block.shopify_attributes }}>
+          <div class="ww-grid__item" {{ block.shopify_attributes }}>
             {%- render 'ww-pack-card',
               p: p,
               moment: block.settings.moment,
@@ -603,15 +653,15 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
       {%- for block in section.blocks -%}
         {%- assign p = block.settings.product -%}
         {%- capture moment_inner -%}
-          <div class="ww-moment__media">
-            {%- if block.settings.image != blank -%}
+          {%- if block.settings.image != blank -%}
+            <div class="ww-moment__media">
               {{
                 block.settings.image
                 | image_url: width: 900
                 | image_tag: loading: 'lazy', widths: '400, 600, 900', sizes: '(min-width: 750px) 33vw, 92vw', alt: block.settings.image.alt
               }}
-            {%- endif -%}
-          </div>
+            </div>
+          {%- endif -%}
           <div class="ww-moment__body">
             <span class="ww-moment__label">{{ block.settings.label | escape }}</span>
             <h3 class="ww-h3">{{ block.settings.title | escape }}</h3>
@@ -639,7 +689,7 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Surtitre", "default": "Votre journée" },
     { "type": "text", "id": "title", "label": "Titre", "default": "Le mouvement, là où vous êtes déjà." },
-    { "type": "text", "id": "text", "label": "Texte", "default": "Pas de temps en plus à trouver : le tapis s'installe dans votre bureau, votre salon ou votre chambre, puis se range." }
+    { "type": "text", "id": "text", "label": "Texte", "default": "Pas de temps en plus à trouver : le tapis s'installe dans votre bureau, votre salon ou votre chambre, puis se range." }
   ],
   "blocks": [
     {
@@ -675,10 +725,13 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
       {%- if section.settings.text != blank -%}<p class="ww-lead">{{ section.settings.text | escape }}</p>{%- endif -%}
     </div>
 
-    <div class="ww-metrics">
+    <div class="ww-metrics" style="--ww-cols: {{ section.blocks.size }}">
       {%- for block in section.blocks -%}
         <div class="ww-metric" {{ block.shopify_attributes }}>
-          <span class="ww-metric__value">{{ block.settings.value | escape }}</span>
+          <span class="ww-metric__value">
+            {{- block.settings.value | escape -}}
+            {%- if block.settings.unit != blank -%}<span class="ww-metric__unit">{{ block.settings.unit | escape }}</span>{%- endif -%}
+          </span>
           <span class="ww-metric__label">{{ block.settings.label | escape }}</span>
           {%- if block.settings.detail != blank -%}
             <span class="ww-metric__detail">{{ block.settings.detail | escape }}</span>
@@ -709,7 +762,8 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
       "type": "metric",
       "name": "Chiffre",
       "settings": [
-        { "type": "text", "id": "value", "label": "Valeur", "default": "1–10 km/h" },
+        { "type": "text", "id": "value", "label": "Valeur", "default": "1–10" },
+        { "type": "text", "id": "unit", "label": "Unité (en petit, facultative)", "default": "km/h" },
         { "type": "text", "id": "label", "label": "Libellé", "default": "Vitesse" },
         { "type": "text", "id": "detail", "label": "Précision" }
       ]
@@ -719,11 +773,11 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
     {
       "name": "WW · Le tapis en chiffres",
       "blocks": [
-        { "type": "metric", "settings": { "value": "1–10 km/h", "label": "Vitesse", "detail": "Lent pour écrire, plus vite au téléphone" } },
-        { "type": "metric", "settings": { "value": "15 %", "label": "Inclinaison", "detail": "Réglable sans arrêter le tapis" } },
-        { "type": "metric", "settings": { "value": "136 kg", "label": "Poids maximal", "detail": "Poids de l'utilisateur" } },
-        { "type": "metric", "settings": { "value": "×3", "label": "Amortissement", "detail": "Triple système" } },
-        { "type": "metric", "settings": { "value": "À plat", "label": "Rangement", "detail": "Sous un lit, un canapé ou un bureau" } }
+        { "type": "metric", "settings": { "value": "1–10", "unit": "km/h", "label": "Vitesse", "detail": "Lent pour écrire, plus vite au téléphone" } },
+        { "type": "metric", "settings": { "value": "15", "unit": "%", "label": "Inclinaison", "detail": "Réglable sans arrêter le tapis" } },
+        { "type": "metric", "settings": { "value": "136", "unit": "kg", "label": "Poids maximal", "detail": "Poids de l'utilisateur" } },
+        { "type": "metric", "settings": { "value": "×3", "unit": "", "label": "Amortissement", "detail": "Triple système" } },
+        { "type": "metric", "settings": { "value": "À plat", "unit": "", "label": "Rangement", "detail": "Sous un lit, un canapé ou un bureau" } }
       ]
     }
   ]
@@ -765,7 +819,7 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Surtitre", "default": "Questions fréquentes" },
     { "type": "text", "id": "title", "label": "Titre", "default": "Avant de vous lancer." },
-    { "type": "inline_richtext", "id": "contact_text", "label": "Texte de contact", "default": "Une autre question ? <a href=\"/pages/contact\">Écrivez-nous</a>, nous répondons sous 24 à 48 heures ouvrées." },
+    { "type": "inline_richtext", "id": "contact_text", "label": "Texte de contact", "default": "Une autre question ? <a href=\"/pages/contact\">Écrivez-nous</a>, nous répondons sous 24 à 48 heures ouvrées." },
     { "type": "checkbox", "id": "mist", "label": "Fond gris clair", "default": true }
   ],
   "blocks": [
@@ -773,7 +827,7 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
       "type": "question",
       "name": "Question",
       "settings": [
-        { "type": "text", "id": "question", "label": "Question", "default": "Quel est le délai de livraison ?" },
+        { "type": "text", "id": "question", "label": "Question", "default": "Quel est le délai de livraison ?" },
         { "type": "richtext", "id": "answer", "label": "Réponse", "default": "<p>Réponse.</p>" }
       ]
     }
@@ -791,7 +845,7 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
 <section class="ww ww-section ww-section--dark ww-cta" aria-labelledby="ww-cta-{{ section.id }}">
   <div class="ww-container">
     {%- if section.settings.eyebrow != blank -%}<p class="ww-eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
-    <h2 class="ww-display" id="ww-cta-{{ section.id }}" style="font-size:clamp(44px, 7vw, 96px)">{{ section.settings.title | newline_to_br }}</h2>
+    <h2 class="ww-display ww-display--md" id="ww-cta-{{ section.id }}">{{ section.settings.title | escape | newline_to_br }}</h2>
     {%- if section.settings.text != blank -%}<p class="ww-lead">{{ section.settings.text | escape }}</p>{%- endif -%}
     <div class="ww-actions">
       <a class="ww-btn ww-btn--primary" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">{{ section.settings.button_label | escape }}</a>
@@ -811,7 +865,7 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
   "tag": "div",
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Surtitre" },
-    { "type": "textarea", "id": "title", "label": "Titre", "default": "Votre prochaine réunion\npeut être votre première séance." },
+    { "type": "textarea", "id": "title", "label": "Titre", "default": "Votre prochaine réunion peut être votre première séance." },
     { "type": "text", "id": "text", "label": "Texte" },
     { "type": "text", "id": "button_label", "label": "Texte du bouton", "default": "Choisir mon pack" },
     { "type": "url", "id": "button_link", "label": "Lien du bouton" },
@@ -839,7 +893,7 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
   <div class="ww-container">
     <div class="ww-product__grid">
 
-      {%- comment -%} Galerie : défilement horizontal sur mobile, grille sur ordinateur {%- endcomment -%}
+      {%- comment -%} Galerie : défilement horizontal sur mobile, grille sur ordinateur {%- endcomment -%}
       <div>
         <div class="ww-gallery" aria-label="Photos du produit">
           {%- for media in product.media -%}
@@ -873,7 +927,9 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
 
       {%- comment -%} Informations et achat {%- endcomment -%}
       <div class="ww-product__info">
-        <p class="ww-eyebrow">{{ section.settings.eyebrow | default: shop.name | escape }}</p>
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="ww-eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
         <h1 class="ww-product__title" id="ww-product-title-{{ section.id }}">{{ pack_name | escape }}</h1>
         {%- if pack_sub != blank -%}
           <p class="ww-product__subtitle">{{ pack_sub | escape }}</p>
@@ -881,12 +937,6 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
 
         <p class="ww-product__price" data-ww-price>{{ current_variant.price | money }}</p>
         <p class="ww-product__tax">{{ section.settings.tax_note | escape }}</p>
-
-        {%- if current_variant.available -%}
-          <p class="ww-product__stock">Disponible</p>
-        {%- else -%}
-          <p class="ww-product__stock ww-product__stock--out">Momentanément épuisé</p>
-        {%- endif -%}
 
         {%- form 'product', product, class: 'ww-form', id: 'ww-product-form', novalidate: 'novalidate' -%}
           {%- if product.has_only_default_variant -%}
@@ -907,9 +957,14 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
             </div>
           {%- endif -%}
 
-          <div class="ww-field">
-            <label for="ww-qty-{{ section.id }}">Quantité</label>
+          <div class="ww-form__row">
+            {%- if current_variant.available -%}
+              <p class="ww-product__stock">Disponible</p>
+            {%- else -%}
+              <p class="ww-product__stock ww-product__stock--out">Momentanément épuisé</p>
+            {%- endif -%}
             <div class="ww-qty">
+              <label class="ww-visually-hidden" for="ww-qty-{{ section.id }}">Quantité</label>
               <button type="button" aria-label="Diminuer la quantité" data-ww-qty="-1">−</button>
               <input id="ww-qty-{{ section.id }}" type="number" name="quantity" value="1" min="1" inputmode="numeric">
               <button type="button" aria-label="Augmenter la quantité" data-ww-qty="1">+</button>
@@ -952,18 +1007,25 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
             <summary>Garantie</summary>
             <div class="ww-accordion__body">
               <p>Tous les éléments du pack bénéficient de la garantie légale de conformité de 2 ans à compter de la livraison, et de la garantie contre les vices cachés.</p>
-              <p>En cas de problème, écrivez-nous avec votre numéro de commande et une photo : nous vous répondons sous 24 à 48 heures ouvrées.</p>
+              <p>En cas de problème, écrivez-nous avec votre numéro de commande et une photo : nous vous répondons sous 24 à 48 heures ouvrées.</p>
             </div>
           </details>
           <details>
             <summary>Paiement</summary>
             <div class="ww-accordion__body">
-              <p>Paiement en ligne sécurisé par carte bancaire, PayPal, Apple Pay, Google Pay ou Shop Pay. Le prix affiché est le prix total : TVA non applicable (article 293 B du CGI), livraison offerte.</p>
+              <p>Paiement en ligne sécurisé par carte bancaire, PayPal, Apple Pay, Google Pay ou Shop Pay. Le prix affiché est le prix total : TVA non applicable (article 293 B du CGI), livraison offerte.</p>
             </div>
           </details>
         </div>
 
-        <p class="ww-contact">Une question avant de commander ? <a href="{{ section.settings.contact_url | default: '/pages/contact' }}">Contactez-nous</a></p>
+        {%- comment -%} Blocs d'applications (par exemple un widget d'avis), ajoutables depuis l'éditeur de thème {%- endcomment -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == '@app' -%}
+            <div class="ww-app-block">{% render block %}</div>
+          {%- endif -%}
+        {%- endfor -%}
+
+        <p class="ww-contact">Une question avant de commander ? <a href="{{ section.settings.contact_url | default: '/pages/contact' }}">Contactez-nous</a></p>
       </div>
     </div>
   </div>
@@ -1012,11 +1074,12 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
   "name": "WW · Fiche produit",
   "tag": "div",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Surtitre (vide = nom de la boutique)" },
+    { "type": "text", "id": "eyebrow", "label": "Surtitre au-dessus du nom (facultatif)" },
     { "type": "text", "id": "tax_note", "label": "Mention sous le prix", "default": "Prix total · TVA non applicable, art. 293 B du CGI · Livraison offerte" },
     { "type": "checkbox", "id": "show_dynamic_checkout", "label": "Afficher le bouton de paiement rapide", "default": true },
     { "type": "url", "id": "contact_url", "label": "Lien de contact" }
-  ]
+  ],
+  "blocks": [{ "type": "@app" }]
 }
 {% endschema %}
 ```
@@ -1036,7 +1099,8 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
         "button_link": "shopify://collections/tapis-de-course-pliable",
         "button2_label": "Comparer les packs",
         "button2_link": "",
-        "note": "Expédié depuis la France · Livraison offerte"
+        "note": "Expédié depuis la France · Livraison offerte",
+        "product": "pack-performance-connectee"
       }
     },
     "assurances": {
@@ -1100,8 +1164,8 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
           "settings": {
             "product": "pack-essentiel-home-gym",
             "moment": "Le soir",
-            "pitch": "Peu de place et des voisins en dessous ? Le tapis anti-bruit limite les vibrations, et le tapis de marche se range à plat sous le lit.",
-            "contents": "<ul><li>Tapis de marche pliable</li><li>Tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
+            "pitch": "Peu de place et des voisins en dessous ? Le tapis anti-bruit limite les vibrations, et le tapis de marche se range à plat sous le lit.",
+            "contents": "<ul><li>Tapis de marche pliable</li><li>Tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
             "badge": ""
           }
         },
@@ -1110,8 +1174,8 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
           "settings": {
             "product": "pack-performance-connectee",
             "moment": "En journée",
-            "pitch": "Votre bureau actuel devient un poste de marche : le réhausseur le met à hauteur debout, le tapis se glisse dessous.",
-            "contents": "<ul><li>Tapis de marche pliable</li><li>Réhausseur de bureau assis-debout</li><li>Tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
+            "pitch": "Votre bureau actuel devient un poste de marche : le réhausseur le met à hauteur debout, le tapis se glisse dessous.",
+            "contents": "<ul><li>Tapis de marche pliable</li><li>Réhausseur de bureau assis-debout</li><li>Tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
             "badge": ""
           }
         },
@@ -1137,7 +1201,7 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
       "settings": {
         "eyebrow": "Votre journée",
         "title": "Le mouvement, là où vous êtes déjà.",
-        "text": "Pas de temps en plus à trouver : le tapis s'installe dans votre bureau, votre salon ou votre chambre, puis se range."
+        "text": "Pas de temps en plus à trouver : le tapis s'installe dans votre bureau, votre salon ou votre chambre, puis se range."
       },
       "blocks": {
         "m1": {
@@ -1145,7 +1209,7 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
           "settings": {
             "label": "En journée",
             "title": "Marchez pendant vos réunions.",
-            "text": "Le réhausseur met votre bureau à hauteur debout et le tapis se glisse dessous. Vous avancez à votre rythme, de 1 à 10 km/h.",
+            "text": "Le réhausseur met votre bureau à hauteur debout et le tapis se glisse dessous. Vous avancez à votre rythme, de 1 à 10 km/h.",
             "product": "pack-performance-connectee",
             "link_label": "Voir le Pack Télétravail"
           }
@@ -1165,7 +1229,7 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
           "settings": {
             "label": "Le week-end",
             "title": "Une vraie séance, sans salle.",
-            "text": "Marche en pente jusqu'à 15 %, haltères réglables et banc pliable. Puis tout se range.",
+            "text": "Marche en pente jusqu'à 15 %, haltères réglables et banc pliable. Puis tout se range.",
             "product": "pack-ultimate-home-gym",
             "link_label": "Voir le Pack Ultimate"
           }
@@ -1189,7 +1253,8 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
         "t1": {
           "type": "metric",
           "settings": {
-            "value": "1–10 km/h",
+            "value": "1–10",
+            "unit": "km/h",
             "label": "Vitesse",
             "detail": "Lent pour écrire, plus vite au téléphone"
           }
@@ -1197,7 +1262,8 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
         "t2": {
           "type": "metric",
           "settings": {
-            "value": "15 %",
+            "value": "15",
+            "unit": "%",
             "label": "Inclinaison",
             "detail": "Réglable sans arrêter le tapis"
           }
@@ -1205,7 +1271,8 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
         "t3": {
           "type": "metric",
           "settings": {
-            "value": "136 kg",
+            "value": "136",
+            "unit": "kg",
             "label": "Poids maximal",
             "detail": "Poids de l'utilisateur"
           }
@@ -1214,6 +1281,7 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
           "type": "metric",
           "settings": {
             "value": "×3",
+            "unit": "",
             "label": "Amortissement",
             "detail": "Triple système"
           }
@@ -1222,6 +1290,7 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
           "type": "metric",
           "settings": {
             "value": "À plat",
+            "unit": "",
             "label": "Rangement",
             "detail": "Sous un lit, un canapé ou un bureau"
           }
@@ -1240,49 +1309,49 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
       "settings": {
         "eyebrow": "Questions fréquentes",
         "title": "Avant de vous lancer.",
-        "contact_text": "Une autre question ? <a href=\"/pages/contact\">Écrivez-nous</a>, nous répondons sous 24 à 48 heures ouvrées.",
+        "contact_text": "Une autre question ? <a href=\"/pages/contact\">Écrivez-nous</a>, nous répondons sous 24 à 48 heures ouvrées.",
         "mist": true
       },
       "blocks": {
         "q1": {
           "type": "question",
           "settings": {
-            "question": "Quel est le délai de livraison ?",
-            "answer": "<p>Comptez 5 à 7 jours ouvrés en France métropolitaine, Corse incluse : 3 jours ouvrés de préparation, puis 2 à 4 jours ouvrés de transport. Les colis sont expédiés depuis la France et la livraison est offerte. <a href=\"/policies/shipping-policy\">Politique d'expédition</a></p>"
+            "question": "Quel est le délai de livraison ?",
+            "answer": "<p>Comptez 5 à 7 jours ouvrés en France métropolitaine, Corse incluse : 3 jours ouvrés de préparation, puis 2 à 4 jours ouvrés de transport. Les colis sont expédiés depuis la France et la livraison est offerte. <a href=\"/policies/shipping-policy\">Politique d'expédition</a></p>"
           }
         },
         "q2": {
           "type": "question",
           "settings": {
-            "question": "Puis-je retourner mon pack ?",
+            "question": "Puis-je retourner mon pack ?",
             "answer": "<p>Oui, vous avez 14 jours après réception pour changer d'avis, sans vous justifier. Les frais de retour sont à votre charge, sans frais de réapprovisionnement. Le remboursement intervient sous 7 jours après réception et contrôle du retour. <a href=\"/policies/refund-policy\">Politique de remboursement</a></p>"
           }
         },
         "q3": {
           "type": "question",
           "settings": {
-            "question": "Quelle garantie couvre le pack ?",
+            "question": "Quelle garantie couvre le pack ?",
             "answer": "<p>Tous les éléments du pack bénéficient de la garantie légale de conformité de 2 ans à compter de la livraison, et de la garantie contre les vices cachés.</p>"
           }
         },
         "q4": {
           "type": "question",
           "settings": {
-            "question": "Le tapis est-il adapté au télétravail et à l'appartement ?",
+            "question": "Le tapis est-il adapté au télétravail et à l'appartement ?",
             "answer": "<p>Son moteur est discret et son triple amortissement limite le bruit des pas. Chaque pack inclut un tapis Fitness Pro anti-bruit qui limite les vibrations transmises au sol.</p>"
           }
         },
         "q5": {
           "type": "question",
           "settings": {
-            "question": "Peut-on courir sur ce tapis ?",
-            "answer": "<p>Non. Il est pensé pour la marche, de 1 à 10 km/h, avec une inclinaison jusqu'à 15 %. Il convient pour bouger au quotidien, pas pour l'entraînement d'un coureur.</p>"
+            "question": "Peut-on courir sur ce tapis ?",
+            "answer": "<p>Non. Il est pensé pour la marche, de 1 à 10 km/h, avec une inclinaison jusqu'à 15 %. Il convient pour bouger au quotidien, pas pour l'entraînement d'un coureur.</p>"
           }
         },
         "q6": {
           "type": "question",
           "settings": {
-            "question": "Quels moyens de paiement acceptez-vous ?",
+            "question": "Quels moyens de paiement acceptez-vous ?",
             "answer": "<p>Carte bancaire, PayPal, Apple Pay, Google Pay et Shop Pay, via une connexion chiffrée. Le prix affiché est le prix total, livraison offerte. <a href=\"/pages/moyens-de-paiement\">Moyens de paiement</a></p>"
           }
         }
@@ -1300,7 +1369,7 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
       "type": "ww-cta",
       "settings": {
         "eyebrow": "",
-        "title": "Votre prochaine réunion\npeut être votre première séance.",
+        "title": "Votre prochaine réunion peut être votre première séance.",
         "text": "",
         "button_label": "Choisir mon pack",
         "button_link": "shopify://collections/tapis-de-course-pliable",
@@ -1317,7 +1386,8 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
     "faq",
     "cta"
   ]
-}```
+}
+```
 
 ## templates/product.ww-premium.json
 
@@ -1340,7 +1410,7 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
         "title": "Les trois packs.",
         "text": "Le même tapis de marche, trois façons de l'accompagner.",
         "button_label": "Découvrir le pack",
-        "mist": true
+        "mist": false
       },
       "blocks": {
         "pack_essentiel": {
@@ -1348,8 +1418,8 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
           "settings": {
             "product": "pack-essentiel-home-gym",
             "moment": "Le soir",
-            "pitch": "Peu de place et des voisins en dessous ? Le tapis anti-bruit limite les vibrations, et le tapis de marche se range à plat sous le lit.",
-            "contents": "<ul><li>Tapis de marche pliable</li><li>Tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
+            "pitch": "Peu de place et des voisins en dessous ? Le tapis anti-bruit limite les vibrations, et le tapis de marche se range à plat sous le lit.",
+            "contents": "<ul><li>Tapis de marche pliable</li><li>Tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
             "badge": ""
           }
         },
@@ -1358,8 +1428,8 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
           "settings": {
             "product": "pack-performance-connectee",
             "moment": "En journée",
-            "pitch": "Votre bureau actuel devient un poste de marche : le réhausseur le met à hauteur debout, le tapis se glisse dessous.",
-            "contents": "<ul><li>Tapis de marche pliable</li><li>Réhausseur de bureau assis-debout</li><li>Tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
+            "pitch": "Votre bureau actuel devient un poste de marche : le réhausseur le met à hauteur debout, le tapis se glisse dessous.",
+            "contents": "<ul><li>Tapis de marche pliable</li><li>Réhausseur de bureau assis-debout</li><li>Tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
             "badge": ""
           }
         },
@@ -1385,4 +1455,5 @@ Chaque bloc ci-dessous = un fichier. Le chemin indique le dossier Shopify.
     "main",
     "packs"
   ]
-}```
+}
+```

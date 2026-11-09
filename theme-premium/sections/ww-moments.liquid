@@ -12,15 +12,15 @@
       {%- for block in section.blocks -%}
         {%- assign p = block.settings.product -%}
         {%- capture moment_inner -%}
-          <div class="ww-moment__media">
-            {%- if block.settings.image != blank -%}
+          {%- if block.settings.image != blank -%}
+            <div class="ww-moment__media">
               {{
                 block.settings.image
                 | image_url: width: 900
                 | image_tag: loading: 'lazy', widths: '400, 600, 900', sizes: '(min-width: 750px) 33vw, 92vw', alt: block.settings.image.alt
               }}
-            {%- endif -%}
-          </div>
+            </div>
+          {%- endif -%}
           <div class="ww-moment__body">
             <span class="ww-moment__label">{{ block.settings.label | escape }}</span>
             <h3 class="ww-h3">{{ block.settings.title | escape }}</h3>
@@ -48,7 +48,7 @@
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Surtitre", "default": "Votre journée" },
     { "type": "text", "id": "title", "label": "Titre", "default": "Le mouvement, là où vous êtes déjà." },
-    { "type": "text", "id": "text", "label": "Texte", "default": "Pas de temps en plus à trouver : le tapis s'installe dans votre bureau, votre salon ou votre chambre, puis se range." }
+    { "type": "text", "id": "text", "label": "Texte", "default": "Pas de temps en plus à trouver : le tapis s'installe dans votre bureau, votre salon ou votre chambre, puis se range." }
   ],
   "blocks": [
     {

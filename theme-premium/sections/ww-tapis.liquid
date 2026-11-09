@@ -8,10 +8,13 @@
       {%- if section.settings.text != blank -%}<p class="ww-lead">{{ section.settings.text | escape }}</p>{%- endif -%}
     </div>
 
-    <div class="ww-metrics">
+    <div class="ww-metrics" style="--ww-cols: {{ section.blocks.size }}">
       {%- for block in section.blocks -%}
         <div class="ww-metric" {{ block.shopify_attributes }}>
-          <span class="ww-metric__value">{{ block.settings.value | escape }}</span>
+          <span class="ww-metric__value">
+            {{- block.settings.value | escape -}}
+            {%- if block.settings.unit != blank -%}<span class="ww-metric__unit">{{ block.settings.unit | escape }}</span>{%- endif -%}
+          </span>
           <span class="ww-metric__label">{{ block.settings.label | escape }}</span>
           {%- if block.settings.detail != blank -%}
             <span class="ww-metric__detail">{{ block.settings.detail | escape }}</span>
@@ -42,7 +45,8 @@
       "type": "metric",
       "name": "Chiffre",
       "settings": [
-        { "type": "text", "id": "value", "label": "Valeur", "default": "1–10 km/h" },
+        { "type": "text", "id": "value", "label": "Valeur", "default": "1–10" },
+        { "type": "text", "id": "unit", "label": "Unité (en petit, facultative)", "default": "km/h" },
         { "type": "text", "id": "label", "label": "Libellé", "default": "Vitesse" },
         { "type": "text", "id": "detail", "label": "Précision" }
       ]
@@ -52,11 +56,11 @@
     {
       "name": "WW · Le tapis en chiffres",
       "blocks": [
-        { "type": "metric", "settings": { "value": "1–10 km/h", "label": "Vitesse", "detail": "Lent pour écrire, plus vite au téléphone" } },
-        { "type": "metric", "settings": { "value": "15 %", "label": "Inclinaison", "detail": "Réglable sans arrêter le tapis" } },
-        { "type": "metric", "settings": { "value": "136 kg", "label": "Poids maximal", "detail": "Poids de l'utilisateur" } },
-        { "type": "metric", "settings": { "value": "×3", "label": "Amortissement", "detail": "Triple système" } },
-        { "type": "metric", "settings": { "value": "À plat", "label": "Rangement", "detail": "Sous un lit, un canapé ou un bureau" } }
+        { "type": "metric", "settings": { "value": "1–10", "unit": "km/h", "label": "Vitesse", "detail": "Lent pour écrire, plus vite au téléphone" } },
+        { "type": "metric", "settings": { "value": "15", "unit": "%", "label": "Inclinaison", "detail": "Réglable sans arrêter le tapis" } },
+        { "type": "metric", "settings": { "value": "136", "unit": "kg", "label": "Poids maximal", "detail": "Poids de l'utilisateur" } },
+        { "type": "metric", "settings": { "value": "×3", "unit": "", "label": "Amortissement", "detail": "Triple système" } },
+        { "type": "metric", "settings": { "value": "À plat", "unit": "", "label": "Rangement", "detail": "Sous un lit, un canapé ou un bureau" } }
       ]
     }
   ]

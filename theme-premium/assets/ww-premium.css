@@ -17,6 +17,11 @@
   --ww-fog: #808080;
   --ww-ash: #999999;
 
+  /* Bouton principal (violet par défaut, voir l'option « noir et blanc » en fin de fichier) */
+  --ww-cta: var(--ww-violet);
+  --ww-cta-hover: var(--ww-violet-hover);
+  --ww-cta-text: var(--ww-white);
+
   /* Typographie : on réutilise la police déjà chargée par le thème (Inter) */
   --ww-font: var(--font-body--family, "Inter"), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 
@@ -39,8 +44,11 @@
 .ww *::before,
 .ww *::after { box-sizing: border-box; }
 
-.ww img { display: block; max-width: 100%; height: auto; }
-.ww a { color: inherit; }
+/* :where() garde ces règles de base faibles, pour que les boutons et liens stylés gardent leurs couleurs */
+:where(.ww) img { display: block; max-width: 100%; height: auto; }
+:where(.ww) a { color: inherit; }
+
+.ww-visually-hidden { position: absolute !important; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
 @media (min-width: 750px) {
   .ww { --ww-gutter: 32px; --ww-section: 104px; }
@@ -74,11 +82,14 @@
 
 .ww-display {
   margin: 0;
-  font-size: clamp(48px, 10vw, 120px);
+  font-size: clamp(44px, 11vw, 120px);
   font-weight: 500;
   line-height: 0.88;
   letter-spacing: -0.045em;
 }
+.ww-display--md { font-size: clamp(40px, 5.6vw, 80px); }
+/* Sur mobile, le texte revient à la ligne de lui-même */
+@media (max-width: 749px) { .ww-display br { display: none; } }
 
 .ww-h2 {
   margin: 0;
@@ -108,6 +119,10 @@
 .ww-section--carbon .ww-lead { color: #b3b3b3; }
 
 .ww-text { margin: 0; font-size: 16px; line-height: 1.55; color: var(--ww-fog); }
+
+/* Retours à la ligne plus harmonieux (navigateurs récents, sans effet ailleurs) */
+.ww-display, .ww-h2, .ww-h3, .ww-pack__title, .ww-product__title { text-wrap: balance; }
+.ww-lead, .ww-text, .ww-pack__pitch { text-wrap: pretty; }
 .ww-section--dark .ww-text,
 .ww-section--carbon .ww-text { color: #b3b3b3; }
 
@@ -146,8 +161,8 @@
 .ww-btn:focus-visible { outline: 2px solid var(--ww-violet); outline-offset: 3px; }
 .ww-btn:active { transform: scale(0.98); }
 
-.ww-btn--primary { background: var(--ww-violet); color: var(--ww-white); }
-.ww-btn--primary:hover { background: var(--ww-violet-hover); }
+.ww-btn--primary { background: var(--ww-cta); color: var(--ww-cta-text); }
+.ww-btn--primary:hover { background: var(--ww-cta-hover); }
 
 .ww-btn--light { background: var(--ww-white); color: var(--ww-black); }
 .ww-btn--light:hover { background: #e9e9e9; }
@@ -168,15 +183,19 @@
 
 /* ---------- Hero ---------- */
 
+/* Sans image : grande affiche noire. Avec image : photo du pack puis texte sur mobile, côte à côte sur ordinateur. */
 .ww-hero { position: relative; display: flex; align-items: flex-end; min-height: 88vh; padding: 120px 0 64px; overflow: hidden; }
-.ww-hero__grid { display: grid; gap: 40px; align-items: end; width: 100%; }
-.ww-hero__media { border-radius: var(--ww-radius-card); overflow: hidden; background: var(--ww-carbon); aspect-ratio: 4 / 5; }
+.ww-hero--media { min-height: 0; padding: 20px 0 56px; }
+.ww-hero__grid { display: grid; gap: 32px; align-items: end; width: 100%; }
+.ww-hero__media { display: block; order: -1; border-radius: var(--ww-radius-card); overflow: hidden; background: var(--ww-carbon); aspect-ratio: 1 / 1; }
 .ww-hero__media img { width: 100%; height: 100%; object-fit: cover; }
 .ww-hero__note { margin-top: 28px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ww-ash); }
 
 @media (min-width: 990px) {
-  .ww-hero__grid--media { grid-template-columns: 1.25fr 1fr; }
-  .ww-hero__media { aspect-ratio: 4 / 5; max-height: 72vh; }
+  .ww-hero--media { padding: 72px 0; align-items: center; }
+  .ww-hero__grid--media { grid-template-columns: 1.2fr 1fr; gap: 64px; align-items: center; }
+  .ww-hero__grid--media .ww-display { font-size: clamp(56px, 5.8vw, 96px); }
+  .ww-hero__media { order: 0; }
 }
 
 /* ---------- Bandeau d'engagements ---------- */
@@ -201,11 +220,13 @@
 @media (min-width: 750px) { .ww-grid--2 { grid-template-columns: repeat(2, 1fr); gap: 24px; } }
 
 .ww-card { background: var(--ww-mist); border-radius: var(--ww-radius-card); padding: 28px; }
+.ww-grid__item { display: flex; min-width: 0; }
+.ww-grid__item > * { flex: 1 1 auto; min-width: 0; }
 
 /* Carte pack */
 .ww-pack { display: flex; flex-direction: column; background: var(--ww-white); border: 1px solid var(--ww-hairline); border-radius: var(--ww-radius-card); overflow: hidden; }
 .ww-section--mist .ww-pack { border-color: transparent; }
-.ww-pack__media { position: relative; display: block; aspect-ratio: 4 / 5; background: var(--ww-mist); overflow: hidden; }
+.ww-pack__media { position: relative; display: block; aspect-ratio: 1 / 1; background: var(--ww-mist); overflow: hidden; }
 .ww-pack__media img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
 .ww-pack:hover .ww-pack__media img { transform: scale(1.03); }
 .ww-pack__badge { position: absolute; top: 16px; left: 16px; padding: 8px 14px; border-radius: var(--ww-radius-pill); background: var(--ww-black); color: var(--ww-white); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
@@ -237,11 +258,16 @@
 /* Chiffres clés */
 .ww-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--ww-hairline); border: 1px solid var(--ww-hairline); border-radius: var(--ww-radius-card); overflow: hidden; }
 .ww-metric { background: var(--ww-white); padding: 28px 24px; }
-.ww-metric__value { display: block; font-size: clamp(36px, 5vw, 56px); font-weight: 500; line-height: 1; letter-spacing: -0.045em; }
+.ww-metric:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.ww-metric__value { display: block; white-space: nowrap; font-size: clamp(34px, 3.6vw, 52px); font-weight: 500; line-height: 1; letter-spacing: -0.045em; }
+.ww-metric__unit { margin-left: 0.14em; font-size: 0.42em; font-weight: 500; letter-spacing: -0.01em; }
 .ww-metric__label { display: block; margin-top: 12px; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ww-fog); }
 .ww-metric__detail { display: block; margin-top: 6px; font-size: 15px; color: var(--ww-fog); }
 .ww-footnote { margin: 20px 0 0; font-size: 14px; color: var(--ww-fog); }
-@media (min-width: 990px) { .ww-metrics { grid-template-columns: repeat(5, 1fr); } }
+@media (min-width: 990px) {
+  .ww-metrics { grid-template-columns: repeat(var(--ww-cols, 5), minmax(0, 1fr)); }
+  .ww-metric:last-child:nth-child(odd) { grid-column: auto; }
+}
 
 /* FAQ */
 .ww-faq { max-width: 860px; margin: 0 auto; border-top: 1px solid var(--ww-hairline); }
@@ -266,7 +292,7 @@
 @media (min-width: 990px) {
   .ww-product { padding-top: 56px; }
   .ww-product__grid { grid-template-columns: 1.15fr 1fr; gap: 64px; align-items: start; }
-  .ww-product__info { position: sticky; top: 24px; }
+  .ww-product__info { position: sticky; top: calc(var(--header-height, 0px) + 24px); }
 }
 
 .ww-gallery { display: grid; grid-auto-flow: column; grid-auto-columns: 88%; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
@@ -275,7 +301,8 @@
 .ww-gallery__item img { width: 100%; height: 100%; object-fit: cover; }
 @media (min-width: 990px) {
   .ww-gallery { grid-auto-flow: row; grid-auto-columns: auto; grid-template-columns: 1fr 1fr; overflow: visible; }
-  .ww-gallery__item:first-child { grid-column: 1 / -1; }
+  .ww-gallery__item:first-child,
+  .ww-gallery__item:nth-child(even):last-child { grid-column: 1 / -1; }
 }
 .ww-gallery__hint { margin: 10px 0 0; font-size: 13px; color: var(--ww-fog); }
 @media (min-width: 990px) { .ww-gallery__hint { display: none; } }
@@ -284,7 +311,7 @@
 .ww-product__subtitle { margin: 14px 0 0; font-size: 18px; line-height: 1.4; color: var(--ww-fog); }
 .ww-product__price { margin: 28px 0 4px; font-size: clamp(36px, 4vw, 48px); font-weight: 500; letter-spacing: -0.045em; line-height: 1; }
 .ww-product__tax { margin: 0; font-size: 14px; color: var(--ww-fog); }
-.ww-product__stock { display: inline-flex; align-items: center; gap: 8px; margin: 20px 0 0; font-size: 14px; font-weight: 500; }
+.ww-product__stock { display: inline-flex; align-items: center; gap: 8px; margin: 0; font-size: 14px; font-weight: 500; }
 .ww-product__stock::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #1f9d55; }
 .ww-product__stock--out::before { background: var(--ww-ash); }
 
@@ -293,12 +320,12 @@
 .ww-field label { font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ww-fog); }
 .ww-select,
 .ww-qty input { width: 100%; min-height: 52px; padding: 0 20px; border: 1.5px solid var(--ww-hairline); border-radius: var(--ww-radius-pill); background: var(--ww-white); font: inherit; font-size: 16px; color: var(--ww-black); }
-.ww-qty { display: grid; grid-template-columns: 52px 1fr 52px; align-items: center; max-width: 180px; border: 1.5px solid var(--ww-hairline); border-radius: var(--ww-radius-pill); }
+.ww-qty { display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; width: 148px; border: 1.5px solid var(--ww-hairline); border-radius: var(--ww-radius-pill); }
 .ww-qty input { border: 0; min-height: 48px; padding: 0; text-align: center; -moz-appearance: textfield; }
 .ww-qty input::-webkit-outer-spin-button,
 .ww-qty input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
-.ww-qty button { height: 48px; border: 0; background: none; font-size: 20px; cursor: pointer; color: var(--ww-black); }
-.ww-form__row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.ww-qty button { height: 44px; border: 0; background: none; font-size: 20px; cursor: pointer; color: var(--ww-black); }
+.ww-form__row { display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; margin-bottom: 4px; }
 .ww-form .shopify-payment-button__button { border-radius: var(--ww-radius-pill) !important; min-height: 52px; overflow: hidden; }
 .ww-form .shopify-payment-button__more-options { font-size: 14px; color: var(--ww-fog); }
 
@@ -317,11 +344,20 @@
 .ww-accordion__body a { color: var(--ww-violet); }
 
 .ww-contact { margin: 24px 0 0; font-size: 15px; color: var(--ww-fog); }
-.ww-contact a { color: var(--ww-black); font-weight: 600; }
+.ww-contact a { color: var(--ww-black); font-weight: 600; white-space: nowrap; }
 
 .ww-details { max-width: 760px; }
+.ww-app-block { margin-top: 24px; }
 
 /* Accessibilité : réduire les animations si demandé */
 @media (prefers-reduced-motion: reduce) {
   .ww *, .ww *::before, .ww *::after { transition: none !important; }
 }
+
+/* ---------- Option « noir et blanc » ----------
+   Boutons principaux noirs (blancs sur les fonds noirs) au lieu du violet.
+   Pour l'activer : supprimez les deux lignes marquées [SUPPRIMER POUR ACTIVER]. */
+/* [SUPPRIMER POUR ACTIVER]
+.ww { --ww-cta: #000000; --ww-cta-hover: #191919; --ww-cta-text: #ffffff; }
+.ww-section--dark, .ww-section--carbon { --ww-cta: #ffffff; --ww-cta-hover: #e9e9e9; --ww-cta-text: #000000; }
+[SUPPRIMER POUR ACTIVER] */

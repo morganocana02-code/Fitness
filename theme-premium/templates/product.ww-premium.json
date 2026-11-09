@@ -16,7 +16,7 @@
         "title": "Les trois packs.",
         "text": "Le même tapis de marche, trois façons de l'accompagner.",
         "button_label": "Découvrir le pack",
-        "mist": true
+        "mist": false
       },
       "blocks": {
         "pack_essentiel": {
@@ -24,8 +24,8 @@
           "settings": {
             "product": "pack-essentiel-home-gym",
             "moment": "Le soir",
-            "pitch": "Peu de place et des voisins en dessous ? Le tapis anti-bruit limite les vibrations, et le tapis de marche se range à plat sous le lit.",
-            "contents": "<ul><li>Tapis de marche pliable</li><li>Tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
+            "pitch": "Peu de place et des voisins en dessous ? Le tapis anti-bruit limite les vibrations, et le tapis de marche se range à plat sous le lit.",
+            "contents": "<ul><li>Tapis de marche pliable</li><li>Tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
             "badge": ""
           }
         },
@@ -34,8 +34,8 @@
           "settings": {
             "product": "pack-performance-connectee",
             "moment": "En journée",
-            "pitch": "Votre bureau actuel devient un poste de marche : le réhausseur le met à hauteur debout, le tapis se glisse dessous.",
-            "contents": "<ul><li>Tapis de marche pliable</li><li>Réhausseur de bureau assis-debout</li><li>Tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
+            "pitch": "Votre bureau actuel devient un poste de marche : le réhausseur le met à hauteur debout, le tapis se glisse dessous.",
+            "contents": "<ul><li>Tapis de marche pliable</li><li>Réhausseur de bureau assis-debout</li><li>Tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
             "badge": ""
           }
         },

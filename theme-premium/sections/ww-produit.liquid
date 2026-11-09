@@ -12,7 +12,7 @@
   <div class="ww-container">
     <div class="ww-product__grid">
 
-      {%- comment -%} Galerie : défilement horizontal sur mobile, grille sur ordinateur {%- endcomment -%}
+      {%- comment -%} Galerie : défilement horizontal sur mobile, grille sur ordinateur {%- endcomment -%}
       <div>
         <div class="ww-gallery" aria-label="Photos du produit">
           {%- for media in product.media -%}
@@ -46,7 +46,9 @@
 
       {%- comment -%} Informations et achat {%- endcomment -%}
       <div class="ww-product__info">
-        <p class="ww-eyebrow">{{ section.settings.eyebrow | default: shop.name | escape }}</p>
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="ww-eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
         <h1 class="ww-product__title" id="ww-product-title-{{ section.id }}">{{ pack_name | escape }}</h1>
         {%- if pack_sub != blank -%}
           <p class="ww-product__subtitle">{{ pack_sub | escape }}</p>
@@ -54,12 +56,6 @@
 
         <p class="ww-product__price" data-ww-price>{{ current_variant.price | money }}</p>
         <p class="ww-product__tax">{{ section.settings.tax_note | escape }}</p>
-
-        {%- if current_variant.available -%}
-          <p class="ww-product__stock">Disponible</p>
-        {%- else -%}
-          <p class="ww-product__stock ww-product__stock--out">Momentanément épuisé</p>
-        {%- endif -%}
 
         {%- form 'product', product, class: 'ww-form', id: 'ww-product-form', novalidate: 'novalidate' -%}
           {%- if product.has_only_default_variant -%}
@@ -80,9 +76,14 @@
             </div>
           {%- endif -%}
 
-          <div class="ww-field">
-            <label for="ww-qty-{{ section.id }}">Quantité</label>
+          <div class="ww-form__row">
+            {%- if current_variant.available -%}
+              <p class="ww-product__stock">Disponible</p>
+            {%- else -%}
+              <p class="ww-product__stock ww-product__stock--out">Momentanément épuisé</p>
+            {%- endif -%}
             <div class="ww-qty">
+              <label class="ww-visually-hidden" for="ww-qty-{{ section.id }}">Quantité</label>
               <button type="button" aria-label="Diminuer la quantité" data-ww-qty="-1">−</button>
               <input id="ww-qty-{{ section.id }}" type="number" name="quantity" value="1" min="1" inputmode="numeric">
               <button type="button" aria-label="Augmenter la quantité" data-ww-qty="1">+</button>
@@ -125,18 +126,25 @@
             <summary>Garantie</summary>
             <div class="ww-accordion__body">
               <p>Tous les éléments du pack bénéficient de la garantie légale de conformité de 2 ans à compter de la livraison, et de la garantie contre les vices cachés.</p>
-              <p>En cas de problème, écrivez-nous avec votre numéro de commande et une photo : nous vous répondons sous 24 à 48 heures ouvrées.</p>
+              <p>En cas de problème, écrivez-nous avec votre numéro de commande et une photo : nous vous répondons sous 24 à 48 heures ouvrées.</p>
             </div>
           </details>
           <details>
             <summary>Paiement</summary>
             <div class="ww-accordion__body">
-              <p>Paiement en ligne sécurisé par carte bancaire, PayPal, Apple Pay, Google Pay ou Shop Pay. Le prix affiché est le prix total : TVA non applicable (article 293 B du CGI), livraison offerte.</p>
+              <p>Paiement en ligne sécurisé par carte bancaire, PayPal, Apple Pay, Google Pay ou Shop Pay. Le prix affiché est le prix total : TVA non applicable (article 293 B du CGI), livraison offerte.</p>
             </div>
           </details>
         </div>
 
-        <p class="ww-contact">Une question avant de commander ? <a href="{{ section.settings.contact_url | default: '/pages/contact' }}">Contactez-nous</a></p>
+        {%- comment -%} Blocs d'applications (par exemple un widget d'avis), ajoutables depuis l'éditeur de thème {%- endcomment -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == '@app' -%}
+            <div class="ww-app-block">{% render block %}</div>
+          {%- endif -%}
+        {%- endfor -%}
+
+        <p class="ww-contact">Une question avant de commander ? <a href="{{ section.settings.contact_url | default: '/pages/contact' }}">Contactez-nous</a></p>
       </div>
     </div>
   </div>
@@ -185,10 +193,11 @@
   "name": "WW · Fiche produit",
   "tag": "div",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Surtitre (vide = nom de la boutique)" },
+    { "type": "text", "id": "eyebrow", "label": "Surtitre au-dessus du nom (facultatif)" },
     { "type": "text", "id": "tax_note", "label": "Mention sous le prix", "default": "Prix total · TVA non applicable, art. 293 B du CGI · Livraison offerte" },
     { "type": "checkbox", "id": "show_dynamic_checkout", "label": "Afficher le bouton de paiement rapide", "default": true },
     { "type": "url", "id": "contact_url", "label": "Lien de contact" }
-  ]
+  ],
+  "blocks": [{ "type": "@app" }]
 }
 {% endschema %}

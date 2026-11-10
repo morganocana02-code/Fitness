@@ -140,17 +140,25 @@ Elle doit montrer le tapis réellement livré, avec ses vraies caractéristiques
 guidon, écran) : une vidéo qui promet plus que le produit fait perdre la confiance et peut être
 sanctionnée par Google.
 
-## Nouveau tapis dans les trois packs
+## Nouveau tapis de course dans les trois packs
 
-- La section « WW · Le tapis en chiffres » est masquée (pas supprimée) : elle affichait les chiffres
-  de l'ancien tapis (15 %, 1–10 km/h, 136 kg). Elle reviendra avec la fiche technique du nouveau tapis.
-- Les textes « Moments » ne citent plus de vitesse ni d'inclinaison.
-- À mettre à jour avec la fiche technique : l'accroche (« pliable et discret, qui se range sous le lit
-  ou le bureau »), les phrases des packs (« se range à plat sous le lit », « le tapis se glisse dessous »),
-  « 1 tapis de marche pliable » dans le contenu des packs, et les descriptions des produits dans Shopify.
-- Dans Shopify, les photos, titres, descriptions et caractéristiques des 3 packs doivent être changés
-  en même temps, puis le flux Google Merchant Center (Simprosys) synchronisé : des informations
-  différentes entre la boutique et Google peuvent être signalées comme « déclarations trompeuses ».
+Caractéristiques utilisées (données par vous, et inclinaison de 0 à 9 % lue sur l'image du fabricant) :
+de 1 à 12 km/h, inclinaison jusqu'à 9 %, moteur de 2,75 CV, pliable, écran LED, 12 programmes,
+application, télécommande aimantée, utilisateur jusqu'à 160 kg.
+
+- Tous les textes du site décrivent ce tapis, appelé « tapis de course pliable » : accroche, packs,
+  comparatif, moments, « Le tapis en chiffres » (de nouveau affichée), questions (dont « Peut-on courir
+  sur ce tapis ? »), contenu du carton.
+- Aucune promesse de silence ni de rangement sous le lit : il faudrait le niveau sonore et la hauteur
+  du tapis une fois plié.
+- `FICHES-PRODUITS.md` contient les nouveaux titres, descriptions pour Google et descriptions des 3 packs,
+  prêts à coller dans Shopify.
+- Dans Shopify, changez en même temps les photos, titres et descriptions des 3 packs, puis synchronisez
+  Google Merchant Center (Simprosys) : des informations différentes entre la boutique et Google peuvent
+  être signalées comme « déclarations trompeuses ».
+- À vérifier : les applications compatibles (Zwift, Kinomap, FitShow, lues sur l'image du fabricant),
+  l'usage sous un bureau sans le guidon (Pack Télétravail), et le programme 30 jours (PDF) du Pack Ultimate,
+  écrit pour l'ancien tapis.
 
 ## Photos : le point le plus important pour la confiance
 

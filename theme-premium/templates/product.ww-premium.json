@@ -17,7 +17,7 @@
           "type": "contents",
           "settings": {
             "product": "pack-essentiel-home-gym",
-            "items": "<ul><li>1 tapis de marche pliable</li><li>1 tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
+            "items": "<ul><li>1 tapis de course pliable</li><li>1 tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
             "note": ""
           }
         },
@@ -25,7 +25,7 @@
           "type": "contents",
           "settings": {
             "product": "pack-performance-connectee",
-            "items": "<ul><li>1 tapis de marche pliable</li><li>1 réhausseur de bureau assis-debout</li><li>1 tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
+            "items": "<ul><li>1 tapis de course pliable</li><li>1 réhausseur de bureau assis-debout</li><li>1 tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
             "note": ""
           }
         },
@@ -33,7 +33,7 @@
           "type": "contents",
           "settings": {
             "product": "pack-ultimate-home-gym",
-            "items": "<ul><li>1 tapis de marche pliable</li><li>1 tapis Fitness Pro anti-bruit</li><li>1 paire d'haltères réglables</li><li>1 banc pliable</li></ul>",
+            "items": "<ul><li>1 tapis de course pliable</li><li>1 tapis Fitness Pro anti-bruit</li><li>1 paire d'haltères réglables</li><li>1 banc pliable</li></ul>",
             "note": "Offert : le programme 30 jours (PDF), 5 séances de 35 minutes maximum par semaine, conçu pour ce pack."
           }
         }
@@ -75,7 +75,7 @@
         "r2": {
           "type": "row",
           "settings": {
-            "label": "Tapis de marche pliable",
+            "label": "Tapis de course pliable",
             "value_1": "oui",
             "value_2": "oui",
             "value_3": "oui"

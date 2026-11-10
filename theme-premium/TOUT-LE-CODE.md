@@ -1160,7 +1160,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
   "tag": "div",
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Pastille", "default": "Entreprise française · Expédition depuis la France" },
-    { "type": "textarea", "id": "title", "label": "Titre", "default": "Marchez chez vous.\nCommandez l'esprit tranquille." },
+    { "type": "textarea", "id": "title", "label": "Titre", "default": "Bougez chez vous.\nCommandez l'esprit tranquille." },
     { "type": "textarea", "id": "text", "label": "Texte" },
     { "type": "collection", "id": "collection", "label": "Collection des packs", "info": "Sert à afficher le prix du pack le moins cher." },
     { "type": "text", "id": "price_prefix", "label": "Texte avant le prix", "default": "Packs à partir de" },
@@ -1255,7 +1255,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Surtitre", "default": "Les packs" },
     { "type": "text", "id": "title", "label": "Titre", "default": "Choisissez votre pack." },
-    { "type": "text", "id": "text", "label": "Texte", "default": "Un tapis de marche pliable au cœur de chaque pack. Choisissez ce qui l'accompagne selon votre façon de bouger." },
+    { "type": "text", "id": "text", "label": "Texte", "default": "Le même tapis de course pliable dans chaque pack. Choisissez ce qui l'accompagne selon votre façon de bouger." },
     { "type": "text", "id": "button_label", "label": "Texte du bouton", "default": "Ajouter au panier" },
     { "type": "text", "id": "note", "label": "Phrase sous les packs", "default": "Pour les trois packs : livraison offerte en 5 à 7 jours ouvrés, 14 jours pour changer d'avis et garantie légale de 2 ans." },
     { "type": "checkbox", "id": "mist", "label": "Fond gris clair", "default": false }
@@ -1428,7 +1428,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
       "type": "row",
       "name": "Ligne",
       "settings": [
-        { "type": "text", "id": "label", "label": "Intitulé", "default": "Tapis de marche pliable" },
+        { "type": "text", "id": "label", "label": "Intitulé", "default": "Tapis de course pliable" },
         { "type": "paragraph", "content": "Écrivez « oui » pour une coche, « non » pour un tiret, ou un texte court." },
         { "type": "text", "id": "value_1", "label": "Colonne 1", "default": "oui" },
         { "type": "text", "id": "value_2", "label": "Colonne 2", "default": "oui" },
@@ -1557,17 +1557,17 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
   "tag": "div",
   "max_blocks": 5,
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Surtitre", "default": "Le tapis de marche" },
-    { "type": "text", "id": "title", "label": "Titre", "default": "Fin, discret, rangé en quelques secondes." },
-    { "type": "text", "id": "text", "label": "Texte", "default": "Inclus dans les trois packs, avec les mêmes caractéristiques." },
-    { "type": "text", "id": "footnote", "label": "Note sous les chiffres (facultative)" }
+    { "type": "text", "id": "eyebrow", "label": "Surtitre", "default": "Le tapis de course" },
+    { "type": "text", "id": "title", "label": "Titre", "default": "De la marche à la course, chez vous." },
+    { "type": "text", "id": "text", "label": "Texte", "default": "Le même tapis dans les trois packs : pliable, avec écran LED, télécommande aimantée et application." },
+    { "type": "text", "id": "footnote", "label": "Note sous les chiffres (facultative)", "default": "Caractéristiques annoncées par le fabricant du tapis." }
   ],
   "blocks": [
     {
       "type": "metric",
       "name": "Chiffre",
       "settings": [
-        { "type": "text", "id": "value", "label": "Valeur", "default": "1–10" },
+        { "type": "text", "id": "value", "label": "Valeur", "default": "1–12" },
         { "type": "text", "id": "unit", "label": "Unité (en petit, facultative)", "default": "km/h" },
         { "type": "text", "id": "label", "label": "Libellé", "default": "Vitesse" },
         { "type": "text", "id": "detail", "label": "Précision" }
@@ -1578,11 +1578,11 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
     {
       "name": "WW · Le tapis en chiffres",
       "blocks": [
-        { "type": "metric", "settings": { "value": "1–10", "unit": "km/h", "label": "Vitesse", "detail": "Lent pour écrire, plus vite au téléphone" } },
-        { "type": "metric", "settings": { "value": "15", "unit": "%", "label": "Inclinaison", "detail": "Réglable sans arrêter le tapis" } },
-        { "type": "metric", "settings": { "value": "136", "unit": "kg", "label": "Poids maximal", "detail": "Poids de l'utilisateur" } },
-        { "type": "metric", "settings": { "value": "×3", "unit": "", "label": "Amortissement", "detail": "Triple système" } },
-        { "type": "metric", "settings": { "value": "À plat", "unit": "", "label": "Rangement", "detail": "Sous un lit, un canapé ou un bureau" } }
+        { "type": "metric", "settings": { "value": "1–12", "unit": "km/h", "label": "Vitesse", "detail": "De la marche à la course" } },
+        { "type": "metric", "settings": { "value": "0–9", "unit": "%", "label": "Inclinaison", "detail": "Réglable" } },
+        { "type": "metric", "settings": { "value": "160", "unit": "kg", "label": "Poids maximal", "detail": "Poids de l'utilisateur" } },
+        { "type": "metric", "settings": { "value": "2,75", "unit": "CV", "label": "Moteur", "detail": "Puissance du moteur" } },
+        { "type": "metric", "settings": { "value": "12", "unit": "", "label": "Programmes", "detail": "Intégrés, avec écran LED" } }
       ]
     }
   ]
@@ -2297,8 +2297,8 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
       "type": "ww-hero",
       "settings": {
         "eyebrow": "Entreprise française · Expédition depuis la France",
-        "title": "Marchez chez vous.\nCommandez l'esprit tranquille.",
-        "text": "Un tapis de marche pliable et discret, qui se range sous le lit ou le bureau. Prix total affiché, livraison offerte, réponse sous 24 à 48 heures ouvrées.",
+        "title": "Bougez chez vous.\nCommandez l'esprit tranquille.",
+        "text": "Un tapis de course pliable, de 1 à 12 km/h, avec une inclinaison jusqu'à 9 %. Prix total affiché, livraison offerte, réponse sous 24 à 48 heures ouvrées.",
         "collection": "tapis-de-course-pliable",
         "price_prefix": "Packs à partir de",
         "price_note": "livraison offerte",
@@ -2355,7 +2355,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
       "settings": {
         "eyebrow": "Les packs",
         "title": "Choisissez votre pack.",
-        "text": "Un tapis de marche pliable au cœur de chaque pack. Le contenu du carton et le prix total sont indiqués clairement.",
+        "text": "Le même tapis de course pliable dans chaque pack. Le contenu du carton et le prix total sont indiqués clairement.",
         "button_label": "Ajouter au panier",
         "note": "Pour les trois packs : livraison offerte en 5 à 7 jours ouvrés, 14 jours pour changer d'avis, garantie légale de 2 ans, et colis perdu ou abîmé remplacé ou remboursé.",
         "mist": false
@@ -2366,8 +2366,8 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
           "settings": {
             "product": "pack-essentiel-home-gym",
             "moment": "Le soir",
-            "pitch": "Peu de place et des voisins en dessous ? Le tapis anti-bruit limite les vibrations, et le tapis de marche se range à plat sous le lit.",
-            "contents": "<ul><li>1 tapis de marche pliable</li><li>1 tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
+            "pitch": "Peu de place et des voisins en dessous ? Le tapis anti-bruit limite les vibrations, et le tapis de course se replie après la séance.",
+            "contents": "<ul><li>1 tapis de course pliable</li><li>1 tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
             "badge": ""
           }
         },
@@ -2377,7 +2377,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
             "product": "pack-performance-connectee",
             "moment": "En journée",
             "pitch": "Votre bureau actuel devient un poste de marche : le réhausseur le met à hauteur debout, le tapis se glisse dessous.",
-            "contents": "<ul><li>1 tapis de marche pliable</li><li>1 réhausseur de bureau assis-debout</li><li>1 tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
+            "contents": "<ul><li>1 tapis de course pliable</li><li>1 réhausseur de bureau assis-debout</li><li>1 tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
             "badge": ""
           }
         },
@@ -2386,8 +2386,8 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
           "settings": {
             "product": "pack-ultimate-home-gym",
             "moment": "Le week-end",
-            "pitch": "Cardio en pente et renforcement, sans abonnement ni trajet. Après la séance, tout se range.",
-            "contents": "<ul><li>1 tapis de marche pliable</li><li>1 tapis Fitness Pro anti-bruit</li><li>1 paire d'haltères réglables</li><li>1 banc pliable</li><li>Offert : le programme 30 jours (PDF)</li></ul>",
+            "pitch": "Course jusqu'à 12 km/h, pente jusqu'à 9 % et renforcement, sans abonnement ni trajet.",
+            "contents": "<ul><li>1 tapis de course pliable</li><li>1 tapis Fitness Pro anti-bruit</li><li>1 paire d'haltères réglables</li><li>1 banc pliable</li><li>Offert : le programme 30 jours (PDF)</li></ul>",
             "badge": "Le plus complet"
           }
         }
@@ -2429,7 +2429,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
         "r2": {
           "type": "row",
           "settings": {
-            "label": "Tapis de marche pliable",
+            "label": "Tapis de course pliable",
             "value_1": "oui",
             "value_2": "oui",
             "value_3": "oui"
@@ -2534,7 +2534,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
           "settings": {
             "label": "En journée",
             "title": "Marchez pendant vos réunions.",
-            "text": "Le réhausseur met votre bureau à hauteur debout et le tapis se glisse dessous. Vous avancez à votre rythme.",
+            "text": "Le réhausseur met votre bureau à hauteur debout et le tapis se glisse dessous. Vous avancez à votre rythme, dès 1 km/h.",
             "product": "pack-performance-connectee",
             "link_label": "Voir le Pack Télétravail"
           }
@@ -2544,7 +2544,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
           "settings": {
             "label": "Le soir",
             "title": "Dix minutes, sans déranger.",
-            "text": "Dépliez le tapis sur le tapis anti-bruit, marchez, puis rangez-le à plat sous le lit ou le canapé.",
+            "text": "Dépliez le tapis sur le tapis anti-bruit, bougez à votre rythme, puis repliez-le.",
             "product": "pack-essentiel-home-gym",
             "link_label": "Voir le Pack Essentiel"
           }
@@ -2554,7 +2554,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
           "settings": {
             "label": "Le week-end",
             "title": "Une vraie séance, sans salle.",
-            "text": "Marche en pente, haltères réglables et banc pliable. Puis tout se range.",
+            "text": "Course jusqu'à 12 km/h ou marche en pente jusqu'à 9 %, puis haltères réglables et banc pliable.",
             "product": "pack-ultimate-home-gym",
             "link_label": "Voir le Pack Ultimate"
           }
@@ -2569,34 +2569,34 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
     "tapis": {
       "type": "ww-tapis",
       "settings": {
-        "eyebrow": "Le tapis de marche",
-        "title": "Fin, discret, rangé en quelques secondes.",
-        "text": "Inclus dans les trois packs, avec les mêmes caractéristiques.",
-        "footnote": ""
+        "eyebrow": "Le tapis de course",
+        "title": "De la marche à la course, chez vous.",
+        "text": "Le même tapis dans les trois packs : pliable, avec écran LED, télécommande aimantée et application.",
+        "footnote": "Caractéristiques annoncées par le fabricant du tapis."
       },
       "blocks": {
         "t1": {
           "type": "metric",
           "settings": {
-            "value": "1–10",
+            "value": "1–12",
             "unit": "km/h",
             "label": "Vitesse",
-            "detail": "Lent pour écrire, plus vite au téléphone"
+            "detail": "De la marche à la course"
           }
         },
         "t2": {
           "type": "metric",
           "settings": {
-            "value": "15",
+            "value": "0–9",
             "unit": "%",
             "label": "Inclinaison",
-            "detail": "Réglable sans arrêter le tapis"
+            "detail": "Réglable"
           }
         },
         "t3": {
           "type": "metric",
           "settings": {
-            "value": "136",
+            "value": "160",
             "unit": "kg",
             "label": "Poids maximal",
             "detail": "Poids de l'utilisateur"
@@ -2605,19 +2605,19 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
         "t4": {
           "type": "metric",
           "settings": {
-            "value": "×3",
-            "unit": "",
-            "label": "Amortissement",
-            "detail": "Triple système"
+            "value": "2,75",
+            "unit": "CV",
+            "label": "Moteur",
+            "detail": "Puissance du moteur"
           }
         },
         "t5": {
           "type": "metric",
           "settings": {
-            "value": "À plat",
+            "value": "12",
             "unit": "",
-            "label": "Rangement",
-            "detail": "Sous un lit, un canapé ou un bureau"
+            "label": "Programmes",
+            "detail": "Intégrés, avec écran LED"
           }
         }
       },
@@ -2627,8 +2627,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
         "t3",
         "t4",
         "t5"
-      ],
-      "disabled": true
+      ]
     },
     "etapes": {
       "type": "ww-etapes",
@@ -2868,7 +2867,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
           "type": "question",
           "settings": {
             "question": "Quel pack choisir ?",
-            "answer": "<p><strong>Pack Essentiel Appartement</strong> : pour marcher chez vous sans déranger, avec le tapis de marche et le tapis anti-bruit. <strong>Pack Télétravail</strong> : pour marcher à votre bureau, il ajoute un réhausseur assis-debout. <strong>Pack Ultimate Home Gym</strong> : pour ajouter du renforcement, avec des haltères réglables, un banc pliable et le programme 30 jours offert. <a href=\"#ww-comparatif\">Voir le comparatif</a></p>"
+            "answer": "<p><strong>Pack Essentiel Appartement</strong> : pour bouger chez vous sans déranger, avec le tapis de course et le tapis anti-bruit. <strong>Pack Télétravail</strong> : pour marcher à votre bureau, il ajoute un réhausseur assis-debout. <strong>Pack Ultimate Home Gym</strong> : pour ajouter du renforcement, avec des haltères réglables, un banc pliable et le programme 30 jours offert. <a href=\"#ww-comparatif\">Voir le comparatif</a></p>"
           }
         },
         "q2": {
@@ -2917,7 +2916,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
           "type": "question",
           "settings": {
             "question": "Que contient chaque pack ?",
-            "answer": "<p><strong>Pack Essentiel Appartement</strong> : 1 tapis de marche pliable et 1 tapis Fitness Pro anti-bruit 200 × 90 cm.</p><p><strong>Pack Télétravail</strong> : 1 tapis de marche pliable, 1 réhausseur de bureau assis-debout et 1 tapis Fitness Pro anti-bruit 200 × 90 cm.</p><p><strong>Pack Ultimate Home Gym</strong> : 1 tapis de marche pliable, 1 tapis Fitness Pro anti-bruit, 1 paire d'haltères réglables et 1 banc pliable, avec le programme 30 jours (PDF) offert.</p>"
+            "answer": "<p><strong>Pack Essentiel Appartement</strong> : 1 tapis de course pliable et 1 tapis Fitness Pro anti-bruit 200 × 90 cm.</p><p><strong>Pack Télétravail</strong> : 1 tapis de course pliable, 1 réhausseur de bureau assis-debout et 1 tapis Fitness Pro anti-bruit 200 × 90 cm.</p><p><strong>Pack Ultimate Home Gym</strong> : 1 tapis de course pliable, 1 tapis Fitness Pro anti-bruit, 1 paire d'haltères réglables et 1 banc pliable, avec le programme 30 jours (PDF) offert.</p>"
           }
         },
         "q9": {
@@ -2954,10 +2953,18 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
             "question": "Et en cas de désaccord ?",
             "answer": "<p>Écrivez-nous d'abord : nous recherchons en priorité une solution amiable. Si votre réclamation écrite reste sans solution, vous pouvez saisir gratuitement un conciliateur de justice (www.conciliateurs.fr). <a href=\"/policies/legal-notice\">Mentions légales</a></p>"
           }
+        },
+        "qe": {
+          "type": "question",
+          "settings": {
+            "question": "Peut-on courir sur ce tapis ?",
+            "answer": "<p>Oui. La vitesse va de 1 à 12 km/h, de la marche lente à la course, avec une inclinaison réglable de 0 à 9 %. Le tapis accepte un utilisateur jusqu'à 160 kg et propose 12 programmes intégrés.</p>"
+          }
         }
       },
       "block_order": [
         "q1",
+        "qe",
         "q2",
         "qa",
         "q3",
@@ -3025,7 +3032,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
           "type": "contents",
           "settings": {
             "product": "pack-essentiel-home-gym",
-            "items": "<ul><li>1 tapis de marche pliable</li><li>1 tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
+            "items": "<ul><li>1 tapis de course pliable</li><li>1 tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
             "note": ""
           }
         },
@@ -3033,7 +3040,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
           "type": "contents",
           "settings": {
             "product": "pack-performance-connectee",
-            "items": "<ul><li>1 tapis de marche pliable</li><li>1 réhausseur de bureau assis-debout</li><li>1 tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
+            "items": "<ul><li>1 tapis de course pliable</li><li>1 réhausseur de bureau assis-debout</li><li>1 tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
             "note": ""
           }
         },
@@ -3041,7 +3048,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
           "type": "contents",
           "settings": {
             "product": "pack-ultimate-home-gym",
-            "items": "<ul><li>1 tapis de marche pliable</li><li>1 tapis Fitness Pro anti-bruit</li><li>1 paire d'haltères réglables</li><li>1 banc pliable</li></ul>",
+            "items": "<ul><li>1 tapis de course pliable</li><li>1 tapis Fitness Pro anti-bruit</li><li>1 paire d'haltères réglables</li><li>1 banc pliable</li></ul>",
             "note": "Offert : le programme 30 jours (PDF), 5 séances de 35 minutes maximum par semaine, conçu pour ce pack."
           }
         }
@@ -3083,7 +3090,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
         "r2": {
           "type": "row",
           "settings": {
-            "label": "Tapis de marche pliable",
+            "label": "Tapis de course pliable",
             "value_1": "oui",
             "value_2": "oui",
             "value_3": "oui"

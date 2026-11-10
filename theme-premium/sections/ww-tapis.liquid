@@ -35,17 +35,17 @@
   "tag": "div",
   "max_blocks": 5,
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Surtitre", "default": "Le tapis de marche" },
-    { "type": "text", "id": "title", "label": "Titre", "default": "Fin, discret, rangé en quelques secondes." },
-    { "type": "text", "id": "text", "label": "Texte", "default": "Inclus dans les trois packs, avec les mêmes caractéristiques." },
-    { "type": "text", "id": "footnote", "label": "Note sous les chiffres (facultative)" }
+    { "type": "text", "id": "eyebrow", "label": "Surtitre", "default": "Le tapis de course" },
+    { "type": "text", "id": "title", "label": "Titre", "default": "De la marche à la course, chez vous." },
+    { "type": "text", "id": "text", "label": "Texte", "default": "Le même tapis dans les trois packs : pliable, avec écran LED, télécommande aimantée et application." },
+    { "type": "text", "id": "footnote", "label": "Note sous les chiffres (facultative)", "default": "Caractéristiques annoncées par le fabricant du tapis." }
   ],
   "blocks": [
     {
       "type": "metric",
       "name": "Chiffre",
       "settings": [
-        { "type": "text", "id": "value", "label": "Valeur", "default": "1–10" },
+        { "type": "text", "id": "value", "label": "Valeur", "default": "1–12" },
         { "type": "text", "id": "unit", "label": "Unité (en petit, facultative)", "default": "km/h" },
         { "type": "text", "id": "label", "label": "Libellé", "default": "Vitesse" },
         { "type": "text", "id": "detail", "label": "Précision" }
@@ -56,11 +56,11 @@
     {
       "name": "WW · Le tapis en chiffres",
       "blocks": [
-        { "type": "metric", "settings": { "value": "1–10", "unit": "km/h", "label": "Vitesse", "detail": "Lent pour écrire, plus vite au téléphone" } },
-        { "type": "metric", "settings": { "value": "15", "unit": "%", "label": "Inclinaison", "detail": "Réglable sans arrêter le tapis" } },
-        { "type": "metric", "settings": { "value": "136", "unit": "kg", "label": "Poids maximal", "detail": "Poids de l'utilisateur" } },
-        { "type": "metric", "settings": { "value": "×3", "unit": "", "label": "Amortissement", "detail": "Triple système" } },
-        { "type": "metric", "settings": { "value": "À plat", "unit": "", "label": "Rangement", "detail": "Sous un lit, un canapé ou un bureau" } }
+        { "type": "metric", "settings": { "value": "1–12", "unit": "km/h", "label": "Vitesse", "detail": "De la marche à la course" } },
+        { "type": "metric", "settings": { "value": "0–9", "unit": "%", "label": "Inclinaison", "detail": "Réglable" } },
+        { "type": "metric", "settings": { "value": "160", "unit": "kg", "label": "Poids maximal", "detail": "Poids de l'utilisateur" } },
+        { "type": "metric", "settings": { "value": "2,75", "unit": "CV", "label": "Moteur", "detail": "Puissance du moteur" } },
+        { "type": "metric", "settings": { "value": "12", "unit": "", "label": "Programmes", "detail": "Intégrés, avec écran LED" } }
       ]
     }
   ]

@@ -519,6 +519,16 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
 
 /* ---------- Confiance : identité, service client, retours, droits ---------- */
 
+/* Vidéo de l'accroche, avec bouton pause / lecture */
+.ww-hero__video { position: relative; background: var(--ww-carbon); }
+.ww-hero__video video { display: block; width: 100%; height: auto; max-height: 78vh; object-fit: cover; }
+.ww-hero__video-toggle { position: absolute; right: 14px; bottom: 14px; display: grid; place-items: center; width: 42px; height: 42px; border: 0; border-radius: 50%; background: rgba(0, 0, 0, 0.55); color: var(--ww-white); cursor: pointer; }
+.ww-hero__video-toggle:focus-visible { outline: 2px solid var(--ww-white); outline-offset: 2px; }
+.ww-hero__video-toggle .ww-icon { width: 18px; height: 18px; }
+.ww-hero__video-play { display: none; }
+.ww-hero__video.is-paused .ww-hero__video-pause { display: none; }
+.ww-hero__video.is-paused .ww-hero__video-play { display: block; }
+
 /* Petit drapeau français */
 .ww-flag { display: inline-block; flex: none; width: 18px; height: 12px; border-radius: 2px; box-shadow: 0 0 0 1px var(--ww-hairline); }
 
@@ -696,7 +706,30 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
     });
   }
 
-  /* ---------- 5. Barres d'achat fixes (mobile) ---------- */
+  /* ---------- 5. Vidéo de l'accroche : bouton pause / lecture ----------
+     Si le visiteur a demandé à réduire les animations, la vidéo ne démarre pas toute seule. */
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('[data-ww-video]').forEach(function (box) {
+    var video = box.querySelector('video');
+    var toggle = box.querySelector('[data-ww-video-toggle]');
+    if (!video || !toggle) return;
+    function sync() {
+      box.classList.toggle('is-paused', video.paused);
+      toggle.setAttribute('aria-label', video.paused ? 'Lire la vidéo' : 'Mettre la vidéo en pause');
+    }
+    if (reduceMotion) {
+      video.removeAttribute('autoplay');
+      video.pause();
+    }
+    toggle.addEventListener('click', function () {
+      if (video.paused) video.play(); else video.pause();
+    });
+    video.addEventListener('play', sync);
+    video.addEventListener('pause', sync);
+    sync();
+  });
+
+  /* ---------- 6. Barres d'achat fixes (mobile) ---------- */
   if (!('IntersectionObserver' in window)) return;
 
   function setSticky(bar, show) {
@@ -753,7 +786,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
   Icônes au trait, dessinées en SVG (style Lucide, licence ISC).
   Paramètre : name (truck, return, refund, shield, lock, check, bag, package, home,
   mail, phone, clock, pin, card, chat, building, arrow, lifebuoy, privacy, scale, globe, receipt,
-  flag : petit drapeau français en couleurs)
+  pause, play, flag : petit drapeau français en couleurs)
 {%- endcomment -%}
 {%- if name == 'flag' -%}
 <svg class="ww-flag" viewBox="0 0 3 2" aria-hidden="true" focusable="false"><rect width="1" height="2" fill="#0055A4"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#EF4135"/></svg>
@@ -804,6 +837,10 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
       <path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 17.5v-11"/>
     {%- when 'arrow' -%}
       <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+    {%- when 'pause' -%}
+      <rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/>
+    {%- when 'play' -%}
+      <path d="M7 4.5v15a1 1 0 0 0 1.5.86l12-7.5a1 1 0 0 0 0-1.72l-12-7.5A1 1 0 0 0 7 4.5Z"/>
     {%- else -%}
       <circle cx="12" cy="12" r="9"/>
   {%- endcase -%}
@@ -976,11 +1013,16 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
   if section.settings.collection != blank
     assign cheapest = section.settings.collection.products | sort: 'price' | first
   endif
+  assign hero_video = section.settings.video
+  assign has_media = false
+  if hero_video != blank or hero_image != blank
+    assign has_media = true
+  endif
 -%}
 
 <section class="ww ww-hero" aria-labelledby="ww-hero-{{ section.id }}">
   <div class="ww-container">
-    <div class="ww-hero__grid{% if hero_image != blank %} ww-hero__grid--media{% endif %}">
+    <div class="ww-hero__grid{% if has_media %} ww-hero__grid--media{% endif %}">
 
       <div class="ww-hero__text">
         {%- if section.settings.eyebrow != blank -%}
@@ -1048,29 +1090,52 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
         {%- endif -%}
       </div>
 
-      {%- if hero_image != blank -%}
-        {%- capture hero_img -%}
-          {{
-            hero_image
-            | image_url: width: 1400
-            | image_tag:
-              loading: 'eager',
-              preload: true,
-              widths: '600, 900, 1200, 1400',
-              sizes: '(min-width: 990px) 45vw, 92vw',
-              alt: hero_image.alt
-          }}
-        {%- endcapture -%}
+      {%- if has_media -%}
         <figure class="ww-hero__media">
+          {%- if hero_video != blank -%}
+            {%- comment -%} Vidéo hébergée sur Shopify : lecture automatique, sans son, en boucle, avec bouton pause {%- endcomment -%}
+            <div class="ww-hero__video" data-ww-video>
+              {{
+                hero_video
+                | video_tag:
+                  autoplay: true,
+                  loop: true,
+                  muted: true,
+                  playsinline: true,
+                  controls: false,
+                  preload: 'metadata',
+                  image_size: '1400x'
+              }}
+              <button type="button" class="ww-hero__video-toggle" data-ww-video-toggle aria-label="Mettre la vidéo en pause">
+                <span class="ww-hero__video-pause">{% render 'ww-icon', name: 'pause' %}</span>
+                <span class="ww-hero__video-play">{% render 'ww-icon', name: 'play' %}</span>
+              </button>
+            </div>
+          {%- else -%}
+            {%- capture hero_img -%}
+              {{
+                hero_image
+                | image_url: width: 1400
+                | image_tag:
+                  loading: 'eager',
+                  preload: true,
+                  widths: '600, 900, 1200, 1400',
+                  sizes: '(min-width: 990px) 45vw, 92vw',
+                  alt: hero_image.alt
+              }}
+            {%- endcapture -%}
+            {%- if featured != blank -%}
+              <a class="ww-hero__img" href="{{ featured.url }}" tabindex="-1" aria-hidden="true">{{ hero_img }}</a>
+            {%- else -%}
+              <div class="ww-hero__img">{{ hero_img }}</div>
+            {%- endif -%}
+          {%- endif -%}
           {%- if featured != blank -%}
-            <a class="ww-hero__img" href="{{ featured.url }}" tabindex="-1" aria-hidden="true">{{ hero_img }}</a>
             <figcaption class="ww-hero__caption">
               <span class="ww-hero__caption-name">{{ featured.title | split: ' | ' | first | escape }}</span>
               <span class="ww-hero__caption-price">{{ featured.price | money }}</span>
               <a class="ww-link" href="{{ featured.url }}">Voir le pack {% render 'ww-icon', name: 'arrow' %}</a>
             </figcaption>
-          {%- else -%}
-            <div class="ww-hero__img">{{ hero_img }}</div>
           {%- endif -%}
         </figure>
       {%- endif -%}
@@ -1115,7 +1180,8 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
     { "type": "text", "id": "sticky_text", "label": "Sous-titre", "default": "Livraison offerte · 14 jours pour changer d'avis" },
     { "type": "text", "id": "sticky_button", "label": "Texte du bouton", "default": "Voir les packs" },
     { "type": "product", "id": "product", "label": "Pack mis en avant", "info": "Sa photo principale, son nom et son prix s'affichent à côté du texte." },
-    { "type": "image_picker", "id": "image", "label": "Image (facultative, remplace la photo du pack)" }
+    { "type": "image_picker", "id": "image", "label": "Image (facultative, remplace la photo du pack)" },
+    { "type": "video", "id": "video", "label": "Vidéo (facultative)", "info": "Vidéo hébergée sur Shopify (MP4). Elle remplace la photo : lecture automatique sans son, en boucle, avec un bouton pause. Elle doit montrer le produit réellement livré." }
   ],
   "blocks": [
     {
@@ -2468,7 +2534,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
           "settings": {
             "label": "En journée",
             "title": "Marchez pendant vos réunions.",
-            "text": "Le réhausseur met votre bureau à hauteur debout et le tapis se glisse dessous. Vous avancez à votre rythme, de 1 à 10 km/h.",
+            "text": "Le réhausseur met votre bureau à hauteur debout et le tapis se glisse dessous. Vous avancez à votre rythme.",
             "product": "pack-performance-connectee",
             "link_label": "Voir le Pack Télétravail"
           }
@@ -2488,7 +2554,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
           "settings": {
             "label": "Le week-end",
             "title": "Une vraie séance, sans salle.",
-            "text": "Marche en pente jusqu'à 15 %, haltères réglables et banc pliable. Puis tout se range.",
+            "text": "Marche en pente, haltères réglables et banc pliable. Puis tout se range.",
             "product": "pack-ultimate-home-gym",
             "link_label": "Voir le Pack Ultimate"
           }
@@ -2561,7 +2627,8 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
         "t3",
         "t4",
         "t5"
-      ]
+      ],
+      "disabled": true
     },
     "etapes": {
       "type": "ww-etapes",

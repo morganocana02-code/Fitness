@@ -241,7 +241,7 @@
           "settings": {
             "label": "En journée",
             "title": "Marchez pendant vos réunions.",
-            "text": "Le réhausseur met votre bureau à hauteur debout et le tapis se glisse dessous. Vous avancez à votre rythme, de 1 à 10 km/h.",
+            "text": "Le réhausseur met votre bureau à hauteur debout et le tapis se glisse dessous. Vous avancez à votre rythme.",
             "product": "pack-performance-connectee",
             "link_label": "Voir le Pack Télétravail"
           }
@@ -261,7 +261,7 @@
           "settings": {
             "label": "Le week-end",
             "title": "Une vraie séance, sans salle.",
-            "text": "Marche en pente jusqu'à 15 %, haltères réglables et banc pliable. Puis tout se range.",
+            "text": "Marche en pente, haltères réglables et banc pliable. Puis tout se range.",
             "product": "pack-ultimate-home-gym",
             "link_label": "Voir le Pack Ultimate"
           }
@@ -334,7 +334,8 @@
         "t3",
         "t4",
         "t5"
-      ]
+      ],
+      "disabled": true
     },
     "etapes": {
       "type": "ww-etapes",

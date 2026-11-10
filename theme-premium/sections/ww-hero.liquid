@@ -11,11 +11,16 @@
   if section.settings.collection != blank
     assign cheapest = section.settings.collection.products | sort: 'price' | first
   endif
+  assign hero_video = section.settings.video
+  assign has_media = false
+  if hero_video != blank or hero_image != blank
+    assign has_media = true
+  endif
 -%}
 
 <section class="ww ww-hero" aria-labelledby="ww-hero-{{ section.id }}">
   <div class="ww-container">
-    <div class="ww-hero__grid{% if hero_image != blank %} ww-hero__grid--media{% endif %}">
+    <div class="ww-hero__grid{% if has_media %} ww-hero__grid--media{% endif %}">
 
       <div class="ww-hero__text">
         {%- if section.settings.eyebrow != blank -%}
@@ -83,29 +88,52 @@
         {%- endif -%}
       </div>
 
-      {%- if hero_image != blank -%}
-        {%- capture hero_img -%}
-          {{
-            hero_image
-            | image_url: width: 1400
-            | image_tag:
-              loading: 'eager',
-              preload: true,
-              widths: '600, 900, 1200, 1400',
-              sizes: '(min-width: 990px) 45vw, 92vw',
-              alt: hero_image.alt
-          }}
-        {%- endcapture -%}
+      {%- if has_media -%}
         <figure class="ww-hero__media">
+          {%- if hero_video != blank -%}
+            {%- comment -%} Vidéo hébergée sur Shopify : lecture automatique, sans son, en boucle, avec bouton pause {%- endcomment -%}
+            <div class="ww-hero__video" data-ww-video>
+              {{
+                hero_video
+                | video_tag:
+                  autoplay: true,
+                  loop: true,
+                  muted: true,
+                  playsinline: true,
+                  controls: false,
+                  preload: 'metadata',
+                  image_size: '1400x'
+              }}
+              <button type="button" class="ww-hero__video-toggle" data-ww-video-toggle aria-label="Mettre la vidéo en pause">
+                <span class="ww-hero__video-pause">{% render 'ww-icon', name: 'pause' %}</span>
+                <span class="ww-hero__video-play">{% render 'ww-icon', name: 'play' %}</span>
+              </button>
+            </div>
+          {%- else -%}
+            {%- capture hero_img -%}
+              {{
+                hero_image
+                | image_url: width: 1400
+                | image_tag:
+                  loading: 'eager',
+                  preload: true,
+                  widths: '600, 900, 1200, 1400',
+                  sizes: '(min-width: 990px) 45vw, 92vw',
+                  alt: hero_image.alt
+              }}
+            {%- endcapture -%}
+            {%- if featured != blank -%}
+              <a class="ww-hero__img" href="{{ featured.url }}" tabindex="-1" aria-hidden="true">{{ hero_img }}</a>
+            {%- else -%}
+              <div class="ww-hero__img">{{ hero_img }}</div>
+            {%- endif -%}
+          {%- endif -%}
           {%- if featured != blank -%}
-            <a class="ww-hero__img" href="{{ featured.url }}" tabindex="-1" aria-hidden="true">{{ hero_img }}</a>
             <figcaption class="ww-hero__caption">
               <span class="ww-hero__caption-name">{{ featured.title | split: ' | ' | first | escape }}</span>
               <span class="ww-hero__caption-price">{{ featured.price | money }}</span>
               <a class="ww-link" href="{{ featured.url }}">Voir le pack {% render 'ww-icon', name: 'arrow' %}</a>
             </figcaption>
-          {%- else -%}
-            <div class="ww-hero__img">{{ hero_img }}</div>
           {%- endif -%}
         </figure>
       {%- endif -%}
@@ -150,7 +178,8 @@
     { "type": "text", "id": "sticky_text", "label": "Sous-titre", "default": "Livraison offerte · 14 jours pour changer d'avis" },
     { "type": "text", "id": "sticky_button", "label": "Texte du bouton", "default": "Voir les packs" },
     { "type": "product", "id": "product", "label": "Pack mis en avant", "info": "Sa photo principale, son nom et son prix s'affichent à côté du texte." },
-    { "type": "image_picker", "id": "image", "label": "Image (facultative, remplace la photo du pack)" }
+    { "type": "image_picker", "id": "image", "label": "Image (facultative, remplace la photo du pack)" },
+    { "type": "video", "id": "video", "label": "Vidéo (facultative)", "info": "Vidéo hébergée sur Shopify (MP4). Elle remplace la photo : lecture automatique sans son, en boucle, avec un bouton pause. Elle doit montrer le produit réellement livré." }
   ],
   "blocks": [
     {

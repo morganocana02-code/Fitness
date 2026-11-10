@@ -122,6 +122,36 @@ cite le téléphone, l'e-mail et les horaires.
   (« Ajouter un bloc » › Applications), uniquement avec de vrais avis.
 - Barre d'annonce (réglages Horizon) : fond violet #4a53ff, texte blanc.
 
+## Vidéo de l'accroche
+
+La section « WW · Accroche » accepte une vidéo. Elle remplace la photo du pack : lecture automatique
+sans son, en boucle, avec un bouton pause. Elle ne démarre pas toute seule si le visiteur a demandé
+à réduire les animations. Tant qu'aucune vidéo n'est choisie, la photo du pack mis en avant s'affiche.
+
+1. Shopify : Contenu › Fichiers › Importer des fichiers › choisir la vidéo.
+2. Boutique en ligne › Thèmes › Personnaliser › WW · Accroche › Vidéo › sélectionner la vidéo.
+
+Format conseillé pour la vidéo générée par IA :
+- MP4, carré (1080 × 1080) ou vertical 4:5 (1080 × 1350), pour bien remplir l'écran sur mobile ;
+- 6 à 12 secondes, avec une fin qui rejoint le début (boucle sans coupure) ;
+- sans son (elle est lue en muet) et sans texte incrusté ;
+- moins de 10 Mo pour un chargement rapide.
+Elle doit montrer le tapis réellement livré, avec ses vraies caractéristiques (inclinaison, vitesse,
+guidon, écran) : une vidéo qui promet plus que le produit fait perdre la confiance et peut être
+sanctionnée par Google.
+
+## Nouveau tapis dans les trois packs
+
+- La section « WW · Le tapis en chiffres » est masquée (pas supprimée) : elle affichait les chiffres
+  de l'ancien tapis (15 %, 1–10 km/h, 136 kg). Elle reviendra avec la fiche technique du nouveau tapis.
+- Les textes « Moments » ne citent plus de vitesse ni d'inclinaison.
+- À mettre à jour avec la fiche technique : l'accroche (« pliable et discret, qui se range sous le lit
+  ou le bureau »), les phrases des packs (« se range à plat sous le lit », « le tapis se glisse dessous »),
+  « 1 tapis de marche pliable » dans le contenu des packs, et les descriptions des produits dans Shopify.
+- Dans Shopify, les photos, titres, descriptions et caractéristiques des 3 packs doivent être changés
+  en même temps, puis le flux Google Merchant Center (Simprosys) synchronisé : des informations
+  différentes entre la boutique et Google peuvent être signalées comme « déclarations trompeuses ».
+
 ## Photos : le point le plus important pour la confiance
 
 Chaque photo doit montrer exactement ce qui est livré, avec les mêmes caractéristiques que la fiche

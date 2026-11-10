@@ -512,6 +512,16 @@
 
 /* ---------- Confiance : identité, service client, retours, droits ---------- */
 
+/* Vidéo de l'accroche, avec bouton pause / lecture */
+.ww-hero__video { position: relative; background: var(--ww-carbon); }
+.ww-hero__video video { display: block; width: 100%; height: auto; max-height: 78vh; object-fit: cover; }
+.ww-hero__video-toggle { position: absolute; right: 14px; bottom: 14px; display: grid; place-items: center; width: 42px; height: 42px; border: 0; border-radius: 50%; background: rgba(0, 0, 0, 0.55); color: var(--ww-white); cursor: pointer; }
+.ww-hero__video-toggle:focus-visible { outline: 2px solid var(--ww-white); outline-offset: 2px; }
+.ww-hero__video-toggle .ww-icon { width: 18px; height: 18px; }
+.ww-hero__video-play { display: none; }
+.ww-hero__video.is-paused .ww-hero__video-pause { display: none; }
+.ww-hero__video.is-paused .ww-hero__video-play { display: block; }
+
 /* Petit drapeau français */
 .ww-flag { display: inline-block; flex: none; width: 18px; height: 12px; border-radius: 2px; box-shadow: 0 0 0 1px var(--ww-hairline); }
 

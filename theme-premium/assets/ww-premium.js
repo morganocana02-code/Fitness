@@ -121,7 +121,30 @@
     });
   }
 
-  /* ---------- 5. Barres d'achat fixes (mobile) ---------- */
+  /* ---------- 5. Vidéo de l'accroche : bouton pause / lecture ----------
+     Si le visiteur a demandé à réduire les animations, la vidéo ne démarre pas toute seule. */
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('[data-ww-video]').forEach(function (box) {
+    var video = box.querySelector('video');
+    var toggle = box.querySelector('[data-ww-video-toggle]');
+    if (!video || !toggle) return;
+    function sync() {
+      box.classList.toggle('is-paused', video.paused);
+      toggle.setAttribute('aria-label', video.paused ? 'Lire la vidéo' : 'Mettre la vidéo en pause');
+    }
+    if (reduceMotion) {
+      video.removeAttribute('autoplay');
+      video.pause();
+    }
+    toggle.addEventListener('click', function () {
+      if (video.paused) video.play(); else video.pause();
+    });
+    video.addEventListener('play', sync);
+    video.addEventListener('pause', sync);
+    sync();
+  });
+
+  /* ---------- 6. Barres d'achat fixes (mobile) ---------- */
   if (!('IntersectionObserver' in window)) return;
 
   function setSticky(bar, show) {

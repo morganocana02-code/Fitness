@@ -512,6 +512,14 @@
 
 /* ---------- Confiance : identité, service client, retours, droits ---------- */
 
+/* Fiche produit : caractéristiques du tapis, juste sous l'achat */
+.ww-specs { margin: 14px 0 0; padding: 18px 20px; border: 1px solid var(--ww-hairline); border-radius: 18px; }
+.ww-specs__list { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 20px; margin: 0; }
+.ww-specs__list > div { min-width: 0; }
+.ww-specs__list dt { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ww-fog); }
+.ww-specs__list dd { margin: 3px 0 0; font-size: 15px; font-weight: 600; line-height: 1.35; overflow-wrap: anywhere; }
+.ww-specs__note { margin: 14px 0 0; font-size: 12px; line-height: 1.45; color: var(--ww-fog); }
+
 /* Vidéo de l'accroche, avec bouton pause / lecture */
 .ww-hero__video { position: relative; background: var(--ww-carbon); }
 .ww-hero__video video { display: block; width: 100%; height: auto; max-height: 78vh; object-fit: cover; }

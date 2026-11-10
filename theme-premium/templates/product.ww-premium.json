@@ -10,7 +10,9 @@
         "show_dynamic_checkout": true,
         "show_eta": true,
         "show_compare_link": true,
-        "show_sticky": true
+        "show_sticky": true,
+        "specs_title": "Le tapis de course",
+        "specs_note": "Caractéristiques annoncées par le fabricant du tapis."
       },
       "blocks": {
         "contents_essentiel": {
@@ -36,12 +38,84 @@
             "items": "<ul><li>1 tapis de course pliable</li><li>1 tapis Fitness Pro anti-bruit</li><li>1 paire d'haltères réglables</li><li>1 banc pliable</li></ul>",
             "note": "Offert : le programme 30 jours (PDF), 5 séances de 35 minutes maximum par semaine, conçu pour ce pack."
           }
+        },
+        "spec1": {
+          "type": "spec",
+          "settings": {
+            "label": "Vitesse",
+            "value": "1 à 12 km/h"
+          }
+        },
+        "spec2": {
+          "type": "spec",
+          "settings": {
+            "label": "Inclinaison",
+            "value": "0 à 9 %, réglable"
+          }
+        },
+        "spec3": {
+          "type": "spec",
+          "settings": {
+            "label": "Moteur",
+            "value": "2,75 CV"
+          }
+        },
+        "spec4": {
+          "type": "spec",
+          "settings": {
+            "label": "Poids utilisateur max.",
+            "value": "160 kg"
+          }
+        },
+        "spec5": {
+          "type": "spec",
+          "settings": {
+            "label": "Programmes",
+            "value": "12 intégrés"
+          }
+        },
+        "spec6": {
+          "type": "spec",
+          "settings": {
+            "label": "Écran",
+            "value": "LED"
+          }
+        },
+        "spec7": {
+          "type": "spec",
+          "settings": {
+            "label": "Commande",
+            "value": "Télécommande aimantée"
+          }
+        },
+        "spec8": {
+          "type": "spec",
+          "settings": {
+            "label": "Application",
+            "value": "Zwift, Kinomap, FitShow"
+          }
+        },
+        "spec9": {
+          "type": "spec",
+          "settings": {
+            "label": "Rangement",
+            "value": "Pliable"
+          }
         }
       },
       "block_order": [
         "contents_essentiel",
         "contents_teletravail",
-        "contents_ultimate"
+        "contents_ultimate",
+        "spec1",
+        "spec2",
+        "spec3",
+        "spec4",
+        "spec5",
+        "spec6",
+        "spec7",
+        "spec8",
+        "spec9"
       ]
     },
     "comparatif": {

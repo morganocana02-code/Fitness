@@ -131,6 +131,20 @@
           {%- endif -%}
         {%- endfor -%}
 
+        {%- comment -%} Caractéristiques du tapis, communes aux trois packs (blocs « Caractéristique ») {%- endcomment -%}
+        {%- assign specs = section.blocks | where: 'type', 'spec' -%}
+        {%- if specs.size > 0 -%}
+          <div class="ww-specs">
+            <p class="ww-box__title">{% render 'ww-icon', name: 'gauge' %}{{ section.settings.specs_title | escape }}</p>
+            <dl class="ww-specs__list">
+              {%- for block in specs -%}
+                <div {{ block.shopify_attributes }}><dt>{{ block.settings.label | escape }}</dt><dd>{{ block.settings.value | escape }}</dd></div>
+              {%- endfor -%}
+            </dl>
+            {%- if section.settings.specs_note != blank -%}<p class="ww-specs__note">{{ section.settings.specs_note | escape }}</p>{%- endif -%}
+          </div>
+        {%- endif -%}
+
         <div class="ww-product__pay">
           <span>{% render 'ww-icon', name: 'lock' %}Paiement sécurisé</span>
           <ul class="ww-pay" role="list">
@@ -252,6 +266,8 @@
     { "type": "checkbox", "id": "show_seller", "label": "Afficher « Vendu par… »", "default": true },
     { "type": "text", "id": "tax_note", "label": "Mention sous le prix", "default": "Prix final · TVA non applicable, art. 293 B du CGI · Livraison offerte" },
     { "type": "text", "id": "contents_title", "label": "Titre du contenu du carton", "default": "Dans le carton" },
+    { "type": "text", "id": "specs_title", "label": "Titre des caractéristiques", "default": "Le tapis de course" },
+    { "type": "text", "id": "specs_note", "label": "Note sous les caractéristiques", "default": "Caractéristiques annoncées par le fabricant du tapis." },
     { "type": "checkbox", "id": "show_dynamic_checkout", "label": "Afficher le bouton de paiement rapide", "default": true },
     { "type": "checkbox", "id": "show_eta", "label": "Afficher la date de livraison estimée", "default": true },
     { "type": "checkbox", "id": "show_compare_link", "label": "Afficher le lien « Comparer les 3 packs »", "default": true },
@@ -265,6 +281,14 @@
         { "type": "product", "id": "product", "label": "Pack concerné" },
         { "type": "richtext", "id": "items", "label": "Éléments livrés" },
         { "type": "text", "id": "note", "label": "Précision (facultative)" }
+      ]
+    },
+    {
+      "type": "spec",
+      "name": "Caractéristique",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Intitulé", "default": "Vitesse" },
+        { "type": "text", "id": "value", "label": "Valeur", "default": "1 à 12 km/h" }
       ]
     },
     { "type": "@app" }

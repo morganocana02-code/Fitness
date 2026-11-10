@@ -2,7 +2,7 @@
   Icônes au trait, dessinées en SVG (style Lucide, licence ISC).
   Paramètre : name (truck, return, refund, shield, lock, check, bag, package, home,
   mail, phone, clock, pin, card, chat, building, arrow, lifebuoy, privacy, scale, globe, receipt,
-  pause, play, flag : petit drapeau français en couleurs)
+  gauge, pause, play, flag : petit drapeau français en couleurs)
 {%- endcomment -%}
 {%- if name == 'flag' -%}
 <svg class="ww-flag" viewBox="0 0 3 2" aria-hidden="true" focusable="false"><rect width="1" height="2" fill="#0055A4"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#EF4135"/></svg>
@@ -53,6 +53,8 @@
       <path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 17.5v-11"/>
     {%- when 'arrow' -%}
       <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+    {%- when 'gauge' -%}
+      <path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/>
     {%- when 'pause' -%}
       <rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/>
     {%- when 'play' -%}

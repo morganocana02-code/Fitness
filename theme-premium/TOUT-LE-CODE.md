@@ -519,6 +519,14 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
 
 /* ---------- Confiance : identité, service client, retours, droits ---------- */
 
+/* Fiche produit : caractéristiques du tapis, juste sous l'achat */
+.ww-specs { margin: 14px 0 0; padding: 18px 20px; border: 1px solid var(--ww-hairline); border-radius: 18px; }
+.ww-specs__list { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 20px; margin: 0; }
+.ww-specs__list > div { min-width: 0; }
+.ww-specs__list dt { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ww-fog); }
+.ww-specs__list dd { margin: 3px 0 0; font-size: 15px; font-weight: 600; line-height: 1.35; overflow-wrap: anywhere; }
+.ww-specs__note { margin: 14px 0 0; font-size: 12px; line-height: 1.45; color: var(--ww-fog); }
+
 /* Vidéo de l'accroche, avec bouton pause / lecture */
 .ww-hero__video { position: relative; background: var(--ww-carbon); }
 .ww-hero__video video { display: block; width: 100%; height: auto; max-height: 78vh; object-fit: cover; }
@@ -786,7 +794,7 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
   Icônes au trait, dessinées en SVG (style Lucide, licence ISC).
   Paramètre : name (truck, return, refund, shield, lock, check, bag, package, home,
   mail, phone, clock, pin, card, chat, building, arrow, lifebuoy, privacy, scale, globe, receipt,
-  pause, play, flag : petit drapeau français en couleurs)
+  gauge, pause, play, flag : petit drapeau français en couleurs)
 {%- endcomment -%}
 {%- if name == 'flag' -%}
 <svg class="ww-flag" viewBox="0 0 3 2" aria-hidden="true" focusable="false"><rect width="1" height="2" fill="#0055A4"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#EF4135"/></svg>
@@ -837,6 +845,8 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
       <path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 17.5v-11"/>
     {%- when 'arrow' -%}
       <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+    {%- when 'gauge' -%}
+      <path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/>
     {%- when 'pause' -%}
       <rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/>
     {%- when 'play' -%}
@@ -2146,6 +2156,20 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
           {%- endif -%}
         {%- endfor -%}
 
+        {%- comment -%} Caractéristiques du tapis, communes aux trois packs (blocs « Caractéristique ») {%- endcomment -%}
+        {%- assign specs = section.blocks | where: 'type', 'spec' -%}
+        {%- if specs.size > 0 -%}
+          <div class="ww-specs">
+            <p class="ww-box__title">{% render 'ww-icon', name: 'gauge' %}{{ section.settings.specs_title | escape }}</p>
+            <dl class="ww-specs__list">
+              {%- for block in specs -%}
+                <div {{ block.shopify_attributes }}><dt>{{ block.settings.label | escape }}</dt><dd>{{ block.settings.value | escape }}</dd></div>
+              {%- endfor -%}
+            </dl>
+            {%- if section.settings.specs_note != blank -%}<p class="ww-specs__note">{{ section.settings.specs_note | escape }}</p>{%- endif -%}
+          </div>
+        {%- endif -%}
+
         <div class="ww-product__pay">
           <span>{% render 'ww-icon', name: 'lock' %}Paiement sécurisé</span>
           <ul class="ww-pay" role="list">
@@ -2267,6 +2291,8 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
     { "type": "checkbox", "id": "show_seller", "label": "Afficher « Vendu par… »", "default": true },
     { "type": "text", "id": "tax_note", "label": "Mention sous le prix", "default": "Prix final · TVA non applicable, art. 293 B du CGI · Livraison offerte" },
     { "type": "text", "id": "contents_title", "label": "Titre du contenu du carton", "default": "Dans le carton" },
+    { "type": "text", "id": "specs_title", "label": "Titre des caractéristiques", "default": "Le tapis de course" },
+    { "type": "text", "id": "specs_note", "label": "Note sous les caractéristiques", "default": "Caractéristiques annoncées par le fabricant du tapis." },
     { "type": "checkbox", "id": "show_dynamic_checkout", "label": "Afficher le bouton de paiement rapide", "default": true },
     { "type": "checkbox", "id": "show_eta", "label": "Afficher la date de livraison estimée", "default": true },
     { "type": "checkbox", "id": "show_compare_link", "label": "Afficher le lien « Comparer les 3 packs »", "default": true },
@@ -2280,6 +2306,14 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
         { "type": "product", "id": "product", "label": "Pack concerné" },
         { "type": "richtext", "id": "items", "label": "Éléments livrés" },
         { "type": "text", "id": "note", "label": "Précision (facultative)" }
+      ]
+    },
+    {
+      "type": "spec",
+      "name": "Caractéristique",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Intitulé", "default": "Vitesse" },
+        { "type": "text", "id": "value", "label": "Valeur", "default": "1 à 12 km/h" }
       ]
     },
     { "type": "@app" }
@@ -3025,7 +3059,9 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
         "show_dynamic_checkout": true,
         "show_eta": true,
         "show_compare_link": true,
-        "show_sticky": true
+        "show_sticky": true,
+        "specs_title": "Le tapis de course",
+        "specs_note": "Caractéristiques annoncées par le fabricant du tapis."
       },
       "blocks": {
         "contents_essentiel": {
@@ -3051,12 +3087,84 @@ Chaque bloc ci-dessous correspond à un fichier. Le chemin indique le dossier Sh
             "items": "<ul><li>1 tapis de course pliable</li><li>1 tapis Fitness Pro anti-bruit</li><li>1 paire d'haltères réglables</li><li>1 banc pliable</li></ul>",
             "note": "Offert : le programme 30 jours (PDF), 5 séances de 35 minutes maximum par semaine, conçu pour ce pack."
           }
+        },
+        "spec1": {
+          "type": "spec",
+          "settings": {
+            "label": "Vitesse",
+            "value": "1 à 12 km/h"
+          }
+        },
+        "spec2": {
+          "type": "spec",
+          "settings": {
+            "label": "Inclinaison",
+            "value": "0 à 9 %, réglable"
+          }
+        },
+        "spec3": {
+          "type": "spec",
+          "settings": {
+            "label": "Moteur",
+            "value": "2,75 CV"
+          }
+        },
+        "spec4": {
+          "type": "spec",
+          "settings": {
+            "label": "Poids utilisateur max.",
+            "value": "160 kg"
+          }
+        },
+        "spec5": {
+          "type": "spec",
+          "settings": {
+            "label": "Programmes",
+            "value": "12 intégrés"
+          }
+        },
+        "spec6": {
+          "type": "spec",
+          "settings": {
+            "label": "Écran",
+            "value": "LED"
+          }
+        },
+        "spec7": {
+          "type": "spec",
+          "settings": {
+            "label": "Commande",
+            "value": "Télécommande aimantée"
+          }
+        },
+        "spec8": {
+          "type": "spec",
+          "settings": {
+            "label": "Application",
+            "value": "Zwift, Kinomap, FitShow"
+          }
+        },
+        "spec9": {
+          "type": "spec",
+          "settings": {
+            "label": "Rangement",
+            "value": "Pliable"
+          }
         }
       },
       "block_order": [
         "contents_essentiel",
         "contents_teletravail",
-        "contents_ultimate"
+        "contents_ultimate",
+        "spec1",
+        "spec2",
+        "spec3",
+        "spec4",
+        "spec5",
+        "spec6",
+        "spec7",
+        "spec8",
+        "spec9"
       ]
     },
     "comparatif": {

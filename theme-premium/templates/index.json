@@ -87,12 +87,11 @@
             "product": "pack-performance-connectee",
             "moment": "En journée",
             "pitch": "Un bureau électrique qui passe d'assis à debout, le tapis de course dessous, et la montre qui compte vos pas.",
-            "contents": "<ul><li>1 tapis de course pliable</li><li>1 bureau électrique assis-debout 120 × 80 cm</li><li>1 montre connectée</li><li>1 tapis de fitness HAPBEAR 183 × 122 cm</li></ul>",
+            "contents": "<ul><li>1 tapis de course pliable</li><li>1 bureau électrique assis-debout 120 × 80 cm</li><li>1 montre connectée</li></ul>",
             "badge": "",
             "item_image_1": "shopify://shop_images/tapis-de-course-pliable-whisperwalk.jpg",
             "item_image_2": "shopify://shop_images/1e4c316c-60e6-4d1b-ae5e-8062544de7f9.jpg",
-            "item_image_3": "shopify://shop_images/hf_20260910_195044_eda4ffea-73ba-4ba4-872d-69037c9b2213.png",
-            "item_image_4": "shopify://shop_images/hf_20260910_200617_470f3fcc-2062-46a0-8bdf-81dc41d09557.png"
+            "item_image_3": "shopify://shop_images/hf_20260910_195044_eda4ffea-73ba-4ba4-872d-69037c9b2213.png"
           }
         },
         "pack_ultimate": {
@@ -157,7 +156,7 @@
           "settings": {
             "label": "Tapis de sol",
             "value_1": "oui",
-            "value_2": "oui",
+            "value_2": "non",
             "value_3": "non"
           }
         },
@@ -643,7 +642,7 @@
           "type": "question",
           "settings": {
             "question": "Que contient chaque pack ?",
-            "answer": "<p><strong>Pack Essentiel Maison</strong> : 1 tapis de course pliable et 1 tapis de fitness HAPBEAR 183 × 122 cm.</p><p><strong>Pack Bureau Actif</strong> : 1 tapis de course pliable, 1 bureau électrique assis-debout 120 × 80 cm, 1 montre connectée et 1 tapis de fitness HAPBEAR 183 × 122 cm.</p><p><strong>Pack Salle Complète</strong> : 1 tapis de course pliable, 1 ensemble d'haltères réglables 20 kg (4 en 1) et 1 banc pliable et réglable, avec le programme 30 jours (PDF) offert.</p>"
+            "answer": "<p><strong>Pack Essentiel Maison</strong> : 1 tapis de course pliable et 1 tapis de fitness HAPBEAR 183 × 122 cm.</p><p><strong>Pack Bureau Actif</strong> : 1 tapis de course pliable, 1 bureau électrique assis-debout 120 × 80 cm et 1 montre connectée.</p><p><strong>Pack Salle Complète</strong> : 1 tapis de course pliable, 1 ensemble d'haltères réglables 20 kg (4 en 1) et 1 banc pliable et réglable, avec le programme 30 jours (PDF) offert.</p>"
           }
         },
         "q9": {

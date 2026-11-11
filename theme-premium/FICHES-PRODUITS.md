@@ -28,8 +28,9 @@ Pack Essentiel Maison : tapis de course pliable de 1 à 12 km/h, pente jusqu'�
 
 ```html
 <h2>Bougez chez vous, à votre rythme</h2><p>Pas le temps d'aller à la salle ? Le Pack Essentiel Maison réunit l'essentiel pour bouger chez vous : un tapis de course pliable pour marcher ou courir de 1 à 12 km/h, et un tapis de fitness antidérapant pour vos exercices au sol. Après la séance, le tapis de course se replie.</p>
-<h3>Contenu du pack</h3><ul><li>1 tapis de course pliable</li><li>1 tapis de fitness HAPBEAR</li></ul>
+<h3>Contenu du pack</h3><ul><li>1 tapis de course pliable</li><li>1 tapis de fitness HAPBEAR 183 × 122 cm</li></ul>
 <h3>Le tapis de fitness</h3><ul>
+<li><strong>183 × 122 cm, 0,8 cm d'épaisseur</strong>, 5,6 kg : assez grand pour s'étirer, faire du gainage ou travailler au sol.</li>
 <li><strong>Antidérapant</strong>.</li>
 <li><strong>Utilisable avec des chaussures</strong>.</li>
 <li>Pour la gymnastique et les exercices au sol.</li>

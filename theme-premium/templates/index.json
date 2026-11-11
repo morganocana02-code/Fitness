@@ -85,7 +85,7 @@
             "product": "pack-performance-connectee",
             "moment": "En journée",
             "pitch": "Votre bureau actuel devient un poste de marche : le réhausseur le met à hauteur debout, le tapis se glisse dessous.",
-            "contents": "<ul><li>1 tapis de course pliable</li><li>1 réhausseur de bureau assis-debout</li><li>1 tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
+            "contents": "<ul><li>1 tapis de course pliable</li><li>1 réhausseur de bureau assis-debout</li><li>1 tapis Fitness Pro anti-bruit 200 × 90 cm</li><li>1 montre connectée</li></ul>",
             "badge": ""
           }
         },
@@ -214,6 +214,15 @@
             "value_2": "oui",
             "value_3": "oui"
           }
+        },
+        "r4b": {
+          "type": "row",
+          "settings": {
+            "label": "Montre connectée",
+            "value_1": "non",
+            "value_2": "oui",
+            "value_3": "non"
+          }
         }
       },
       "block_order": [
@@ -221,6 +230,7 @@
         "r2",
         "r3",
         "r4",
+        "r4b",
         "r5",
         "r6",
         "r7",
@@ -624,7 +634,7 @@
           "type": "question",
           "settings": {
             "question": "Que contient chaque pack ?",
-            "answer": "<p><strong>Pack Essentiel Maison</strong> : 1 tapis de course pliable et 1 tapis Fitness Pro anti-bruit 200 × 90 cm.</p><p><strong>Pack Bureau Actif</strong> : 1 tapis de course pliable, 1 réhausseur de bureau assis-debout et 1 tapis Fitness Pro anti-bruit 200 × 90 cm.</p><p><strong>Pack Salle Complète</strong> : 1 tapis de course pliable, 1 tapis Fitness Pro anti-bruit, 1 paire d'haltères réglables et 1 banc pliable, avec le programme 30 jours (PDF) offert.</p>"
+            "answer": "<p><strong>Pack Essentiel Maison</strong> : 1 tapis de course pliable et 1 tapis Fitness Pro anti-bruit 200 × 90 cm.</p><p><strong>Pack Bureau Actif</strong> : 1 tapis de course pliable, 1 réhausseur de bureau assis-debout, 1 tapis Fitness Pro anti-bruit 200 × 90 cm et 1 montre connectée.</p><p><strong>Pack Salle Complète</strong> : 1 tapis de course pliable, 1 tapis Fitness Pro anti-bruit, 1 paire d'haltères réglables et 1 banc pliable, avec le programme 30 jours (PDF) offert.</p>"
           }
         },
         "q9": {

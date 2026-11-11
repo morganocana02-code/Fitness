@@ -28,7 +28,7 @@
           "type": "contents",
           "settings": {
             "product": "pack-performance-connectee",
-            "items": "<ul><li>1 tapis de course pliable</li><li>1 réhausseur de bureau assis-debout</li><li>1 tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
+            "items": "<ul><li>1 tapis de course pliable</li><li>1 réhausseur de bureau assis-debout</li><li>1 tapis Fitness Pro anti-bruit 200 × 90 cm</li><li>1 montre connectée</li></ul>",
             "note": ""
           }
         },
@@ -227,6 +227,15 @@
             "value_2": "oui",
             "value_3": "oui"
           }
+        },
+        "r4b": {
+          "type": "row",
+          "settings": {
+            "label": "Montre connectée",
+            "value_1": "non",
+            "value_2": "oui",
+            "value_3": "non"
+          }
         }
       },
       "block_order": [
@@ -234,6 +243,7 @@
         "r2",
         "r3",
         "r4",
+        "r4b",
         "r5",
         "r6",
         "r7",

@@ -58,20 +58,28 @@ Pack Essentiel Maison : tapis de course pliable de 1 à 12 km/h, pente jusqu'�
 **Titre**
 
 ```text
-Pack Bureau Actif | Tapis de course pliable + réhausseur assis-debout
+Pack Bureau Actif | Tapis de course pliable + réhausseur assis-debout + montre connectée
 ```
 
 **Description pour les moteurs de recherche** (Shopify › Référencement)
 
 ```text
-Pack Bureau Actif : tapis de course pliable de 1 à 12 km/h, réhausseur de bureau assis-debout et tapis anti-bruit. Livraison offerte en 5 à 7 jours ouvrés.
+Pack Bureau Actif : tapis de course pliable 1 à 12 km/h, réhausseur assis-debout, montre connectée et tapis anti-bruit. Livraison offerte en 5 à 7 jours.
 ```
 
 **Description** (dans l'éditeur de description : bouton « Afficher le HTML » `</>`, puis coller)
 
 ```html
-<h2>Bougez pendant vos journées de télétravail</h2><p>Vous passez vos journées assis ? Le Pack Bureau Actif transforme votre bureau actuel en poste debout : le réhausseur assis-debout se pose dessus et le met à hauteur debout, le tapis se glisse dessous, et vous marchez à votre rythme dès 1 km/h. Le tapis Fitness Pro 200 × 90 cm limite les vibrations transmises au sol.</p>
-<h3>Contenu du pack</h3><ul><li>1 tapis de course pliable</li><li>1 réhausseur de bureau assis-debout</li><li>1 tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul><h3>Le tapis de course pliable</h3><ul>
+<h2>Bougez pendant vos journées de télétravail</h2><p>Vous passez vos journées assis ? Le Pack Bureau Actif transforme votre bureau actuel en poste debout : le réhausseur assis-debout se pose dessus et le met à hauteur debout, le tapis se glisse dessous, et vous marchez à votre rythme dès 1 km/h. Le tapis Fitness Pro 200 × 90 cm limite les vibrations transmises au sol, et la montre connectée compte vos pas tout au long de la journée.</p>
+<h3>Contenu du pack</h3><ul><li>1 tapis de course pliable</li><li>1 réhausseur de bureau assis-debout</li><li>1 tapis Fitness Pro anti-bruit 200 × 90 cm</li><li>1 montre connectée</li></ul>
+<h3>La montre connectée</h3><ul>
+<li><strong>Écran HD de 1,91 pouce</strong>.</li>
+<li><strong>Appels Bluetooth</strong> depuis la montre, reliée à votre téléphone.</li>
+<li><strong>Suivi de l'activité</strong> : podomètre et 113 modes sportifs.</li>
+<li><strong>Suivi du sommeil</strong>, de la fréquence cardiaque et de l'oxygène dans le sang (SpO2).</li>
+<li><strong>Étanche</strong> : indice IP68.</li>
+<li><strong>Compatible</strong> avec Android et iOS.</li>
+</ul><p>La montre n'est pas un dispositif médical : ses mesures sont données à titre indicatif.</p><h3>Le tapis de course pliable</h3><ul>
 <li><strong>De la marche à la course</strong> : de 1 à 12 km/h.</li>
 <li><strong>Inclinaison réglable</strong> : de 0 à 9 %.</li>
 <li><strong>Moteur de 2,75 CV</strong>, pour un utilisateur jusqu'à 160 kg.</li>

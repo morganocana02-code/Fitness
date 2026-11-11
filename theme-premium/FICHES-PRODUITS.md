@@ -72,14 +72,14 @@ Pack Bureau Actif | Tapis de course pliable + bureau électrique assis-debout + 
 **Description pour les moteurs de recherche** (Shopify › Référencement)
 
 ```text
-Pack Bureau Actif : tapis de course pliable 1 à 12 km/h, bureau électrique assis-debout 120 × 80 cm, montre connectée et tapis de sport. Livraison offerte.
+Pack Bureau Actif : tapis de course pliable 1 à 12 km/h, bureau électrique assis-debout 120 × 80 cm, montre connectée et tapis de fitness. Livraison offerte.
 ```
 
 **Description** (dans l'éditeur de description : bouton « Afficher le HTML » `</>`, puis coller)
 
 ```html
 <h2>Bougez pendant vos journées de télétravail</h2><p>Vous passez vos journées assis ? Le Pack Bureau Actif réunit un bureau électrique assis-debout, un tapis de course pliable et une montre connectée. Montez le bureau à hauteur debout, placez le tapis dessous et marchez à votre rythme dès 1 km/h, pendant que la montre compte vos pas tout au long de la journée.</p>
-<h3>Contenu du pack</h3><ul><li>1 tapis de course pliable</li><li>1 bureau électrique assis-debout 120 × 80 cm</li><li>1 montre connectée</li><li>1 tapis de sport 183 × 61 cm</li></ul>
+<h3>Contenu du pack</h3><ul><li>1 tapis de course pliable</li><li>1 bureau électrique assis-debout 120 × 80 cm</li><li>1 montre connectée</li><li>1 tapis de fitness HAPBEAR 183 × 122 cm</li></ul>
 <h3>Le bureau électrique assis-debout</h3><ul>
 <li><strong>Hauteur réglable électriquement</strong> : de 71 à 114 cm.</li>
 <li><strong>2 hauteurs mémorisées</strong>, pour retrouver vos positions assise et debout.</li>
@@ -95,10 +95,11 @@ Pack Bureau Actif : tapis de course pliable 1 à 12 km/h, bureau électrique a
 <li><strong>Étanche</strong> : indice IP68.</li>
 <li>Bracelet en silicone, 45 g, compatible avec Android et iOS.</li>
 </ul><p>La montre n'est pas un dispositif médical : ses mesures sont données à titre indicatif.</p>
-<h3>Le tapis de sport</h3><ul>
-<li><strong>183 × 61 cm, 1 cm d'épaisseur</strong>.</li>
-<li><strong>Antidérapant</strong>, en caoutchouc nitrile (NBR), très résistant à la déchirure.</li>
-<li>Pour les exercices au sol : gainage, étirements, yoga.</li>
+<h3>Le tapis de fitness</h3><ul>
+<li><strong>183 × 122 cm, 0,8 cm d'épaisseur</strong>, 5,6 kg : assez grand pour s'étirer, faire du gainage ou travailler au sol.</li>
+<li><strong>Antidérapant</strong>.</li>
+<li><strong>Utilisable avec des chaussures</strong>.</li>
+<li>Pour la gymnastique et les exercices au sol.</li>
 </ul><h3>Le tapis de course pliable</h3><ul>
 <li><strong>De la marche à la course</strong> : de 1 à 12 km/h.</li>
 <li><strong>Inclinaison réglable</strong> : de 0 à 9 %.</li>

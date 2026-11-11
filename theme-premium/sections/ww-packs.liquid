@@ -37,16 +37,17 @@
 
 {% stylesheet %}
   /* Carte pack : les produits du pack côte à côte, séparés par des « + » */
-  .ww-pack__media--items { display: flex; align-items: center; justify-content: center; aspect-ratio: auto; min-height: 0; padding: 40px 12px 14px; }
+  /* Sélecteurs renforcés : Shopify charge ce bloc avant ww-premium.css */
+  .ww-pack .ww-pack__media.ww-pack__media--items { display: flex; align-items: center; justify-content: center; aspect-ratio: auto; min-height: 0; padding: 40px 12px 14px; }
   .ww-pack__items { display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; }
   .ww-pack__item { flex: 1 1 0; min-width: 0; max-width: 68px; aspect-ratio: 1 / 1; padding: 4px; border-radius: 12px; overflow: hidden; background: #ffffff; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08); }
-  .ww-pack__media--items .ww-pack__item img { width: 100%; height: 100%; object-fit: contain; border-radius: 8px; }
-  .ww-pack:hover .ww-pack__media--items img { transform: none; }
+  .ww-pack .ww-pack__media--items .ww-pack__item img { width: 100%; height: 100%; object-fit: contain; border-radius: 8px; }
+  .ww-pack:hover .ww-pack__media--items .ww-pack__item img { transform: none; }
   .ww-pack__plus { flex: none; font-size: 16px; font-weight: 600; line-height: 1; color: #8a909b; }
   /* Étiquette (par exemple « Le plus complet ») : centrée en haut de la carte */
-  .ww-pack__media--items .ww-pack__badge { top: 12px; left: 50%; transform: translateX(-50%); white-space: nowrap; background: var(--ww-violet); }
+  .ww-pack .ww-pack__media--items .ww-pack__badge { top: 12px; left: 50%; transform: translateX(-50%); white-space: nowrap; background: var(--ww-violet); }
   /* Pack mis en avant : contour de couleur */
-  .ww-pack--featured { border: 2px solid var(--ww-violet); }
+  .ww-pack.ww-pack--featured, .ww-section--mist .ww-pack.ww-pack--featured { border: 2px solid var(--ww-violet); }
 {% endstylesheet %}
 
 {% schema %}

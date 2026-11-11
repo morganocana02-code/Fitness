@@ -74,8 +74,8 @@
           "settings": {
             "product": "pack-essentiel-home-gym",
             "moment": "Le soir",
-            "pitch": "Peu de place et des voisins en dessous ? Le tapis anti-bruit limite les vibrations, et le tapis de course se replie après la séance.",
-            "contents": "<ul><li>1 tapis de course pliable</li><li>1 tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
+            "pitch": "L'essentiel pour bouger chez vous : le tapis de course pour marcher ou courir, le tapis de fitness pour les exercices au sol.",
+            "contents": "<ul><li>1 tapis de course pliable</li><li>1 tapis de fitness HAPBEAR</li></ul>",
             "badge": ""
           }
         },
@@ -129,7 +129,7 @@
           "type": "row",
           "settings": {
             "label": "Idéal pour",
-            "value_1": "Le soir, sans déranger",
+            "value_1": "Bouger chez soi",
             "value_2": "En télétravail",
             "value_3": "Cardio et renforcement"
           }
@@ -261,8 +261,8 @@
           "type": "moment",
           "settings": {
             "label": "Le soir",
-            "title": "Dix minutes, sans déranger.",
-            "text": "Dépliez le tapis sur le tapis anti-bruit, bougez à votre rythme, puis repliez-le.",
+            "title": "Dix minutes, à la maison.",
+            "text": "Dépliez le tapis de course, marchez ou courez à votre rythme, puis repliez-le.",
             "product": "pack-essentiel-home-gym",
             "link_label": "Voir le Pack Essentiel"
           }
@@ -585,7 +585,7 @@
           "type": "question",
           "settings": {
             "question": "Quel pack choisir ?",
-            "answer": "<p><strong>Pack Essentiel Maison</strong> : pour bouger chez vous sans déranger, avec le tapis de course et le tapis anti-bruit. <strong>Pack Bureau Actif</strong> : pour marcher à votre bureau, il ajoute un bureau électrique assis-debout et une montre connectée. <strong>Pack Salle Complète</strong> : pour ajouter du renforcement, avec des haltères réglables, un banc pliable et le programme 30 jours offert. <a href=\"#ww-comparatif\">Voir le comparatif</a></p>"
+            "answer": "<p><strong>Pack Essentiel Maison</strong> : pour bouger chez vous, avec le tapis de course et un tapis de fitness. <strong>Pack Bureau Actif</strong> : pour marcher à votre bureau, il ajoute un bureau électrique assis-debout et une montre connectée. <strong>Pack Salle Complète</strong> : pour ajouter du renforcement, avec des haltères réglables, un banc pliable et le programme 30 jours offert. <a href=\"#ww-comparatif\">Voir le comparatif</a></p>"
           }
         },
         "q2": {
@@ -634,7 +634,7 @@
           "type": "question",
           "settings": {
             "question": "Que contient chaque pack ?",
-            "answer": "<p><strong>Pack Essentiel Maison</strong> : 1 tapis de course pliable et 1 tapis Fitness Pro anti-bruit 200 × 90 cm.</p><p><strong>Pack Bureau Actif</strong> : 1 tapis de course pliable, 1 bureau électrique assis-debout 120 × 80 cm, 1 montre connectée et 1 tapis de sport 183 × 61 cm.</p><p><strong>Pack Salle Complète</strong> : 1 tapis de course pliable, 1 ensemble d'haltères réglables 20 kg (4 en 1), 1 banc pliable et réglable et 1 tapis de sport 183 × 61 cm, avec le programme 30 jours (PDF) offert.</p>"
+            "answer": "<p><strong>Pack Essentiel Maison</strong> : 1 tapis de course pliable et 1 tapis de fitness HAPBEAR.</p><p><strong>Pack Bureau Actif</strong> : 1 tapis de course pliable, 1 bureau électrique assis-debout 120 × 80 cm, 1 montre connectée et 1 tapis de sport 183 × 61 cm.</p><p><strong>Pack Salle Complète</strong> : 1 tapis de course pliable, 1 ensemble d'haltères réglables 20 kg (4 en 1), 1 banc pliable et réglable et 1 tapis de sport 183 × 61 cm, avec le programme 30 jours (PDF) offert.</p>"
           }
         },
         "q9": {

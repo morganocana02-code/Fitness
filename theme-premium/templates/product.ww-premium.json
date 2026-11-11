@@ -20,7 +20,7 @@
           "type": "contents",
           "settings": {
             "product": "pack-essentiel-home-gym",
-            "items": "<ul><li>1 tapis de course pliable</li><li>1 tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul>",
+            "items": "<ul><li>1 tapis de course pliable</li><li>1 tapis de fitness HAPBEAR</li></ul>",
             "note": ""
           }
         },
@@ -142,7 +142,7 @@
           "type": "row",
           "settings": {
             "label": "Idéal pour",
-            "value_1": "Le soir, sans déranger",
+            "value_1": "Bouger chez soi",
             "value_2": "En télétravail",
             "value_3": "Cardio et renforcement"
           }

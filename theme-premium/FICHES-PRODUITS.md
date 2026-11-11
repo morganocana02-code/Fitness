@@ -15,20 +15,25 @@ Aucune promesse de silence ni de rangement sous le lit : il faudrait le niveau s
 **Titre**
 
 ```text
-Pack Essentiel Maison | Tapis de course pliable + tapis anti-bruit
+Pack Essentiel Maison | Tapis de course pliable + tapis de fitness
 ```
 
 **Description pour les moteurs de recherche** (Shopify › Référencement)
 
 ```text
-Pack Essentiel Maison : tapis de course pliable de 1 à 12 km/h, pente jusqu'à 9 % et tapis anti-bruit 200 × 90 cm. Livraison offerte en 5 à 7 jours ouvrés.
+Pack Essentiel Maison : tapis de course pliable de 1 à 12 km/h, pente jusqu'à 9 % et tapis de fitness antidérapant. Livraison offerte en 5 à 7 jours ouvrés.
 ```
 
 **Description** (dans l'éditeur de description : bouton « Afficher le HTML » `</>`, puis coller)
 
 ```html
-<h2>Bougez chez vous, sans déranger personne</h2><p>Pas le temps d'aller à la salle et des voisins juste en dessous ? Le Pack Essentiel Maison réunit un tapis de course pliable et un tapis anti-bruit 200 × 90 cm qui limite les vibrations transmises au sol. Marchez ou courez de 1 à 12 km/h, puis repliez le tapis après la séance.</p>
-<h3>Contenu du pack</h3><ul><li>1 tapis de course pliable</li><li>1 tapis Fitness Pro anti-bruit 200 × 90 cm</li></ul><h3>Le tapis de course pliable</h3><ul>
+<h2>Bougez chez vous, à votre rythme</h2><p>Pas le temps d'aller à la salle ? Le Pack Essentiel Maison réunit l'essentiel pour bouger chez vous : un tapis de course pliable pour marcher ou courir de 1 à 12 km/h, et un tapis de fitness antidérapant pour vos exercices au sol. Après la séance, le tapis de course se replie.</p>
+<h3>Contenu du pack</h3><ul><li>1 tapis de course pliable</li><li>1 tapis de fitness HAPBEAR</li></ul>
+<h3>Le tapis de fitness</h3><ul>
+<li><strong>Antidérapant</strong>.</li>
+<li><strong>Utilisable avec des chaussures</strong>.</li>
+<li>Pour la gymnastique et les exercices au sol.</li>
+</ul><h3>Le tapis de course pliable</h3><ul>
 <li><strong>De la marche à la course</strong> : de 1 à 12 km/h.</li>
 <li><strong>Inclinaison réglable</strong> : de 0 à 9 %.</li>
 <li><strong>Moteur de 2,75 CV</strong>, pour un utilisateur jusqu'à 160 kg.</li>

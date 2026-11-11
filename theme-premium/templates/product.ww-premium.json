@@ -128,12 +128,12 @@
         "product_1": "pack-essentiel-home-gym",
         "name_1": "Pack Essentiel Maison",
         "badge_1": "",
-        "product_2": "pack-performance-connectee",
-        "name_2": "Pack Bureau Actif",
-        "badge_2": "",
-        "product_3": "pack-ultimate-home-gym",
-        "name_3": "Pack Salle Complète",
-        "badge_3": "Le plus complet",
+        "product_2": "pack-ultimate-home-gym",
+        "name_2": "Pack Salle Complète",
+        "badge_2": "Le plus complet",
+        "product_3": "pack-performance-connectee",
+        "name_3": "Pack Bureau Actif",
+        "badge_3": "",
         "note": "Pour les trois packs : prix total, 14 jours pour changer d'avis et garantie légale de 2 ans.",
         "mist": false
       },
@@ -143,8 +143,8 @@
           "settings": {
             "label": "Idéal pour",
             "value_1": "Bouger chez soi",
-            "value_2": "En télétravail",
-            "value_3": "Cardio et renforcement"
+            "value_2": "Cardio et renforcement",
+            "value_3": "En télétravail"
           }
         },
         "r2": {
@@ -170,8 +170,8 @@
           "settings": {
             "label": "Bureau électrique assis-debout",
             "value_1": "non",
-            "value_2": "oui",
-            "value_3": "non"
+            "value_2": "non",
+            "value_3": "oui"
           }
         },
         "r5": {
@@ -179,8 +179,8 @@
           "settings": {
             "label": "Haltères réglables 20 kg (4 en 1)",
             "value_1": "non",
-            "value_2": "non",
-            "value_3": "oui"
+            "value_2": "oui",
+            "value_3": "non"
           }
         },
         "r6": {
@@ -188,8 +188,8 @@
           "settings": {
             "label": "Banc pliable",
             "value_1": "non",
-            "value_2": "non",
-            "value_3": "oui"
+            "value_2": "oui",
+            "value_3": "non"
           }
         },
         "r7": {
@@ -197,8 +197,8 @@
           "settings": {
             "label": "Programme 30 jours (PDF)",
             "value_1": "non",
-            "value_2": "non",
-            "value_3": "Offert"
+            "value_2": "Offert",
+            "value_3": "non"
           }
         },
         "r8": {
@@ -233,8 +233,8 @@
           "settings": {
             "label": "Montre connectée",
             "value_1": "non",
-            "value_2": "oui",
-            "value_3": "non"
+            "value_2": "non",
+            "value_3": "oui"
           }
         }
       },

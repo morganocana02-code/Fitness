@@ -76,7 +76,9 @@
             "moment": "Le soir",
             "pitch": "L'essentiel pour bouger chez vous : le tapis de course pour marcher ou courir, le tapis de fitness pour les exercices au sol.",
             "contents": "<ul><li>1 tapis de course pliable</li><li>1 tapis de fitness HAPBEAR 183 × 122 cm</li></ul>",
-            "badge": ""
+            "badge": "",
+            "item_image_1": "shopify://shop_images/tapis-de-course-pliable-whisperwalk.jpg",
+            "item_image_2": "shopify://shop_images/hf_20260910_200617_470f3fcc-2062-46a0-8bdf-81dc41d09557.png"
           }
         },
         "pack_teletravail": {
@@ -86,7 +88,11 @@
             "moment": "En journée",
             "pitch": "Un bureau électrique qui passe d'assis à debout, le tapis de course dessous, et la montre qui compte vos pas.",
             "contents": "<ul><li>1 tapis de course pliable</li><li>1 bureau électrique assis-debout 120 × 80 cm</li><li>1 montre connectée</li><li>1 tapis de fitness HAPBEAR 183 × 122 cm</li></ul>",
-            "badge": ""
+            "badge": "",
+            "item_image_1": "shopify://shop_images/tapis-de-course-pliable-whisperwalk.jpg",
+            "item_image_2": "shopify://shop_images/1e4c316c-60e6-4d1b-ae5e-8062544de7f9.jpg",
+            "item_image_3": "shopify://shop_images/hf_20260910_195044_eda4ffea-73ba-4ba4-872d-69037c9b2213.png",
+            "item_image_4": "shopify://shop_images/hf_20260910_200617_470f3fcc-2062-46a0-8bdf-81dc41d09557.png"
           }
         },
         "pack_ultimate": {
@@ -96,7 +102,10 @@
             "moment": "Le week-end",
             "pitch": "Course jusqu'à 12 km/h, pente jusqu'à 9 % et renforcement, sans abonnement ni trajet.",
             "contents": "<ul><li>1 tapis de course pliable</li><li>1 ensemble d'haltères réglables 20 kg, 4 en 1</li><li>1 banc de musculation pliable et réglable</li><li>1 tapis de sport 183 × 61 cm</li><li>Offert : le programme 30 jours (PDF)</li></ul>",
-            "badge": "Le plus complet"
+            "badge": "Le plus complet",
+            "item_image_1": "shopify://shop_images/tapis-de-course-pliable-whisperwalk.jpg",
+            "item_image_2": "shopify://shop_images/Gemini_Generated_Image_r4jhtur4jhtur4jh.jpg",
+            "item_image_3": "shopify://shop_images/Gemini_Generated_Image_ry21mfry21mfry21_1.jpg"
           }
         }
       },

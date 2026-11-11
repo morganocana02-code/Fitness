@@ -1,16 +1,41 @@
 {%- comment -%}
   Carte d'un pack, avec achat direct.
   Paramètres : p (produit), moment, pitch, contents (texte enrichi), badge, button_label,
-  card_image (image facultative qui remplace la photo principale du produit sur la carte)
+  card_image (image facultative qui remplace la photo principale du produit sur la carte),
+  block (facultatif : ses réglages item_image_1 à item_image_4 sont les photos des produits du pack,
+  affichées côte à côte avec des « + » à la place de la photo principale)
   Le prix, le nom et l'image viennent directement du produit Shopify.
 {%- endcomment -%}
 {%- assign title_parts = p.title | split: ' | ' -%}
 {%- assign pack_name = title_parts | first -%}
 {%- assign image = card_image | default: p.featured_media.preview_image | default: p.featured_image -%}
+{%- assign item_count = 0 -%}
+{%- if block != blank -%}
+  {%- for i in (1..4) -%}
+    {%- capture item_key -%}item_image_{{ i }}{%- endcapture -%}
+    {%- if block.settings[item_key] != blank -%}{%- assign item_count = item_count | plus: 1 -%}{%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
 
 <article class="ww-pack">
-  <a class="ww-pack__media" href="{{ p.url }}" tabindex="-1" aria-hidden="true">
-    {%- if image != blank -%}
+  <a class="ww-pack__media{% if item_count > 1 %} ww-pack__media--items{% endif %}" href="{{ p.url }}" tabindex="-1" aria-hidden="true">
+    {%- if item_count > 1 -%}
+      {%- comment -%} Les produits du pack, côte à côte, séparés par des « + » {%- endcomment -%}
+      <span class="ww-pack__items">
+        {%- assign shown = 0 -%}
+        {%- for i in (1..4) -%}
+          {%- capture item_key -%}item_image_{{ i }}{%- endcapture -%}
+          {%- assign item = block.settings[item_key] -%}
+          {%- if item != blank -%}
+            {%- if shown > 0 -%}<span class="ww-pack__plus">+</span>{%- endif -%}
+            <span class="ww-pack__item">
+              {{- item | image_url: width: 300 | image_tag: loading: 'lazy', widths: '150, 300', sizes: '120px', alt: item.alt -}}
+            </span>
+            {%- assign shown = shown | plus: 1 -%}
+          {%- endif -%}
+        {%- endfor -%}
+      </span>
+    {%- elsif image != blank -%}
       {{
         image
         | image_url: width: 900

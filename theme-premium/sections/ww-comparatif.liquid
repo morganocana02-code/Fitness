@@ -3,7 +3,7 @@
 {%- comment -%}
   Tableau comparatif des packs.
   Colonnes : jusqu'à 3 produits (réglages). Lignes : blocs « Ligne » avec une valeur par pack :
-  « oui » affiche une coche, « non » ou vide affiche un tiret, tout autre texte s'affiche tel quel.
+  « oui » affiche une coche, « non » ou vide affiche une croix rouge, tout autre texte s'affiche tel quel.
   Sur une fiche produit, la colonne du pack consulté est mise en évidence.
 {%- endcomment -%}
 
@@ -58,7 +58,7 @@
                     {%- if value_test == 'oui' -%}
                       {% render 'ww-icon', name: 'check' %}<span class="ww-visually-hidden">Inclus</span>
                     {%- elsif value_test == 'non' or value == blank -%}
-                      <span class="ww-compare__no" aria-hidden="true">—</span><span class="ww-visually-hidden">Non inclus</span>
+                      <span class="ww-compare__x">{% render 'ww-icon', name: 'x' %}</span><span class="ww-visually-hidden">Non inclus</span>
                     {%- else -%}
                       {{ value | escape }}
                     {%- endif -%}
@@ -105,6 +105,11 @@
   </div>
 </section>
 
+{% stylesheet %}
+  /* Croix rouge : élément non inclus dans le pack */
+  .ww-compare__table .ww-compare__x .ww-icon { background: #fdecec; color: #d92d20; stroke-width: 2.6; }
+{% endstylesheet %}
+
 {% schema %}
 {
   "name": "WW · Comparatif",
@@ -136,7 +141,7 @@
       "name": "Ligne",
       "settings": [
         { "type": "text", "id": "label", "label": "Intitulé", "default": "Tapis de course pliable" },
-        { "type": "paragraph", "content": "Écrivez « oui » pour une coche, « non » pour un tiret, ou un texte court." },
+        { "type": "paragraph", "content": "Écrivez « oui » pour une coche, « non » pour une croix rouge, ou un texte court." },
         { "type": "text", "id": "value_1", "label": "Colonne 1", "default": "oui" },
         { "type": "text", "id": "value_2", "label": "Colonne 2", "default": "oui" },
         { "type": "text", "id": "value_3", "label": "Colonne 3", "default": "oui" }

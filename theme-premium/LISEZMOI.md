@@ -128,7 +128,9 @@ La section « WW · Accroche » accepte une vidéo. Elle remplace la photo du pa
 sans son, en boucle, avec un bouton pause. Elle ne démarre pas toute seule si le visiteur a demandé
 à réduire les animations. Tant qu'aucune vidéo n'est choisie, la photo du pack mis en avant s'affiche.
 
-1. Shopify : Contenu › Fichiers › Importer des fichiers › choisir la vidéo.
+La vidéo est prête : `medias/video-accroche.mp4` (15 s, 720 × 720, sans son, 1,4 Mo).
+
+1. Shopify : Contenu › Fichiers › Importer des fichiers › choisir `medias/video-accroche.mp4`.
 2. Boutique en ligne › Thèmes › Personnaliser › WW · Accroche › Vidéo › sélectionner la vidéo.
 
 Format conseillé pour la vidéo générée par IA :

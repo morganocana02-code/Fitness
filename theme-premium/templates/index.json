@@ -102,8 +102,8 @@
       },
       "block_order": [
         "pack_essentiel",
-        "pack_teletravail",
-        "pack_ultimate"
+        "pack_ultimate",
+        "pack_teletravail"
       ]
     },
     "comparatif": {

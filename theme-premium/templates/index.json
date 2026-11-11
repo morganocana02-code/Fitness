@@ -84,8 +84,8 @@
           "settings": {
             "product": "pack-performance-connectee",
             "moment": "En journée",
-            "pitch": "Votre bureau actuel devient un poste de marche : le réhausseur le met à hauteur debout, le tapis se glisse dessous.",
-            "contents": "<ul><li>1 tapis de course pliable</li><li>1 réhausseur de bureau assis-debout</li><li>1 tapis Fitness Pro anti-bruit 200 × 90 cm</li><li>1 montre connectée</li></ul>",
+            "pitch": "Un bureau électrique qui passe d'assis à debout, le tapis de course dessous, et la montre qui compte vos pas.",
+            "contents": "<ul><li>1 tapis de course pliable</li><li>1 bureau électrique assis-debout 120 × 80 cm</li><li>1 montre connectée</li><li>1 tapis de sport 183 × 61 cm</li></ul>",
             "badge": ""
           }
         },
@@ -155,7 +155,7 @@
         "r4": {
           "type": "row",
           "settings": {
-            "label": "Réhausseur de bureau assis-debout",
+            "label": "Bureau électrique assis-debout",
             "value_1": "non",
             "value_2": "oui",
             "value_3": "non"
@@ -252,7 +252,7 @@
           "settings": {
             "label": "En journée",
             "title": "Marchez pendant vos réunions.",
-            "text": "Le réhausseur met votre bureau à hauteur debout et le tapis se glisse dessous. Vous avancez à votre rythme, dès 1 km/h.",
+            "text": "Le bureau électrique monte à hauteur debout et le tapis se place dessous. Vous avancez à votre rythme, dès 1 km/h.",
             "product": "pack-performance-connectee",
             "link_label": "Voir le Pack Bureau Actif"
           }
@@ -585,7 +585,7 @@
           "type": "question",
           "settings": {
             "question": "Quel pack choisir ?",
-            "answer": "<p><strong>Pack Essentiel Maison</strong> : pour bouger chez vous sans déranger, avec le tapis de course et le tapis anti-bruit. <strong>Pack Bureau Actif</strong> : pour marcher à votre bureau, il ajoute un réhausseur assis-debout. <strong>Pack Salle Complète</strong> : pour ajouter du renforcement, avec des haltères réglables, un banc pliable et le programme 30 jours offert. <a href=\"#ww-comparatif\">Voir le comparatif</a></p>"
+            "answer": "<p><strong>Pack Essentiel Maison</strong> : pour bouger chez vous sans déranger, avec le tapis de course et le tapis anti-bruit. <strong>Pack Bureau Actif</strong> : pour marcher à votre bureau, il ajoute un bureau électrique assis-debout et une montre connectée. <strong>Pack Salle Complète</strong> : pour ajouter du renforcement, avec des haltères réglables, un banc pliable et le programme 30 jours offert. <a href=\"#ww-comparatif\">Voir le comparatif</a></p>"
           }
         },
         "q2": {
@@ -634,7 +634,7 @@
           "type": "question",
           "settings": {
             "question": "Que contient chaque pack ?",
-            "answer": "<p><strong>Pack Essentiel Maison</strong> : 1 tapis de course pliable et 1 tapis Fitness Pro anti-bruit 200 × 90 cm.</p><p><strong>Pack Bureau Actif</strong> : 1 tapis de course pliable, 1 réhausseur de bureau assis-debout, 1 tapis Fitness Pro anti-bruit 200 × 90 cm et 1 montre connectée.</p><p><strong>Pack Salle Complète</strong> : 1 tapis de course pliable, 1 ensemble d'haltères réglables 20 kg (4 en 1), 1 banc pliable et réglable et 1 tapis de sport 183 × 61 cm, avec le programme 30 jours (PDF) offert.</p>"
+            "answer": "<p><strong>Pack Essentiel Maison</strong> : 1 tapis de course pliable et 1 tapis Fitness Pro anti-bruit 200 × 90 cm.</p><p><strong>Pack Bureau Actif</strong> : 1 tapis de course pliable, 1 bureau électrique assis-debout 120 × 80 cm, 1 montre connectée et 1 tapis de sport 183 × 61 cm.</p><p><strong>Pack Salle Complète</strong> : 1 tapis de course pliable, 1 ensemble d'haltères réglables 20 kg (4 en 1), 1 banc pliable et réglable et 1 tapis de sport 183 × 61 cm, avec le programme 30 jours (PDF) offert.</p>"
           }
         },
         "q9": {

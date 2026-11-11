@@ -60,28 +60,40 @@ Pack Essentiel Maison : tapis de course pliable de 1 à 12 km/h, pente jusqu'�
 **Titre**
 
 ```text
-Pack Bureau Actif | Tapis de course pliable + réhausseur assis-debout + montre connectée
+Pack Bureau Actif | Tapis de course pliable + bureau électrique assis-debout + montre connectée
 ```
 
 **Description pour les moteurs de recherche** (Shopify › Référencement)
 
 ```text
-Pack Bureau Actif : tapis de course pliable 1 à 12 km/h, réhausseur assis-debout, montre connectée et tapis anti-bruit. Livraison offerte en 5 à 7 jours.
+Pack Bureau Actif : tapis de course pliable 1 à 12 km/h, bureau électrique assis-debout 120 × 80 cm, montre connectée et tapis de sport. Livraison offerte.
 ```
 
 **Description** (dans l'éditeur de description : bouton « Afficher le HTML » `</>`, puis coller)
 
 ```html
-<h2>Bougez pendant vos journées de télétravail</h2><p>Vous passez vos journées assis ? Le Pack Bureau Actif transforme votre bureau actuel en poste debout : le réhausseur assis-debout se pose dessus et le met à hauteur debout, le tapis se glisse dessous, et vous marchez à votre rythme dès 1 km/h. Le tapis Fitness Pro 200 × 90 cm limite les vibrations transmises au sol, et la montre connectée compte vos pas tout au long de la journée.</p>
-<h3>Contenu du pack</h3><ul><li>1 tapis de course pliable</li><li>1 réhausseur de bureau assis-debout</li><li>1 tapis Fitness Pro anti-bruit 200 × 90 cm</li><li>1 montre connectée</li></ul>
+<h2>Bougez pendant vos journées de télétravail</h2><p>Vous passez vos journées assis ? Le Pack Bureau Actif réunit un bureau électrique assis-debout, un tapis de course pliable et une montre connectée. Montez le bureau à hauteur debout, placez le tapis dessous et marchez à votre rythme dès 1 km/h, pendant que la montre compte vos pas tout au long de la journée.</p>
+<h3>Contenu du pack</h3><ul><li>1 tapis de course pliable</li><li>1 bureau électrique assis-debout 120 × 80 cm</li><li>1 montre connectée</li><li>1 tapis de sport 183 × 61 cm</li></ul>
+<h3>Le bureau électrique assis-debout</h3><ul>
+<li><strong>Hauteur réglable électriquement</strong> : de 71 à 114 cm.</li>
+<li><strong>2 hauteurs mémorisées</strong>, pour retrouver vos positions assise et debout.</li>
+<li><strong>Plateau de 120 × 80 cm</strong>, 2,5 cm d'épaisseur, avec support d'écran réglable.</li>
+<li><strong>Éclairage LED</strong> et <strong>prise USB</strong>.</li>
+<li>Structure en métal, plateau en bois reconstitué, 27,8 kg. Montage nécessaire.</li>
+</ul>
 <h3>La montre connectée</h3><ul>
-<li><strong>Écran HD de 1,91 pouce</strong>.</li>
+<li><strong>Écran tactile LCD de 1,91 pouce</strong> (320 × 380).</li>
 <li><strong>Appels Bluetooth</strong> depuis la montre, reliée à votre téléphone.</li>
-<li><strong>Suivi de l'activité</strong> : podomètre et 113 modes sportifs.</li>
+<li><strong>Suivi de l'activité</strong> : podomètre et plus de 113 modes sportifs.</li>
 <li><strong>Suivi du sommeil</strong>, de la fréquence cardiaque et de l'oxygène dans le sang (SpO2).</li>
 <li><strong>Étanche</strong> : indice IP68.</li>
-<li><strong>Compatible</strong> avec Android et iOS.</li>
-</ul><p>La montre n'est pas un dispositif médical : ses mesures sont données à titre indicatif.</p><h3>Le tapis de course pliable</h3><ul>
+<li>Bracelet en silicone, 45 g, compatible avec Android et iOS.</li>
+</ul><p>La montre n'est pas un dispositif médical : ses mesures sont données à titre indicatif.</p>
+<h3>Le tapis de sport</h3><ul>
+<li><strong>183 × 61 cm, 1 cm d'épaisseur</strong>.</li>
+<li><strong>Antidérapant</strong>, en caoutchouc nitrile (NBR), très résistant à la déchirure.</li>
+<li>Pour les exercices au sol : gainage, étirements, yoga.</li>
+</ul><h3>Le tapis de course pliable</h3><ul>
 <li><strong>De la marche à la course</strong> : de 1 à 12 km/h.</li>
 <li><strong>Inclinaison réglable</strong> : de 0 à 9 %.</li>
 <li><strong>Moteur de 2,75 CV</strong>, pour un utilisateur jusqu'à 160 kg.</li>

@@ -29,6 +29,17 @@
     root.querySelectorAll('[data-ww-price]').forEach(function (el) { el.textContent = option.dataset.price; });
   });
 
+  /* ---------- 2 bis. « Passer à l'action » : paiement direct avec la variante et la quantité choisies ---------- */
+  document.addEventListener('click', function (event) {
+    var link = event.target.closest('[data-ww-buy-now]');
+    if (!link) return;
+    var form = link.closest('form');
+    var id = form && form.querySelector('[name="id"]');
+    var qty = form && form.querySelector('input[name="quantity"]');
+    if (!id || !id.value) return;
+    link.setAttribute('href', (link.getAttribute('data-ww-cart-url') || '/cart') + '/' + id.value + ':' + Math.max(1, parseInt(qty && qty.value, 10) || 1));
+  });
+
   /* ---------- 3. Date de livraison estimée ----------
      Jours ouvrés = du lundi au vendredi, hors jours fériés en France,
      comptés à partir du lendemain de la commande (date du jour à Paris). */

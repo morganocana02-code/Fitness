@@ -101,8 +101,14 @@
           <button type="submit" name="add" class="ww-btn ww-btn--primary ww-btn--block" {% unless current_variant.available %}disabled{% endunless %}>
             {%- if current_variant.available -%}Ajouter au panier · <span data-ww-price>{{ current_variant.price | money }}</span>{%- else -%}Épuisé{%- endif -%}
           </button>
-          {%- if section.settings.show_dynamic_checkout -%}
-            {{ form | payment_button }}
+          {%- comment -%}
+            « Passer à l'action » : lien panier de Shopify (/cart/variante:quantité), qui ouvre directement
+            la page de paiement avec ce pack. La quantité et la variante choisies sont lues au clic (ww-premium.js).
+          {%- endcomment -%}
+          {%- if section.settings.show_buy_now and current_variant.available -%}
+            <a class="ww-btn ww-btn--dark ww-btn--block" href="{{ routes.cart_url }}/{{ current_variant.id }}:1" data-ww-cart-url="{{ routes.cart_url }}" data-ww-buy-now rel="nofollow">
+              {{- section.settings.buy_now_label | default: "Passer à l'action" | escape -}}
+            </a>
           {%- endif -%}
         {%- endform -%}
 
@@ -268,7 +274,8 @@
     { "type": "text", "id": "contents_title", "label": "Titre du contenu du carton", "default": "Dans le carton" },
     { "type": "text", "id": "specs_title", "label": "Titre des caractéristiques", "default": "Le tapis de course" },
     { "type": "text", "id": "specs_note", "label": "Note sous les caractéristiques", "default": "Caractéristiques annoncées par le fabricant du tapis." },
-    { "type": "checkbox", "id": "show_dynamic_checkout", "label": "Afficher le bouton de paiement rapide", "default": true },
+    { "type": "checkbox", "id": "show_buy_now", "label": "Afficher le bouton « Passer à l'action »", "info": "Sous « Ajouter au panier » : ouvre directement la page de paiement avec ce pack.", "default": true },
+    { "type": "text", "id": "buy_now_label", "label": "Texte du bouton", "default": "Passer à l'action" },
     { "type": "checkbox", "id": "show_eta", "label": "Afficher la date de livraison estimée", "default": true },
     { "type": "checkbox", "id": "show_compare_link", "label": "Afficher le lien « Comparer les 3 packs »", "default": true },
     { "type": "checkbox", "id": "show_sticky", "label": "Afficher la barre d'achat fixe sur mobile", "info": "Si une application affiche déjà sa propre barre d'achat, gardez une seule des deux.", "default": true }

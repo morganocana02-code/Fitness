@@ -44,6 +44,8 @@ Pack Essentiel Maison : tapis de course pliable de 1 à 12 km/h, pente jusqu'�
 <tr><td>Commande</td><td>Télécommande aimantée</td></tr>
 <tr><td>Programmes</td><td>12 programmes intégrés</td></tr>
 <tr><td>Application</td><td>Zwift, Kinomap, FitShow</td></tr>
+<tr><td>Dimensions annoncées</td><td>116 × 50 × 12 cm</td></tr>
+<tr><td>Poids du tapis</td><td>27 kg</td></tr>
 <tr><td>Pliable</td><td>Oui</td></tr>
 <tr><td>Garantie légale de conformité</td><td>2 ans</td></tr>
 </tbody></table><h3>Livraison et garanties</h3><ul>
@@ -95,6 +97,8 @@ Pack Bureau Actif : tapis de course pliable 1 à 12 km/h, réhausseur assis-de
 <tr><td>Commande</td><td>Télécommande aimantée</td></tr>
 <tr><td>Programmes</td><td>12 programmes intégrés</td></tr>
 <tr><td>Application</td><td>Zwift, Kinomap, FitShow</td></tr>
+<tr><td>Dimensions annoncées</td><td>116 × 50 × 12 cm</td></tr>
+<tr><td>Poids du tapis</td><td>27 kg</td></tr>
 <tr><td>Pliable</td><td>Oui</td></tr>
 <tr><td>Garantie légale de conformité</td><td>2 ans</td></tr>
 </tbody></table><h3>Livraison et garanties</h3><ul>
@@ -109,21 +113,38 @@ Pack Bureau Actif : tapis de course pliable 1 à 12 km/h, réhausseur assis-de
 **Titre**
 
 ```text
-Pack Salle Complète | Tapis de course pliable + haltères réglables + banc pliable
+Pack Salle Complète | Tapis de course pliable + haltères réglables 20 kg + banc pliable
 ```
 
 **Description pour les moteurs de recherche** (Shopify › Référencement)
 
 ```text
-Pack Salle Complète : tapis de course pliable de 1 à 12 km/h, inclinaison jusqu'à 9 %, haltères réglables et banc pliable. Livraison offerte.
+Pack Salle Complète : tapis de course pliable 1 à 12 km/h, haltères réglables 20 kg 4 en 1, banc réglable et tapis de sport. Livraison offerte.
 ```
 
 **Description** (dans l'éditeur de description : bouton « Afficher le HTML » `</>`, puis coller)
 
 ```html
-<h2>Votre salle complète, chez vous</h2><p>Plus de trajet ni d'abonnement : le Pack Salle Complète réunit le cardio et le renforcement. Courez jusqu'à 12 km/h ou marchez en pente jusqu'à 9 %, puis enchaînez avec les haltères réglables et le banc pliable.</p>
-<h3>Contenu du pack (4 équipements)</h3><ul><li>1 tapis de course pliable</li><li>1 tapis Fitness Pro anti-bruit</li><li>1 paire d'haltères réglables</li><li>1 banc pliable</li></ul>
-<p><strong>Offert :</strong> le programme 30 jours (PDF), 5 séances de 35 minutes maximum par semaine, conçu pour ce pack. <a href="https://cdn.shopify.com/s/files/1/1008/2634/9897/files/Programme-30-jours-Pack-Ultimate-WhisperWalk.pdf?v=1791486993" target="_blank" rel="noopener">Télécharger le programme</a></p><h3>Le tapis de course pliable</h3><ul>
+<h2>Votre salle complète, chez vous</h2><p>Plus de trajet ni d'abonnement : le Pack Salle Complète réunit le cardio et le renforcement. Courez jusqu'à 12 km/h ou marchez en pente jusqu'à 9 %, puis enchaînez avec les haltères réglables sur le banc, et finissez au sol sur le tapis de sport.</p>
+<h3>Contenu du pack (4 équipements)</h3><ul><li>1 tapis de course pliable</li><li>1 ensemble d'haltères réglables 20 kg, 4 en 1</li><li>1 banc de musculation pliable et réglable</li><li>1 tapis de sport 183 × 61 cm</li></ul>
+<p><strong>Offert :</strong> le programme 30 jours (PDF), 5 séances de 35 minutes maximum par semaine, conçu pour ce pack. <a href="https://cdn.shopify.com/s/files/1/1008/2634/9897/files/Programme-30-jours-Pack-Ultimate-WhisperWalk.pdf?v=1791486993" target="_blank" rel="noopener">Télécharger le programme</a></p>
+<h3>Les haltères réglables 4 en 1</h3><ul>
+<li><strong>4 usages</strong> : haltères, kettlebell, barre grâce à la barre de connexion, et support de pompes.</li>
+<li><strong>20 kg au total</strong>, poids réglable selon l'exercice.</li>
+<li><strong>Poignées en caoutchouc antidérapantes</strong>.</li>
+<li>Matériau : polyéthylène.</li>
+</ul>
+<h3>Le banc pliable et réglable</h3><ul>
+<li><strong>Dossier réglable en 11 positions</strong> : à plat ou incliné.</li>
+<li><strong>Charge maximale : 300 kg</strong>.</li>
+<li><strong>Pliable</strong>, pour le ranger après la séance.</li>
+<li>Revêtement en similicuir, 10 kg, 110 × 43 × 114,3 cm.</li>
+</ul>
+<h3>Le tapis de sport</h3><ul>
+<li><strong>183 × 61 cm, 1 cm d'épaisseur</strong>.</li>
+<li><strong>Antidérapant</strong>, en caoutchouc nitrile (NBR), très résistant à la déchirure.</li>
+<li>Pour les exercices au sol : gainage, étirements, yoga.</li>
+</ul><h3>Le tapis de course pliable</h3><ul>
 <li><strong>De la marche à la course</strong> : de 1 à 12 km/h.</li>
 <li><strong>Inclinaison réglable</strong> : de 0 à 9 %.</li>
 <li><strong>Moteur de 2,75 CV</strong>, pour un utilisateur jusqu'à 160 kg.</li>
@@ -139,6 +160,8 @@ Pack Salle Complète : tapis de course pliable de 1 à 12 km/h, inclinaison ju
 <tr><td>Commande</td><td>Télécommande aimantée</td></tr>
 <tr><td>Programmes</td><td>12 programmes intégrés</td></tr>
 <tr><td>Application</td><td>Zwift, Kinomap, FitShow</td></tr>
+<tr><td>Dimensions annoncées</td><td>116 × 50 × 12 cm</td></tr>
+<tr><td>Poids du tapis</td><td>27 kg</td></tr>
 <tr><td>Pliable</td><td>Oui</td></tr>
 <tr><td>Garantie légale de conformité</td><td>2 ans</td></tr>
 </tbody></table><h3>Livraison et garanties</h3><ul>

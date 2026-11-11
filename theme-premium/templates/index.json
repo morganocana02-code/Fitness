@@ -95,7 +95,7 @@
             "product": "pack-ultimate-home-gym",
             "moment": "Le week-end",
             "pitch": "Course jusqu'à 12 km/h, pente jusqu'à 9 % et renforcement, sans abonnement ni trajet.",
-            "contents": "<ul><li>1 tapis de course pliable</li><li>1 tapis Fitness Pro anti-bruit</li><li>1 paire d'haltères réglables</li><li>1 banc pliable</li><li>Offert : le programme 30 jours (PDF)</li></ul>",
+            "contents": "<ul><li>1 tapis de course pliable</li><li>1 ensemble d'haltères réglables 20 kg, 4 en 1</li><li>1 banc de musculation pliable et réglable</li><li>1 tapis de sport 183 × 61 cm</li><li>Offert : le programme 30 jours (PDF)</li></ul>",
             "badge": "Le plus complet"
           }
         }
@@ -146,7 +146,7 @@
         "r3": {
           "type": "row",
           "settings": {
-            "label": "Tapis Fitness Pro anti-bruit",
+            "label": "Tapis de sol",
             "value_1": "oui",
             "value_2": "oui",
             "value_3": "oui"
@@ -164,7 +164,7 @@
         "r5": {
           "type": "row",
           "settings": {
-            "label": "Paire d'haltères réglables",
+            "label": "Haltères réglables 20 kg (4 en 1)",
             "value_1": "non",
             "value_2": "non",
             "value_3": "oui"
@@ -272,7 +272,7 @@
           "settings": {
             "label": "Le week-end",
             "title": "Une vraie séance, sans salle.",
-            "text": "Course jusqu'à 12 km/h ou marche en pente jusqu'à 9 %, puis haltères réglables et banc pliable.",
+            "text": "Course jusqu'à 12 km/h ou marche en pente jusqu'à 9 %, puis haltères réglables 20 kg et banc pliable.",
             "product": "pack-ultimate-home-gym",
             "link_label": "Voir le Pack Salle Complète"
           }
@@ -634,7 +634,7 @@
           "type": "question",
           "settings": {
             "question": "Que contient chaque pack ?",
-            "answer": "<p><strong>Pack Essentiel Maison</strong> : 1 tapis de course pliable et 1 tapis Fitness Pro anti-bruit 200 × 90 cm.</p><p><strong>Pack Bureau Actif</strong> : 1 tapis de course pliable, 1 réhausseur de bureau assis-debout, 1 tapis Fitness Pro anti-bruit 200 × 90 cm et 1 montre connectée.</p><p><strong>Pack Salle Complète</strong> : 1 tapis de course pliable, 1 tapis Fitness Pro anti-bruit, 1 paire d'haltères réglables et 1 banc pliable, avec le programme 30 jours (PDF) offert.</p>"
+            "answer": "<p><strong>Pack Essentiel Maison</strong> : 1 tapis de course pliable et 1 tapis Fitness Pro anti-bruit 200 × 90 cm.</p><p><strong>Pack Bureau Actif</strong> : 1 tapis de course pliable, 1 réhausseur de bureau assis-debout, 1 tapis Fitness Pro anti-bruit 200 × 90 cm et 1 montre connectée.</p><p><strong>Pack Salle Complète</strong> : 1 tapis de course pliable, 1 ensemble d'haltères réglables 20 kg (4 en 1), 1 banc pliable et réglable et 1 tapis de sport 183 × 61 cm, avec le programme 30 jours (PDF) offert.</p>"
           }
         },
         "q9": {

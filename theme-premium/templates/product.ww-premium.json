@@ -36,7 +36,7 @@
           "type": "contents",
           "settings": {
             "product": "pack-ultimate-home-gym",
-            "items": "<ul><li>1 tapis de course pliable</li><li>1 tapis Fitness Pro anti-bruit</li><li>1 paire d'haltères réglables</li><li>1 banc pliable</li></ul>",
+            "items": "<ul><li>1 tapis de course pliable</li><li>1 ensemble d'haltères réglables 20 kg, 4 en 1</li><li>1 banc de musculation pliable et réglable</li><li>1 tapis de sport 183 × 61 cm</li></ul>",
             "note": "Offert : le programme 30 jours (PDF), 5 séances de 35 minutes maximum par semaine, conçu pour ce pack."
           }
         },
@@ -159,7 +159,7 @@
         "r3": {
           "type": "row",
           "settings": {
-            "label": "Tapis Fitness Pro anti-bruit",
+            "label": "Tapis de sol",
             "value_1": "oui",
             "value_2": "oui",
             "value_3": "oui"
@@ -177,7 +177,7 @@
         "r5": {
           "type": "row",
           "settings": {
-            "label": "Paire d'haltères réglables",
+            "label": "Haltères réglables 20 kg (4 en 1)",
             "value_1": "non",
             "value_2": "non",
             "value_3": "oui"

@@ -17,7 +17,7 @@
   {%- endfor -%}
 {%- endif -%}
 
-<article class="ww-pack">
+<article class="ww-pack{% if badge != blank %} ww-pack--featured{% endif %}">
   <a class="ww-pack__media{% if item_count > 1 %} ww-pack__media--items{% endif %}" href="{{ p.url }}" tabindex="-1" aria-hidden="true">
     {%- if item_count > 1 -%}
       {%- comment -%} Les produits du pack, côte à côte, séparés par des « + » {%- endcomment -%}

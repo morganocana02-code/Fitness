@@ -34,8 +34,7 @@
       <div class="ww-seller__card">
         <dl class="ww-facts">
           <div><dt>{% render 'ww-icon', name: 'building' %}Nom commercial</dt><dd>{% render 'ww-coordonnees', part: 'nom' %}</dd></div>
-          <div><dt>{% render 'ww-icon', name: 'shield' %}Exploitant</dt><dd>{% render 'ww-coordonnees', part: 'exploitant' %} · SIREN {% render 'ww-coordonnees', part: 'siren' %}</dd></div>
-          <div><dt>{% render 'ww-icon', name: 'building' %}Immatriculation</dt><dd>{% render 'ww-coordonnees', part: 'rne' %}</dd></div>
+          <div><dt>{% render 'ww-icon', name: 'shield' %}Exploitant</dt><dd>{%- capture ww_exploitant -%}{% render 'ww-coordonnees', part: 'exploitant' %}{%- endcapture -%}{{ ww_exploitant | split: ',' | first | strip }}</dd></div>
           <div><dt>{% render 'ww-icon', name: 'pin' %}Adresse</dt><dd>{% render 'ww-coordonnees', part: 'address' %}</dd></div>
           <div><dt>{% render 'ww-icon', name: 'phone' %}Téléphone</dt><dd>{% render 'ww-coordonnees', part: 'phone' %}</dd></div>
           <div><dt>{% render 'ww-icon', name: 'mail' %}E-mail</dt><dd>{% render 'ww-coordonnees', part: 'email' %}</dd></div>

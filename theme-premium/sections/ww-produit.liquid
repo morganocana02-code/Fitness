@@ -59,7 +59,7 @@
           <p class="ww-product__subtitle">{{ pack_sub | escape }}</p>
         {%- endif -%}
         {%- if section.settings.show_seller -%}
-          <p class="ww-product__seller">{% render 'ww-icon', name: 'building' %}<span>Vendu par {% render 'ww-coordonnees', part: 'vendeur' %}, à {% render 'ww-coordonnees', part: 'ville' %} · Expédié depuis la France</span></p>
+          <p class="ww-product__seller">{% render 'ww-icon', name: 'building' %}<span>Vendu par {% render 'ww-coordonnees', part: 'nom' %} · Expédié depuis la France</span></p>
         {%- endif -%}
 
         <p class="ww-product__price" data-ww-price>{{ current_variant.price | money }}</p>
@@ -279,7 +279,6 @@
                 <span class="ww-open" data-ww-open data-open="{% render 'ww-coordonnees', part: 'ouverture' %}" data-close="{% render 'ww-coordonnees', part: 'fermeture' %}"><span data-ww-open-text></span></span>
               </span>
             </li>
-            <li>{% render 'ww-icon', name: 'building' %}<span>{% render 'ww-coordonnees', part: 'vendeur' %} · SIREN {% render 'ww-coordonnees', part: 'siren' %} · {% render 'ww-coordonnees', part: 'address' %}</span></li>
           </ul>
         </div>
       </div>

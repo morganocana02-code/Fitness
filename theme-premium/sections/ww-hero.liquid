@@ -55,7 +55,7 @@
         </div>
 
         {%- if section.settings.show_seller -%}
-          <p class="ww-seller-line">{% render 'ww-icon', name: 'building' %}<span>Vendu par {% render 'ww-coordonnees', part: 'vendeur' %}, à {% render 'ww-coordonnees', part: 'ville' %} · SIREN {% render 'ww-coordonnees', part: 'siren' %}</span></p>
+          <p class="ww-seller-line">{% render 'ww-icon', name: 'building' %}<span>Vendu par {% render 'ww-coordonnees', part: 'nom' %}</span></p>
         {%- endif -%}
       </div>
 
@@ -168,7 +168,7 @@
     { "type": "url", "id": "button_link", "label": "Lien du bouton principal (vide = section des packs)" },
     { "type": "text", "id": "button2_label", "label": "Lien secondaire", "default": "Comment se passe la commande ?" },
     { "type": "url", "id": "button2_link", "label": "Lien du bouton secondaire (vide = étapes de commande)" },
-    { "type": "checkbox", "id": "show_seller", "label": "Afficher « Vendu par… · SIREN » sous les boutons", "default": true },
+    { "type": "checkbox", "id": "show_seller", "label": "Afficher « Vendu par WhisperWalk » sous les boutons", "default": true },
     { "type": "checkbox", "id": "show_payment_icons", "label": "Afficher les moyens de paiement", "default": true },
     { "type": "checkbox", "id": "show_contact", "label": "Afficher le téléphone, l'e-mail et l'état du service client", "default": true },
     { "type": "text", "id": "contact_intro", "label": "Texte avant les coordonnées", "default": "Une question avant d'acheter ? Appelez le" },

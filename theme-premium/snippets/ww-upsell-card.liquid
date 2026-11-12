@@ -1,6 +1,6 @@
 {%- comment -%}
   Carte d'un accessoire dans « Complétez votre pack » (snippets/ww-upsell.liquid).
-  Paramètre : acc (produit accessoire)
+  Paramètres : acc (produit accessoire), context_id (texte unique pour les identifiants : drawer ou product)
 {%- endcomment -%}
 {%- assign v = acc.selected_or_first_available_variant -%}
 <div class="ww-upsell__item">
@@ -13,13 +13,20 @@
     <a class="ww-upsell__title" href="{{ acc.url }}">{{ acc.title | escape }}</a>
     <span class="ww-upsell__price">{{ v.price | money }}</span>
   </div>
-  {%- if acc.has_only_default_variant -%}
-    <form method="post" action="{{ routes.cart_add_url }}" class="ww-upsell__form" data-ww-ajax-add>
+  <form method="post" action="{{ routes.cart_add_url }}" class="ww-upsell__form" data-ww-ajax-add>
+    {%- if acc.has_only_default_variant -%}
       <input type="hidden" name="id" value="{{ v.id }}">
-      <input type="hidden" name="quantity" value="1">
-      <button type="submit" class="ww-upsell__add" aria-label="Ajouter {{ acc.title | escape }} au panier">+ Ajouter</button>
-    </form>
-  {%- else -%}
-    <a class="ww-upsell__add" href="{{ acc.url }}">Choisir</a>
-  {%- endif -%}
+    {%- else -%}
+      {%- assign option_name = acc.options | first -%}
+      <select class="ww-upsell__select" id="ww-upsell-{{ context_id }}-{{ acc.id }}" name="id" aria-label="{{ option_name | escape }}">
+        {%- for variant in acc.variants -%}
+          {%- if variant.available -%}
+            <option value="{{ variant.id }}"{% if variant == v %} selected{% endif %}>{{ option_name | escape }} {{ variant.title | escape }}</option>
+          {%- endif -%}
+        {%- endfor -%}
+      </select>
+    {%- endif -%}
+    <input type="hidden" name="quantity" value="1">
+    <button type="submit" class="ww-upsell__add" aria-label="Ajouter {{ acc.title | escape }} au panier">+ Ajouter</button>
+  </form>
 </div>

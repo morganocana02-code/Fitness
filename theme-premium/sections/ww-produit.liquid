@@ -112,6 +112,9 @@
           {%- endif -%}
         {%- endform -%}
 
+        {%- comment -%} Accessoires proposés avec ce pack (métachamp whisperwalk.accessoires) {%- endcomment -%}
+        {%- render 'ww-upsell', context: 'product', source: product -%}
+
         {%- if section.settings.show_eta -%}
           {%- comment -%} Date estimée calculée dans le navigateur à partir des délais de la politique d'expédition {%- endcomment -%}
           <p class="ww-eta" data-ww-eta data-prefix="Commandez aujourd'hui : livraison estimée entre le " data-min="{% render 'ww-coordonnees', part: 'delai_min' %}" data-max="{% render 'ww-coordonnees', part: 'delai_max' %}">

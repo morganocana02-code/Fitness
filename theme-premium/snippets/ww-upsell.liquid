@@ -1,0 +1,76 @@
+{%- comment -%}
+  Accessoires proposés en complément (vente additionnelle).
+  La liste vient du champ « Accessoires à proposer » (métachamp whisperwalk.accessoires) de chaque pack.
+
+  Paramètres :
+  - context : 'drawer' (tiroir panier) ou 'product' (fiche produit)
+  - source  : le produit dont on affiche les accessoires (context 'product' uniquement)
+
+  Dans le panier : accessoires de tous les packs du panier, sans doublon, sans ceux déjà ajoutés.
+  L'ajout se fait sans recharger la page (assets/ww-cart.js) ; sans JavaScript, le formulaire
+  ajoute l'article et ouvre la page panier.
+{%- endcomment -%}
+
+{%- liquid
+  assign seen = ','
+  if context == 'product'
+    assign seen = seen | append: source.id | append: ','
+  else
+    for item in cart.items
+      assign seen = seen | append: item.product_id | append: ','
+    endfor
+  endif
+  assign shown = 0
+-%}
+
+{%- capture ww_upsell_cards -%}
+  {%- if context == 'product' -%}
+    {%- for acc in source.metafields.whisperwalk.accessoires.value -%}
+      {%- assign key = ',' | append: acc.id | append: ',' -%}
+      {%- unless seen contains key -%}
+        {%- assign seen = seen | append: acc.id | append: ',' -%}
+        {%- if acc.available -%}
+          {%- assign shown = shown | plus: 1 -%}
+          {%- render 'ww-upsell-card', acc: acc -%}
+        {%- endif -%}
+      {%- endunless -%}
+    {%- endfor -%}
+  {%- else -%}
+    {%- for item in cart.items -%}
+      {%- for acc in item.product.metafields.whisperwalk.accessoires.value -%}
+        {%- assign key = ',' | append: acc.id | append: ',' -%}
+        {%- unless seen contains key -%}
+          {%- assign seen = seen | append: acc.id | append: ',' -%}
+          {%- if acc.available -%}
+            {%- assign shown = shown | plus: 1 -%}
+            {%- render 'ww-upsell-card', acc: acc -%}
+          {%- endif -%}
+        {%- endunless -%}
+      {%- endfor -%}
+    {%- endfor -%}
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- if shown > 0 -%}
+  <div class="ww-upsell ww-upsell--{{ context }}">
+    <p class="ww-upsell__heading">Complétez votre pack</p>
+    <div class="ww-upsell__list">{{ ww_upsell_cards }}</div>
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .ww-upsell { margin: 16px 0 8px; padding: 14px; border: 1px solid #e4e6eb; border-radius: 14px; background: #f7f8fa; text-align: left; }
+  .ww-upsell--drawer { margin: 8px var(--cart-drawer-padding, 16px) 16px; }
+  .ww-upsell__heading { margin: 0 0 10px; font-size: 14px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.3; }
+  .ww-upsell__list { display: flex; flex-direction: column; gap: 10px; }
+  .ww-upsell__item { display: grid; grid-template-columns: 56px 1fr auto; align-items: center; gap: 12px; padding: 8px; border-radius: 12px; background: #ffffff; }
+  .ww-upsell__media { display: block; width: 56px; height: 56px; border-radius: 10px; overflow: hidden; background: #ffffff; }
+  .ww-upsell__media img { width: 100%; height: 100%; object-fit: contain; }
+  .ww-upsell__info { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .ww-upsell__title { font-size: 13px; font-weight: 600; line-height: 1.3; color: inherit; text-decoration: none; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .ww-upsell__price { font-size: 14px; font-weight: 700; }
+  .ww-upsell__form { margin: 0; }
+  .ww-upsell .ww-upsell__add { display: inline-flex; align-items: center; justify-content: center; min-height: 36px; padding: 8px 12px; border: 0; border-radius: 10px; background: #16a34a; color: #ffffff; font: inherit; font-size: 12px; font-weight: 700; white-space: nowrap; text-decoration: none; cursor: pointer; }
+  .ww-upsell .ww-upsell__add:hover { background: #12873d; }
+  .ww-upsell .ww-upsell__add[aria-busy='true'] { opacity: 0.6; pointer-events: none; }
+{% endstylesheet %}

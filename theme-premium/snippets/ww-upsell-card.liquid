@@ -1,0 +1,25 @@
+{%- comment -%}
+  Carte d'un accessoire dans « Complétez votre pack » (snippets/ww-upsell.liquid).
+  Paramètre : acc (produit accessoire)
+{%- endcomment -%}
+{%- assign v = acc.selected_or_first_available_variant -%}
+<div class="ww-upsell__item">
+  <a class="ww-upsell__media" href="{{ acc.url }}" tabindex="-1" aria-hidden="true">
+    {%- if acc.featured_image != blank -%}
+      {{ acc.featured_image | image_url: width: 200 | image_tag: loading: 'lazy', widths: '100, 200', sizes: '56px', alt: '' }}
+    {%- endif -%}
+  </a>
+  <div class="ww-upsell__info">
+    <a class="ww-upsell__title" href="{{ acc.url }}">{{ acc.title | escape }}</a>
+    <span class="ww-upsell__price">{{ v.price | money }}</span>
+  </div>
+  {%- if acc.has_only_default_variant -%}
+    <form method="post" action="{{ routes.cart_add_url }}" class="ww-upsell__form" data-ww-ajax-add>
+      <input type="hidden" name="id" value="{{ v.id }}">
+      <input type="hidden" name="quantity" value="1">
+      <button type="submit" class="ww-upsell__add" aria-label="Ajouter {{ acc.title | escape }} au panier">+ Ajouter</button>
+    </form>
+  {%- else -%}
+    <a class="ww-upsell__add" href="{{ acc.url }}">Choisir</a>
+  {%- endif -%}
+</div>

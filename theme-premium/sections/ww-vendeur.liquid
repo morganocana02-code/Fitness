@@ -2,7 +2,7 @@
 
 <section class="ww ww-section{% if section.settings.mist %} ww-section--mist{% endif %}" id="ww-vendeur" aria-labelledby="ww-vendeur-{{ section.id }}">
   <div class="ww-container">
-    <div class="ww-seller">
+    <div class="ww-seller{% unless section.settings.show_card %} ww-seller--solo{% endunless %}">
 
       <div>
         {%- if section.settings.eyebrow != blank -%}<p class="ww-eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
@@ -31,6 +31,7 @@
         </div>
       </div>
 
+      {%- if section.settings.show_card -%}
       <div class="ww-seller__card">
         <dl class="ww-facts">
           <div><dt>{% render 'ww-icon', name: 'building' %}Nom commercial</dt><dd>{% render 'ww-coordonnees', part: 'nom' %}</dd></div>
@@ -59,10 +60,16 @@
           </div>
         {%- endif -%}
       </div>
+      {%- endif -%}
 
     </div>
   </div>
 </section>
+
+{% stylesheet %}
+  /* Sans la carte de coordonnées : le texte seul, sur une colonne lisible */
+  .ww-section .ww-seller.ww-seller--solo { grid-template-columns: 1fr; max-width: 760px; }
+{% endstylesheet %}
 
 {% schema %}
 {
@@ -72,6 +79,7 @@
     { "type": "text", "id": "eyebrow", "label": "Surtitre", "default": "Qui sommes-nous" },
     { "type": "text", "id": "title", "label": "Titre", "default": "Qui se cache derrière WhisperWalk ?" },
     { "type": "richtext", "id": "text", "label": "Texte" },
+    { "type": "checkbox", "id": "show_card", "label": "Afficher la carte des coordonnées à côté du texte", "default": true },
     { "type": "header", "content": "Mot personnel (facultatif)" },
     { "type": "paragraph", "content": "Une photo de vous et quelques phrases avec vos propres mots. Rien ne s'affiche tant que le message est vide." },
     { "type": "image_picker", "id": "photo", "label": "Votre photo" },

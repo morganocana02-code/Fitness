@@ -570,9 +570,9 @@
     "vendeur": {
       "type": "ww-vendeur",
       "settings": {
-        "eyebrow": "Qui sommes-nous",
+        "eyebrow": "Notre histoire",
         "title": "Qui se cache derrière WhisperWalk ?",
-        "text": "<p>WhisperWalk est une boutique en ligne française, exploitée par Morgan OCANA, à Dijon. Ces informations figurent aussi dans nos mentions légales et nos conditions générales de vente.</p>",
+        "text": "<p>WhisperWalk est une boutique en ligne française, tenue par Morgan OCANA à Dijon. Notre idée : rendre le mouvement possible là où vous êtes déjà, à la maison, au bureau ou le week-end, sans abonnement ni trajet.</p><p>Plutôt que de vendre des appareils seuls, nous avons composé trois packs autour d’un même tapis de course pliable : l’Essentiel Maison pour bouger le soir, le Bureau Actif pour marcher pendant le télétravail, et la Salle Complète pour ajouter du renforcement le week-end.</p><p>Ce qui compte pour nous : un prix total affiché, le contenu exact de chaque carton, des caractéristiques annoncées telles que le fabricant les donne, et un service client qui vous répond sous 24 à 48 heures ouvrées.</p>",
         "message": "",
         "signature": "Morgan OCANA, WhisperWalk",
         "button_label": "Nous contacter",
